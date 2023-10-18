@@ -1,5 +1,5 @@
 import React from "react";
-import { Heading, Flex, Spacer, VStack, Button } from "@chakra-ui/react";
+import { Text, Flex, Spacer, VStack, Button } from "@chakra-ui/react";
 import { ColorRing } from "react-loader-spinner";
 import { COLORS } from "../data/constants";
 
@@ -13,7 +13,7 @@ const Hero = ({
   return (
     <VStack p={3} alignItems={"left"} bgColor={COLORS.title}>
       <Flex>
-        <Heading size={"lg"}>{header}</Heading>
+        <Text fontWeight={"bold"} size={"lg"}>{header}</Text>
         <Spacer />
         <ColorRing
           height="32px"

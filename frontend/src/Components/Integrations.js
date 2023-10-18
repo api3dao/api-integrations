@@ -22,7 +22,8 @@ const Hero = () => {
           p={3}
           bgColor={COLORS.canvas}
           borderRadius={"sm"}
-          boxShadow="md"
+          border={"1px"}
+          borderColor={COLORS.main}
           spacing={4}
           width={"80vw"}
           maxWidth={"1000px"}

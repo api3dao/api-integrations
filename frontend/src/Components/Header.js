@@ -1,4 +1,4 @@
-import { Flex, Heading, Image } from "@chakra-ui/react";
+import { Flex, Text, Image } from "@chakra-ui/react";
 import { COLORS, CONSTANTS } from "../data/constants";
 import { Link } from "react-router-dom";
 
@@ -15,7 +15,7 @@ const Header = () => {
       <Flex as="header" align="center" justify="space-between" p={4}>
         <Flex align="flex-start" cursor="pointer" gap={"12px"}>
           <Image src={`/logo.svg`} width={"25px"} height={"25px"} />
-          <Heading size="md">API Integrations Tool</Heading>
+          <Text fontWeight={"bold"} size="lg">API Integrations Tool</Text>
         </Flex>
         <Flex align="flex-end" gap={"12px"}>
           <Link to={"/"}>

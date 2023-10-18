@@ -102,8 +102,6 @@ const Hero = ({ configData }) => {
           />
           <VStack
             bgColor={COLORS.table}
-            border={"1px"}
-            borderColor={COLORS.main}
             spacing={4}
             alignItems={"left"}
           >
@@ -178,13 +176,13 @@ const Hero = ({ configData }) => {
         <VStack bgColor={"green.300"} p={3} width={"120px"} spacing={"10"} justifyContent={"center"}>
           <ImageButton
             inW={"50px"} outW={"100px"}
-            onClick={() => selectDownloadMode("cloud")}
+            onClick={() => setShowHelp("cloud")}
             description={null}
             src={"./cloudFormation.svg"}
           />
           <ImageButton
             inW={"50px"} outW={"100px"}
-            onClick={() => selectDownloadMode("docker")}
+            onClick={() => setShowHelp("docker")}
             description={null}
             src={"./docker.svg"}
           />

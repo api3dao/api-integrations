@@ -35,7 +35,7 @@ const ExpandableView = ({ view, header, defaultState = false, status = 0 }) => {
     >
       <Box p={2} alignItems={"center"} borderRadius={"sm"} bgColor={getColor()}>
         <Flex alignItems={"center"}>
-          <Text fontWeight={"bold"} fontSize={"lg"}>
+          <Text fontWeight={"bold"} fontSize={"md"}>
             {header}
           </Text>
           <Spacer />
