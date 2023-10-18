@@ -132,6 +132,7 @@ const Hero = ({ configData }) => {
         </VStack>
       ))}
       <DeployOptions configData={configData} AIRNODE_WALLET_MNEMONIC={AIRNODE_WALLET_MNEMONIC} SECURITY_SCHEME_VALUES={SECURITY_SCHEME_VALUES} ois={ois} />
+      <VStack p={3} height={"50px"} align={"left"} />
     </VStack>
   );
 };

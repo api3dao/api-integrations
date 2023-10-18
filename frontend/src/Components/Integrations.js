@@ -52,6 +52,8 @@ const Hero = () => {
 
           {configFile === null ? null : <Display configData={configFile} />}
         </VStack>
+        <VStack p={3} height={"250px"} align={"left"} />
+
       </VStack>
     </Flex>
   );
