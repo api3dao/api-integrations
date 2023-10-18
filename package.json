@@ -1,0 +1,16 @@
+{
+  "name": "api-integrations",
+  "version": "1.0.0",
+  "description": "Repository for API integration related operations.",
+  "main": "index.js",
+  "repository": "git@github.com:api3dao/api-integrations.git",
+  "author": "metobom <unutkan2013@yandex.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^3.0.3"
+  },
+  "scripts": {
+    "prettier:check": "prettier --check \"./**/*.{js,ts,md,json}\"",
+    "prettier:write": "prettier --write \"./**/*.{js,ts,md,json}\""
+  }
+}
