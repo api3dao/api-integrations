@@ -15,15 +15,13 @@ const Header = () => {
       <Flex as="header" align="center" justify="space-between" p={4}>
         <Flex align="flex-start" cursor="pointer" gap={"12px"}>
           <Image src={`/logo.svg`} width={"25px"} height={"25px"} />
-          <Text fontWeight={"bold"} size="lg">API Integrations Tool</Text>
+          <Text fontWeight={"bold"} size="lg">
+            API Integrations Tool
+          </Text>
         </Flex>
         <Flex align="flex-end" gap={"12px"}>
           <Link to={"/"}>
-            <Image
-              src={`./home.svg`}
-              width={"32px"}
-              height={"32px"}
-            />
+            <Image src={`./home.svg`} width={"32px"} height={"32px"} />
           </Link>
         </Flex>
       </Flex>

@@ -11,11 +11,13 @@ import {
 } from "../Helpers/Utils";
 import { postProcessing, preProcessing } from "../Helpers/PostProcessing";
 import TableView from "./TableView";
+import { ColorRing } from "react-loader-spinner";
 
 const FeedRowView = ({ endpoint, feed, servers, tryit = true }) => {
   const [postProcessResult, setPostProcessResult] = useState(null);
   const [preProcessResult, setPreProcessResult] = useState(null);
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const formatCode = (code) => {
     try {
@@ -74,6 +76,8 @@ const FeedRowView = ({ endpoint, feed, servers, tryit = true }) => {
   };
 
   const preProcess = () => {
+    setIsLoading(true);
+    setPostProcessResult(null);
     preProcessing(endpoint, { name: feed.feed }, setPreProcessResult);
   };
 
@@ -94,6 +98,10 @@ const FeedRowView = ({ endpoint, feed, servers, tryit = true }) => {
       });
   }, [endpoint, feed, preProcessResult, servers]);
 
+  useEffect(() => {
+    setIsLoading(false);
+  }, [postProcessResult]);
+
   const getColor = (method, darker) => {
     if (method === "GET") return darker ? "blue.300" : "blue.200";
     if (method === "POST") return darker ? "green.300" : "green.200";
@@ -102,7 +110,6 @@ const FeedRowView = ({ endpoint, feed, servers, tryit = true }) => {
 
   return (
     <VStack alignItems={"left"} spacing={4} p={2} width={"100%"}>
-      <Text fontSize={"md"}>Get {feed.feed} price</Text>
       <Text fontSize={"md"} fontWeight={"bold"}>
         HTTP Request
       </Text>
@@ -152,8 +159,8 @@ const FeedRowView = ({ endpoint, feed, servers, tryit = true }) => {
       />
 
       <VStack alignItems={"left"} width={"100%"}>
-        {
-          !tryit ? null :
+        {!tryit ? null : (
+          <Flex>
             <Button
               colorScheme={"orange"}
               p={2}
@@ -166,8 +173,18 @@ const FeedRowView = ({ endpoint, feed, servers, tryit = true }) => {
             >
               Try it out
             </Button>
-        }
+            <Spacer />
+            <ColorRing
+              height="50px"
+              width="50px"
+              radius="9"
+              color="green"
+              ariaLabel="loading"
+              visible={isLoading}
+            />
+          </Flex>
 
+        )}
       </VStack>
       {postProcessResult == null ? null : (
         <VStack alignItems={"left"} width={"100%"}>

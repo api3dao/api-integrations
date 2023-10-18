@@ -6,7 +6,6 @@ import prettier from "prettier/standalone";
 import { getPath } from "../Helpers/Utils";
 
 const FeedCompareRowView = ({ feed, servers }) => {
-
   const formatCode = (code) => {
     try {
       return prettier.format(code, {
@@ -31,7 +30,6 @@ const FeedCompareRowView = ({ feed, servers }) => {
         <Text bgColor={"yellow.400"} p={2} fontSize={"md"} fontWeight={"bold"}>
           [DEPRECATED]
         </Text>
-        <Text fontSize={"md"}>Get {feed.oldFeed.feed} price</Text>
         <Text fontSize={"md"} fontWeight={"bold"}>
           HTTP Request
         </Text>
@@ -66,7 +64,6 @@ const FeedCompareRowView = ({ feed, servers }) => {
         <Text bgColor={"green.400"} p={2} fontSize={"md"} fontWeight={"bold"}>
           [ACTIVE]
         </Text>
-        <Text fontSize={"md"}>Get {feed.newFeed.feed} price</Text>
         <Text fontSize={"md"} fontWeight={"bold"}>
           HTTP Request
         </Text>

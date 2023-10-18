@@ -1,14 +1,12 @@
 const rgbToHex = (r, g, b) => {
   const hex = ((r << 16) | (g << 8) | b).toString(16);
   return "#" + new Array(Math.abs(hex.length - 7)).join("0") + hex;
-}
+};
 
 const LIGHT_GRAY = rgbToHex(243, 243, 245);
 const DARK_WHITE = rgbToHex(230, 230, 230);
 const WHITE = "#ffffff";
 const BLACK = "#000000";
-
-
 
 export const COLORS = {
   app: WHITE,
@@ -25,10 +23,15 @@ export const COLORS = {
 };
 
 export const CONSTANTS = {
+  CLOUD_FORMATION_DEPLOY: 10000,
+  DOCKER_DEPLOY: 10001,
+  DOWNLOAD_FILES: 10002,
+  WINDOWS: 10003,
+  MAC: 10004,
+  LINUX: 10005,
   boxShadowLight: "0px 0px 2px 0px rgba(0,0,0,0.2)",
   boxShadowSolid: "0px 0px 1px 0px rgba(0,0,0,0.7)",
-}
-
+};
 
 export const COLORS2 = {
   app: "#fffefe",
