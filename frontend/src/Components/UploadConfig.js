@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { VStack, Flex, Text, Box, Button, Spacer } from "@chakra-ui/react";
-import { COLORS } from "../data/colors";
+import { COLORS } from "../data/constants";
 
 const Hero = ({ configFile, setConfig, description }) => {
   let fileReader;
@@ -65,7 +65,6 @@ const Hero = ({ configFile, setConfig, description }) => {
             onClick={() => {
               handleClick();
             }}
-            colorScheme={"red"}
             variant={"outline"}
             size={"sm"}
           >

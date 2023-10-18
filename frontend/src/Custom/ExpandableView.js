@@ -1,5 +1,5 @@
 import { Text, Flex, Spacer, VStack, Box } from "@chakra-ui/react";
-import { COLORS } from "../data/colors";
+import { COLORS, CONSTANTS } from "../data/constants";
 import { TriangleDownIcon, TriangleUpIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 
@@ -30,7 +30,7 @@ const ExpandableView = ({ view, header, defaultState = false, status = 0 }) => {
       alignItems={"left"}
       p={2}
       borderColor={COLORS.main}
-      boxShadow={"sm"}
+      boxShadow={CONSTANTS.boxShadowLight}
       width={"100%"}
     >
       <Box p={2} alignItems={"center"} borderRadius={"sm"} bgColor={getColor()}>

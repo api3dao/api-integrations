@@ -1,6 +1,6 @@
 import { VStack } from "@chakra-ui/react";
 import { Box } from "@chakra-ui/react";
-import { COLORS } from "../data/colors";
+import { COLORS } from "../data/constants";
 
 const Hero = () => {
   return (
@@ -8,7 +8,7 @@ const Hero = () => {
       <Box
         p={"1"}
         border={"1px"}
-        borderColor={COLORS.bg}
+        borderColor={"green"}
         bgColor={COLORS.table}
         borderRadius={"10"}
         width={"100%"}

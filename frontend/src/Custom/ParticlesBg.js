@@ -4,14 +4,14 @@ import { useCallback } from "react";
 import { loadSlim } from "tsparticles-slim"; // if you are going to use `loadSlim`, install the "tsparticles-slim" package too.
 import { VStack } from "@chakra-ui/layout";
 
-import { COLORS } from "../data/colors";
+import { COLORS } from "../data/constants";
 
 const ParticlesBg = () => {
   const particlesInit = useCallback(async (engine) => {
     await loadSlim(engine);
   }, []);
 
-  const particlesLoaded = useCallback(async (container) => {}, []);
+  const particlesLoaded = useCallback(async (container) => { }, []);
 
   return (
     <VStack zIndex={-1}>
@@ -28,13 +28,13 @@ const ParticlesBg = () => {
           fpsLimit: 120,
           particles: {
             color: {
-              value: COLORS.bg,
+              value: COLORS.particles,
             },
             links: {
-              color: COLORS.bg,
+              color: COLORS.particles,
               distance: 150,
               enable: true,
-              opacity: 0.3,
+              opacity: 0.1,
               width: 1,
             },
             move: {
@@ -55,7 +55,7 @@ const ParticlesBg = () => {
               value: 80,
             },
             opacity: {
-              value: 0.3,
+              value: 0.1,
             },
             shape: {
               type: "square",

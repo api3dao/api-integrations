@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 import Endpoint from "./Endpoint";
 import InputRow from "../Custom/InputRow";
-import { COLORS } from "../data/colors";
+import { COLORS } from "../data/constants";
 import Title from "../Custom/Title";
 import ExpandableView from "../Custom/ExpandableView";
 import ImageButton from "../Custom/ImageButton";

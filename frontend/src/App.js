@@ -21,11 +21,10 @@ function App() {
       <HashRouter>
         <Header />
         <Flex
-          h="calc(100vh - 60px)"
+          h="calc(100vh - 90px)"
           bgColor={"transparent"}
           spacing={0}
           p={2}
-          boxShadow="lg"
           alignItems={"stretch"}
           flexDirection={"row"}
         >

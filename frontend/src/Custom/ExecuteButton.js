@@ -19,7 +19,6 @@ const Hero = ({
   return (
     <VStack spacing={4} w="100%">
       <Button
-        colorScheme="orange"
         variant="outline"
         borderWidth="1px"
         size="md"

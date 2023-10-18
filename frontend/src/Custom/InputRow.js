@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, Box, Flex, Spacer, VStack, Input } from "@chakra-ui/react";
-import { COLORS } from "../data/colors";
+import { COLORS } from "../data/constants";
 
 const Hero = ({ title, text, setText, margin = 0 }) => {
   return (

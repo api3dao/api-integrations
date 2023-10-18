@@ -1,5 +1,5 @@
 import { VStack, Flex, Spacer } from "@chakra-ui/react";
-import { COLORS } from "../data/colors";
+import { COLORS } from "../data/constants";
 import Title from "../Custom/Title";
 import IntegrationRow from "./IntegrationRow";
 import UploadConfig from "./UploadConfig";

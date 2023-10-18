@@ -1,7 +1,7 @@
 import React from "react";
 import { Heading, Flex, Spacer, VStack, Button } from "@chakra-ui/react";
 import { ColorRing } from "react-loader-spinner";
-import { COLORS } from "../data/colors";
+import { COLORS } from "../data/constants";
 
 const Hero = ({
   isLoading,
@@ -11,7 +11,7 @@ const Hero = ({
   buttonVisibility = true,
 }) => {
   return (
-    <VStack p={3} alignItems={"left"} bgColor={COLORS.main}>
+    <VStack p={3} alignItems={"left"} bgColor={COLORS.title}>
       <Flex>
         <Heading size={"lg"}>{header}</Heading>
         <Spacer />

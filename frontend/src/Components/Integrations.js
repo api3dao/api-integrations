@@ -1,5 +1,5 @@
 import { VStack, Flex } from "@chakra-ui/react";
-import { COLORS } from "../data/colors";
+import { COLORS } from "../data/constants";
 import Title from "../Custom/Title";
 import IntegrationRow from "./IntegrationRow";
 import UploadConfig from "./UploadConfig";
@@ -20,7 +20,7 @@ const Hero = () => {
       >
         <VStack
           p={3}
-          bgColor={COLORS.table}
+          bgColor={COLORS.canvas}
           borderRadius={"sm"}
           boxShadow="md"
           spacing={4}

@@ -1,6 +1,6 @@
 import React from "react";
 import { VStack, Flex, Text } from "@chakra-ui/react";
-import { COLORS } from "../data/colors";
+import { COLORS } from "../data/constants";
 import Title from "../Custom/Title";
 import RadioButton from "../Custom/RadioButton";
 
@@ -45,7 +45,7 @@ const Hero = () => {
             />
           </Flex>
         </VStack>
-        <Text fontSize={"xs"}>Version: 0.0.1b</Text>
+        <Text fontSize={"xs"}>Version: 0.0.1c</Text>
       </VStack>
     </Flex>
   );
