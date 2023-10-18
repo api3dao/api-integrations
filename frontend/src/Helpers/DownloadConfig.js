@@ -1,4 +1,5 @@
 import { CONSTANTS } from "../data/constants";
+import JSZip from "jszip";
 
 export const testMnemonic = (mnemonic) => {
   if (mnemonic.split(" ").length !== 12)
@@ -48,14 +49,12 @@ export const populateOis = (
   });
 
   const secrets = `WALLET_MNEMONIC=${AIRNODE_WALLET_MNEMONIC}${API_KEY}`;
-  console.log("mode", mode);
-
   switch (mode) {
     case CONSTANTS.CLOUD_FORMATION_DEPLOY:
       downloadCloudFormation(CloudFormation, secrets);
       break;
     case CONSTANTS.DOCKER_DEPLOY:
-      downloadDocker(secrets);
+      downloadZip(secrets, configData);
       break;
     default:
       break;
@@ -66,30 +65,6 @@ export const populateOis = (
     message: "File downloaded successfully",
     mode: mode,
   });
-};
-
-const downloadDocker = (
-  SECRETS,
-  CONFIG = "https://raw.githubusercontent.com/metobom/pusher-operations/master/data/apis/cryptocompare/deployments/11-10-2023/cryptocompare-pusher-config.json"
-) => {
-  let cmd = `bin/bash\n`;
-  cmd =
-    cmd +
-    'echo "Downloading docker image"\ndocker pull api3/pusher:0.1.0-rc2\n';
-  cmd =
-    cmd +
-    'echo "Starting docker container"\ndocker stop pusher || true && docker rm pusher || true\n';
-  cmd = cmd + `SECRETS_ENV='${SECRETS.replaceAll(/(\\)/g, "\\\\")}'\n`;
-  cmd =
-    cmd +
-    `docker run --detach --name pusher --entrypoint /bin/sh api3/pusher:0.1.0-rc2 -c "echo -e $SECRETS_ENV >> /app/config/secrets.env && wget -q -O - ${CONFIG} >> /app/config/pusher.json && node --enable-source-maps dist/index.js"`;
-
-  const jsonString = `data:text/plain;chatset=utf-8,${cmd}`;
-
-  const link = document.createElement("a");
-  link.href = jsonString;
-  link.download = "docker-pusher.sh";
-  link.click();
 };
 
 const downloadCloudFormation = (CloudFormation, secrets) => {
@@ -106,21 +81,25 @@ const downloadCloudFormation = (CloudFormation, secrets) => {
   link.click();
 };
 
-const downloadEnv = (secrets) => {
+export const downloadZip = (secrets, config) => {
+  var zip = new JSZip();
+  zip.file("secrets.env", secrets.replaceAll(/(\\n)/g, "\n"));
+  zip.file("pusher.json", config);
 
-  const jsonString = `data:text/plain;base64,${btoa(secrets.replaceAll(/(\\n)/g, "\n"))}`;
-
-  const link = document.createElement("a");
-  link.href = jsonString;
-  link.download = "secrets.env";
-  link.click();
+  zip.generateAsync({ type: "blob" }).then(function (content) {
+    saveAs(content, "pusher-config.zip");
+  });
 }
 
-function downloadZipFile(url, filename) {
-  const link = document.createElement('a');
-  link.setAttribute('href', url);
-  link.setAttribute('download', filename);
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-} 
+const saveAs = (blob, filename) => {
+  if (window.navigator.msSaveOrOpenBlob) {
+    window.navigator.msSaveBlob(blob, filename);
+  } else {
+    var elem = window.document.createElement("a");
+    elem.href = window.URL.createObjectURL(blob);
+    elem.download = filename;
+    document.body.appendChild(elem);
+    elem.click();
+    document.body.removeChild(elem);
+  }
+}

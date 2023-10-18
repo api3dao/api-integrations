@@ -1,4 +1,4 @@
-import { VStack, Image, Text, Button } from "@chakra-ui/react";
+import { VStack, Image, Text } from "@chakra-ui/react";
 import { Flex, Box } from "@chakra-ui/react";
 import Steps from "../Custom/Steps";
 import { COLORS, CONSTANTS } from "../data/constants";
@@ -15,14 +15,18 @@ const Hero = ({ mode }) => {
       -v "$(pwd):/app/config" \\
       api3/pusher:0.1.0-rc2 deploy`;
 
+    const dockerCmdWindows = `docker run -it --rm ^
+      -v "%cd%:/app/config" ^
+      api3/pusher:0.1.0-rc2 deploy`;
+
     const getDockerCmd = () => {
         switch (dockerMode) {
             case CONSTANTS.WINDOWS:
-                return dockerCmd + ` --platform windows`;
+                return dockerCmdWindows;
             case CONSTANTS.MAC:
-                return dockerCmd + ` --platform mac`;
+                return dockerCmd;
             case CONSTANTS.LINUX:
-                return dockerCmd + ` --platform linux`;
+                return dockerCmd;
             default:
                 return dockerCmd;
         }
