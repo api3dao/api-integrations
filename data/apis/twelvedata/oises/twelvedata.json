@@ -1,0 +1,5503 @@
+{
+  "oisFormat": "2.2.0",
+  "title": "TwelveData",
+  "version": "0.1.0",
+  "apiSpecifications": {
+    "components": {
+      "securitySchemes": {
+        "TwelvedataSecurityScheme1ApiKey": {
+          "in": "query",
+          "name": "apikey",
+          "type": "apiKey"
+        }
+      }
+    },
+    "paths": {
+      "/institutional_holders": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "mic_code"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            }
+          ]
+        }
+      },
+      "/insider_transactions": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "mic_code"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            }
+          ]
+        }
+      },
+      "/forex_pairs": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "currency_base"
+            },
+            {
+              "in": "query",
+              "name": "currency_quote"
+            },
+            {
+              "in": "query",
+              "name": "format"
+            },
+            {
+              "in": "query",
+              "name": "delimiter"
+            }
+          ]
+        }
+      },
+      "/profile": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "mic_code"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            }
+          ]
+        }
+      },
+      "/symbol_search": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "outputsize"
+            },
+            {
+              "in": "query",
+              "name": "show_plan"
+            }
+          ]
+        }
+      },
+      "/technical_indicators": {
+        "get": {
+          "parameters": []
+        }
+      },
+      "/eps_revisions": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            }
+          ]
+        }
+      },
+      "/revenue_estimate": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "dp"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            }
+          ]
+        }
+      },
+      "/mutual_funds/world/sustainability": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "dp"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            }
+          ]
+        }
+      },
+      "/exchanges": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "name"
+            },
+            {
+              "in": "query",
+              "name": "type"
+            },
+            {
+              "in": "query",
+              "name": "show_plan"
+            },
+            {
+              "in": "query",
+              "name": "delimiter"
+            },
+            {
+              "in": "query",
+              "name": "format"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "code"
+            }
+          ]
+        }
+      },
+      "/cryptocurrency_exchanges": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "format"
+            },
+            {
+              "in": "query",
+              "name": "delimiter"
+            }
+          ]
+        }
+      },
+      "/growth_estimates": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            }
+          ]
+        }
+      },
+      "/analyst_ratings/light": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "rating_change"
+            },
+            {
+              "in": "query",
+              "name": "outputsize"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            }
+          ]
+        }
+      },
+      "/market_movers/stocks": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "direction"
+            },
+            {
+              "in": "query",
+              "name": "dp"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "outputsize"
+            }
+          ]
+        }
+      },
+      "/cryptocurrencies": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "currency_base"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "delimiter"
+            },
+            {
+              "in": "query",
+              "name": "format"
+            },
+            {
+              "in": "query",
+              "name": "currency_quote"
+            }
+          ]
+        }
+      },
+      "/mutual_funds/type": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "fund_type"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            }
+          ]
+        }
+      },
+      "/etf": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "mic_code"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "format"
+            },
+            {
+              "in": "query",
+              "name": "delimiter"
+            },
+            {
+              "in": "query",
+              "name": "show_plan"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "include_delisted"
+            }
+          ]
+        }
+      },
+      "/quote": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "interval"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "mic_code"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "volume_time_period"
+            },
+            {
+              "in": "query",
+              "name": "type"
+            },
+            {
+              "in": "query",
+              "name": "format"
+            },
+            {
+              "in": "query",
+              "name": "delimiter"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "prepost"
+            },
+            {
+              "in": "query",
+              "name": "eod"
+            },
+            {
+              "in": "query",
+              "name": "rolling_period"
+            },
+            {
+              "in": "query",
+              "name": "timezone"
+            },
+            {
+              "in": "query",
+              "name": "dp"
+            }
+          ]
+        }
+      },
+      "/mutual_funds/world/composition": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "dp"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            }
+          ]
+        }
+      },
+      "/key_executives": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "mic_code"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            }
+          ]
+        }
+      },
+      "/analyst_ratings/us_equities": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "rating_change"
+            },
+            {
+              "in": "query",
+              "name": "outputsize"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            }
+          ]
+        }
+      },
+      "/mutual_funds/list": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "outputsize"
+            },
+            {
+              "in": "query",
+              "name": "page"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "risk_rating"
+            },
+            {
+              "in": "query",
+              "name": "performance_rating"
+            },
+            {
+              "in": "query",
+              "name": "fund_type"
+            },
+            {
+              "in": "query",
+              "name": "fund_family"
+            }
+          ]
+        }
+      },
+      "/fund_holders": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "mic_code"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            }
+          ]
+        }
+      },
+      "/earnings_calendar": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "delimiter"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "mic_code"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "format"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            }
+          ]
+        }
+      },
+      "/statistics": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "mic_code"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            }
+          ]
+        }
+      },
+      "/mutual_funds/world/ratings": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "dp"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            }
+          ]
+        }
+      },
+      "/time_series": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "interval"
+            },
+            {
+              "in": "query",
+              "name": "previous_close"
+            },
+            {
+              "in": "query",
+              "name": "end_date"
+            },
+            {
+              "in": "query",
+              "name": "start_date"
+            },
+            {
+              "in": "query",
+              "name": "date"
+            },
+            {
+              "in": "query",
+              "name": "timezone"
+            },
+            {
+              "in": "query",
+              "name": "order"
+            },
+            {
+              "in": "query",
+              "name": "dp"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "prepost"
+            },
+            {
+              "in": "query",
+              "name": "mic_code"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "type"
+            },
+            {
+              "in": "query",
+              "name": "outputsize"
+            },
+            {
+              "in": "query",
+              "name": "format"
+            },
+            {
+              "in": "query",
+              "name": "delimiter"
+            }
+          ]
+        }
+      },
+      "/options/expiration": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "mic_code"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            }
+          ]
+        }
+      },
+      "/earliest_timestamp": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "mic_code"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "interval"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            }
+          ]
+        }
+      },
+      "/mutual_funds/world/summary": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "dp"
+            }
+          ]
+        }
+      },
+      "/splits": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "range"
+            },
+            {
+              "in": "query",
+              "name": "start_date"
+            },
+            {
+              "in": "query",
+              "name": "end_date"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "mic_code"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            }
+          ]
+        }
+      },
+      "/stocks": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "include_delisted"
+            },
+            {
+              "in": "query",
+              "name": "show_plan"
+            },
+            {
+              "in": "query",
+              "name": "delimiter"
+            },
+            {
+              "in": "query",
+              "name": "format"
+            },
+            {
+              "in": "query",
+              "name": "type"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "mic_code"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            }
+          ]
+        }
+      },
+      "/mutual_funds/world/performance": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "dp"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            }
+          ]
+        }
+      },
+      "/mutual_funds/world": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "dp"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            }
+          ]
+        }
+      },
+      "/market_movers/forex": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "direction"
+            },
+            {
+              "in": "query",
+              "name": "outputsize"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "dp"
+            }
+          ]
+        }
+      },
+      "/logo": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "mic_code"
+            }
+          ]
+        }
+      },
+      "/income_statement": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "end_date"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "mic_code"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "period"
+            },
+            {
+              "in": "query",
+              "name": "start_date"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            }
+          ]
+        }
+      },
+      "/market_state": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "code"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            }
+          ]
+        }
+      },
+      "/earnings": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "mic_code"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "period"
+            },
+            {
+              "in": "query",
+              "name": "outputsize"
+            },
+            {
+              "in": "query",
+              "name": "format"
+            },
+            {
+              "in": "query",
+              "name": "delimiter"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "type"
+            }
+          ]
+        }
+      },
+      "/market_movers/crypto": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "outputsize"
+            },
+            {
+              "in": "query",
+              "name": "direction"
+            },
+            {
+              "in": "query",
+              "name": "dp"
+            }
+          ]
+        }
+      },
+      "/indices": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "include_delisted"
+            },
+            {
+              "in": "query",
+              "name": "delimiter"
+            },
+            {
+              "in": "query",
+              "name": "format"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "show_plan"
+            }
+          ]
+        }
+      },
+      "/mutual_funds/world/purchase_info": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "dp"
+            }
+          ]
+        }
+      },
+      "/market_movers/mutual_funds": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "outputsize"
+            },
+            {
+              "in": "query",
+              "name": "direction"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "dp"
+            }
+          ]
+        }
+      },
+      "/mutual_funds/world/risk": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "dp"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            }
+          ]
+        }
+      },
+      "/recommendations": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            }
+          ]
+        }
+      },
+      "/api_usage": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "format"
+            },
+            {
+              "in": "query",
+              "name": "delimiter"
+            }
+          ]
+        }
+      },
+      "/options/chain": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "side"
+            },
+            {
+              "in": "query",
+              "name": "option_id"
+            },
+            {
+              "in": "query",
+              "name": "expiration_date"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "mic_code"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            }
+          ]
+        }
+      },
+      "/price_target": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            }
+          ]
+        }
+      },
+      "/ipo_calendar": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "mic_code"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "end_date"
+            },
+            {
+              "in": "query",
+              "name": "start_date"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            }
+          ]
+        }
+      },
+      "/balance_sheet": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "period"
+            },
+            {
+              "in": "query",
+              "name": "start_date"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "end_date"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "mic_code"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            }
+          ]
+        }
+      },
+      "/market_movers/etf": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "dp"
+            },
+            {
+              "in": "query",
+              "name": "direction"
+            },
+            {
+              "in": "query",
+              "name": "outputsize"
+            }
+          ]
+        }
+      },
+      "/exchange_rate": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "date"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "timezone"
+            },
+            {
+              "in": "query",
+              "name": "dp"
+            },
+            {
+              "in": "query",
+              "name": "delimiter"
+            },
+            {
+              "in": "query",
+              "name": "format"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            }
+          ]
+        }
+      },
+      "/eps_trend": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            }
+          ]
+        }
+      },
+      "/eod": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "dp"
+            },
+            {
+              "in": "query",
+              "name": "prepost"
+            },
+            {
+              "in": "query",
+              "name": "type"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "mic_code"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            }
+          ]
+        }
+      },
+      "/price": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "mic_code"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "format"
+            },
+            {
+              "in": "query",
+              "name": "delimiter"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "prepost"
+            },
+            {
+              "in": "query",
+              "name": "dp"
+            },
+            {
+              "in": "query",
+              "name": "type"
+            }
+          ]
+        }
+      },
+      "/earnings_estimate": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            }
+          ]
+        }
+      },
+      "/cash_flow": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "start_date"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "end_date"
+            },
+            {
+              "in": "query",
+              "name": "mic_code"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "period"
+            }
+          ]
+        }
+      },
+      "/dividends": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "end_date"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "mic_code"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "range"
+            },
+            {
+              "in": "query",
+              "name": "start_date"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            }
+          ]
+        }
+      },
+      "/mutual_funds/family": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "fund_family"
+            }
+          ]
+        }
+      },
+      "/{path}": {
+        "get": {
+          "parameters": [
+            {
+              "in": "path",
+              "name": "path"
+            },
+            {
+              "in": "query",
+              "name": "country"
+            },
+            {
+              "in": "query",
+              "name": "mic_code"
+            },
+            {
+              "in": "query",
+              "name": "exchange"
+            },
+            {
+              "in": "query",
+              "name": "symbol"
+            },
+            {
+              "in": "query",
+              "name": "format"
+            },
+            {
+              "in": "query",
+              "name": "delimiter"
+            },
+            {
+              "in": "query",
+              "name": "apikey"
+            },
+            {
+              "in": "query",
+              "name": "prepost"
+            },
+            {
+              "in": "query",
+              "name": "dp"
+            },
+            {
+              "in": "query",
+              "name": "type"
+            }
+          ]
+        }
+      }
+    },
+    "servers": [
+      {
+        "url": "https://api.twelvedata.com"
+      }
+    ],
+    "security": {
+      "TwelvedataSecurityScheme1ApiKey": []
+    }
+  },
+  "endpoints": [
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/stocks",
+      "operation": {
+        "method": "get",
+        "path": "/stocks"
+      },
+      "parameters": [
+        {
+          "name": "include_delisted",
+          "operationParameter": {
+            "in": "query",
+            "name": "include_delisted"
+          }
+        },
+        {
+          "name": "show_plan",
+          "operationParameter": {
+            "in": "query",
+            "name": "show_plan"
+          }
+        },
+        {
+          "name": "delimiter",
+          "operationParameter": {
+            "in": "query",
+            "name": "delimiter"
+          }
+        },
+        {
+          "name": "format",
+          "operationParameter": {
+            "in": "query",
+            "name": "format"
+          }
+        },
+        {
+          "name": "type",
+          "operationParameter": {
+            "in": "query",
+            "name": "type"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "mic_code",
+          "operationParameter": {
+            "in": "query",
+            "name": "mic_code"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/forex_pairs",
+      "operation": {
+        "method": "get",
+        "path": "/forex_pairs"
+      },
+      "parameters": [
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "currency_base",
+          "operationParameter": {
+            "in": "query",
+            "name": "currency_base"
+          }
+        },
+        {
+          "name": "currency_quote",
+          "operationParameter": {
+            "in": "query",
+            "name": "currency_quote"
+          }
+        },
+        {
+          "name": "format",
+          "operationParameter": {
+            "in": "query",
+            "name": "format"
+          }
+        },
+        {
+          "name": "delimiter",
+          "operationParameter": {
+            "in": "query",
+            "name": "delimiter"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/cryptocurrencies",
+      "operation": {
+        "method": "get",
+        "path": "/cryptocurrencies"
+      },
+      "parameters": [
+        {
+          "name": "currency_base",
+          "operationParameter": {
+            "in": "query",
+            "name": "currency_base"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "delimiter",
+          "operationParameter": {
+            "in": "query",
+            "name": "delimiter"
+          }
+        },
+        {
+          "name": "format",
+          "operationParameter": {
+            "in": "query",
+            "name": "format"
+          }
+        },
+        {
+          "name": "currency_quote",
+          "operationParameter": {
+            "in": "query",
+            "name": "currency_quote"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/etf",
+      "operation": {
+        "method": "get",
+        "path": "/etf"
+      },
+      "parameters": [
+        {
+          "name": "mic_code",
+          "operationParameter": {
+            "in": "query",
+            "name": "mic_code"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "format",
+          "operationParameter": {
+            "in": "query",
+            "name": "format"
+          }
+        },
+        {
+          "name": "delimiter",
+          "operationParameter": {
+            "in": "query",
+            "name": "delimiter"
+          }
+        },
+        {
+          "name": "show_plan",
+          "operationParameter": {
+            "in": "query",
+            "name": "show_plan"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "include_delisted",
+          "operationParameter": {
+            "in": "query",
+            "name": "include_delisted"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/indices",
+      "operation": {
+        "method": "get",
+        "path": "/indices"
+      },
+      "parameters": [
+        {
+          "name": "include_delisted",
+          "operationParameter": {
+            "in": "query",
+            "name": "include_delisted"
+          }
+        },
+        {
+          "name": "delimiter",
+          "operationParameter": {
+            "in": "query",
+            "name": "delimiter"
+          }
+        },
+        {
+          "name": "format",
+          "operationParameter": {
+            "in": "query",
+            "name": "format"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "show_plan",
+          "operationParameter": {
+            "in": "query",
+            "name": "show_plan"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/exchanges",
+      "operation": {
+        "method": "get",
+        "path": "/exchanges"
+      },
+      "parameters": [
+        {
+          "name": "name",
+          "operationParameter": {
+            "in": "query",
+            "name": "name"
+          }
+        },
+        {
+          "name": "type",
+          "operationParameter": {
+            "in": "query",
+            "name": "type"
+          }
+        },
+        {
+          "name": "show_plan",
+          "operationParameter": {
+            "in": "query",
+            "name": "show_plan"
+          }
+        },
+        {
+          "name": "delimiter",
+          "operationParameter": {
+            "in": "query",
+            "name": "delimiter"
+          }
+        },
+        {
+          "name": "format",
+          "operationParameter": {
+            "in": "query",
+            "name": "format"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "code",
+          "operationParameter": {
+            "in": "query",
+            "name": "code"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_type"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/cryptocurrency_exchanges",
+      "operation": {
+        "method": "get",
+        "path": "/cryptocurrency_exchanges"
+      },
+      "parameters": [
+        {
+          "name": "format",
+          "operationParameter": {
+            "in": "query",
+            "name": "format"
+          }
+        },
+        {
+          "name": "delimiter",
+          "operationParameter": {
+            "in": "query",
+            "name": "delimiter"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/technical_indicators",
+      "operation": {
+        "method": "get",
+        "path": "/technical_indicators"
+      },
+      "parameters": [],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/symbol_search",
+      "operation": {
+        "method": "get",
+        "path": "/symbol_search"
+      },
+      "parameters": [
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "outputsize",
+          "operationParameter": {
+            "in": "query",
+            "name": "outputsize"
+          }
+        },
+        {
+          "name": "show_plan",
+          "operationParameter": {
+            "in": "query",
+            "name": "show_plan"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/earliest_timestamp",
+      "operation": {
+        "method": "get",
+        "path": "/earliest_timestamp"
+      },
+      "parameters": [
+        {
+          "name": "mic_code",
+          "operationParameter": {
+            "in": "query",
+            "name": "mic_code"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "interval",
+          "operationParameter": {
+            "in": "query",
+            "name": "interval"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/market_state",
+      "operation": {
+        "method": "get",
+        "path": "/market_state"
+      },
+      "parameters": [
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "code",
+          "operationParameter": {
+            "in": "query",
+            "name": "code"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/time_series",
+      "operation": {
+        "method": "get",
+        "path": "/time_series"
+      },
+      "parameters": [
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "interval",
+          "operationParameter": {
+            "in": "query",
+            "name": "interval"
+          }
+        },
+        {
+          "name": "previous_close",
+          "operationParameter": {
+            "in": "query",
+            "name": "previous_close"
+          }
+        },
+        {
+          "name": "end_date",
+          "operationParameter": {
+            "in": "query",
+            "name": "end_date"
+          }
+        },
+        {
+          "name": "start_date",
+          "operationParameter": {
+            "in": "query",
+            "name": "start_date"
+          }
+        },
+        {
+          "name": "date",
+          "operationParameter": {
+            "in": "query",
+            "name": "date"
+          }
+        },
+        {
+          "name": "timezone",
+          "operationParameter": {
+            "in": "query",
+            "name": "timezone"
+          }
+        },
+        {
+          "name": "order",
+          "operationParameter": {
+            "in": "query",
+            "name": "order"
+          }
+        },
+        {
+          "name": "dp",
+          "operationParameter": {
+            "in": "query",
+            "name": "dp"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "prepost",
+          "operationParameter": {
+            "in": "query",
+            "name": "prepost"
+          }
+        },
+        {
+          "name": "mic_code",
+          "operationParameter": {
+            "in": "query",
+            "name": "mic_code"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "type",
+          "operationParameter": {
+            "in": "query",
+            "name": "type"
+          }
+        },
+        {
+          "name": "outputsize",
+          "operationParameter": {
+            "in": "query",
+            "name": "outputsize"
+          }
+        },
+        {
+          "name": "format",
+          "operationParameter": {
+            "in": "query",
+            "name": "format"
+          }
+        },
+        {
+          "name": "delimiter",
+          "operationParameter": {
+            "in": "query",
+            "name": "delimiter"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/exchange_rate",
+      "operation": {
+        "method": "get",
+        "path": "/exchange_rate"
+      },
+      "parameters": [
+        {
+          "name": "date",
+          "operationParameter": {
+            "in": "query",
+            "name": "date"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "timezone",
+          "operationParameter": {
+            "in": "query",
+            "name": "timezone"
+          }
+        },
+        {
+          "name": "dp",
+          "operationParameter": {
+            "in": "query",
+            "name": "dp"
+          }
+        },
+        {
+          "name": "delimiter",
+          "operationParameter": {
+            "in": "query",
+            "name": "delimiter"
+          }
+        },
+        {
+          "name": "format",
+          "operationParameter": {
+            "in": "query",
+            "name": "format"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/quote",
+      "operation": {
+        "method": "get",
+        "path": "/quote"
+      },
+      "parameters": [
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "interval",
+          "operationParameter": {
+            "in": "query",
+            "name": "interval"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "mic_code",
+          "operationParameter": {
+            "in": "query",
+            "name": "mic_code"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "volume_time_period",
+          "operationParameter": {
+            "in": "query",
+            "name": "volume_time_period"
+          }
+        },
+        {
+          "name": "type",
+          "operationParameter": {
+            "in": "query",
+            "name": "type"
+          }
+        },
+        {
+          "name": "format",
+          "operationParameter": {
+            "in": "query",
+            "name": "format"
+          }
+        },
+        {
+          "name": "delimiter",
+          "operationParameter": {
+            "in": "query",
+            "name": "delimiter"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "prepost",
+          "operationParameter": {
+            "in": "query",
+            "name": "prepost"
+          }
+        },
+        {
+          "name": "eod",
+          "operationParameter": {
+            "in": "query",
+            "name": "eod"
+          }
+        },
+        {
+          "name": "rolling_period",
+          "operationParameter": {
+            "in": "query",
+            "name": "rolling_period"
+          }
+        },
+        {
+          "name": "timezone",
+          "operationParameter": {
+            "in": "query",
+            "name": "timezone"
+          }
+        },
+        {
+          "name": "dp",
+          "operationParameter": {
+            "in": "query",
+            "name": "dp"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/price",
+      "operation": {
+        "method": "get",
+        "path": "/price"
+      },
+      "parameters": [
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "mic_code",
+          "operationParameter": {
+            "in": "query",
+            "name": "mic_code"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "format",
+          "operationParameter": {
+            "in": "query",
+            "name": "format"
+          }
+        },
+        {
+          "name": "delimiter",
+          "operationParameter": {
+            "in": "query",
+            "name": "delimiter"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "prepost",
+          "operationParameter": {
+            "in": "query",
+            "name": "prepost"
+          }
+        },
+        {
+          "name": "dp",
+          "operationParameter": {
+            "in": "query",
+            "name": "dp"
+          }
+        },
+        {
+          "name": "type",
+          "operationParameter": {
+            "in": "query",
+            "name": "type"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/eod",
+      "operation": {
+        "method": "get",
+        "path": "/eod"
+      },
+      "parameters": [
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "dp",
+          "operationParameter": {
+            "in": "query",
+            "name": "dp"
+          }
+        },
+        {
+          "name": "prepost",
+          "operationParameter": {
+            "in": "query",
+            "name": "prepost"
+          }
+        },
+        {
+          "name": "type",
+          "operationParameter": {
+            "in": "query",
+            "name": "type"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "mic_code",
+          "operationParameter": {
+            "in": "query",
+            "name": "mic_code"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/market_movers/stocks",
+      "operation": {
+        "method": "get",
+        "path": "/market_movers/stocks"
+      },
+      "parameters": [
+        {
+          "name": "direction",
+          "operationParameter": {
+            "in": "query",
+            "name": "direction"
+          }
+        },
+        {
+          "name": "dp",
+          "operationParameter": {
+            "in": "query",
+            "name": "dp"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "outputsize",
+          "operationParameter": {
+            "in": "query",
+            "name": "outputsize"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/market_movers/etf",
+      "operation": {
+        "method": "get",
+        "path": "/market_movers/etf"
+      },
+      "parameters": [
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "dp",
+          "operationParameter": {
+            "in": "query",
+            "name": "dp"
+          }
+        },
+        {
+          "name": "direction",
+          "operationParameter": {
+            "in": "query",
+            "name": "direction"
+          }
+        },
+        {
+          "name": "outputsize",
+          "operationParameter": {
+            "in": "query",
+            "name": "outputsize"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/market_movers/mutual_funds",
+      "operation": {
+        "method": "get",
+        "path": "/market_movers/mutual_funds"
+      },
+      "parameters": [
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "outputsize",
+          "operationParameter": {
+            "in": "query",
+            "name": "outputsize"
+          }
+        },
+        {
+          "name": "direction",
+          "operationParameter": {
+            "in": "query",
+            "name": "direction"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "dp",
+          "operationParameter": {
+            "in": "query",
+            "name": "dp"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/market_movers/forex",
+      "operation": {
+        "method": "get",
+        "path": "/market_movers/forex"
+      },
+      "parameters": [
+        {
+          "name": "direction",
+          "operationParameter": {
+            "in": "query",
+            "name": "direction"
+          }
+        },
+        {
+          "name": "outputsize",
+          "operationParameter": {
+            "in": "query",
+            "name": "outputsize"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "dp",
+          "operationParameter": {
+            "in": "query",
+            "name": "dp"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/market_movers/crypto",
+      "operation": {
+        "method": "get",
+        "path": "/market_movers/crypto"
+      },
+      "parameters": [
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "outputsize",
+          "operationParameter": {
+            "in": "query",
+            "name": "outputsize"
+          }
+        },
+        {
+          "name": "direction",
+          "operationParameter": {
+            "in": "query",
+            "name": "direction"
+          }
+        },
+        {
+          "name": "dp",
+          "operationParameter": {
+            "in": "query",
+            "name": "dp"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/mutual_funds/list",
+      "operation": {
+        "method": "get",
+        "path": "/mutual_funds/list"
+      },
+      "parameters": [
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "outputsize",
+          "operationParameter": {
+            "in": "query",
+            "name": "outputsize"
+          }
+        },
+        {
+          "name": "page",
+          "operationParameter": {
+            "in": "query",
+            "name": "page"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "risk_rating",
+          "operationParameter": {
+            "in": "query",
+            "name": "risk_rating"
+          }
+        },
+        {
+          "name": "performance_rating",
+          "operationParameter": {
+            "in": "query",
+            "name": "performance_rating"
+          }
+        },
+        {
+          "name": "fund_type",
+          "operationParameter": {
+            "in": "query",
+            "name": "fund_type"
+          }
+        },
+        {
+          "name": "fund_family",
+          "operationParameter": {
+            "in": "query",
+            "name": "fund_family"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/mutual_funds/family",
+      "operation": {
+        "method": "get",
+        "path": "/mutual_funds/family"
+      },
+      "parameters": [
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "fund_family",
+          "operationParameter": {
+            "in": "query",
+            "name": "fund_family"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/mutual_funds/type",
+      "operation": {
+        "method": "get",
+        "path": "/mutual_funds/type"
+      },
+      "parameters": [
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "fund_type",
+          "operationParameter": {
+            "in": "query",
+            "name": "fund_type"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_type"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/mutual_funds/world",
+      "operation": {
+        "method": "get",
+        "path": "/mutual_funds/world"
+      },
+      "parameters": [
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "dp",
+          "operationParameter": {
+            "in": "query",
+            "name": "dp"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/mutual_funds/world/summary",
+      "operation": {
+        "method": "get",
+        "path": "/mutual_funds/world/summary"
+      },
+      "parameters": [
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "dp",
+          "operationParameter": {
+            "in": "query",
+            "name": "dp"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/mutual_funds/world/performance",
+      "operation": {
+        "method": "get",
+        "path": "/mutual_funds/world/performance"
+      },
+      "parameters": [
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "dp",
+          "operationParameter": {
+            "in": "query",
+            "name": "dp"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/mutual_funds/world/risk",
+      "operation": {
+        "method": "get",
+        "path": "/mutual_funds/world/risk"
+      },
+      "parameters": [
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "dp",
+          "operationParameter": {
+            "in": "query",
+            "name": "dp"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/mutual_funds/world/ratings",
+      "operation": {
+        "method": "get",
+        "path": "/mutual_funds/world/ratings"
+      },
+      "parameters": [
+        {
+          "name": "dp",
+          "operationParameter": {
+            "in": "query",
+            "name": "dp"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/mutual_funds/world/composition",
+      "operation": {
+        "method": "get",
+        "path": "/mutual_funds/world/composition"
+      },
+      "parameters": [
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "dp",
+          "operationParameter": {
+            "in": "query",
+            "name": "dp"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/mutual_funds/world/purchase_info",
+      "operation": {
+        "method": "get",
+        "path": "/mutual_funds/world/purchase_info"
+      },
+      "parameters": [
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "dp",
+          "operationParameter": {
+            "in": "query",
+            "name": "dp"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/mutual_funds/world/sustainability",
+      "operation": {
+        "method": "get",
+        "path": "/mutual_funds/world/sustainability"
+      },
+      "parameters": [
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "dp",
+          "operationParameter": {
+            "in": "query",
+            "name": "dp"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/logo",
+      "operation": {
+        "method": "get",
+        "path": "/logo"
+      },
+      "parameters": [
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "mic_code",
+          "operationParameter": {
+            "in": "query",
+            "name": "mic_code"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/profile",
+      "operation": {
+        "method": "get",
+        "path": "/profile"
+      },
+      "parameters": [
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "mic_code",
+          "operationParameter": {
+            "in": "query",
+            "name": "mic_code"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_type"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/dividends",
+      "operation": {
+        "method": "get",
+        "path": "/dividends"
+      },
+      "parameters": [
+        {
+          "name": "end_date",
+          "operationParameter": {
+            "in": "query",
+            "name": "end_date"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "mic_code",
+          "operationParameter": {
+            "in": "query",
+            "name": "mic_code"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "range",
+          "operationParameter": {
+            "in": "query",
+            "name": "range"
+          }
+        },
+        {
+          "name": "start_date",
+          "operationParameter": {
+            "in": "query",
+            "name": "start_date"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/splits",
+      "operation": {
+        "method": "get",
+        "path": "/splits"
+      },
+      "parameters": [
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "range",
+          "operationParameter": {
+            "in": "query",
+            "name": "range"
+          }
+        },
+        {
+          "name": "start_date",
+          "operationParameter": {
+            "in": "query",
+            "name": "start_date"
+          }
+        },
+        {
+          "name": "end_date",
+          "operationParameter": {
+            "in": "query",
+            "name": "end_date"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "mic_code",
+          "operationParameter": {
+            "in": "query",
+            "name": "mic_code"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/earnings",
+      "operation": {
+        "method": "get",
+        "path": "/earnings"
+      },
+      "parameters": [
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "mic_code",
+          "operationParameter": {
+            "in": "query",
+            "name": "mic_code"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "period",
+          "operationParameter": {
+            "in": "query",
+            "name": "period"
+          }
+        },
+        {
+          "name": "outputsize",
+          "operationParameter": {
+            "in": "query",
+            "name": "outputsize"
+          }
+        },
+        {
+          "name": "format",
+          "operationParameter": {
+            "in": "query",
+            "name": "format"
+          }
+        },
+        {
+          "name": "delimiter",
+          "operationParameter": {
+            "in": "query",
+            "name": "delimiter"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "type",
+          "operationParameter": {
+            "in": "query",
+            "name": "type"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/earnings_calendar",
+      "operation": {
+        "method": "get",
+        "path": "/earnings_calendar"
+      },
+      "parameters": [
+        {
+          "name": "delimiter",
+          "operationParameter": {
+            "in": "query",
+            "name": "delimiter"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "mic_code",
+          "operationParameter": {
+            "in": "query",
+            "name": "mic_code"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "format",
+          "operationParameter": {
+            "in": "query",
+            "name": "format"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/ipo_calendar",
+      "operation": {
+        "method": "get",
+        "path": "/ipo_calendar"
+      },
+      "parameters": [
+        {
+          "name": "mic_code",
+          "operationParameter": {
+            "in": "query",
+            "name": "mic_code"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "end_date",
+          "operationParameter": {
+            "in": "query",
+            "name": "end_date"
+          }
+        },
+        {
+          "name": "start_date",
+          "operationParameter": {
+            "in": "query",
+            "name": "start_date"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/statistics",
+      "operation": {
+        "method": "get",
+        "path": "/statistics"
+      },
+      "parameters": [
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "mic_code",
+          "operationParameter": {
+            "in": "query",
+            "name": "mic_code"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/insider_transactions",
+      "operation": {
+        "method": "get",
+        "path": "/insider_transactions"
+      },
+      "parameters": [
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "mic_code",
+          "operationParameter": {
+            "in": "query",
+            "name": "mic_code"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/income_statement",
+      "operation": {
+        "method": "get",
+        "path": "/income_statement"
+      },
+      "parameters": [
+        {
+          "name": "end_date",
+          "operationParameter": {
+            "in": "query",
+            "name": "end_date"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "mic_code",
+          "operationParameter": {
+            "in": "query",
+            "name": "mic_code"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "period",
+          "operationParameter": {
+            "in": "query",
+            "name": "period"
+          }
+        },
+        {
+          "name": "start_date",
+          "operationParameter": {
+            "in": "query",
+            "name": "start_date"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/balance_sheet",
+      "operation": {
+        "method": "get",
+        "path": "/balance_sheet"
+      },
+      "parameters": [
+        {
+          "name": "period",
+          "operationParameter": {
+            "in": "query",
+            "name": "period"
+          }
+        },
+        {
+          "name": "start_date",
+          "operationParameter": {
+            "in": "query",
+            "name": "start_date"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "end_date",
+          "operationParameter": {
+            "in": "query",
+            "name": "end_date"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "mic_code",
+          "operationParameter": {
+            "in": "query",
+            "name": "mic_code"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/cash_flow",
+      "operation": {
+        "method": "get",
+        "path": "/cash_flow"
+      },
+      "parameters": [
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "start_date",
+          "operationParameter": {
+            "in": "query",
+            "name": "start_date"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "end_date",
+          "operationParameter": {
+            "in": "query",
+            "name": "end_date"
+          }
+        },
+        {
+          "name": "mic_code",
+          "operationParameter": {
+            "in": "query",
+            "name": "mic_code"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "period",
+          "operationParameter": {
+            "in": "query",
+            "name": "period"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/options/expiration",
+      "operation": {
+        "method": "get",
+        "path": "/options/expiration"
+      },
+      "parameters": [
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "mic_code",
+          "operationParameter": {
+            "in": "query",
+            "name": "mic_code"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/options/chain",
+      "operation": {
+        "method": "get",
+        "path": "/options/chain"
+      },
+      "parameters": [
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "side",
+          "operationParameter": {
+            "in": "query",
+            "name": "side"
+          }
+        },
+        {
+          "name": "option_id",
+          "operationParameter": {
+            "in": "query",
+            "name": "option_id"
+          }
+        },
+        {
+          "name": "expiration_date",
+          "operationParameter": {
+            "in": "query",
+            "name": "expiration_date"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "mic_code",
+          "operationParameter": {
+            "in": "query",
+            "name": "mic_code"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/key_executives",
+      "operation": {
+        "method": "get",
+        "path": "/key_executives"
+      },
+      "parameters": [
+        {
+          "name": "mic_code",
+          "operationParameter": {
+            "in": "query",
+            "name": "mic_code"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/institutional_holders",
+      "operation": {
+        "method": "get",
+        "path": "/institutional_holders"
+      },
+      "parameters": [
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "mic_code",
+          "operationParameter": {
+            "in": "query",
+            "name": "mic_code"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/fund_holders",
+      "operation": {
+        "method": "get",
+        "path": "/fund_holders"
+      },
+      "parameters": [
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "mic_code",
+          "operationParameter": {
+            "in": "query",
+            "name": "mic_code"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_type"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/earnings_estimate",
+      "operation": {
+        "method": "get",
+        "path": "/earnings_estimate"
+      },
+      "parameters": [
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/revenue_estimate",
+      "operation": {
+        "method": "get",
+        "path": "/revenue_estimate"
+      },
+      "parameters": [
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "dp",
+          "operationParameter": {
+            "in": "query",
+            "name": "dp"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/eps_trend",
+      "operation": {
+        "method": "get",
+        "path": "/eps_trend"
+      },
+      "parameters": [
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/eps_revisions",
+      "operation": {
+        "method": "get",
+        "path": "/eps_revisions"
+      },
+      "parameters": [
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/growth_estimates",
+      "operation": {
+        "method": "get",
+        "path": "/growth_estimates"
+      },
+      "parameters": [
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/recommendations",
+      "operation": {
+        "method": "get",
+        "path": "/recommendations"
+      },
+      "parameters": [
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_type"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/price_target",
+      "operation": {
+        "method": "get",
+        "path": "/price_target"
+      },
+      "parameters": [
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/analyst_ratings/light",
+      "operation": {
+        "method": "get",
+        "path": "/analyst_ratings/light"
+      },
+      "parameters": [
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "rating_change",
+          "operationParameter": {
+            "in": "query",
+            "name": "rating_change"
+          }
+        },
+        {
+          "name": "outputsize",
+          "operationParameter": {
+            "in": "query",
+            "name": "outputsize"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/analyst_ratings/us_equities",
+      "operation": {
+        "method": "get",
+        "path": "/analyst_ratings/us_equities"
+      },
+      "parameters": [
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "rating_change",
+          "operationParameter": {
+            "in": "query",
+            "name": "rating_change"
+          }
+        },
+        {
+          "name": "outputsize",
+          "operationParameter": {
+            "in": "query",
+            "name": "outputsize"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/api_usage",
+      "operation": {
+        "method": "get",
+        "path": "/api_usage"
+      },
+      "parameters": [
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "format",
+          "operationParameter": {
+            "in": "query",
+            "name": "format"
+          }
+        },
+        {
+          "name": "delimiter",
+          "operationParameter": {
+            "in": "query",
+            "name": "delimiter"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "feed",
+      "operation": {
+        "method": "get",
+        "path": "/{path}"
+      },
+      "parameters": [
+        {
+          "name": "name",
+          "required": true
+        },
+        {
+          "name": "path",
+          "operationParameter": {
+            "in": "path",
+            "name": "path"
+          },
+          "required": true
+        },
+        {
+          "name": "country",
+          "operationParameter": {
+            "in": "query",
+            "name": "country"
+          }
+        },
+        {
+          "name": "mic_code",
+          "operationParameter": {
+            "in": "query",
+            "name": "mic_code"
+          }
+        },
+        {
+          "name": "exchange",
+          "operationParameter": {
+            "in": "query",
+            "name": "exchange"
+          }
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "query",
+            "name": "symbol"
+          }
+        },
+        {
+          "name": "format",
+          "operationParameter": {
+            "in": "query",
+            "name": "format"
+          }
+        },
+        {
+          "name": "delimiter",
+          "operationParameter": {
+            "in": "query",
+            "name": "delimiter"
+          }
+        },
+        {
+          "name": "apikey",
+          "operationParameter": {
+            "in": "query",
+            "name": "apikey"
+          }
+        },
+        {
+          "name": "prepost",
+          "operationParameter": {
+            "in": "query",
+            "name": "prepost"
+          }
+        },
+        {
+          "name": "dp",
+          "operationParameter": {
+            "in": "query",
+            "name": "dp"
+          }
+        },
+        {
+          "name": "type",
+          "operationParameter": {
+            "in": "query",
+            "name": "type"
+          }
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type",
+          "fixed": "int256"
+        },
+        {
+          "name": "_times",
+          "fixed": "1000000000000000000"
+        }
+      ],
+      "preProcessingSpecifications": [
+        {
+          "environment": "Node",
+          "value": "const preProcessingObject = {\n  \"WTI/USD\": { path: \"price\", parameters: { symbol: \"WTI/USD\", dp: \"11\" } },\n  \"XAG/USD\": { path: \"price\", parameters: { symbol: \"XAG/USD\", dp: \"11\" } },\n  \"XAU/USD\": { path: \"price\", parameters: { symbol: \"XAU/USD\", dp: \"11\" } },\n  \"AAVE/USD\": { path: \"price\", parameters: { symbol: \"AAVE/USD\", dp: \"11\" } },\n  \"ADA/USD\": { path: \"price\", parameters: { symbol: \"ADA/USD\", dp: \"11\" } },\n  \"ALGO/USD\": { path: \"price\", parameters: { symbol: \"ALGO/USD\", dp: \"11\" } },\n  \"ANKR/USD\": { path: \"price\", parameters: { symbol: \"ANKR/USD\", dp: \"11\" } },\n  \"APE/USD\": { path: \"price\", parameters: { symbol: \"APE/USD\", dp: \"11\" } },\n  \"API3/USD\": { path: \"price\", parameters: { symbol: \"API3/USD\", dp: \"11\" } },\n  \"APT/USD\": { path: \"price\", parameters: { symbol: \"APT/USD\", dp: \"11\" } },\n  \"ARB/USD\": { path: \"price\", parameters: { symbol: \"ARB/USD\", dp: \"11\" } },\n  \"ATOM/USD\": { path: \"price\", parameters: { symbol: \"ATOM/USD\", dp: \"11\" } },\n  \"AVAX/USD\": { path: \"price\", parameters: { symbol: \"AVAX/USD\", dp: \"11\" } },\n  \"AXS/USD\": { path: \"price\", parameters: { symbol: \"AXS/USD\", dp: \"11\" } },\n  \"BAL/USD\": { path: \"price\", parameters: { symbol: \"BAL/USD\", dp: \"11\" } },\n  \"BAND/USD\": { path: \"price\", parameters: { symbol: \"BAND/USD\", dp: \"11\" } },\n  \"BAT/USD\": { path: \"price\", parameters: { symbol: \"BAT/USD\", dp: \"11\" } },\n  \"BLUR/USD\": { path: \"price\", parameters: { symbol: \"BLUR/USD\", dp: \"11\" } },\n  \"BNB/USD\": { path: \"price\", parameters: { symbol: \"BNB/USD\", dp: \"11\" } },\n  \"BTC/USD\": { path: \"price\", parameters: { symbol: \"BTC/USD\", dp: \"11\" } },\n  \"BTT/USD\": { path: \"price\", parameters: { symbol: \"BTT/USD\", dp: \"11\" } },\n  \"BUSD/USD\": { path: \"price\", parameters: { symbol: \"BUSD/USD\", dp: \"11\" } },\n  \"CAKE/USD\": { path: \"price\", parameters: { symbol: \"CAKE/USD\", dp: \"11\" } },\n  \"CELO/USD\": { path: \"price\", parameters: { symbol: \"CELO/USD\", dp: \"11\" } },\n  \"CHZ/USD\": { path: \"price\", parameters: { symbol: \"CHZ/USD\", dp: \"11\" } },\n  \"COMP/USD\": { path: \"price\", parameters: { symbol: \"COMP/USD\", dp: \"11\" } },\n  \"CRO/USD\": { path: \"price\", parameters: { symbol: \"CRO/USD\", dp: \"11\" } },\n  \"CRV/USD\": { path: \"price\", parameters: { symbol: \"CRV/USD\", dp: \"11\" } },\n  \"CVX/USD\": { path: \"price\", parameters: { symbol: \"CVX/USD\", dp: \"11\" } },\n  \"DAI/USD\": { path: \"price\", parameters: { symbol: \"DAI/USD\", dp: \"11\" } },\n  \"DOGE/USD\": { path: \"price\", parameters: { symbol: \"DOGE/USD\", dp: \"11\" } },\n  \"DOT/USD\": { path: \"price\", parameters: { symbol: \"DOT/USD\", dp: \"11\" } },\n  \"DYDX/USD\": { path: \"price\", parameters: { symbol: \"DYDX/USD\", dp: \"11\" } },\n  \"ENS/USD\": { path: \"price\", parameters: { symbol: \"ENS/USD\", dp: \"11\" } },\n  \"ETH/USD\": { path: \"price\", parameters: { symbol: \"ETH/USD\", dp: \"11\" } },\n  \"EUL/USD\": { path: \"price\", parameters: { symbol: \"EUL/USD\", dp: \"11\" } },\n  \"FIL/USD\": { path: \"price\", parameters: { symbol: \"FIL/USD\", dp: \"11\" } },\n  \"FLOW/USD\": { path: \"price\", parameters: { symbol: \"FLOW/USD\", dp: \"11\" } },\n  \"FRAX/USD\": { path: \"price\", parameters: { symbol: \"FRAX/USD\", dp: \"11\" } },\n  \"FTM/USD\": { path: \"price\", parameters: { symbol: \"FTM/USD\", dp: \"11\" } },\n  \"FXS/USD\": { path: \"price\", parameters: { symbol: \"FXS/USD\", dp: \"11\" } },\n  \"GLMR/USD\": { path: \"price\", parameters: { symbol: \"GLMR/USD\", dp: \"11\" } },\n  \"GMX/USD\": { path: \"price\", parameters: { symbol: \"GMX/USD\", dp: \"11\" } },\n  \"GNO/USD\": { path: \"price\", parameters: { symbol: \"GNO/USD\", dp: \"11\" } },\n  \"GNS/USD\": { path: \"price\", parameters: { symbol: \"GNS/USD\", dp: \"11\" } },\n  \"GRT/USD\": { path: \"price\", parameters: { symbol: \"GRT/USD\", dp: \"11\" } },\n  \"HBAR/USD\": { path: \"price\", parameters: { symbol: \"HBAR/USD\", dp: \"11\" } },\n  \"HNT/USD\": { path: \"price\", parameters: { symbol: \"HNT/USD\", dp: \"11\" } },\n  \"HT/USD\": { path: \"price\", parameters: { symbol: \"HT/USD\", dp: \"11\" } },\n  \"ICP/USD\": { path: \"price\", parameters: { symbol: \"ICP/USD\", dp: \"11\" } },\n  \"IMX/USD\": { path: \"price\", parameters: { symbol: \"IMX/USD\", dp: \"11\" } },\n  \"JOE/USD\": { path: \"price\", parameters: { symbol: \"JOE/USD\", dp: \"11\" } },\n  \"KAVA/USD\": { path: \"price\", parameters: { symbol: \"KAVA/USD\", dp: \"11\" } },\n  \"KDA/USD\": { path: \"price\", parameters: { symbol: \"KDA/USD\", dp: \"11\" } },\n  \"KSM/USD\": { path: \"price\", parameters: { symbol: \"KSM/USD\", dp: \"11\" } },\n  \"LDO/USD\": { path: \"price\", parameters: { symbol: \"LDO/USD\", dp: \"11\" } },\n  \"LINK/USD\": { path: \"price\", parameters: { symbol: \"LINK/USD\", dp: \"11\" } },\n  \"LQTY/USD\": { path: \"price\", parameters: { symbol: \"LQTY/USD\", dp: \"11\" } },\n  \"LTC/USD\": { path: \"price\", parameters: { symbol: \"LTC/USD\", dp: \"11\" } },\n  \"LUSD/USD\": { path: \"price\", parameters: { symbol: \"LUSD/USD\", dp: \"11\" } },\n  \"MANA/USD\": { path: \"price\", parameters: { symbol: \"MANA/USD\", dp: \"11\" } },\n  \"MASK/USD\": { path: \"price\", parameters: { symbol: \"MASK/USD\", dp: \"11\" } },\n  \"MATIC/USD\": { path: \"price\", parameters: { symbol: \"MATIC/USD\", dp: \"11\" } },\n  \"METIS/USD\": { path: \"price\", parameters: { symbol: \"METIS/USD\", dp: \"11\" } },\n  \"MKR/USD\": { path: \"price\", parameters: { symbol: \"MKR/USD\", dp: \"11\" } },\n  \"MNT/USD\": { path: \"price\", parameters: { symbol: \"MNT/USD\", dp: \"11\" } },\n  \"MOVR/USD\": { path: \"price\", parameters: { symbol: \"MOVR/USD\", dp: \"11\" } },\n  \"NEAR/USD\": { path: \"price\", parameters: { symbol: \"NEAR/USD\", dp: \"11\" } },\n  \"OKB/USD\": { path: \"price\", parameters: { symbol: \"OKB/USD\", dp: \"11\" } },\n  \"OP/USD\": { path: \"price\", parameters: { symbol: \"OP/USD\", dp: \"11\" } },\n  \"OSMO/USD\": { path: \"price\", parameters: { symbol: \"OSMO/USD\", dp: \"11\" } },\n  \"PAXG/USD\": { path: \"price\", parameters: { symbol: \"PAXG/USD\", dp: \"11\" } },\n  \"PEPE/USD\": { path: \"price\", parameters: { symbol: \"PEPE/USD\", dp: \"11\" } },\n  \"QUICK/USD\": { path: \"price\", parameters: { symbol: \"QUICK/USD\", dp: \"11\" } },\n  \"RBN/USD\": { path: \"price\", parameters: { symbol: \"RBN/USD\", dp: \"11\" } },\n  \"RNDR/USD\": { path: \"price\", parameters: { symbol: \"RNDR/USD\", dp: \"11\" } },\n  \"ROSE/USD\": { path: \"price\", parameters: { symbol: \"ROSE/USD\", dp: \"11\" } },\n  \"RPL/USD\": { path: \"price\", parameters: { symbol: \"RPL/USD\", dp: \"11\" } },\n  \"RSR/USD\": { path: \"price\", parameters: { symbol: \"RSR/USD\", dp: \"11\" } },\n  \"RUNE/USD\": { path: \"price\", parameters: { symbol: \"RUNE/USD\", dp: \"11\" } },\n  \"SAND/USD\": { path: \"price\", parameters: { symbol: \"SAND/USD\", dp: \"11\" } },\n  \"SHIB/USD\": { path: \"price\", parameters: { symbol: \"SHIB/USD\", dp: \"11\" } },\n  \"SNX/USD\": { path: \"price\", parameters: { symbol: \"SNX/USD\", dp: \"11\" } },\n  \"SOL/USD\": { path: \"price\", parameters: { symbol: \"SOL/USD\", dp: \"11\" } },\n  \"STETH/USD\": { path: \"price\", parameters: { symbol: \"STETH/USD\", dp: \"11\" } },\n  \"STG/USD\": { path: \"price\", parameters: { symbol: \"STG/USD\", dp: \"11\" } },\n  \"STX/USD\": { path: \"price\", parameters: { symbol: \"STX/USD\", dp: \"11\" } },\n  \"SUI/USD\": { path: \"price\", parameters: { symbol: \"SUI/USD\", dp: \"11\" } },\n  \"SUSHI/USD\": { path: \"price\", parameters: { symbol: \"SUSHI/USD\", dp: \"11\" } },\n  \"TUSD/USD\": { path: \"price\", parameters: { symbol: \"TUSD/USD\", dp: \"11\" } },\n  \"UMA/USD\": { path: \"price\", parameters: { symbol: \"UMA/USD\", dp: \"11\" } },\n  \"UNI/USD\": { path: \"price\", parameters: { symbol: \"UNI/USD\", dp: \"11\" } },\n  \"USDC/USD\": { path: \"price\", parameters: { symbol: \"USDC/USD\", dp: \"11\" } },\n  \"USDP/USD\": { path: \"price\", parameters: { symbol: \"USDP/USD\", dp: \"11\" } },\n  \"USDT/USD\": { path: \"price\", parameters: { symbol: \"USDT/USD\", dp: \"11\" } },\n  \"WBTC/USD\": { path: \"price\", parameters: { symbol: \"WBTC/USD\", dp: \"11\" } },\n  \"XLM/USD\": { path: \"price\", parameters: { symbol: \"XLM/USD\", dp: \"11\" } },\n  \"XMR/USD\": { path: \"price\", parameters: { symbol: \"XMR/USD\", dp: \"11\" } },\n  \"XRP/USD\": { path: \"price\", parameters: { symbol: \"XRP/USD\", dp: \"11\" } },\n  \"XTZ/USD\": { path: \"price\", parameters: { symbol: \"XTZ/USD\", dp: \"11\" } },\n  \"YFI/USD\": { path: \"price\", parameters: { symbol: \"YFI/USD\", dp: \"11\" } },\n  \"ZIL/USD\": { path: \"price\", parameters: { symbol: \"ZIL/USD\", dp: \"11\" } },\n  \"ZRX/USD\": { path: \"price\", parameters: { symbol: \"ZRX/USD\", dp: \"11\" } },\n  \"AUD/USD\": { path: \"price\", parameters: { symbol: \"AUD/USD\", dp: \"11\" } },\n  \"BRL/USD\": { path: \"price\", parameters: { symbol: \"BRL/USD\", dp: \"11\" } },\n  \"CAD/USD\": { path: \"price\", parameters: { symbol: \"CAD/USD\", dp: \"11\" } },\n  \"CHF/USD\": { path: \"price\", parameters: { symbol: \"CHF/USD\", dp: \"11\" } },\n  \"CNY/USD\": { path: \"price\", parameters: { symbol: \"CNY/USD\", dp: \"11\" } },\n  \"COP/USD\": { path: \"price\", parameters: { symbol: \"COP/USD\", dp: \"11\" } },\n  \"EUR/USD\": { path: \"price\", parameters: { symbol: \"EUR/USD\", dp: \"11\" } },\n  \"GBP/USD\": { path: \"price\", parameters: { symbol: \"GBP/USD\", dp: \"11\" } },\n  \"INR/USD\": { path: \"price\", parameters: { symbol: \"INR/USD\", dp: \"11\" } },\n  \"KRW/USD\": { path: \"price\", parameters: { symbol: \"KRW/USD\", dp: \"11\" } },\n  \"MXN/USD\": { path: \"price\", parameters: { symbol: \"MXN/USD\", dp: \"11\" } },\n  \"NZD/USD\": { path: \"price\", parameters: { symbol: \"NZD/USD\", dp: \"11\" } },\n  \"PHP/USD\": { path: \"price\", parameters: { symbol: \"PHP/USD\", dp: \"11\" } },\n  \"RUB/USD\": { path: \"price\", parameters: { symbol: \"RUB/USD\", dp: \"11\" } },\n  \"SEK/USD\": { path: \"price\", parameters: { symbol: \"SEK/USD\", dp: \"11\" } },\n  \"SGD/USD\": { path: \"price\", parameters: { symbol: \"SGD/USD\", dp: \"11\" } },\n  \"TRY/USD\": { path: \"price\", parameters: { symbol: \"TRY/USD\", dp: \"11\" } },\n  \"ZAR/USD\": { path: \"price\", parameters: { symbol: \"ZAR/USD\", dp: \"11\" } },\n  \"AAPL/USD\": { path: \"price\", parameters: { symbol: \"AAPL\", dp: \"11\" } },\n  \"AMZN/USD\": { path: \"price\", parameters: { symbol: \"AMZN\", dp: \"11\" } },\n  \"ARKK/USD\": { path: \"price\", parameters: { symbol: \"ARKK\", dp: \"11\" } },\n  \"COIN/USD\": { path: \"price\", parameters: { symbol: \"COIN\", dp: \"11\" } },\n  \"GME/USD\": { path: \"price\", parameters: { symbol: \"GME\", dp: \"11\" } },\n  \"GOOGL/USD\": { path: \"price\", parameters: { symbol: \"GOOGL\", dp: \"11\" } },\n  \"JPM/USD\": { path: \"price\", parameters: { symbol: \"JPM\", dp: \"11\" } },\n  \"META/USD\": { path: \"price\", parameters: { symbol: \"META\", dp: \"11\" } },\n  \"MSFT/USD\": { path: \"price\", parameters: { symbol: \"MSFT\", dp: \"11\" } },\n  \"NFLX/USD\": { path: \"price\", parameters: { symbol: \"NFLX\", dp: \"11\" } },\n  \"NVDA/USD\": { path: \"price\", parameters: { symbol: \"NVDA\", dp: \"11\" } },\n  \"SPY/USD\": { path: \"price\", parameters: { symbol: \"SPY\", dp: \"11\" } },\n  \"TSLA/USD\": { path: \"price\", parameters: { symbol: \"TSLA\", dp: \"11\" } },\n  \"TSM/USD\": { path: \"price\", parameters: { symbol: \"TSM\", dp: \"11\" } },\n}\noutput = {\n  path: preProcessingObject[endpointParameters.name].path,\n  ...preProcessingObject[endpointParameters.name].parameters,\n}\n",
+          "timeoutMs": 5000
+        }
+      ],
+      "postProcessingSpecifications": [
+        {
+          "environment": "Node",
+          "value": "const postProcessingObject = {\n  \"WTI/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"XAG/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"XAU/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"AAVE/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"ADA/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"ALGO/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"ANKR/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"APE/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"API3/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"APT/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"ARB/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"ATOM/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"AVAX/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"AXS/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"BAL/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"BAND/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"BAT/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"BLUR/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"BNB/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"BTC/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"BTT/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"BUSD/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"CAKE/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"CELO/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"CHZ/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"COMP/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"CRO/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"CRV/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"CVX/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"DAI/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"DOGE/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"DOT/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"DYDX/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"ENS/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"ETH/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"EUL/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"FIL/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"FLOW/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"FRAX/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"FTM/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"FXS/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"GLMR/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"GMX/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"GNO/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"GNS/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"GRT/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"HBAR/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"HNT/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"HT/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"ICP/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"IMX/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"JOE/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"KAVA/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"KDA/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"KSM/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"LDO/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"LINK/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"LQTY/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"LTC/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"LUSD/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"MANA/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"MASK/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"MATIC/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"METIS/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"MKR/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"MNT/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"MOVR/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"NEAR/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"OKB/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"OP/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"OSMO/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"PAXG/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"PEPE/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"QUICK/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"RBN/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"RNDR/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"ROSE/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"RPL/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"RSR/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"RUNE/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"SAND/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"SHIB/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"SNX/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"SOL/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"STETH/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"STG/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"STX/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"SUI/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"SUSHI/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"TUSD/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"UMA/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"UNI/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"USDC/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"USDP/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"USDT/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"WBTC/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"XLM/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"XMR/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"XRP/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"XTZ/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"YFI/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"ZIL/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"ZRX/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"AUD/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"BRL/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"CAD/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"CHF/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"CNY/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"COP/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"EUR/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"GBP/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"INR/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"KRW/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"MXN/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"NZD/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"PHP/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"RUB/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"SEK/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"SGD/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"TRY/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"ZAR/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"AAPL/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"AMZN/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"ARKK/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"COIN/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"GME/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"GOOGL/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"JPM/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"META/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"MSFT/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"NFLX/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"NVDA/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"SPY/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"TSLA/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n  \"TSM/USD\":\n    \"(response) => {\\n              return response.price\\n            }\\n            \",\n}\nconst parser = eval(postProcessingObject[endpointParameters.name])\noutput = parser(input)\n",
+          "timeoutMs": 5000
+        }
+      ]
+    }
+  ]
+}

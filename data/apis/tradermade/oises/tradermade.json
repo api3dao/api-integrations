@@ -1,0 +1,797 @@
+{
+  "oisFormat": "2.2.0",
+  "title": "TraderMade",
+  "version": "0.1.2",
+  "apiSpecifications": {
+    "components": {
+      "securitySchemes": {
+        "TraderMadeSecurityScheme1ApiKey": {
+          "in": "query",
+          "name": "api_key",
+          "type": "apiKey"
+        }
+      }
+    },
+    "paths": {
+      "/convert": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "from"
+            },
+            {
+              "in": "query",
+              "name": "to"
+            },
+            {
+              "in": "query",
+              "name": "amount"
+            }
+          ]
+        }
+      },
+      "/historical": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "date"
+            },
+            {
+              "in": "query",
+              "name": "currency"
+            }
+          ]
+        }
+      },
+      "/historical_currencies_list": {
+        "get": {
+          "parameters": []
+        }
+      },
+      "/hour_historical": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "currency"
+            },
+            {
+              "in": "query",
+              "name": "date_time"
+            }
+          ]
+        }
+      },
+      "/live": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "currency"
+            }
+          ]
+        }
+      },
+      "/live_crypto_list": {
+        "get": {
+          "parameters": []
+        }
+      },
+      "/live_currencies_list": {
+        "get": {
+          "parameters": []
+        }
+      },
+      "/market_open_status": {
+        "get": {
+          "parameters": []
+        }
+      },
+      "/minute_historical": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "currency"
+            },
+            {
+              "in": "query",
+              "name": "date_time"
+            }
+          ]
+        }
+      },
+      "/pandasDF": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "currency"
+            },
+            {
+              "in": "query",
+              "name": "end_date"
+            },
+            {
+              "in": "query",
+              "name": "fields"
+            },
+            {
+              "in": "query",
+              "name": "format"
+            },
+            {
+              "in": "query",
+              "name": "start_date"
+            }
+          ]
+        }
+      },
+      "/tick_historical_sample/{symbol}/{startdate}/{enddate}": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "format"
+            },
+            {
+              "in": "path",
+              "name": "startdate"
+            },
+            {
+              "in": "path",
+              "name": "enddate"
+            },
+            {
+              "in": "path",
+              "name": "symbol"
+            }
+          ]
+        }
+      },
+      "/timeseries": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "period"
+            },
+            {
+              "in": "query",
+              "name": "end_date"
+            },
+            {
+              "in": "query",
+              "name": "currency"
+            },
+            {
+              "in": "query",
+              "name": "start_date"
+            },
+            {
+              "in": "query",
+              "name": "interval"
+            },
+            {
+              "in": "query",
+              "name": "format"
+            }
+          ]
+        }
+      },
+      "/{path}": {
+        "get": {
+          "parameters": [
+            {
+              "in": "path",
+              "name": "path"
+            },
+            {
+              "in": "query",
+              "name": "currency"
+            }
+          ]
+        }
+      }
+    },
+    "servers": [
+      {
+        "url": "https://marketdata.tradermade.com/api/v1"
+      }
+    ],
+    "security": {
+      "TraderMadeSecurityScheme1ApiKey": []
+    }
+  },
+  "endpoints": [
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/live",
+      "operation": {
+        "method": "get",
+        "path": "/live"
+      },
+      "parameters": [
+        {
+          "name": "currency",
+          "operationParameter": {
+            "in": "query",
+            "name": "currency"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": [
+        {
+          "environment": "Node",
+          "value": "let result = {}; input.quotes.map((entry) => { if(Object.keys(entry).includes('instrument')) { const symbol = entry.instrument; result[symbol] = entry.mid; } else { const symbol = entry.base_currency + entry.quote_currency; result[symbol] = entry.mid; } }); output = result;",
+          "timeoutMs": 5000
+        }
+      ]
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/historical",
+      "operation": {
+        "method": "get",
+        "path": "/historical"
+      },
+      "parameters": [
+        {
+          "name": "date",
+          "operationParameter": {
+            "in": "query",
+            "name": "date"
+          },
+          "required": false
+        },
+        {
+          "name": "currency",
+          "operationParameter": {
+            "in": "query",
+            "name": "currency"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/tick_historical_sample/{symbol}/{startdate}/{enddate}",
+      "operation": {
+        "method": "get",
+        "path": "/tick_historical_sample/{symbol}/{startdate}/{enddate}"
+      },
+      "parameters": [
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "path",
+            "name": "symbol"
+          },
+          "required": false
+        },
+        {
+          "name": "enddate",
+          "operationParameter": {
+            "in": "path",
+            "name": "enddate"
+          },
+          "required": false
+        },
+        {
+          "name": "format",
+          "operationParameter": {
+            "in": "query",
+            "name": "format"
+          },
+          "required": false
+        },
+        {
+          "name": "startdate",
+          "operationParameter": {
+            "in": "path",
+            "name": "startdate"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/tick_historical/{symbol}/{startdate}/{enddate}",
+      "operation": {
+        "method": "get",
+        "path": "/tick_historical_sample/{symbol}/{startdate}/{enddate}"
+      },
+      "parameters": [
+        {
+          "name": "format",
+          "operationParameter": {
+            "in": "query",
+            "name": "format"
+          },
+          "required": false
+        },
+        {
+          "name": "startdate",
+          "operationParameter": {
+            "in": "path",
+            "name": "startdate"
+          },
+          "required": false
+        },
+        {
+          "name": "enddate",
+          "operationParameter": {
+            "in": "path",
+            "name": "enddate"
+          },
+          "required": false
+        },
+        {
+          "name": "symbol",
+          "operationParameter": {
+            "in": "path",
+            "name": "symbol"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/minute_historical",
+      "operation": {
+        "method": "get",
+        "path": "/minute_historical"
+      },
+      "parameters": [
+        {
+          "name": "currency",
+          "operationParameter": {
+            "in": "query",
+            "name": "currency"
+          },
+          "required": false
+        },
+        {
+          "name": "date_time",
+          "operationParameter": {
+            "in": "query",
+            "name": "date_time"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/hour_historical",
+      "operation": {
+        "method": "get",
+        "path": "/hour_historical"
+      },
+      "parameters": [
+        {
+          "name": "currency",
+          "operationParameter": {
+            "in": "query",
+            "name": "currency"
+          },
+          "required": false
+        },
+        {
+          "name": "date_time",
+          "operationParameter": {
+            "in": "query",
+            "name": "date_time"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/timeseries",
+      "operation": {
+        "method": "get",
+        "path": "/timeseries"
+      },
+      "parameters": [
+        {
+          "name": "period",
+          "operationParameter": {
+            "in": "query",
+            "name": "period"
+          },
+          "required": false
+        },
+        {
+          "name": "end_date",
+          "operationParameter": {
+            "in": "query",
+            "name": "end_date"
+          },
+          "required": false
+        },
+        {
+          "name": "currency",
+          "operationParameter": {
+            "in": "query",
+            "name": "currency"
+          },
+          "required": false
+        },
+        {
+          "name": "start_date",
+          "operationParameter": {
+            "in": "query",
+            "name": "start_date"
+          },
+          "required": false
+        },
+        {
+          "name": "interval",
+          "operationParameter": {
+            "in": "query",
+            "name": "interval"
+          },
+          "required": false
+        },
+        {
+          "name": "format",
+          "operationParameter": {
+            "in": "query",
+            "name": "format"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/pandasDF",
+      "operation": {
+        "method": "get",
+        "path": "/pandasDF"
+      },
+      "parameters": [
+        {
+          "name": "currency",
+          "operationParameter": {
+            "in": "query",
+            "name": "currency"
+          },
+          "required": false
+        },
+        {
+          "name": "end_date",
+          "operationParameter": {
+            "in": "query",
+            "name": "end_date"
+          },
+          "required": false
+        },
+        {
+          "name": "fields",
+          "operationParameter": {
+            "in": "query",
+            "name": "fields"
+          },
+          "required": false
+        },
+        {
+          "name": "format",
+          "operationParameter": {
+            "in": "query",
+            "name": "format"
+          },
+          "required": false
+        },
+        {
+          "name": "start_date",
+          "operationParameter": {
+            "in": "query",
+            "name": "start_date"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/convert",
+      "operation": {
+        "method": "get",
+        "path": "/convert"
+      },
+      "parameters": [
+        {
+          "name": "from",
+          "operationParameter": {
+            "in": "query",
+            "name": "from"
+          },
+          "required": false
+        },
+        {
+          "name": "to",
+          "operationParameter": {
+            "in": "query",
+            "name": "to"
+          },
+          "required": false
+        },
+        {
+          "name": "amount",
+          "operationParameter": {
+            "in": "query",
+            "name": "amount"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/market_open_status",
+      "operation": {
+        "method": "get",
+        "path": "/market_open_status"
+      },
+      "parameters": [],
+      "reservedParameters": [
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/live_currencies_list",
+      "operation": {
+        "method": "get",
+        "path": "/live_currencies_list"
+      },
+      "parameters": [],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/live_crypto_list",
+      "operation": {
+        "method": "get",
+        "path": "/live_crypto_list"
+      },
+      "parameters": [],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/historical_currencies_list",
+      "operation": {
+        "method": "get",
+        "path": "/historical_currencies_list"
+      },
+      "parameters": [],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "feed",
+      "operation": {
+        "method": "get",
+        "path": "/{path}"
+      },
+      "parameters": [
+        {
+          "name": "name",
+          "required": true
+        },
+        {
+          "name": "path",
+          "operationParameter": {
+            "in": "path",
+            "name": "path"
+          },
+          "required": true
+        },
+        {
+          "name": "currency",
+          "operationParameter": {
+            "in": "query",
+            "name": "currency"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type",
+          "fixed": "int256"
+        },
+        {
+          "name": "_times",
+          "fixed": "1000000000000000000"
+        }
+      ],
+      "preProcessingSpecifications": [
+        {
+          "environment": "Node",
+          "value": "const preProcessingObject = {\n  \"WTI/USD\": { path: \"live\", parameters: { currency: \"OILUSD\" } },\n  \"XAG/USD\": { path: \"live\", parameters: { currency: \"XAGUSD\" } },\n  \"XAU/USD\": { path: \"live\", parameters: { currency: \"XAUUSD\" } },\n  \"AUD/USD\": { path: \"live\", parameters: { currency: \"AUDUSD\" } },\n  \"BRL/USD\": { path: \"live\", parameters: { currency: \"BRLUSD\" } },\n  \"CAD/USD\": { path: \"live\", parameters: { currency: \"CADUSD\" } },\n  \"CHF/USD\": { path: \"live\", parameters: { currency: \"CHFUSD\" } },\n  \"CNY/USD\": { path: \"live\", parameters: { currency: \"CNYUSD\" } },\n  \"COP/USD\": { path: \"live\", parameters: { currency: \"COPUSD\" } },\n  \"EUR/USD\": { path: \"live\", parameters: { currency: \"EURUSD\" } },\n  \"GBP/USD\": { path: \"live\", parameters: { currency: \"GBPUSD\" } },\n  \"INR/USD\": { path: \"live\", parameters: { currency: \"INRUSD\" } },\n  \"JPY/USD\": { path: \"live\", parameters: { currency: \"JPYUSD\" } },\n  \"KRW/USD\": { path: \"live\", parameters: { currency: \"KRWUSD\" } },\n  \"MXN/USD\": { path: \"live\", parameters: { currency: \"MXNUSD\" } },\n  \"NGN/USD\": { path: \"live\", parameters: { currency: \"NGNUSD\" } },\n  \"NZD/USD\": { path: \"live\", parameters: { currency: \"NZDUSD\" } },\n  \"PHP/USD\": { path: \"live\", parameters: { currency: \"PHPUSD\" } },\n  \"RUB/USD\": { path: \"live\", parameters: { currency: \"RUBUSD\" } },\n  \"SEK/USD\": { path: \"live\", parameters: { currency: \"SEKUSD\" } },\n  \"SGD/USD\": { path: \"live\", parameters: { currency: \"SGDUSD\" } },\n  \"TRY/USD\": { path: \"live\", parameters: { currency: \"TRYUSD\" } },\n  \"ZAR/USD\": { path: \"live\", parameters: { currency: \"ZARUSD\" } },\n}\noutput = {\n  path: preProcessingObject[endpointParameters.name].path,\n  ...preProcessingObject[endpointParameters.name].parameters,\n}\n",
+          "timeoutMs": 5000
+        }
+      ],
+      "postProcessingSpecifications": [
+        {
+          "environment": "Node",
+          "value": "const postProcessingObject = {\n  \"WTI/USD\":\n    \"(response) => {\\n              return response.quotes[0].mid\\n            }\\n            \",\n  \"XAG/USD\":\n    \"(response) => {\\n              return response.quotes[0].mid\\n            }\\n            \",\n  \"XAU/USD\":\n    \"(response) => {\\n              return response.quotes[0].mid\\n            }\\n            \",\n  \"AUD/USD\":\n    \"(response) => {\\n              return response.quotes[0].mid\\n            }\\n            \",\n  \"BRL/USD\":\n    \"(response) => {\\n              return response.quotes[0].mid\\n            }\\n            \",\n  \"CAD/USD\":\n    \"(response) => {\\n              return response.quotes[0].mid\\n            }\\n            \",\n  \"CHF/USD\":\n    \"(response) => {\\n              return response.quotes[0].mid\\n            }\\n            \",\n  \"CNY/USD\":\n    \"(response) => {\\n              return response.quotes[0].mid\\n            }\\n            \",\n  \"COP/USD\":\n    \"(response) => {\\n              return response.quotes[0].mid\\n            }\\n            \",\n  \"EUR/USD\":\n    \"(response) => {\\n              return response.quotes[0].mid\\n            }\\n            \",\n  \"GBP/USD\":\n    \"(response) => {\\n              return response.quotes[0].mid\\n            }\\n            \",\n  \"INR/USD\":\n    \"(response) => {\\n              return response.quotes[0].mid\\n            }\\n            \",\n  \"JPY/USD\":\n    \"(response) => {\\n              return response.quotes[0].mid\\n            }\\n            \",\n  \"KRW/USD\":\n    \"(response) => {\\n              return response.quotes[0].mid\\n            }\\n            \",\n  \"MXN/USD\":\n    \"(response) => {\\n              return response.quotes[0].mid\\n            }\\n            \",\n  \"NGN/USD\":\n    \"(response) => {\\n              return response.quotes[0].mid\\n            }\\n            \",\n  \"NZD/USD\":\n    \"(response) => {\\n              return response.quotes[0].mid\\n            }\\n            \",\n  \"PHP/USD\":\n    \"(response) => {\\n              return response.quotes[0].mid\\n            }\\n            \",\n  \"RUB/USD\":\n    \"(response) => {\\n              return response.quotes[0].mid\\n            }\\n            \",\n  \"SEK/USD\":\n    \"(response) => {\\n              return response.quotes[0].mid\\n            }\\n            \",\n  \"SGD/USD\":\n    \"(response) => {\\n              return response.quotes[0].mid\\n            }\\n            \",\n  \"TRY/USD\":\n    \"(response) => {\\n              return response.quotes[0].mid\\n            }\\n            \",\n  \"ZAR/USD\":\n    \"(response) => {\\n              return response.quotes[0].mid\\n            }\\n            \",\n}\nconst parser = eval(postProcessingObject[endpointParameters.name])\noutput = parser(input)\n",
+          "timeoutMs": 5000
+        }
+      ]
+    }
+  ]
+}

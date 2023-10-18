@@ -1,0 +1,1557 @@
+{
+  "oisFormat": "2.2.0",
+  "title": "Coinpaprika",
+  "version": "0.1.0",
+  "apiSpecifications": {
+    "components": {
+      "securitySchemes": {
+        "CoinpaprikaSecurityScheme1ApiKey": {
+          "in": "header",
+          "name": "Authorization",
+          "type": "apiKey"
+        },
+        "CoinpaprikaSecurityScheme2ApiKey": {
+          "in": "header",
+          "name": "User-agent",
+          "type": "apiKey"
+        }
+      }
+    },
+    "paths": {
+      "/changelog/ids": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "page"
+            }
+          ]
+        }
+      },
+      "/coins": {
+        "get": {
+          "parameters": []
+        }
+      },
+      "/coins/{coin_id}": {
+        "get": {
+          "parameters": [
+            {
+              "in": "path",
+              "name": "coin_id"
+            }
+          ]
+        }
+      },
+      "/coins/{coin_id}/events": {
+        "get": {
+          "parameters": [
+            {
+              "in": "path",
+              "name": "coin_id"
+            }
+          ]
+        }
+      },
+      "/coins/{coin_id}/exchanges": {
+        "get": {
+          "parameters": [
+            {
+              "in": "path",
+              "name": "coin_id"
+            }
+          ]
+        }
+      },
+      "/coins/{coin_id}/markets": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "quotes"
+            },
+            {
+              "in": "path",
+              "name": "coin_id"
+            }
+          ]
+        }
+      },
+      "/coins/{coin_id}/ohlcv/historical": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "quote"
+            },
+            {
+              "in": "path",
+              "name": "coin_id"
+            },
+            {
+              "in": "query",
+              "name": "start"
+            },
+            {
+              "in": "query",
+              "name": "end"
+            },
+            {
+              "in": "query",
+              "name": "limit"
+            }
+          ]
+        }
+      },
+      "/coins/{coin_id}/ohlcv/latest": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "quote"
+            },
+            {
+              "in": "path",
+              "name": "coin_id"
+            }
+          ]
+        }
+      },
+      "/coins/{coin_id}/ohlcv/today": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "quote"
+            },
+            {
+              "in": "path",
+              "name": "coin_id"
+            }
+          ]
+        }
+      },
+      "/coins/{coin_id}/twitter": {
+        "get": {
+          "parameters": [
+            {
+              "in": "path",
+              "name": "coin_id"
+            }
+          ]
+        }
+      },
+      "/contracts": {
+        "get": {
+          "parameters": []
+        }
+      },
+      "/contracts/{platform_id}": {
+        "get": {
+          "parameters": [
+            {
+              "in": "path",
+              "name": "platform_id"
+            }
+          ]
+        }
+      },
+      "/contracts/{platform_id}/{contract_address}": {
+        "get": {
+          "parameters": [
+            {
+              "in": "path",
+              "name": "platform_id"
+            },
+            {
+              "in": "path",
+              "name": "contract_address"
+            }
+          ]
+        }
+      },
+      "/contracts/{platform_id}/{contract_address}/historical": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "limit"
+            },
+            {
+              "in": "path",
+              "name": "contract_address"
+            },
+            {
+              "in": "query",
+              "name": "start"
+            },
+            {
+              "in": "query",
+              "name": "end"
+            },
+            {
+              "in": "query",
+              "name": "quote"
+            },
+            {
+              "in": "query",
+              "name": "interval"
+            },
+            {
+              "in": "path",
+              "name": "platform_id"
+            }
+          ]
+        }
+      },
+      "/exchanges": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "quotes"
+            }
+          ]
+        }
+      },
+      "/exchanges/{exchange_id}": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "quotes"
+            },
+            {
+              "in": "path",
+              "name": "exchange_id"
+            }
+          ]
+        }
+      },
+      "/exchanges/{exchange_id}/markets": {
+        "get": {
+          "parameters": [
+            {
+              "in": "path",
+              "name": "exchange_id"
+            },
+            {
+              "in": "query",
+              "name": "quotes"
+            }
+          ]
+        }
+      },
+      "/global": {
+        "get": {
+          "parameters": []
+        }
+      },
+      "/key/info": {
+        "get": {
+          "parameters": []
+        }
+      },
+      "/people/{person_id}": {
+        "get": {
+          "parameters": [
+            {
+              "in": "path",
+              "name": "person_id"
+            }
+          ]
+        }
+      },
+      "/price-converter": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "base_currency_id"
+            },
+            {
+              "in": "query",
+              "name": "amount"
+            },
+            {
+              "in": "query",
+              "name": "quote_currency_id"
+            }
+          ]
+        }
+      },
+      "/search": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "q"
+            },
+            {
+              "in": "query",
+              "name": "c"
+            },
+            {
+              "in": "query",
+              "name": "limit"
+            },
+            {
+              "in": "query",
+              "name": "modifier"
+            }
+          ]
+        }
+      },
+      "/tags": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "additional_fields"
+            }
+          ]
+        }
+      },
+      "/tags/{tag_id}": {
+        "get": {
+          "parameters": [
+            {
+              "in": "path",
+              "name": "tag_id"
+            },
+            {
+              "in": "query",
+              "name": "additional_fields"
+            }
+          ]
+        }
+      },
+      "/ticker": {
+        "get": {
+          "parameters": []
+        }
+      },
+      "/ticker/{coin_id}": {
+        "get": {
+          "parameters": [
+            {
+              "in": "path",
+              "name": "coin_id"
+            }
+          ]
+        }
+      },
+      "/tickers": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "quotes"
+            }
+          ]
+        }
+      },
+      "/tickers/{coin_id}": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "quotes"
+            },
+            {
+              "in": "path",
+              "name": "coin_id"
+            }
+          ]
+        }
+      },
+      "/tickers/{coin_id}/historical": {
+        "get": {
+          "parameters": [
+            {
+              "in": "query",
+              "name": "end"
+            },
+            {
+              "in": "query",
+              "name": "start"
+            },
+            {
+              "in": "path",
+              "name": "coin_id"
+            },
+            {
+              "in": "query",
+              "name": "quote"
+            },
+            {
+              "in": "query",
+              "name": "interval"
+            },
+            {
+              "in": "query",
+              "name": "limit"
+            }
+          ]
+        }
+      },
+      "/{path}": {
+        "get": {
+          "parameters": [
+            {
+              "in": "path",
+              "name": "path"
+            },
+            {
+              "in": "query",
+              "name": "quotes"
+            }
+          ]
+        }
+      }
+    },
+    "servers": [
+      {
+        "url": "https://api-pro.coinpaprika.com/v1"
+      }
+    ],
+    "security": {
+      "CoinpaprikaSecurityScheme1ApiKey": [],
+      "CoinpaprikaSecurityScheme2ApiKey": []
+    }
+  },
+  "endpoints": [
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/global",
+      "operation": {
+        "method": "get",
+        "path": "/global"
+      },
+      "parameters": [],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/exchanges/{exchange_id}/markets",
+      "operation": {
+        "method": "get",
+        "path": "/exchanges/{exchange_id}/markets"
+      },
+      "parameters": [
+        {
+          "name": "exchange_id",
+          "operationParameter": {
+            "in": "path",
+            "name": "exchange_id"
+          },
+          "required": false
+        },
+        {
+          "name": "quotes",
+          "operationParameter": {
+            "in": "query",
+            "name": "quotes"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/search",
+      "operation": {
+        "method": "get",
+        "path": "/search"
+      },
+      "parameters": [
+        {
+          "name": "q",
+          "operationParameter": {
+            "in": "query",
+            "name": "q"
+          },
+          "required": false
+        },
+        {
+          "name": "c",
+          "operationParameter": {
+            "in": "query",
+            "name": "c"
+          },
+          "required": false
+        },
+        {
+          "name": "limit",
+          "operationParameter": {
+            "in": "query",
+            "name": "limit"
+          },
+          "required": false
+        },
+        {
+          "name": "modifier",
+          "operationParameter": {
+            "in": "query",
+            "name": "modifier"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/key/info",
+      "operation": {
+        "method": "get",
+        "path": "/key/info"
+      },
+      "parameters": [],
+      "reservedParameters": [
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/coins",
+      "operation": {
+        "method": "get",
+        "path": "/coins"
+      },
+      "parameters": [],
+      "reservedParameters": [
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/coins/{coin_id}",
+      "operation": {
+        "method": "get",
+        "path": "/coins/{coin_id}"
+      },
+      "parameters": [
+        {
+          "name": "coin_id",
+          "operationParameter": {
+            "in": "path",
+            "name": "coin_id"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/coins/{coin_id}/twitter",
+      "operation": {
+        "method": "get",
+        "path": "/coins/{coin_id}/twitter"
+      },
+      "parameters": [
+        {
+          "name": "coin_id",
+          "operationParameter": {
+            "in": "path",
+            "name": "coin_id"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/coins/{coin_id}/events",
+      "operation": {
+        "method": "get",
+        "path": "/coins/{coin_id}/events"
+      },
+      "parameters": [
+        {
+          "name": "coin_id",
+          "operationParameter": {
+            "in": "path",
+            "name": "coin_id"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/coins/{coin_id}/exchanges",
+      "operation": {
+        "method": "get",
+        "path": "/coins/{coin_id}/exchanges"
+      },
+      "parameters": [
+        {
+          "name": "coin_id",
+          "operationParameter": {
+            "in": "path",
+            "name": "coin_id"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/coins/{coin_id}/markets",
+      "operation": {
+        "method": "get",
+        "path": "/coins/{coin_id}/markets"
+      },
+      "parameters": [
+        {
+          "name": "quotes",
+          "operationParameter": {
+            "in": "query",
+            "name": "quotes"
+          },
+          "required": false
+        },
+        {
+          "name": "coin_id",
+          "operationParameter": {
+            "in": "path",
+            "name": "coin_id"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/coins/{coin_id}/ohlcv/latest",
+      "operation": {
+        "method": "get",
+        "path": "/coins/{coin_id}/ohlcv/latest"
+      },
+      "parameters": [
+        {
+          "name": "quote",
+          "operationParameter": {
+            "in": "query",
+            "name": "quote"
+          },
+          "required": false
+        },
+        {
+          "name": "coin_id",
+          "operationParameter": {
+            "in": "path",
+            "name": "coin_id"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/coins/{coin_id}/ohlcv/historical",
+      "operation": {
+        "method": "get",
+        "path": "/coins/{coin_id}/ohlcv/historical"
+      },
+      "parameters": [
+        {
+          "name": "quote",
+          "operationParameter": {
+            "in": "query",
+            "name": "quote"
+          },
+          "required": false
+        },
+        {
+          "name": "coin_id",
+          "operationParameter": {
+            "in": "path",
+            "name": "coin_id"
+          },
+          "required": false
+        },
+        {
+          "name": "start",
+          "operationParameter": {
+            "in": "query",
+            "name": "start"
+          },
+          "required": false
+        },
+        {
+          "name": "end",
+          "operationParameter": {
+            "in": "query",
+            "name": "end"
+          },
+          "required": false
+        },
+        {
+          "name": "limit",
+          "operationParameter": {
+            "in": "query",
+            "name": "limit"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/coins/{coin_id}/ohlcv/today",
+      "operation": {
+        "method": "get",
+        "path": "/coins/{coin_id}/ohlcv/today"
+      },
+      "parameters": [
+        {
+          "name": "quote",
+          "operationParameter": {
+            "in": "query",
+            "name": "quote"
+          },
+          "required": false
+        },
+        {
+          "name": "coin_id",
+          "operationParameter": {
+            "in": "path",
+            "name": "coin_id"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/people/{person_id}",
+      "operation": {
+        "method": "get",
+        "path": "/people/{person_id}"
+      },
+      "parameters": [
+        {
+          "name": "person_id",
+          "operationParameter": {
+            "in": "path",
+            "name": "person_id"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/tags",
+      "operation": {
+        "method": "get",
+        "path": "/tags"
+      },
+      "parameters": [
+        {
+          "name": "additional_fields",
+          "operationParameter": {
+            "in": "query",
+            "name": "additional_fields"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/tags/{tag_id}",
+      "operation": {
+        "method": "get",
+        "path": "/tags/{tag_id}"
+      },
+      "parameters": [
+        {
+          "name": "tag_id",
+          "operationParameter": {
+            "in": "path",
+            "name": "tag_id"
+          },
+          "required": false
+        },
+        {
+          "name": "additional_fields",
+          "operationParameter": {
+            "in": "query",
+            "name": "additional_fields"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/tickers",
+      "operation": {
+        "method": "get",
+        "path": "/tickers"
+      },
+      "parameters": [
+        {
+          "name": "quotes",
+          "operationParameter": {
+            "in": "query",
+            "name": "quotes"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_type"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/tickers/{coin_id}",
+      "operation": {
+        "method": "get",
+        "path": "/tickers/{coin_id}"
+      },
+      "parameters": [
+        {
+          "name": "quotes",
+          "operationParameter": {
+            "in": "query",
+            "name": "quotes"
+          },
+          "required": false
+        },
+        {
+          "name": "coin_id",
+          "operationParameter": {
+            "in": "path",
+            "name": "coin_id"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_type"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/tickers/{coin_id}/historical",
+      "operation": {
+        "method": "get",
+        "path": "/tickers/{coin_id}/historical"
+      },
+      "parameters": [
+        {
+          "name": "end",
+          "operationParameter": {
+            "in": "query",
+            "name": "end"
+          },
+          "required": false
+        },
+        {
+          "name": "start",
+          "operationParameter": {
+            "in": "query",
+            "name": "start"
+          },
+          "required": false
+        },
+        {
+          "name": "coin_id",
+          "operationParameter": {
+            "in": "path",
+            "name": "coin_id"
+          },
+          "required": false
+        },
+        {
+          "name": "quote",
+          "operationParameter": {
+            "in": "query",
+            "name": "quote"
+          },
+          "required": false
+        },
+        {
+          "name": "interval",
+          "operationParameter": {
+            "in": "query",
+            "name": "interval"
+          },
+          "required": false
+        },
+        {
+          "name": "limit",
+          "operationParameter": {
+            "in": "query",
+            "name": "limit"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/exchanges",
+      "operation": {
+        "method": "get",
+        "path": "/exchanges"
+      },
+      "parameters": [
+        {
+          "name": "quotes",
+          "operationParameter": {
+            "in": "query",
+            "name": "quotes"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/exchanges/{exchange_id}",
+      "operation": {
+        "method": "get",
+        "path": "/exchanges/{exchange_id}"
+      },
+      "parameters": [
+        {
+          "name": "quotes",
+          "operationParameter": {
+            "in": "query",
+            "name": "quotes"
+          },
+          "required": false
+        },
+        {
+          "name": "exchange_id",
+          "operationParameter": {
+            "in": "path",
+            "name": "exchange_id"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/price-converter",
+      "operation": {
+        "method": "get",
+        "path": "/price-converter"
+      },
+      "parameters": [
+        {
+          "name": "base_currency_id",
+          "operationParameter": {
+            "in": "query",
+            "name": "base_currency_id"
+          },
+          "required": false
+        },
+        {
+          "name": "amount",
+          "operationParameter": {
+            "in": "query",
+            "name": "amount"
+          },
+          "required": false
+        },
+        {
+          "name": "quote_currency_id",
+          "operationParameter": {
+            "in": "query",
+            "name": "quote_currency_id"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/contracts",
+      "operation": {
+        "method": "get",
+        "path": "/contracts"
+      },
+      "parameters": [],
+      "reservedParameters": [
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/contracts/{platform_id}",
+      "operation": {
+        "method": "get",
+        "path": "/contracts/{platform_id}"
+      },
+      "parameters": [
+        {
+          "name": "platform_id",
+          "operationParameter": {
+            "in": "path",
+            "name": "platform_id"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/contracts/{platform_id}/{contract_address}",
+      "operation": {
+        "method": "get",
+        "path": "/contracts/{platform_id}/{contract_address}"
+      },
+      "parameters": [
+        {
+          "name": "platform_id",
+          "operationParameter": {
+            "in": "path",
+            "name": "platform_id"
+          },
+          "required": false
+        },
+        {
+          "name": "contract_address",
+          "operationParameter": {
+            "in": "path",
+            "name": "contract_address"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/contracts/{platform_id}/{contract_address}/historical",
+      "operation": {
+        "method": "get",
+        "path": "/contracts/{platform_id}/{contract_address}/historical"
+      },
+      "parameters": [
+        {
+          "name": "limit",
+          "operationParameter": {
+            "in": "query",
+            "name": "limit"
+          },
+          "required": false
+        },
+        {
+          "name": "contract_address",
+          "operationParameter": {
+            "in": "path",
+            "name": "contract_address"
+          },
+          "required": false
+        },
+        {
+          "name": "start",
+          "operationParameter": {
+            "in": "query",
+            "name": "start"
+          },
+          "required": false
+        },
+        {
+          "name": "end",
+          "operationParameter": {
+            "in": "query",
+            "name": "end"
+          },
+          "required": false
+        },
+        {
+          "name": "quote",
+          "operationParameter": {
+            "in": "query",
+            "name": "quote"
+          },
+          "required": false
+        },
+        {
+          "name": "interval",
+          "operationParameter": {
+            "in": "query",
+            "name": "interval"
+          },
+          "required": false
+        },
+        {
+          "name": "platform_id",
+          "operationParameter": {
+            "in": "path",
+            "name": "platform_id"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/changelog/ids",
+      "operation": {
+        "method": "get",
+        "path": "/changelog/ids"
+      },
+      "parameters": [
+        {
+          "name": "page",
+          "operationParameter": {
+            "in": "query",
+            "name": "page"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_times"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/ticker",
+      "operation": {
+        "method": "get",
+        "path": "/ticker"
+      },
+      "parameters": [],
+      "reservedParameters": [
+        {
+          "name": "_type"
+        },
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "GET_/ticker/{coin_id}",
+      "operation": {
+        "method": "get",
+        "path": "/ticker/{coin_id}"
+      },
+      "parameters": [
+        {
+          "name": "coin_id",
+          "operationParameter": {
+            "in": "path",
+            "name": "coin_id"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_times"
+        },
+        {
+          "name": "_path"
+        },
+        {
+          "name": "_type"
+        }
+      ],
+      "preProcessingSpecifications": [],
+      "postProcessingSpecifications": []
+    },
+    {
+      "fixedOperationParameters": [],
+      "name": "feed",
+      "operation": {
+        "method": "get",
+        "path": "/{path}"
+      },
+      "parameters": [
+        {
+          "name": "name",
+          "required": true
+        },
+        {
+          "name": "path",
+          "operationParameter": {
+            "in": "path",
+            "name": "path"
+          },
+          "required": true
+        },
+        {
+          "name": "quotes",
+          "operationParameter": {
+            "in": "query",
+            "name": "quotes"
+          },
+          "required": false
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type",
+          "fixed": "int256"
+        },
+        {
+          "name": "_times",
+          "fixed": "1000000000000000000"
+        }
+      ],
+      "preProcessingSpecifications": [
+        {
+          "environment": "Node",
+          "value": "const preProcessingObject = {\n  \"AAVE/USD\": { path: \"tickers/aave-new\", parameters: { quotes: \"USD\" } },\n  \"ADA/USD\": { path: \"tickers/ada-cardano\", parameters: { quotes: \"USD\" } },\n  \"ALGO/USD\": { path: \"tickers/algo-algorand\", parameters: { quotes: \"USD\" } },\n  \"ANKR/USD\": {\n    path: \"tickers/ankr-ankr-network\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"APE/USD\": { path: \"tickers/ape-apecoin\", parameters: { quotes: \"USD\" } },\n  \"API3/USD\": { path: \"tickers/api3-api3\", parameters: { quotes: \"USD\" } },\n  \"APT/USD\": { path: \"tickers/apt-aptos\", parameters: { quotes: \"USD\" } },\n  \"ARB/USD\": { path: \"tickers/arb-arbitrum\", parameters: { quotes: \"USD\" } },\n  \"ATOM/USD\": { path: \"tickers/atom-cosmos\", parameters: { quotes: \"USD\" } },\n  \"AVAX/USD\": { path: \"tickers/avax-avalanche\", parameters: { quotes: \"USD\" } },\n  \"AXS/USD\": {\n    path: \"tickers/axs-axie-infinity\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"BAL/USD\": { path: \"tickers/bal-balancer\", parameters: { quotes: \"USD\" } },\n  \"BAND/USD\": {\n    path: \"tickers/band-band-protocol\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"BAT/USD\": {\n    path: \"tickers/bat-basic-attention-token\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"BLUR/USD\": { path: \"tickers/blur-blur\", parameters: { quotes: \"USD\" } },\n  \"BNB/USD\": {\n    path: \"tickers/bnb-binance-coin\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"BTC/USD\": { path: \"tickers/btc-bitcoin\", parameters: { quotes: \"USD\" } },\n  \"BTT/USD\": {\n    path: \"tickers/bttc-bittorrent-chain\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"BUSD/USD\": {\n    path: \"tickers/busd-binance-usd\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"CAKE/USD\": {\n    path: \"tickers/cake-pancakeswap\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"CBETH/USD\": {\n    path: \"tickers/cbeth-coinbase-wrapped-staked-eth\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"CELO/USD\": { path: \"tickers/celo-celo\", parameters: { quotes: \"USD\" } },\n  \"CHZ/USD\": { path: \"tickers/chz-chiliz\", parameters: { quotes: \"USD\" } },\n  \"COMP/USD\": { path: \"tickers/comp-compoundd\", parameters: { quotes: \"USD\" } },\n  \"CRO/USD\": {\n    path: \"tickers/cro-cryptocom-chain\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"CRV/USD\": {\n    path: \"tickers/crv-curve-dao-token\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"CRVUSD/USD\": {\n    path: \"tickers/crvusd-curvefi-usd-stablecoin\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"CVX/USD\": {\n    path: \"tickers/cvx-convex-finance\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"DAI/USD\": { path: \"tickers/dai-dai\", parameters: { quotes: \"USD\" } },\n  \"DOGE/USD\": { path: \"tickers/doge-dogecoin\", parameters: { quotes: \"USD\" } },\n  \"DOT/USD\": { path: \"tickers/dot-polkadot\", parameters: { quotes: \"USD\" } },\n  \"DYDX/USD\": { path: \"tickers/dydx-dydx\", parameters: { quotes: \"USD\" } },\n  \"ENS/USD\": {\n    path: \"tickers/ens-ethereum-name-service\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"ETH/USD\": { path: \"tickers/eth-ethereum\", parameters: { quotes: \"USD\" } },\n  \"EUL/USD\": { path: \"tickers/eul-euler\", parameters: { quotes: \"USD\" } },\n  \"FIL/USD\": { path: \"tickers/fil-filecoin\", parameters: { quotes: \"USD\" } },\n  \"FLOW/USD\": { path: \"tickers/flow-flow\", parameters: { quotes: \"USD\" } },\n  \"FRAX/USD\": { path: \"tickers/frax-frax\", parameters: { quotes: \"USD\" } },\n  \"FRXETH/USD\": {\n    path: \"tickers/frxeth-frax-ether\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"FTM/USD\": { path: \"tickers/ftm-fantom\", parameters: { quotes: \"USD\" } },\n  \"FXS/USD\": { path: \"tickers/fxs-frax-share\", parameters: { quotes: \"USD\" } },\n  \"GHO/USD\": { path: \"tickers/gho-gho\", parameters: { quotes: \"USD\" } },\n  \"GLMR/USD\": { path: \"tickers/glmr-moonbeam\", parameters: { quotes: \"USD\" } },\n  \"GMX/USD\": { path: \"tickers/gmx-gmx\", parameters: { quotes: \"USD\" } },\n  \"GNO/USD\": { path: \"tickers/gno-gnosis\", parameters: { quotes: \"USD\" } },\n  \"GNS/USD\": {\n    path: \"tickers/gns-gains-network\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"GRT/USD\": { path: \"tickers/grt-the-graph\", parameters: { quotes: \"USD\" } },\n  \"HBAR/USD\": {\n    path: \"tickers/hbar-hedera-hashgraph\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"HNT/USD\": { path: \"tickers/hnt-helium\", parameters: { quotes: \"USD\" } },\n  \"HT/USD\": { path: \"tickers/ht-huobi-token\", parameters: { quotes: \"USD\" } },\n  \"ICP/USD\": {\n    path: \"tickers/icp-internet-computer\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"IMX/USD\": { path: \"tickers/imx-immutable-x\", parameters: { quotes: \"USD\" } },\n  \"JOE/USD\": { path: \"tickers/joe-trader-joe\", parameters: { quotes: \"USD\" } },\n  \"KAVA/USD\": { path: \"tickers/kava-kava\", parameters: { quotes: \"USD\" } },\n  \"KDA/USD\": { path: \"tickers/kda-kadena\", parameters: { quotes: \"USD\" } },\n  \"KSM/USD\": { path: \"tickers/ksm-kusama\", parameters: { quotes: \"USD\" } },\n  \"LDO/USD\": { path: \"tickers/ldo-lido-dao\", parameters: { quotes: \"USD\" } },\n  \"LINK/USD\": { path: \"tickers/link-chainlink\", parameters: { quotes: \"USD\" } },\n  \"LQTY/USD\": { path: \"tickers/lqty-liquity\", parameters: { quotes: \"USD\" } },\n  \"LTC/USD\": { path: \"tickers/ltc-litecoin\", parameters: { quotes: \"USD\" } },\n  \"LUSD/USD\": {\n    path: \"tickers/lusd-liquity-usd\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"MANA/USD\": {\n    path: \"tickers/mana-decentraland\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"MASK/USD\": {\n    path: \"tickers/mask-mask-network\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"MATIC/USD\": { path: \"tickers/matic-polygon\", parameters: { quotes: \"USD\" } },\n  \"MATICX/USD\": {\n    path: \"tickers/maticx-liquid-staking-matic-pos\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"METIS/USD\": {\n    path: \"tickers/metis-metis-token\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"MKR/USD\": { path: \"tickers/mkr-maker\", parameters: { quotes: \"USD\" } },\n  \"MNT/USD\": { path: \"tickers/mnt-mantle\", parameters: { quotes: \"USD\" } },\n  \"MOVR/USD\": { path: \"tickers/movr-moonriver\", parameters: { quotes: \"USD\" } },\n  \"NEAR/USD\": {\n    path: \"tickers/near-near-protocol\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"OKB/USD\": { path: \"tickers/okb-okb\", parameters: { quotes: \"USD\" } },\n  \"OP/USD\": { path: \"tickers/op-optimism\", parameters: { quotes: \"USD\" } },\n  \"OSMO/USD\": { path: \"tickers/osmo-osmosis\", parameters: { quotes: \"USD\" } },\n  \"PAXG/USD\": { path: \"tickers/paxg-pax-gold\", parameters: { quotes: \"USD\" } },\n  \"PEPE/USD\": { path: \"tickers/pepe-pepe\", parameters: { quotes: \"USD\" } },\n  \"QUICK/USD\": {\n    path: \"tickers/quick-quickswap-v2\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"RBN/USD\": {\n    path: \"tickers/rbn-ribbon-finance\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"RETH/USD\": {\n    path: \"tickers/reth-rocket-pool-eth\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"RNDR/USD\": {\n    path: \"tickers/rndr-render-token\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"ROSE/USD\": {\n    path: \"tickers/rose-oasis-network\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"RPL/USD\": { path: \"tickers/rpl-rocket-pool\", parameters: { quotes: \"USD\" } },\n  \"RSR/USD\": {\n    path: \"tickers/rsr-reserve-rights\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"RUNE/USD\": { path: \"tickers/rune-thorchain\", parameters: { quotes: \"USD\" } },\n  \"SAND/USD\": {\n    path: \"tickers/sand-the-sandbox\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"SHIB/USD\": { path: \"tickers/shib-shiba-inu\", parameters: { quotes: \"USD\" } },\n  \"SNX/USD\": {\n    path: \"tickers/snx-synthetix-network-token\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"SOL/USD\": { path: \"tickers/sol-solana\", parameters: { quotes: \"USD\" } },\n  \"STETH/USD\": {\n    path: \"tickers/steth-lido-staked-ether\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"STG/USD\": {\n    path: \"tickers/stg-stargatetoken\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"STX/USD\": { path: \"tickers/stx-stacks\", parameters: { quotes: \"USD\" } },\n  \"SUI/USD\": { path: \"tickers/sui-sui\", parameters: { quotes: \"USD\" } },\n  \"SUSHI/USD\": { path: \"tickers/sushi-sushi\", parameters: { quotes: \"USD\" } },\n  \"TUSD/USD\": { path: \"tickers/tusd-trueusd\", parameters: { quotes: \"USD\" } },\n  \"UMA/USD\": { path: \"tickers/uma-uma\", parameters: { quotes: \"USD\" } },\n  \"UNI/USD\": { path: \"tickers/uni-uniswap\", parameters: { quotes: \"USD\" } },\n  \"USDC/USD\": { path: \"tickers/usdc-usd-coin\", parameters: { quotes: \"USD\" } },\n  \"USDP/USD\": {\n    path: \"tickers/usdp-paxos-standard-token\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"USDT/USD\": { path: \"tickers/usdt-tether\", parameters: { quotes: \"USD\" } },\n  \"WBTC/USD\": {\n    path: \"tickers/wbtc-wrapped-bitcoin\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"WSTETH/USD\": {\n    path: \"tickers/wsteth-wrapped-liquid-staked-ether-20\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"XLM/USD\": { path: \"tickers/xlm-stellar\", parameters: { quotes: \"USD\" } },\n  \"XMR/USD\": { path: \"tickers/xmr-monero\", parameters: { quotes: \"USD\" } },\n  \"XRP/USD\": { path: \"tickers/xrp-xrp\", parameters: { quotes: \"USD\" } },\n  \"XTZ/USD\": { path: \"tickers/xtz-tezos\", parameters: { quotes: \"USD\" } },\n  \"YFI/USD\": {\n    path: \"tickers/yfi-yearnfinance\",\n    parameters: { quotes: \"USD\" },\n  },\n  \"ZIL/USD\": { path: \"tickers/zil-zilliqa\", parameters: { quotes: \"USD\" } },\n  \"ZRX/USD\": { path: \"tickers/zrx-0x\", parameters: { quotes: \"USD\" } },\n}\noutput = {\n  path: preProcessingObject[endpointParameters.name].path,\n  ...preProcessingObject[endpointParameters.name].parameters,\n}\n",
+          "timeoutMs": 5000
+        }
+      ],
+      "postProcessingSpecifications": [
+        {
+          "environment": "Node",
+          "value": "const postProcessingObject = {\n  \"AAVE/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"ADA/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"ALGO/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"ANKR/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"APE/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"API3/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"APT/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"ARB/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"ATOM/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"AVAX/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"AXS/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"BAL/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"BAND/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"BAT/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"BLUR/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"BNB/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"BTC/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"BTT/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"BUSD/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"CAKE/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"CBETH/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"CELO/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"CHZ/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"COMP/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"CRO/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"CRV/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"CRVUSD/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"CVX/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"DAI/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"DOGE/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"DOT/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"DYDX/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"ENS/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"ETH/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"EUL/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"FIL/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"FLOW/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"FRAX/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"FRXETH/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"FTM/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"FXS/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"GHO/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"GLMR/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"GMX/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"GNO/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"GNS/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"GRT/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"HBAR/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"HNT/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"HT/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"ICP/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"IMX/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"JOE/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"KAVA/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"KDA/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"KSM/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"LDO/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"LINK/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"LQTY/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"LTC/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"LUSD/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"MANA/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"MASK/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"MATIC/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"MATICX/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"METIS/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"MKR/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"MNT/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"MOVR/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"NEAR/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"OKB/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"OP/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"OSMO/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"PAXG/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"PEPE/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"QUICK/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"RBN/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"RETH/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"RNDR/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"ROSE/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"RPL/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"RSR/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"RUNE/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"SAND/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"SHIB/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"SNX/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"SOL/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"STETH/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"STG/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"STX/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"SUI/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"SUSHI/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"TUSD/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"UMA/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"UNI/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"USDC/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"USDP/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"USDT/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"WBTC/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"WSTETH/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"XLM/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"XMR/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"XRP/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"XTZ/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"YFI/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"ZIL/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n  \"ZRX/USD\":\n    \"(response) => {\\n              return response.quotes.USD.price\\n            }\",\n}\nconst parser = eval(postProcessingObject[endpointParameters.name])\noutput = parser(input)\n",
+          "timeoutMs": 5000
+        }
+      ]
+    }
+  ]
+}
