@@ -13,7 +13,14 @@ const FeedGroupView = ({ index, endpoint, feed, server, title, status }) => {
         <VStack key={index} alignItems={"left"} width={"100%"}>
           <ExpandableView
             status={status}
-            view={<FeedRowView endpoint={endpoint} feed={feed} servers={server} tryit={false} />}
+            view={
+              <FeedRowView
+                endpoint={endpoint}
+                feed={feed}
+                servers={server}
+                tryit={false}
+              />
+            }
             header={feed.feed}
           />
         </VStack>

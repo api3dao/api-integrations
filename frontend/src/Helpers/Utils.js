@@ -109,7 +109,7 @@ export const compareFeeds = (newFeeds, oldFeeds) => {
       a.feed === b.feed &&
       (a.code !== b.code ||
         a.preProcessingSpecificationsValue !==
-        b.preProcessingSpecificationsValue)
+          b.preProcessingSpecificationsValue)
     );
   };
   const isUnchanged = (a, b) => {
@@ -242,4 +242,3 @@ export const pathFromPrePreProcessing = (parameters, servers) => {
   const pathWithBase = url + "/" + parameters.path + queryString;
   return pathWithBase;
 };
-

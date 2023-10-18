@@ -13,7 +13,9 @@ const Hero = ({
   return (
     <VStack p={3} alignItems={"left"} bgColor={COLORS.title}>
       <Flex>
-        <Text fontWeight={"bold"} size={"lg"}>{header}</Text>
+        <Text fontWeight={"bold"} size={"lg"}>
+          {header}
+        </Text>
         <Spacer />
         <ColorRing
           height="32px"

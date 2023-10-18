@@ -102,7 +102,6 @@ const FeedRowView = ({ endpoint, feed, servers, tryit = true }) => {
 
   return (
     <VStack alignItems={"left"} spacing={4} p={2} width={"100%"}>
-      <Text fontSize={"md"}>Get {feed.feed} price</Text>
       <Text fontSize={"md"} fontWeight={"bold"}>
         HTTP Request
       </Text>
@@ -152,22 +151,20 @@ const FeedRowView = ({ endpoint, feed, servers, tryit = true }) => {
       />
 
       <VStack alignItems={"left"} width={"100%"}>
-        {
-          !tryit ? null :
-            <Button
-              colorScheme={"orange"}
-              p={2}
-              fontSize={"sm"}
-              h={"50px"}
-              w={"100px"}
-              onClick={() => {
-                preProcess();
-              }}
-            >
-              Try it out
-            </Button>
-        }
-
+        {!tryit ? null : (
+          <Button
+            colorScheme={"orange"}
+            p={2}
+            fontSize={"sm"}
+            h={"50px"}
+            w={"100px"}
+            onClick={() => {
+              preProcess();
+            }}
+          >
+            Try it out
+          </Button>
+        )}
       </VStack>
       {postProcessResult == null ? null : (
         <VStack alignItems={"left"} width={"100%"}>
