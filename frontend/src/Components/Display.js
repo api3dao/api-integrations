@@ -46,6 +46,15 @@ const Hero = ({ configData }) => {
     setSecuritySchemeValue(newState);
   };
 
+  const getApiKey = (oisTitle) => {
+    const apiKey = SECURITY_SCHEME_VALUES.find(
+      (securitySchemeValue) => securitySchemeValue.oisTitle === oisTitle
+    );
+
+    if (apiKey === undefined) return null;
+    return apiKey;
+  };
+
   return configData === null ? null : (
     <VStack p={1} spacing={4} alignItems={"left"}>
       <Title
@@ -122,7 +131,8 @@ const Hero = ({ configData }) => {
                   <VStack key={index} alignItems={"left"} width={"100%"}>
                     <Endpoint
                       endpoint={endpoint}
-                      servers={ois.apiSpecifications.servers}
+                      apiSpecifications={ois.apiSpecifications}
+                      apiCredentials={getApiKey(ois.title)}
                     />
                   </VStack>
                 ))}

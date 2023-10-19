@@ -1,3 +1,7 @@
+
+import parserTypeScript from "prettier/parser-babel";
+import prettier from "prettier/standalone";
+
 export const cut = (
   object,
   initialMatch,
@@ -109,7 +113,7 @@ export const compareFeeds = (newFeeds, oldFeeds) => {
       a.feed === b.feed &&
       (a.code !== b.code ||
         a.preProcessingSpecificationsValue !==
-          b.preProcessingSpecificationsValue)
+        b.preProcessingSpecificationsValue)
     );
   };
   const isUnchanged = (a, b) => {
@@ -242,3 +246,29 @@ export const pathFromPrePreProcessing = (parameters, servers) => {
   const pathWithBase = url + "/" + parameters.path + queryString;
   return pathWithBase;
 };
+
+export const getApiKey = (apiCredentials, securitySchemes) => {
+  const securitySchemeName = Object.keys(securitySchemes).find(key => key === apiCredentials.securitySchemeName);
+  const securityScheme = securitySchemes[securitySchemeName];
+
+  const apiKey = {
+    in: securityScheme.in,
+    key: securityScheme.name,
+    value: apiCredentials.securitySchemeValue
+  }
+
+  return apiKey;
+};
+
+export const formatCode = (code) => {
+  try {
+    return prettier.format(code, {
+      semi: true,
+      parser: "babel",
+      plugins: [parserTypeScript],
+    });
+  } catch (error) {
+    return code;
+  }
+};
+

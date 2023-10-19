@@ -5,14 +5,14 @@ import { combine } from "../Helpers/Utils";
 
 import ExpandableView from "../Custom/ExpandableView";
 
-const Endpoint = ({ endpoint, servers }) => {
+const Endpoint = ({ endpoint, apiSpecifications, apiCredentials }) => {
   return (
     <VStack alignItems={"left"}>
       {combine(endpoint).map((feed, index) => (
         <VStack key={index} alignItems={"left"} width={"100%"}>
           <ExpandableView
             view={
-              <FeedRowView endpoint={endpoint} feed={feed} servers={servers} />
+              <FeedRowView endpoint={endpoint} feed={feed} apiSpecifications={apiSpecifications} apiCredentials={apiCredentials} />
             }
             header={feed.feed}
           />
