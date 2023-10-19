@@ -1,35 +1,21 @@
 import { Text, Flex, VStack, Button, Spacer } from "@chakra-ui/react";
 import { CopyBlock, dracula } from "react-code-blocks";
-
-import parserTypeScript from "prettier/parser-babel";
-import prettier from "prettier/standalone";
-import { useEffect, useState } from "react";
+import { formatCode } from "../Helpers/Utils";
+import { useState } from "react";
 import {
   getPath,
   getApiCallParameters,
   pathFromPrePreProcessing,
+  getApiKey,
 } from "../Helpers/Utils";
-import { postProcessing, preProcessing } from "../Helpers/PostProcessing";
+import { postProcessing, preProcessing, getAPIResponse } from "../Helpers/PostProcessing";
 import TableView from "./TableView";
 import { ColorRing } from "react-loader-spinner";
 
-const FeedRowView = ({ endpoint, feed, servers, tryit = true }) => {
+const FeedRowView = ({ endpoint, feed, apiSpecifications, apiCredentials, tryit = true }) => {
   const [postProcessResult, setPostProcessResult] = useState(null);
-  const [preProcessResult, setPreProcessResult] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-
-  const formatCode = (code) => {
-    try {
-      return prettier.format(code, {
-        semi: true,
-        parser: "babel",
-        plugins: [parserTypeScript],
-      });
-    } catch (error) {
-      return code;
-    }
-  };
 
   const formatParameters = (parameters) => {
     try {
@@ -75,32 +61,27 @@ const FeedRowView = ({ endpoint, feed, servers, tryit = true }) => {
     }
   };
 
+  const callApi = (result) => {
+    const url = pathFromPrePreProcessing(result, apiSpecifications.servers);
+    const apiKey = getApiKey(apiCredentials, apiSpecifications.components.securitySchemes);
+
+    getAPIResponse(url, endpoint.operation.method, apiKey).then((res) => {
+      setIsLoading(false);
+      postProcessing(
+        res,
+        { name: feed.feed },
+        endpoint,
+        setPostProcessResult
+      );
+    }
+    );
+  };
+
   const preProcess = () => {
     setIsLoading(true);
     setPostProcessResult(null);
-    preProcessing(endpoint, { name: feed.feed }, setPreProcessResult);
+    preProcessing(endpoint, { name: feed.feed }, callApi);
   };
-
-  useEffect(() => {
-    if (preProcessResult == null) return;
-    if (feed.preProcessingSpecificationsValue == null) return;
-
-    const url = pathFromPrePreProcessing(preProcessResult, servers);
-    fetch(url)
-      .then((response) => response.json())
-      .then((res) => {
-        postProcessing(
-          res,
-          { name: feed.feed },
-          endpoint,
-          setPostProcessResult
-        );
-      });
-  }, [endpoint, feed, preProcessResult, servers]);
-
-  useEffect(() => {
-    setIsLoading(false);
-  }, [postProcessResult]);
 
   const getColor = (method, darker) => {
     if (method === "GET") return darker ? "blue.300" : "blue.200";
@@ -127,7 +108,7 @@ const FeedRowView = ({ endpoint, feed, servers, tryit = true }) => {
           p={2}
           fontSize={"sm"}
         >
-          {error !== null ? "error" : getPath(feed, servers, setError)}
+          {error !== null ? "error" : getPath(feed, apiSpecifications.servers, setError)}
         </Text>
         <Spacer />
       </Flex>

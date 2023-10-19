@@ -45,3 +45,32 @@ export const preProcessing = (endpoint, apiCallParameters, callback) => {
       console.log(error);
     });
 };
+
+export const getAPIResponse = async (url, method, apiKey) => {
+
+  const options = {
+    method: method,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  if (apiKey !== undefined) {
+    switch (apiKey.in) {
+      case "header":
+        options.headers[apiKey.key] = apiKey.value;
+        break;
+      case "query":
+        url += `&${apiKey.key}=${apiKey.value}`;
+        break;
+      default:
+        break;
+    }
+  }
+
+  console.log(url);
+  const response = await fetch(url, options);
+  const data = await response.json();
+
+  return data;
+};

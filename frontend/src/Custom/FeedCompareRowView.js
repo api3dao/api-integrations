@@ -1,22 +1,9 @@
 import { Text, Flex, VStack, Spacer } from "@chakra-ui/react";
 import { CopyBlock, dracula } from "react-code-blocks";
-
-import parserTypeScript from "prettier/parser-babel";
-import prettier from "prettier/standalone";
+import { formatCode } from "../Helpers/Utils";
 import { getPath } from "../Helpers/Utils";
 
 const FeedCompareRowView = ({ feed, servers }) => {
-  const formatCode = (code) => {
-    try {
-      return prettier.format(code, {
-        semi: true,
-        parser: "babel",
-        plugins: [parserTypeScript],
-      });
-    } catch (error) {
-      return code;
-    }
-  };
 
   return (
     <VStack alignItems={"left"} spacing={4} p={5} width={"100%"}>
