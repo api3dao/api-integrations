@@ -7,10 +7,17 @@
   "author": "metobom <unutkan2013@yandex.com>",
   "license": "MIT",
   "devDependencies": {
-    "prettier": "^3.0.3"
+    "@api3/airnode-abi": "^0.12.0",
+    "@types/node": "^20.8.7",
+    "date-fns": "^2.30.0",
+    "ethers": "^5.4.2",
+    "glob": "^10.3.10",
+    "prettier": "^3.0.3",
+    "prompts": "^2.4.2"
   },
   "scripts": {
     "prettier:check": "prettier --check \"./**/*.{js,ts,md,json}\"",
-    "prettier:write": "prettier --write \"./**/*.{js,ts,md,json}\""
+    "prettier:write": "prettier --write \"./**/*.{js,ts,md,json}\"",
+    "generate-pusher-deployment": "ts-node src/config-generation/pusher/generate-deployment.ts"
   }
 }
