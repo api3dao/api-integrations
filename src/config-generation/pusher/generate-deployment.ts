@@ -119,7 +119,7 @@ const main = async () => {
 
   // save the deployment
   const deploymentPath = `./data/apis/${apiName}/deployments/candidate-deployments`;
-  saveJson(join(deploymentPath, `${deploymentId}.json`), pusherConfig);
+  saveJson(join(deploymentPath, `${deploymentId}-pusher.json`), pusherConfig);
 
 }
 
