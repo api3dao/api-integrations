@@ -3,6 +3,7 @@
 /node_modules
 /dist
 *.tgz
+/dev-scripts
 
 # IDE specific files
 .vscode
