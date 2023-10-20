@@ -1,7 +1,7 @@
 import * as fs from 'fs';
+import * as crypto from "crypto";
 import { ethers } from "ethers";
 import { encode } from "@api3/airnode-abi";
-
 
 
 export function deriveDataFeedId(oisTitle: string, dapiName: string, airnodeAddress: string) {
@@ -36,4 +36,13 @@ export function mkdirIfDoesntExists(path: string) {
   if(!fs.existsSync(path)) {
     fs.mkdirSync(path);
   }
+}
+
+export function deriveDeploymentId(configGenerationTimestamp: number, airnodeAddress: string) {
+  const DEPLOYMENT_ID_LENGTH = 8;
+  return crypto
+  .createHash("sha256")
+  .update([configGenerationTimestamp, airnodeAddress, ].join(''))
+  .digest("hex")
+  .substring(0, DEPLOYMENT_ID_LENGTH);
 }
