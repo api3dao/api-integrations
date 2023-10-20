@@ -3734,5 +3734,6 @@
       "securitySchemeName": "CoinpaprikaSecurityScheme2ApiKey",
       "securitySchemeValue": "COINPAPRIKASECURITYSCHEME2APIKEY_VALUE"
     }
-  ]
+  ],
+  "deploymentId": "1c6fc553"
 }

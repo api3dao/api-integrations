@@ -113,9 +113,11 @@ const main = async () => {
     });
   });
   
+  // derive deployment id
+  const deploymentId = deriveDeploymentId(configGenerationTimestamp, apiData.airnodeAddress)
+  pusherConfig.deploymentId = deploymentId;
 
   // save the deployment
-  const deploymentId = deriveDeploymentId(configGenerationTimestamp, apiData.airnodeAddress)
   const deploymentPath = `./data/apis/${apiName}/deployments/candidate-deployments`;
   saveJson(join(deploymentPath, `${deploymentId}.json`), pusherConfig);
 
