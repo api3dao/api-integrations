@@ -1,21 +1,21 @@
 import { join } from "path";
 import { globSync } from "glob";
 import { format } from "date-fns";
-import { deriveEndpointId, deriveTemplateId, readJson, mkdirIfDoesntExists, saveJson } from "../config-utils";
+import { ethers } from "ethers";
+import { deriveEndpointId, deriveTemplateId, readJson, mkdirIfDoesntExists, saveJson, deriveDeploymentId } from "../config-utils";
 
 import * as fs from "fs";
 
-
 const prompts = require("prompts");
+
 
 const main = async () => {
   
   const APIS_ROOT = "./data/apis/";
 
-  const today = format(new Date(), "yyyy-MM-dd");
-  const timestamp = Math.floor(Date.now() / 1000);
+  const configGenerationTimestamp = Math.floor(Date.now() / 1000);
 
-  // arg parse
+  // get the apiName
   const existingProviders = fs.readdirSync(APIS_ROOT);
   const { apiName } = await prompts({
     type: "select",
@@ -26,66 +26,71 @@ const main = async () => {
     })
   });
 
+  // read required files
   let pusherConfig = readJson("./boilerplates/boilerplate-pusher-config.json");
   const apiData = readJson(`./data/apis/${apiName}/api-data.json`);
   
   // read oises
   const oises = globSync(`./data/apis/${apiName}/oises/*`).map((oisPath) => readJson(oisPath));
 
-  // create deployment path
-  const deploymentPath = join(`./data/apis/${apiName}/deployments`, today);
-  mkdirIfDoesntExists(deploymentPath);
-
+  // init "signedApiUpdates" triggers
   pusherConfig.triggers["signedApiUpdates"] = [];
 
+  // generate rateLimiting object & push OIS objects
   if(oises.length > 1) {
+    // TODO
 
   } else {
     oises.map((ois) => {
-      // generate rateLimiting
       pusherConfig.rateLimiting[ois.title] = { "maxConcurrency": 25, "minTime": 10 };
-  
-      // generate endpoints
-      const endpointId = deriveEndpointId(ois.title);
-      pusherConfig.endpoints[endpointId] = {
-        endpointName: "feed",
-        oisTitle: ois.title
-      }
-      
-      // generate templates (pairName: XXX/YYY)
-      Object.keys(apiData.supportedFeedsInBatches).map((oisTitle) => {
-        apiData.supportedFeedsInBatches[oisTitle].map((batch: any) => {
-          let templateIds: string[] = [];
-          batch.map((pairName: string) => {
-            const templateId = deriveTemplateId(ois.title, pairName);
-            templateIds.push(templateId);  
-            pusherConfig.templates[templateId] = {
-              endpointId: endpointId,
-              parameters: [{ type: "string32", name: "name", value: pairName }]
-            }
-          })
-  
-          // generate triggers
-          pusherConfig.triggers["signedApiUpdates"].push(
-            [
-              {
-                signedApiName: "Nodary",
-                templateIds: templateIds,
-                fetchInterval: 5,
-                updateDelay: 30
-              }
-            ]
-          )
-        });
-      })
-
-      // generate oises
       pusherConfig.ois.push(ois);
-
     })
   }
-  
 
+  // validate OIS titles in "apiData.supportedFeedsInBatches"
+  const originalOisTitlesHash = ethers.utils.solidityKeccak256(oises.map((o) => "string"), oises.map((o) => o.title));
+  const oisTitlesHashFromApiData = ethers.utils.solidityKeccak256(Object.keys(apiData.supportedFeedsInBatches).map((ot) => "string"), Object.keys(apiData.supportedFeedsInBatches));
+  if(originalOisTitlesHash !== oisTitlesHashFromApiData) {
+    console.log("Actual OIS titles and OIS titles in api-data.json are not same!");
+    console.log("Exiting...");
+    process.exit();
+  }
+
+  // generate templates (feedName: XXX/YYY)
+  Object.keys(apiData.supportedFeedsInBatches).map((oisTitle) => {
+    // add endpoints
+    const endpointId = deriveEndpointId(oisTitle);
+    pusherConfig.endpoints[endpointId] = {
+      endpointName: "feed",
+      oisTitle: oisTitle
+    }
+
+    // add templates
+    apiData.supportedFeedsInBatches[oisTitle].map((batch: string[]) => {
+      let templateIds: string[] = batch.map((feedName: string) => {
+        const templateId = deriveTemplateId(oisTitle, feedName);
+        pusherConfig.templates[templateId] = {
+          endpointId: endpointId,
+          parameters: [{ type: "string32", name: "name", value: feedName }]
+        }
+        return templateId;
+      })
+
+      // add triggers
+      pusherConfig.triggers["signedApiUpdates"].push(
+        [
+          {
+            signedApiName: "Nodary",
+            templateIds: templateIds,
+            fetchInterval: 5,
+            updateDelay: 30
+          }
+        ]
+      )
+      
+    });
+  })
+  
   // generate signedApis
   pusherConfig.signedApis = [
     {
@@ -109,7 +114,10 @@ const main = async () => {
   });
   
 
-  saveJson(join(deploymentPath, "pusher.json"), pusherConfig);
+  // save the deployment
+  const deploymentId = deriveDeploymentId(configGenerationTimestamp, apiData.airnodeAddress)
+  const deploymentPath = `./data/apis/${apiName}/deployments/candidate-deployments`;
+  saveJson(join(deploymentPath, `${deploymentId}.json`), pusherConfig);
 
 }
 
