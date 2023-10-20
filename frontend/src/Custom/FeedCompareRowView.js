@@ -3,7 +3,7 @@ import { CopyBlock, dracula } from "react-code-blocks";
 import { formatCode } from "../Helpers/Utils";
 import { getPath } from "../Helpers/Utils";
 
-const FeedCompareRowView = ({ feed, servers }) => {
+const FeedCompareRowView = ({ feed, oldServers, newServers }) => {
 
   return (
     <VStack alignItems={"left"} spacing={4} p={5} width={"100%"}>
@@ -25,7 +25,7 @@ const FeedCompareRowView = ({ feed, servers }) => {
             GET
           </Text>
           <Text bgColor={"gray.200"} p={2} fontSize={"sm"}>
-            {getPath(feed.oldFeed, servers)}
+            {getPath(feed.oldFeed, oldServers)}
           </Text>
         </Flex>
         <Text fontSize={"md"} fontWeight={"bold"}>
@@ -59,7 +59,7 @@ const FeedCompareRowView = ({ feed, servers }) => {
             GET
           </Text>
           <Text bgColor={"blue.200"} p={2} fontSize={"sm"}>
-            {getPath(feed.newFeed, servers)}
+            {getPath(feed.newFeed, newServers)}
           </Text>
           <Spacer />
         </Flex>
