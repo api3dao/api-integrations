@@ -1,40 +1,51 @@
 
 import parserTypeScript from "prettier/parser-babel";
 import prettier from "prettier/standalone";
+import { log } from "../Helpers/Logger";
 
 export const cut = (
   object,
   initialMatch,
   finalMatch,
   replaceQuotes = true,
+  json = false,
   setError
 ) => {
   try {
     const newObject = object.map((code, index) => {
       let sanitized = code.value.replaceAll(/(\n)/g, "");
       sanitized = sanitized.replace(/ +(?= )/g, "");
-
+      log("debug", ["sanitized: ", sanitized]);
       const object = sanitized.match(initialMatch);
+      log("debug", ["object: ", object])
 
       let filtered = replaceQuotes
         ? object[0].replaceAll(/(\\n)|(\\)|(")/g, "")
         : object[0].replaceAll(/(\\n)/g, "");
       filtered = filtered.replace(/ +(?= )/g, "");
-
+      log("debug", ["filtered: ", filtered]);
       return filtered;
     });
 
-    if (newObject == null || newObject === undefined) return [];
-    const splitParanthesis = newObject[0].match(finalMatch);
+    if (json) {
+      log("debug", ["newObject: ", newObject])
+      const val = jsonify(newObject[0], setError);
+      log("debug", ["val: ", val])
+    } else {
+      log("debug", ["newObject: ", newObject])
+      if (newObject == null || newObject === undefined) return [];
+      const splitParanthesis = newObject[0].match(finalMatch);
+      log("debug", ["splitParanthesis: ", splitParanthesis])
+      let final = [];
 
-    let final = [];
-
-    for (let i = 0; i < splitParanthesis.length; i++) {
-      const split = splitParanthesis[i].split(/:(.*)/s);
-      final.push(split);
+      for (let i = 0; i < splitParanthesis.length; i++) {
+        const split = splitParanthesis[i].split(/:(.*)/s);
+        final.push(split);
+      }
+      log("debug", ["final: ", final])
+      return final;
     }
 
-    return final;
   } catch (error) {
     setError(error);
   }
@@ -50,15 +61,19 @@ export const combine = (endpoint, setError) => {
     /{.+}/g,
     /[A-Z0-9]+\/[A-Z]+: (?:\(+)(.+?)(?:\)+) => (?:\{ +)(.+?)(?: \}+)/g,
     true,
+    false,
     setError
   );
   const preProcessingSpecifications = cut(
     endpoint.preProcessingSpecifications,
-    /{.+" }, },}/g,
-    /["A-Z0-9]+\/[A-Z"]+: (?:\{+)(.+?)(?:, \}+)/g,
+    /{.+(" |)}(,|) },}/g,
+    /["A-Z0-9]+\/[A-Z"]+: (?:\{+)(.+?)(?:(,|}) \}+)/g,
+    false,
     false,
     setError
   );
+  log("debug", ["postProcessingSpecifications: ", postProcessingSpecifications])
+  log("debug", ["preProcessingSpecifications: ", preProcessingSpecifications])
 
   const combined = postProcessingSpecifications.map((item, index) => {
     const specifications = preProcessingSpecifications.filter(
@@ -67,6 +82,7 @@ export const combine = (endpoint, setError) => {
     const preProcessingSpecificationsValue =
       specifications.length > 0 ? specifications : [["", ""]];
 
+    log("debug", ["preProcessingSpecificationsValue: ", preProcessingSpecificationsValue])
     return {
       feed: item[0],
       code: item[1],
@@ -74,6 +90,7 @@ export const combine = (endpoint, setError) => {
     };
   });
 
+  log("debug", ["combined: ", combined])
   return combined;
 };
 
@@ -163,8 +180,8 @@ export const extractFeeds = (newOis, oldOis) => {
 
   return {
     compareFeeds: compareFeeds(newFeeds, oldFeeds),
-    serverOld: oldOis[0].apiSpecifications.servers,
-    serverNew: newOis[0].apiSpecifications.servers,
+    apiSpecsOld: oldOis[0].apiSpecifications,
+    apiSpecsNew: newOis[0].apiSpecifications,
     endpointsOld: endpointsOld,
     endpointsNew: endpointsNew,
   };
@@ -172,14 +189,11 @@ export const extractFeeds = (newOis, oldOis) => {
 
 export const jsonify = (object, setError) => {
   try {
-    var correctJson = object.replace(
-      /(['"])?([a-z0-9A-Z_]+)(['"])?:/g,
-      '"$2": '
-    );
-    correctJson = correctJson.replaceAll(/}, }/g, "}}");
-    const json = JSON.parse(correctJson);
+    const formattedJson = formatCode(object, "json");
+    const json = JSON.parse(formattedJson);
     return json;
   } catch (error) {
+    log("error", ["jsonify: ", error])
     setError(error);
   }
 };
@@ -260,11 +274,11 @@ export const getApiKey = (apiCredentials, securitySchemes) => {
   return apiKey;
 };
 
-export const formatCode = (code) => {
+export const formatCode = (code, parser = "babel") => {
   try {
     return prettier.format(code, {
       semi: true,
-      parser: "babel",
+      parser: parser,
       plugins: [parserTypeScript],
     });
   } catch (error) {

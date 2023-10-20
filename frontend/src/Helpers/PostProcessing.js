@@ -46,7 +46,7 @@ export const preProcessing = (endpoint, apiCallParameters, callback) => {
     });
 };
 
-export const getAPIResponse = async (url, method, apiKey) => {
+export const getAPIResponse = async (url, method, apiKey, body) => {
 
   const options = {
     method: method,
@@ -54,6 +54,10 @@ export const getAPIResponse = async (url, method, apiKey) => {
       "Content-Type": "application/json",
     },
   };
+
+  if (body !== undefined) {
+    options.body = JSON.stringify(body);
+  }
 
   if (apiKey !== undefined) {
     switch (apiKey.in) {
@@ -68,7 +72,6 @@ export const getAPIResponse = async (url, method, apiKey) => {
     }
   }
 
-  console.log(url);
   const response = await fetch(url, options);
   const data = await response.json();
 

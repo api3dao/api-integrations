@@ -62,6 +62,7 @@ const FeedRowView = ({ endpoint, feed, apiSpecifications, apiCredentials, tryit 
   };
 
   const callApi = (result) => {
+    if (apiSpecifications == null) return;
     const url = pathFromPrePreProcessing(result, apiSpecifications.servers);
     const apiKey = getApiKey(apiCredentials, apiSpecifications.components.securitySchemes);
 
@@ -112,22 +113,28 @@ const FeedRowView = ({ endpoint, feed, apiSpecifications, apiCredentials, tryit 
         </Text>
         <Spacer />
       </Flex>
-      <Text fontSize={"md"} fontWeight={"bold"}>
-        Parameters
-      </Text>
-      {error !== null ? (
-        "error"
-      ) : (
-        <TableView
-          parameters={formatParameters(endpoint.parameters)}
-          headers={[
-            { key: "name", value: "Name" },
-            { key: "type", value: "Type" },
-            { key: "value", value: "Value" },
-            { key: "required", value: "Required" },
-          ]}
-        />
-      )}
+
+      {
+        formatParameters(endpoint.parameters).length === 0 ? null :
+          <>
+            <Text fontSize={"md"} fontWeight={"bold"}>
+              Parameters
+            </Text>
+            {error !== null ? (
+              "error"
+            ) : (
+              <TableView
+                parameters={formatParameters(endpoint.parameters)}
+                headers={[
+                  { key: "name", value: "Name" },
+                  { key: "type", value: "Type" },
+                  { key: "value", value: "Value" },
+                  { key: "required", value: "Required" },
+                ]}
+              />
+            )}
+          </>
+      }
       <Text fontSize={"md"} fontWeight={"bold"}>
         Post Processing
       </Text>

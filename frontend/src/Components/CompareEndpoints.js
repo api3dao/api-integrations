@@ -26,7 +26,7 @@ const Endpoint = ({ oldOis, newOis }) => {
           endpoint={comparison.endpointsNew[0]}
           index={index}
           feed={feed}
-          server={comparison.serverNew}
+          apiSpecifications={comparison.apiSpecsNew}
           title={"Added"}
           status={1}
         />
@@ -37,7 +37,7 @@ const Endpoint = ({ oldOis, newOis }) => {
           endpoint={comparison.endpointsOld[0]}
           index={index}
           feed={feed}
-          server={comparison.serverNew}
+          apiSpecifications={comparison.apiSpecsOld}
           title={"Removed"}
           status={2}
         />
@@ -47,7 +47,8 @@ const Endpoint = ({ oldOis, newOis }) => {
           key={index}
           index={index}
           feed={feed}
-          server={comparison.serverNew}
+          oldServers={comparison.apiSpecsOld}
+          newServers={comparison.apiSpecsNew}
           title={"Updated"}
           status={3}
         />
@@ -58,7 +59,7 @@ const Endpoint = ({ oldOis, newOis }) => {
           endpoint={comparison.endpointsNew[0]}
           index={index}
           feed={feed}
-          server={comparison.serverNew}
+          apiSpecifications={comparison.apiSpecsNew}
           title={"Unchanged"}
           status={0}
         />
