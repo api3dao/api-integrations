@@ -126,7 +126,7 @@ const main = async () => {
         signedApiName: 'Nodary',
         templateIds: templateIds,
         fetchInterval: 5,
-        updateDelay: 30
+        updateDelay: 0
       });
     });
   });
