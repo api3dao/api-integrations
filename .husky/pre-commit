@@ -1,0 +1,5 @@
+
+
+echo "[FORMAT CHECK] - Checking code format..."
+yarn run prettier:check
+echo "[FORMAT CHECK] - Done."
