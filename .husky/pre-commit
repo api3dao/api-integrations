@@ -1,6 +1,7 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-echo "[FORMAT CHECK] - Checking code format..."
-yarn run prettier:check
-echo "[FORMAT CHECK] - Done."
+echo "Validating pre-post processing objects..."
+yarn run validate-processings
+echo "Done."
+
