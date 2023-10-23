@@ -46,7 +46,7 @@ export const preProcessing = (endpoint, apiCallParameters, callback) => {
     });
 };
 
-export const getAPIResponse = async (url, method, apiKey, body) => {
+export const getAPIResponse = async (request, method, apiKey) => {
 
   const options = {
     method: method,
@@ -55,8 +55,20 @@ export const getAPIResponse = async (url, method, apiKey, body) => {
     },
   };
 
-  if (body !== undefined) {
-    options.body = JSON.stringify(body);
+  if (request.headers !== undefined) {
+    request.headers.forEach((header) => {
+      options.headers[header.name] = header.value;
+    });
+  }
+
+  if (request.cookies !== undefined) {
+    request.cookies.forEach((cookie) => {
+      options.headers[cookie.name] = cookie.value;
+    });
+  }
+
+  if (request.body !== null) {
+    options.body = JSON.stringify(request.body);
   }
 
   if (apiKey !== undefined) {
@@ -65,14 +77,14 @@ export const getAPIResponse = async (url, method, apiKey, body) => {
         options.headers[apiKey.key] = apiKey.value;
         break;
       case "query":
-        url += `&${apiKey.key}=${apiKey.value}`;
+        request.path += `&${apiKey.key}=${apiKey.value}`;
         break;
       default:
         break;
     }
   }
 
-  const response = await fetch(url, options);
+  const response = await fetch(request.url, options);
   const data = await response.json();
 
   return data;
