@@ -214,51 +214,122 @@ export const getServerUrl = (servers) => {
   return url;
 };
 
-export const getPath = (feed, servers, setError) => {
+export const getPath = (endpointParameters, feed, servers, setError) => {
   try {
-    const path = jsonify(feed.preProcessingSpecificationsValue, setError);
-    if (path === undefined) return null;
-    if (servers.length === 0) return path;
+    const parameters = jsonify(feed.preProcessingSpecificationsValue, setError);
+    if (parameters === undefined) return null;
+    if (servers.length === 0) return parameters.path;
 
     const server = servers[0];
     const url = server.url;
 
+    let path = parameters.path;
+    let headers = [];
+    let cookies = [];
+    let body = null;
     let queryString = "?";
 
-    if (path.parameters === undefined) return path;
+    Object.keys(parameters.parameters).forEach((key) => {
+      const parameterIn = endpointParameters.filter((item) => item.name === key)[0].operationParameter;
 
-    Object.keys(path.parameters).forEach((key) => {
-      const value = path.parameters[key];
-      queryString += `${key}=${value}&`;
+      switch (parameterIn.in) {
+        case "path":
+          path += parameters[key];
+          break;
+        case "header":
+          headers.push({ name: parameterIn.name, value: parameters.parameters[key] });
+          break;
+        case "cookie":
+          cookies.push({ name: parameterIn.name, value: parameters.parameters[key] });
+          break;
+        case "body":
+          body = parameters.parameters[key];
+          break;
+        case "query":
+          queryString += `${parameterIn.name}=${parameters.parameters[key]}&`;
+          break;
+        default:
+          break;
+      }
+
     });
 
     queryString = queryString.substring(0, queryString.length - 1);
 
-    const pathWithBase = url + "/" + path.path + queryString;
-    return pathWithBase;
+    const pathWithBase = url + "/" + path + queryString;
+
+    const result = {
+      url: pathWithBase,
+      headers: headers,
+      cookies: cookies,
+      body: body
+    }
+
+    return result
   } catch (error) {
     setError(error);
+
+    const result = {
+      url: "ERROR",
+      headers: [],
+      cookies: [],
+      body: null
+    }
+
+    return result
   }
 };
 
-export const pathFromPrePreProcessing = (parameters, servers) => {
+export const pathFromPrePreProcessing = (endpointParameters, parameters, servers) => {
   if (parameters === undefined) return parameters;
   if (servers.length === 0) return parameters;
 
   const server = servers[0];
   const url = server.url;
 
+  let path = "";
+  let headers = [];
+  let cookies = [];
+  let body = null;
   let queryString = "?";
+
   Object.keys(parameters).forEach((key) => {
-    if (key === "path") return;
-    const value = parameters[key];
-    queryString += `${key}=${value}&`;
+    const parameterIn = endpointParameters.filter((item) => item.name === key)[0].operationParameter;
+
+    switch (parameterIn.in) {
+      case "path":
+        path += parameters[key];
+        break;
+      case "header":
+        headers.push({ name: parameterIn.name, value: parameters[key] });
+        break;
+      case "cookie":
+        cookies.push({ name: parameterIn.name, value: parameters[key] });
+        break;
+      case "body":
+        body = parameters[key];
+        break;
+      case "query":
+        queryString += `${parameterIn.name}=${parameters[key]}&`;
+        break;
+      default:
+        break;
+    }
+
   });
 
   queryString = queryString.substring(0, queryString.length - 1);
 
-  const pathWithBase = url + "/" + parameters.path + queryString;
-  return pathWithBase;
+  const pathWithBase = url + "/" + path + queryString;
+
+  const result = {
+    url: pathWithBase,
+    headers: headers,
+    cookies: cookies,
+    body: body
+  }
+
+  return result;
 };
 
 export const getApiKey = (apiCredentials, securitySchemes) => {

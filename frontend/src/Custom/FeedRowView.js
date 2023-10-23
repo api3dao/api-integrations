@@ -63,10 +63,10 @@ const FeedRowView = ({ endpoint, feed, apiSpecifications, apiCredentials, tryit 
 
   const callApi = (result) => {
     if (apiSpecifications == null) return;
-    const url = pathFromPrePreProcessing(result, apiSpecifications.servers);
+    const request = pathFromPrePreProcessing(endpoint.parameters, result, apiSpecifications.servers);
     const apiKey = getApiKey(apiCredentials, apiSpecifications.components.securitySchemes);
 
-    getAPIResponse(url, endpoint.operation.method, apiKey).then((res) => {
+    getAPIResponse(request, endpoint.operation.method, apiKey).then((res) => {
       setIsLoading(false);
       postProcessing(
         res,
@@ -109,7 +109,7 @@ const FeedRowView = ({ endpoint, feed, apiSpecifications, apiCredentials, tryit 
           p={2}
           fontSize={"sm"}
         >
-          {error !== null ? "error" : getPath(feed, apiSpecifications.servers, setError)}
+          {error !== null ? "error" : getPath(endpoint.parameters, feed, apiSpecifications.servers, setError).url}
         </Text>
         <Spacer />
       </Flex>
