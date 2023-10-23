@@ -20,6 +20,7 @@
   "scripts": {
     "prettier:check": "prettier --check \"./**/*.{js,ts,md,json}\"",
     "prettier:write": "prettier --write \"./**/*.{js,ts,md,json}\"",
-    "generate-pusher-deployment": "ts-node src/config-generation/pusher/generate-deployment.ts"
+    "generate-pusher-deployment": "ts-node src/config-generation/pusher/generate-deployment.ts",
+    "prepare": "husky install"
   }
 }
