@@ -1,12 +1,44 @@
-import React from "react";
-import { VStack, Flex, Text } from "@chakra-ui/react";
+import { VStack, Flex } from "@chakra-ui/react";
 import { COLORS } from "../data/constants";
 import Title from "../Custom/Title";
-import RadioButton from "../Custom/RadioButton";
+import ApiProvider from "./ApiProvider";
 
-const Hero = () => {
+const Welcome = () => {
+
+  const allFiles = (ctx => {
+    let keys = ctx.keys();
+    let values = keys.map(ctx);
+
+    let apis = [];
+
+    for (let i = 0; i < keys.length; i++) {
+      const api = keys[i].split("/")[1];
+      const value = values[i];
+
+      const date = keys[i].match(/(\d{4}-\d{2}-\d{2})/g);
+      const isExist = apis.find((item) => item[api]);
+
+      if (isExist) {
+        isExist[api].deployments.push({ [date[0]]: value });
+        continue;
+      }
+
+      const obj = {
+        [api]: {
+          deployments: [
+            {
+              [date[0]]: value
+            }
+          ]
+        }
+      };
+      apis.push(obj);
+    }
+    return apis;
+  })(require.context('../../../data/apis/', true, /pusher.json/));
+
   return (
-    <Flex spacing={4} height={"90vh"} overflow={"scroll"}>
+    <Flex spacing={4} height={"100vh"} overflow={"scroll"}>
       <VStack
         spacing={4}
         width={"100%"}
@@ -19,36 +51,30 @@ const Hero = () => {
           borderRadius={"sm"}
           boxShadow="md"
           spacing={4}
-          minWidth={"500px"}
+          width={"80vw"}
           maxWidth={"1000px"}
           alignItems={"left"}
           justifyItems={"center"}
         >
           <Title
-            header={"Select an action to continue"}
-            isLoading={false}
+            header={"API Providers"}
             buttonVisibility={false}
+            isLoading={false}
           />
-
-          <Flex justifyContent={"center"} marginBottom={"20px"}>
-            <RadioButton
-              link={"/upload"}
-              bgColor={COLORS.info}
-              description={"Upload Config"}
-              icon={"https://img.icons8.com/ios/452/upload.png"}
-            />
-            <RadioButton
-              link={"/compare"}
-              bgColor={COLORS.info}
-              description={"Compare Config"}
-              icon={"https://img.icons8.com/ios/452/compare.png"}
-            />
+          <Flex justifyContent={"center"} direction={"row"} wrap={"wrap"}>
+            {
+              allFiles.map((integration, index) => (
+                <ApiProvider key={index} integration={integration} />
+              ))
+            }
           </Flex>
         </VStack>
-        <Text fontSize={"xs"}>Version: 0.0.1c</Text>
+        <VStack h={"300px"} />
+
       </VStack>
+      <VStack h={"300px"} />
     </Flex>
   );
 };
 
-export default Hero;
+export default Welcome;
