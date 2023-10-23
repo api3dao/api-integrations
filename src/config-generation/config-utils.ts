@@ -46,3 +46,22 @@ export function deriveDeploymentId(configGenerationTimestamp: number, airnodeAdd
   .digest("hex")
   .substring(0, DEPLOYMENT_ID_LENGTH);
 }
+
+// if contents of preProcessing change this function might require changes in .replace (!!!)
+export function extractPreProcessingObject(ois: any) {
+  const feedEndpoint = ois.endpoints.find((e: any) => e.name === "feed");
+  const preProcValue = feedEndpoint.preProcessingSpecifications[0].value
+  .replace("path: preProcessingObject[endpointParameters.name].path,", "")
+  .replace("...preProcessingObject[endpointParameters.name].parameters,", "");
+  const evaluated = Function("endpointParameters", "input", "output", preProcValue.replace("output = parser(input)", "") + "return preProcessingObject;");
+  return evaluated({name: ""}, "", "");
+}
+
+// if contents of postProcessing change this function might require changes in .replace (!!!)
+export function extractPostProcessingObject(ois: any) {
+  const feedEndpoint = ois.endpoints.find((e: any) => e.name === "feed");
+  const postProcValue = feedEndpoint.postProcessingSpecifications[0].value
+  .replace("output = parser(input)", "");
+  const evaluated = Function("endpointParameters", "input", "output", postProcValue + "return postProcessingObject;");
+  return evaluated({name: ""}, "", "");
+}
