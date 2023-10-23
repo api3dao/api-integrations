@@ -1,9 +1,9 @@
 import { join } from 'path';
 import { globSync } from 'glob';
 import { ethers } from 'ethers';
-import { difference } from "lodash";
+import { difference } from 'lodash';
 import { Logger, ILogObj } from 'tslog';
-import { OIS } from "@api3/ois";
+import { OIS } from '@api3/ois';
 import {
   deriveEndpointId,
   deriveTemplateId,
@@ -73,7 +73,9 @@ const main = async () => {
     // validate preProcessingObject & supported feeds
     const preProcessingObject = extractPreProcessingObject(ois);
     const feedsInPreProcessingObject = Object.keys(preProcessingObject);
-    const mismatchPreSupp = difference(feedsInPreProcessingObject, supportedFeeds).concat(difference(supportedFeeds, feedsInPreProcessingObject))
+    const mismatchPreSupp = difference(feedsInPreProcessingObject, supportedFeeds).concat(
+      difference(supportedFeeds, feedsInPreProcessingObject)
+    );
     if (mismatchPreSupp.length !== 0) {
       logger.error(`Mismatch between supported feeds and preProcessingObject >> ${JSON.stringify(mismatchPreSupp)}`);
     }
@@ -81,13 +83,17 @@ const main = async () => {
     // validate postProcessingObject & supported feeds
     const postProcessingObject = extractPostProcessingObject(ois);
     const feedsInPostProcessingObject = Object.keys(postProcessingObject);
-    const mismatchPostSupp = difference(feedsInPostProcessingObject, supportedFeeds).concat(difference(supportedFeeds, feedsInPostProcessingObject))
+    const mismatchPostSupp = difference(feedsInPostProcessingObject, supportedFeeds).concat(
+      difference(supportedFeeds, feedsInPostProcessingObject)
+    );
     if (mismatchPostSupp.length !== 0) {
       logger.error(`Mismatch between supported feeds and postProcessingObject >> ${JSON.stringify(mismatchPostSupp)}`);
     }
 
     // validate preProcessingObject & postProcessingObject (might not be necessary)
-    const mismatchPrePost = difference(feedsInPostProcessingObject, feedsInPreProcessingObject).concat(difference(feedsInPreProcessingObject, feedsInPostProcessingObject))
+    const mismatchPrePost = difference(feedsInPostProcessingObject, feedsInPreProcessingObject).concat(
+      difference(feedsInPreProcessingObject, feedsInPostProcessingObject)
+    );
     if (mismatchPostSupp.length !== 0) {
       logger.error(
         `Mismatch between postProcessingObject and preProcessingObject >> ${JSON.stringify(mismatchPrePost)}`
