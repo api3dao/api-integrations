@@ -1,4 +1,5 @@
 import * as fs from 'fs';
+import { OIS } from "@api3/ois";
 import * as crypto from 'crypto';
 import { ethers } from 'ethers';
 import { encode } from '@api3/airnode-abi';
@@ -45,9 +46,9 @@ export function deriveDeploymentId(configGenerationTimestamp: number, airnodeAdd
 }
 
 // if contents of preProcessing change this function might require changes in .replace (!!!)
-export function extractPreProcessingObject(ois: any) {
+export function extractPreProcessingObject(ois: OIS) {
   const feedEndpoint = ois.endpoints.find((e: any) => e.name === 'feed');
-  const preProcValue = feedEndpoint.preProcessingSpecifications[0].value
+  const preProcValue = feedEndpoint!.preProcessingSpecifications![0].value
     .replace('path: preProcessingObject[endpointParameters.name].path,', '')
     .replace('...preProcessingObject[endpointParameters.name].parameters,', '');
   const evaluated = Function(
@@ -60,9 +61,9 @@ export function extractPreProcessingObject(ois: any) {
 }
 
 // if contents of postProcessing change this function might require changes in .replace (!!!)
-export function extractPostProcessingObject(ois: any) {
+export function extractPostProcessingObject(ois: OIS) {
   const feedEndpoint = ois.endpoints.find((e: any) => e.name === 'feed');
-  const postProcValue = feedEndpoint.postProcessingSpecifications[0].value.replace('output = parser(input)', '');
+  const postProcValue = feedEndpoint!.postProcessingSpecifications![0].value.replace('output = parser(input)', '');
   const evaluated = Function('endpointParameters', 'input', 'output', postProcValue + 'return postProcessingObject;');
   return evaluated({ name: '' }, '', '');
 }

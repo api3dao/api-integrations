@@ -1,7 +1,9 @@
 import { join } from 'path';
 import { globSync } from 'glob';
 import { ethers } from 'ethers';
+import { difference } from "lodash";
 import { Logger, ILogObj } from 'tslog';
+import { OIS } from "@api3/ois";
 import {
   deriveEndpointId,
   deriveTemplateId,
@@ -38,7 +40,7 @@ const main = async () => {
   const apiData = readJson(`./data/apis/${apiName}/api-data.json`);
 
   // read oises
-  const oises = globSync(`./data/apis/${apiName}/oises/*`).map((oisPath) => readJson(oisPath));
+  const oises: OIS[] = globSync(`./data/apis/${apiName}/oises/*`).map((oisPath) => readJson(oisPath));
 
   // init "signedApiUpdates" triggers
   pusherConfig.triggers['signedApiUpdates'] = [];
@@ -71,9 +73,7 @@ const main = async () => {
     // validate preProcessingObject & supported feeds
     const preProcessingObject = extractPreProcessingObject(ois);
     const feedsInPreProcessingObject = Object.keys(preProcessingObject);
-    const mismatchPreSupp = feedsInPreProcessingObject
-      .filter((feedName: string) => !supportedFeeds.includes(feedName))
-      .concat(supportedFeeds.filter((feedName: string) => !feedsInPreProcessingObject.includes(feedName)));
+    const mismatchPreSupp = difference(feedsInPreProcessingObject, supportedFeeds).concat(difference(supportedFeeds, feedsInPreProcessingObject))
     if (mismatchPreSupp.length !== 0) {
       logger.error(`Mismatch between supported feeds and preProcessingObject >> ${JSON.stringify(mismatchPreSupp)}`);
     }
@@ -81,17 +81,13 @@ const main = async () => {
     // validate postProcessingObject & supported feeds
     const postProcessingObject = extractPostProcessingObject(ois);
     const feedsInPostProcessingObject = Object.keys(postProcessingObject);
-    const mismatchPostSupp = feedsInPostProcessingObject
-      .filter((feedName: string) => !supportedFeeds.includes(feedName))
-      .concat(supportedFeeds.filter((feedName: string) => !feedsInPostProcessingObject.includes(feedName)));
+    const mismatchPostSupp = difference(feedsInPostProcessingObject, supportedFeeds).concat(difference(supportedFeeds, feedsInPostProcessingObject))
     if (mismatchPostSupp.length !== 0) {
       logger.error(`Mismatch between supported feeds and postProcessingObject >> ${JSON.stringify(mismatchPostSupp)}`);
     }
 
     // validate preProcessingObject & postProcessingObject (might not be necessary)
-    const mismatchPrePost = feedsInPostProcessingObject
-      .filter((feedName: string) => !feedsInPreProcessingObject.includes(feedName))
-      .concat(feedsInPreProcessingObject.filter((feedName: string) => !feedsInPostProcessingObject.includes(feedName)));
+    const mismatchPrePost = difference(feedsInPostProcessingObject, feedsInPreProcessingObject).concat(difference(feedsInPreProcessingObject, feedsInPostProcessingObject))
     if (mismatchPostSupp.length !== 0) {
       logger.error(
         `Mismatch between postProcessingObject and preProcessingObject >> ${JSON.stringify(mismatchPrePost)}`
