@@ -26,11 +26,7 @@
         "NGN/USD",
         "RUB/USD"
       ],
-      [
-        "XAG/USD",
-        "XAU/USD",
-        "WTI/USD"
-      ]
+      ["XAG/USD", "XAU/USD", "WTI/USD"]
     ]
   }
 }
