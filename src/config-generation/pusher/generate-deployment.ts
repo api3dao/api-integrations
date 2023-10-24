@@ -1,7 +1,7 @@
 import { join } from 'path';
 import { globSync } from 'glob';
 import { ethers } from 'ethers';
-import { format } from "date-fns";
+import { format } from 'date-fns';
 import { difference } from 'lodash';
 import { Logger, ILogObj } from 'tslog';
 import { OIS } from '@api3/ois';
@@ -152,7 +152,7 @@ const main = async () => {
   });
 
   // derive deployment id
-  const today = format(new Date(), "yyyyMMdd");
+  const today = format(new Date(), 'yyyyMMdd');
   const stage = `api3-${today}-pusher`;
   pusherConfig.stage = stage;
 
