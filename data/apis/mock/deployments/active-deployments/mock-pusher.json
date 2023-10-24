@@ -2842,5 +2842,5 @@
       "securitySchemeValue": "MockApiKey1"
     }
   ],
-  "deploymentId": "1c6fc553"
+  "stage": "1c6fc553"
 }
