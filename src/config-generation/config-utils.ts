@@ -36,15 +36,6 @@ export function mkdirIfDoesntExists(path: string) {
   }
 }
 
-export function deriveDeploymentId(configGenerationTimestamp: number, airnodeAddress: string) {
-  const DEPLOYMENT_ID_LENGTH = 8;
-  return crypto
-    .createHash('sha256')
-    .update([configGenerationTimestamp, airnodeAddress].join(''))
-    .digest('hex')
-    .substring(0, DEPLOYMENT_ID_LENGTH);
-}
-
 // if contents of preProcessing change this function might require changes in .replace (!!!)
 export function extractPreProcessingObject(ois: OIS) {
   const feedEndpoint = ois.endpoints.find((e: any) => e.name === 'feed');

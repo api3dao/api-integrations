@@ -1,6 +1,7 @@
 import { join } from 'path';
 import { globSync } from 'glob';
 import { ethers } from 'ethers';
+import { format } from "date-fns";
 import { difference } from 'lodash';
 import { Logger, ILogObj } from 'tslog';
 import { OIS } from '@api3/ois';
@@ -9,7 +10,6 @@ import {
   deriveTemplateId,
   readJson,
   saveJson,
-  deriveDeploymentId,
   extractPreProcessingObject,
   extractPostProcessingObject
 } from '../config-utils';
@@ -152,14 +152,15 @@ const main = async () => {
   });
 
   // derive deployment id
-  const deploymentId = deriveDeploymentId(configGenerationTimestamp, apiData.airnodeAddress);
-  pusherConfig.deploymentId = deploymentId;
+  const today = format(new Date(), "yyyyMMdd");
+  const stage = `api3-${today}-pusher`;
+  pusherConfig.stage = stage;
 
   // save the deployment
   const deploymentPath = `./data/apis/${apiName}/deployments/candidate-deployments`;
-  saveJson(join(deploymentPath, `${deploymentId}-pusher.json`), pusherConfig);
+  saveJson(join(deploymentPath, `${stage}-pusher.json`), pusherConfig);
 
-  logger.info(`Generated deployment for ${apiName} with name ${deploymentId}-pusher.json.`);
+  logger.info(`Generated deployment for ${apiName} with name ${stage}-pusher.json.`);
 };
 
 main();

@@ -13,5 +13,5 @@
       "securitySchemeValue": "${NODARY_API_KEY}"
     }
   ],
-  "deploymentId": ""
+  "stage": ""
 }
