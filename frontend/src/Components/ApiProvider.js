@@ -1,7 +1,7 @@
 import { Text, Image, VStack } from "@chakra-ui/react";
 import { COLORS, CONSTANTS } from "../data/constants";
 
-const ApiProvider = ({ index, deployments, setDeployments }) => {
+const ApiProvider = ({ index, deployments, setProvider }) => {
 
     const key = Object.keys(deployments)[0];
 
@@ -13,7 +13,7 @@ const ApiProvider = ({ index, deployments, setDeployments }) => {
                 bg={COLORS.header}
                 boxShadow={CONSTANTS.boxShadowSolid}
                 justifyContent={"center"}
-                onClick={() => setDeployments(deployments[key])}
+                onClick={() => setProvider({ header: key, deployments: deployments[key] })}
             >
                 <Image
                     src={`./providers/${key}.png`}
