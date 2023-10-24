@@ -19,10 +19,11 @@ import { ApiIntegrationsContext } from "./Context";
 function App() {
 
   const [config, setConfig] = useState(null);
+  const [stage, setStage] = useState(null);
 
   return (
     <ChakraProvider theme={theme}>
-      <ApiIntegrationsContext.Provider value={{ config, setConfig }}>
+      <ApiIntegrationsContext.Provider value={{ config, setConfig, stage, setStage }}>
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <HashRouter>
           <Header />
