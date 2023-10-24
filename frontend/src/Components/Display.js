@@ -22,17 +22,15 @@ const Hero = ({ configData }) => {
   useEffect(() => {
     setOis([]);
 
-    const config = configData === null ? null : JSON.parse(configData);
+    if (configData == null) return;
+    if (configData.ois === undefined) return;
+    if (configData.ois.length === 0) return;
 
-    if (config == null) return;
-    if (config.ois === undefined) return;
-    if (config.ois.length === 0) return;
+    if (configData.airnodeWalletMnemonic === null) return;
 
-    if (config.airnodeWalletMnemonic === null) return;
-
-    setOis(config.ois);
-    setAirnodeWalletMnemonic(String(config.airnodeWalletMnemonic));
-    setSecuritySchemeValue(config.apiCredentials);
+    setOis(configData.ois);
+    setAirnodeWalletMnemonic(String(configData.airnodeWalletMnemonic));
+    setSecuritySchemeValue(configData.apiCredentials);
   }, [configData]);
 
   const setSecuritySchemeValues = (i, value) => {

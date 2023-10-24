@@ -12,7 +12,7 @@ const Hero = ({
 }) => {
   return (
     <VStack p={3} alignItems={"left"} bgColor={COLORS.title}>
-      <Flex>
+      <Flex alignItems={"center"}>
         <Text fontWeight={"bold"} size={"lg"}>
           {header}
         </Text>
@@ -26,7 +26,7 @@ const Hero = ({
           visible={isLoading}
         />
         {!buttonVisibility ? null : (
-          <Button colorScheme="orange" size="sm" onClick={onClick}>
+          <Button height={"24px"} colorScheme="orange" size="sm" onClick={onClick}>
             {buttonText}
           </Button>
         )}
