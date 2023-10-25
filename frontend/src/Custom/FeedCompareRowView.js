@@ -2,8 +2,10 @@ import { Text, Flex, VStack, Spacer } from "@chakra-ui/react";
 import { CopyBlock, dracula } from "react-code-blocks";
 import { formatCode } from "../Helpers/Utils";
 import { getPath } from "../Helpers/Utils";
+import { useState } from "react";
 
-const FeedCompareRowView = ({ feed, oldServers, newServers }) => {
+const FeedCompareRowView = ({ feed, oldServers, newEndpoint, oldEndpoint, newServers }) => {
+  const [error, setError] = useState(null);
 
   return (
     <VStack alignItems={"left"} spacing={4} p={5} width={"100%"}>
@@ -25,7 +27,7 @@ const FeedCompareRowView = ({ feed, oldServers, newServers }) => {
             GET
           </Text>
           <Text bgColor={"gray.200"} p={2} fontSize={"sm"}>
-            {getPath(feed.oldFeed, oldServers)}
+            {error !== null ? "error" : getPath(oldEndpoint.parameters, feed.oldFeed, oldServers, setError).url}
           </Text>
         </Flex>
         <Text fontSize={"md"} fontWeight={"bold"}>
@@ -59,7 +61,7 @@ const FeedCompareRowView = ({ feed, oldServers, newServers }) => {
             GET
           </Text>
           <Text bgColor={"blue.200"} p={2} fontSize={"sm"}>
-            {getPath(feed.newFeed, newServers)}
+            {error !== null ? "error" : getPath(newEndpoint.parameters, feed.newFeed, newServers, setError).url}
           </Text>
           <Spacer />
         </Flex>
