@@ -57,7 +57,6 @@ const IntegrationsRow = ({ integration }) => {
         borderColor={COLORS.main}
         bgColor={COLORS.table}
         width={"100%"}
-        height={"55px"}
         alignItems={"left"}
         spacing={"10"}
       >
@@ -73,12 +72,13 @@ const IntegrationsRow = ({ integration }) => {
                 direction={"row"}
                 alignItems={"center"}
                 spacing={10}
+                wrap={"wrap"}
               >
 
-                <Text width={"65%"} fontSize={"md"} fontWeight={"bold"}>
+                <Text width={"50%"} fontSize={"md"} fontWeight={"bold"}>
                   {integration.stage}
                 </Text>
-                <Text align={"center"} width={"10%"} p={1} bgColor={"blue"} borderRadius={"lg"} fontSize={"xs"} color={"white"}>Candidate</Text>
+                <Text align={"center"} width={"10%"} minW={"100px"} p={1} bgColor={"blue"} borderRadius={"lg"} fontSize={"xs"} color={"white"}>Candidate</Text>
                 <Text width={"25%"} p={1} fontSize={"xs"} >Pusher 0.0.1</Text>
 
               </Stack>

@@ -19,7 +19,7 @@ const Welcome = () => {
   })(require.context('../../../data/apis/', true, /\/[a-z0-9-]+-pusher.json/));
 
   const detach = () => {
-    if (comparePair.left !== null && comparePair.right !== null) {
+    if (comparePair.left !== null || comparePair.right !== null) {
       setComparePair({ left: null, right: null });
       return;
     }
@@ -50,7 +50,7 @@ const Welcome = () => {
               borderRadius={"sm"}
               boxShadow="md"
               spacing={4}
-              width={"80vw"}
+              width={"95vw"}
               maxWidth={"1000px"}
               alignItems={"left"}
               justifyItems={"center"}
@@ -78,7 +78,7 @@ const Welcome = () => {
               borderRadius={"sm"}
               boxShadow="md"
               spacing={4}
-              width={"80vw"}
+              width={"95vw"}
               maxWidth={"1000px"}
               alignItems={"left"}
               justifyItems={"center"}

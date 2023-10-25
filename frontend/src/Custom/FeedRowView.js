@@ -95,7 +95,7 @@ const FeedRowView = ({ endpoint, feed, apiSpecifications, apiCredentials, tryit 
       <Text fontSize={"md"} fontWeight={"bold"}>
         HTTP Request
       </Text>
-      <Flex>
+      <Flex maxW={"100%"}>
         <Text
           bgColor={getColor(endpoint.operation.method.toUpperCase(), true)}
           p={2}

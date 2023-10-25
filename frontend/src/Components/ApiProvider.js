@@ -8,8 +8,8 @@ const ApiProvider = ({ index, deployments, setProvider }) => {
     return (
         <VStack key={index} p={3} cursor={"pointer"}>
             <VStack
-                minWidth={"200px"}
-                height={"200px"}
+                minWidth={"150px"}
+                height={"150px"}
                 bg={COLORS.header}
                 boxShadow={CONSTANTS.boxShadowSolid}
                 justifyContent={"center"}
