@@ -33,11 +33,11 @@ const Integrations = ({ integrations }) => {
               {
                 comparePair.left === null && comparePair.right === null ? null :
                   <Stack direction={"row"} justifyContent={"center"}>
-                    <CompareId header={"New"} onClick={() => { setComparePair({ left: null, right: comparePair.right }) }} text={comparePair.left == null ? "Click on a provider to compare it with another" : comparePair.left.stage} />
+                    <CompareId deleteActive={comparePair.left != null} header={"New"} onClick={() => { setComparePair({ left: null, right: comparePair.right }) }} text={comparePair.left == null ? "Click on a provider to compare it with another" : comparePair.left.stage} />
                     <Flex alignItems={"center"} justifyItems={"center"} >
                       <Text align={"center"} fontSize={"sm"} fontWeight={"bold"} color={"gray.500"} >VS</Text>
                     </Flex>
-                    <CompareId header={"Old"} onClick={() => { setComparePair({ left: comparePair.left, right: null }) }} text={comparePair.right == null ? "Click on a provider to compare it with another" : comparePair.right.stage} />
+                    <CompareId deleteActive={comparePair.right != null} header={"Old"} onClick={() => { setComparePair({ left: comparePair.left, right: null }) }} text={comparePair.right == null ? "Click on a provider to compare it with another" : comparePair.right.stage} />
                   </Stack>
               }
               {
