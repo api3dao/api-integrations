@@ -96,7 +96,7 @@ export const combine = (endpoint, setError) => {
 
 export const getEndpoints = (ois) => {
   let endpoints = [];
-  ois.map((ois, index) =>
+  ois.map((ois) =>
     ois.endpoints
       .filter((endpoint) => endpoint.name === "feed")
       .map((endpoint, index) => endpoints.push(endpoint))
@@ -180,8 +180,6 @@ export const extractFeeds = (newOis, oldOis) => {
 
   return {
     compareFeeds: compareFeeds(newFeeds, oldFeeds),
-    apiSpecsOld: oldOis[0].apiSpecifications,
-    apiSpecsNew: newOis[0].apiSpecifications,
     endpointsOld: endpointsOld,
     endpointsNew: endpointsNew,
   };
