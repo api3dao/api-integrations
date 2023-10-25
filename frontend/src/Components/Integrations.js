@@ -1,15 +1,15 @@
-import { VStack, Flex } from "@chakra-ui/react";
+import { VStack, Flex, Text, Stack } from "@chakra-ui/react";
 import { COLORS } from "../data/constants";
-import IntegrationRow from "./IntegrationRow";
 import Display from "./Display";
+import CompareEndpoints from "./CompareEndpoints";
 import { useContext } from "react";
-import ExpandableView from "../Custom/ExpandableView";
-import UploadConfig from "./UploadConfig";
-import { ApiIntegrationsContext } from "../Context";
+import { ApiIntegrationsContext } from "../Context"
+import DeploymentCategory from "../Custom/DeploymentCategory";
+import CompareId from "../Custom/CompareId";
 
 const Integrations = ({ integrations }) => {
 
-  const { config, setConfig } = useContext(ApiIntegrationsContext);
+  const { config, comparePair, setComparePair } = useContext(ApiIntegrationsContext);
 
   return (
     <Flex spacing={4} overflow={"scroll"}>
@@ -28,52 +28,30 @@ const Integrations = ({ integrations }) => {
           alignItems={"left"}
           justifyItems={"center"}
         >
-          {
-            integrations == null ?
-              <>
-                <UploadConfig setConfig={setConfig} />
-                <Display configData={config} />
-              </>
-              :
-              <>
-                {config === null
-                  ?
+          {config === null ?
+            <>
+              {
+                comparePair.left === null && comparePair.right === null ? null :
+                  <Stack direction={"row"} justifyContent={"center"}>
+                    <CompareId deleteActive={comparePair.left != null} header={"New"} onClick={() => { setComparePair({ left: null, right: comparePair.right }) }} text={comparePair.left == null ? "Click on a provider to compare it with another" : comparePair.left.stage} />
+                    <Flex alignItems={"center"} justifyItems={"center"} >
+                      <Text align={"center"} fontSize={"sm"} fontWeight={"bold"} color={"gray.500"} >VS</Text>
+                    </Flex>
+                    <CompareId deleteActive={comparePair.right != null} header={"Old"} onClick={() => { setComparePair({ left: comparePair.left, right: null }) }} text={comparePair.right == null ? "Click on a provider to compare it with another" : comparePair.right.stage} />
+                  </Stack>
+              }
+              {
+                comparePair.left !== null && comparePair.right !== null ?
+                  <CompareEndpoints oldOis={comparePair.left.ois} newOis={comparePair.right.ois} />
+                  :
                   <>
-                    <ExpandableView
-                      header={"Active Deployments"}
-                      defaultState={true}
-                      view={
-                        integrations.activeDeployment.length === null ? null : (
-                          integrations.activeDeployment.map((integration, index) => (
-                            <IntegrationRow key={index} integration={integration} />
-                          ))
-                        )
-                      }
-                    />
-
-                    <ExpandableView
-                      header={"Candidate Deployments"}
-                      defaultState={true}
-                      view={
-                        integrations.candidateDeployment.length === null ? null : (
-                          integrations.candidateDeployment.map((integration, index) => (
-                            <IntegrationRow key={index} integration={integration} />
-                          ))
-                        )
-
-                      }
-                    />
+                    <DeploymentCategory header={"Active Deployments"} integrations={integrations.activeDeployment} />
+                    <DeploymentCategory header={"Candidate Deployments"} integrations={integrations.candidateDeployment} />
                   </>
-
-                  : <Display configData={config} />}
-              </>
-
-
-          }
-
-
-
-
+              }
+            </>
+            :
+            <Display configData={config} />}
         </VStack>
       </VStack>
     </Flex>

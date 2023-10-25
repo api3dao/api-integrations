@@ -1,8 +1,6 @@
 import "./App.css";
 import Header from "./Components/Header";
 import Welcome from "./Components/Welcome";
-import CompareConfig from "./Components/CompareConfig";
-import Integrations from "./Components/Integrations";
 
 import { HashRouter, Routes, Route } from "react-router-dom";
 
@@ -20,10 +18,11 @@ function App() {
 
   const [config, setConfig] = useState(null);
   const [stage, setStage] = useState(null);
+  const [comparePair, setComparePair] = useState({ left: null, right: null });
 
   return (
     <ChakraProvider theme={theme}>
-      <ApiIntegrationsContext.Provider value={{ config, setConfig, stage, setStage }}>
+      <ApiIntegrationsContext.Provider value={{ config, setConfig, stage, setStage, comparePair, setComparePair }}>
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <HashRouter>
           <Header />
@@ -40,8 +39,6 @@ function App() {
 
               <Routes>
                 <Route path="/" element={<Welcome />} />
-                <Route path="/upload" element={<Integrations />} />
-                <Route path="/compare" element={<CompareConfig />} />
               </Routes>
             </VStack>
           </Flex>
