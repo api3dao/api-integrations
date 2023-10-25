@@ -1,8 +1,6 @@
 import "./App.css";
 import Header from "./Components/Header";
 import Welcome from "./Components/Welcome";
-import CompareConfig from "./Components/CompareConfig";
-import Integrations from "./Components/Integrations";
 
 import { HashRouter, Routes, Route } from "react-router-dom";
 
@@ -41,8 +39,6 @@ function App() {
 
               <Routes>
                 <Route path="/" element={<Welcome />} />
-                <Route path="/upload" element={<Integrations />} />
-                <Route path="/compare" element={<CompareConfig />} />
               </Routes>
             </VStack>
           </Flex>
