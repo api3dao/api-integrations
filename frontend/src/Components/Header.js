@@ -19,11 +19,6 @@ const Header = () => {
             API Integrations Tool
           </Text>
         </Flex>
-        <Flex align="flex-end" gap={"12px"}>
-          <Link to={"/"}>
-            <Image src={`./home.svg`} width={"32px"} height={"32px"} />
-          </Link>
-        </Flex>
       </Flex>
     </Flex>
   );
