@@ -3,15 +3,54 @@ import { Stack } from "@chakra-ui/react";
 import { COLORS } from "../data/constants";
 import { Text } from "@chakra-ui/react";
 import { ApiIntegrationsContext } from "../Context";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 const IntegrationsRow = ({ integration }) => {
 
-  const { setConfig } = useContext(ApiIntegrationsContext);
+  const { setConfig, setComparePair, comparePair } = useContext(ApiIntegrationsContext);
+  const [side, setSide] = useState(null);
+
+  const compare = () => {
+
+    if (side === "left") {
+      setComparePair({ left: null, right: comparePair.right });
+      setSide(null);
+      return;
+    }
+
+    if (side === "right") {
+      setComparePair({ left: comparePair.left, right: null });
+      setSide(null);
+      return;
+    }
+
+    if (comparePair.left === null) {
+      setComparePair({ left: integration, right: comparePair.right });
+      setSide("left");
+      return;
+    }
+
+    if (comparePair.right === null) {
+      setComparePair({ left: comparePair.left, right: integration });
+      setSide("right");
+      return;
+    }
+  }
+
+  const isCompareAvailable = () => {
+    if (comparePair.left === null) {
+      return true;
+    }
+
+    if (comparePair.right === null) {
+      return true;
+    }
+
+    return false;
+  }
 
   return (
-    <VStack cursor={"pointer"} spacing={0} direction="row" align="left"
-      onClick={() => setConfig((integration))}>
+    <VStack spacing={0} direction="row" align="left">
       <Stack
         p={3}
         border={"1px"}
@@ -45,10 +84,8 @@ const IntegrationsRow = ({ integration }) => {
               </Stack>
               <Spacer />
               <Stack direction={"row"}>
-
-                <Button colorScheme={"orange"} p={2} fontSize={"sm"} h={"30px"} w={"100px"} onClick={() => { setConfig((integration)) }}> View </Button>
-
-                <Button colorScheme={"orange"} p={2} fontSize={"sm"} h={"30px"} w={"100px"} onClick={() => { setConfig((integration)) }}> Compare </Button>
+                <Button colorScheme={"telegram"} p={2} fontSize={"sm"} h={"30px"} w={"80px"} onClick={() => { setConfig((integration)) }}> View </Button>
+                <Button isDisabled={!isCompareAvailable()} colorScheme={side != null ? "orange" : "telegram"} p={2} fontSize={"sm"} h={"30px"} w={"80px"} onClick={() => { compare() }}>{side != null ? "Remove" : "Compare"}</Button>
               </Stack>
             </Flex>
 
