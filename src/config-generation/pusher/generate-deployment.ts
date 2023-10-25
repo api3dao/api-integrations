@@ -153,7 +153,7 @@ const main = async () => {
 
   // derive deployment id
   const today = format(new Date(), 'yyyyMMdd');
-  const stage = `api3-${today}-pusher`;
+  const stage = `api3-${today}`;
   pusherConfig.stage = stage;
 
   // save the deployment
