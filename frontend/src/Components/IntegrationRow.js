@@ -69,23 +69,23 @@ const IntegrationsRow = ({ integration }) => {
             :
 
             <Flex >
-              <Stack
+              <Stack width={"100%"}
                 direction={"row"}
                 alignItems={"center"}
                 spacing={10}
               >
 
-                <Text fontSize={"md"} fontWeight={"bold"}>
+                <Text width={"65%"} fontSize={"md"} fontWeight={"bold"}>
                   {integration.stage}
                 </Text>
-                <Text p={1} bgColor={"blue"} borderRadius={"lg"} fontSize={"xs"} color={"white"}>Candidate</Text>
-                <Text p={1} fontSize={"xs"} >Pusher 0.0.1</Text>
+                <Text align={"center"} width={"10%"} p={1} bgColor={"blue"} borderRadius={"lg"} fontSize={"xs"} color={"white"}>Candidate</Text>
+                <Text width={"25%"} p={1} fontSize={"xs"} >Pusher 0.0.1</Text>
 
               </Stack>
               <Spacer />
               <Stack direction={"row"}>
-                <Button colorScheme={"telegram"} p={2} fontSize={"sm"} h={"30px"} w={"80px"} onClick={() => { setConfig((integration)) }}> View </Button>
-                <Button isDisabled={!isCompareAvailable()} colorScheme={side != null ? "orange" : "telegram"} p={2} fontSize={"sm"} h={"30px"} w={"80px"} onClick={() => { compare() }}>{side != null ? "Remove" : "Compare"}</Button>
+                <Button colorScheme={"telegram"} p={2} fontSize={"xs"} h={"30px"} w={"60px"} onClick={() => { setConfig((integration)) }}> View </Button>
+                <Button isDisabled={!isCompareAvailable()} colorScheme={side != null ? "orange" : "telegram"} p={2} fontSize={"xs"} h={"30px"} w={"60px"} onClick={() => { compare() }}>{side != null ? "Remove" : "Compare"}</Button>
               </Stack>
             </Flex>
 
