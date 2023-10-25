@@ -1189,7 +1189,7 @@
         "templateIds": [
           "0xc49893b33d67f4291dde8a044c908906feac9ba26ec57d60d7c017d2991b79ef"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1197,7 +1197,7 @@
         "templateIds": [
           "0xc3bcb5cb1789dd4217160ea0897d1d8afa7ccee52720b96acbdce90ae29a53ad"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1205,7 +1205,7 @@
         "templateIds": [
           "0x40d8c4bfbc8cde29f8ddd61cc084bc87c5aac6ce44c5856f2c2a20a305767616"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1213,7 +1213,7 @@
         "templateIds": [
           "0x978f0d3a1f43c52d48330c24bc671a0467e91f9c4c185ca37e6c8c7aa990d543"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1221,7 +1221,7 @@
         "templateIds": [
           "0x048aacaaa7fe03d8a885a2c6e3ef0f47c8868747c023182412b82fd2671a3749"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1229,7 +1229,7 @@
         "templateIds": [
           "0x457b07557bd120d95ac48e29a5cca17efbd1e5a774600952f5609ff91570dab2"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1237,7 +1237,7 @@
         "templateIds": [
           "0xc28eaff645b94ae9357a7bc6aec8560e0a12886ebfd9670cd6e6b666feb1aab9"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1245,7 +1245,7 @@
         "templateIds": [
           "0xeee810791015b1c29f2e7ee9e1227ea6bcddce9d5ffa6bf4bba3aeaf010b4256"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1253,7 +1253,7 @@
         "templateIds": [
           "0x290f4f79d0fac0e085051e9fc26560467fdf3b4bb43c31b612eeaba3dff7d79d"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1261,7 +1261,7 @@
         "templateIds": [
           "0xbf85761f1df483ec2b0748768c7e632750be56725010092ff109422b4bb447fc"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1269,7 +1269,7 @@
         "templateIds": [
           "0x90e53e1755a1a80b32f576ffcdff05dfe1c5a86ad6be26d59ace15fe7621be57"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1277,7 +1277,7 @@
         "templateIds": [
           "0x04b6b51fdcedb3985e7be673ba188b9372fba7abb8c1ce38452285ab0d8d2581"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1285,7 +1285,7 @@
         "templateIds": [
           "0xbff028d07b39a03bf07f3034ebf80f6d1fe0ed5c3030203cb96e57aa82e24669"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1293,7 +1293,7 @@
         "templateIds": [
           "0x783abc4426cffd034ea79ab47f4ca44b3cc59d022e0823c2e69b1e250e8c254e"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1301,7 +1301,7 @@
         "templateIds": [
           "0x9ae1f6e36933e99598e11e1fef223d6ff1ad1db27917bd2d42ad5df520b87f96"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1309,7 +1309,7 @@
         "templateIds": [
           "0x0ec9b290d93ab372e0b1c3511650f149bc82dcc874f47c193347f7ae858dd9b9"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1317,7 +1317,7 @@
         "templateIds": [
           "0x2ce7fd62dd241cbc22daf4a7456bcd0296aff808293517acfb8c53c57b1b58e3"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1325,7 +1325,7 @@
         "templateIds": [
           "0xf220e4999cb5830dff6d889ba0e63aaaae6a877b95af93a34d6deea746f2b3e2"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1333,7 +1333,7 @@
         "templateIds": [
           "0x7d9d5950cb4a38193d336e48a4315990f11326ec7940bac8036d81985306fb65"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1341,7 +1341,7 @@
         "templateIds": [
           "0x357898ad95b079744caa0bac42240995caaa96fbc982c317520f8269accdc6a4"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1349,7 +1349,7 @@
         "templateIds": [
           "0xaac43d43d3a103ea14c4511c89bdb289918181ec73166a678b1bbc58fbbb0302"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1357,7 +1357,7 @@
         "templateIds": [
           "0x9ea7a1412cbe1bcaca053eb7bb43aa0f6c0aaef4ac8bac997463bdd001e081fe"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1365,7 +1365,7 @@
         "templateIds": [
           "0x5352161fd6ff11074ac1b369743a96f479e438ee4fca19003b7520fac7a2548d"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1373,7 +1373,7 @@
         "templateIds": [
           "0x0554bd54f0db8aa4808f0b4c2c3aac705e9d47d0a6f6fcd9d52bfe266c55e832"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1381,7 +1381,7 @@
         "templateIds": [
           "0xcd1f0a3d7e0d27f4410d1a239191bfc34b766cb28a42e3dc1b9278a6927af862"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1389,7 +1389,7 @@
         "templateIds": [
           "0x29368921e7ff25414f93ddff5b5f16ce8640fcebb9ae0cc360644b646bf50fd2"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1397,7 +1397,7 @@
         "templateIds": [
           "0x9c85dac5f9000eb5588526df467e0bf18aa86fc4eb0da23edbfd84aa6334bcd1"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1405,7 +1405,7 @@
         "templateIds": [
           "0x921658d6d42d999c9973694035c9b8b4dbb35b4d2fc84bda325af2634033ce9e"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1413,7 +1413,7 @@
         "templateIds": [
           "0xbabcad15946bcc16c095e184831e3c7493c9815e9b19d2d8f605f3a50e4c2509"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1421,7 +1421,7 @@
         "templateIds": [
           "0x6a65cde646f60e6d76208c8413d083d210fcbc8bb7aff3afcef6e0f1cf586083"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1429,7 +1429,7 @@
         "templateIds": [
           "0xd49849a7f0d73f6e2d1a22795b8c3921aa9bc0fd6ba4621073c3427613066ae9"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1437,7 +1437,7 @@
         "templateIds": [
           "0xd67fb5ecb718c9036200162f3e9cee0638aeedc534ad36438aef36ce94929bea"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1445,7 +1445,7 @@
         "templateIds": [
           "0xddfd8b59fba71735cd2d45d1558da9c5302a468cbd0a79b8fd2d72109563febf"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1453,7 +1453,7 @@
         "templateIds": [
           "0x8436d1ef05af7382e48d94aeb7c699f0a4482d5b14fdb3ffc70296547cca1ed8"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1461,7 +1461,7 @@
         "templateIds": [
           "0x96c3c8b624ab2e537bdc6523f923d70d34dc6bd8fa032511d3d9820d06858fca"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1469,7 +1469,7 @@
         "templateIds": [
           "0x452e1aeb5c9a7a99f310bf62acb007b8a05af85d0efc5a9b53681a9e1118dc0e"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1477,7 +1477,7 @@
         "templateIds": [
           "0x94576c1aac4a055031f4ef63488623d6f38a7c2c57402b828056863bd4f984bc"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1485,7 +1485,7 @@
         "templateIds": [
           "0x34549c3aa2b17e8b5a83611f050b51717faaa85ec4da7b6a4704562a73ceba33"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1493,7 +1493,7 @@
         "templateIds": [
           "0x44d5bc3493e9b57ce613ebedf9d056f93b67d975e1febb4f1c4110fb9ebb1a1e"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1501,7 +1501,7 @@
         "templateIds": [
           "0xdac566b8db3ed4b7f49e48527c0e1f6a9552a9aeeef145a724703c8b635a71c1"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1509,7 +1509,7 @@
         "templateIds": [
           "0x678db534a62b9622c534ff4fb52e96c3703140562b580d1f3254cbe6849afed1"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1517,7 +1517,7 @@
         "templateIds": [
           "0x199b1e739546b2683fe64ed703ec13073ae7c4b07df0fa8ad8921372b14e75b6"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1525,7 +1525,7 @@
         "templateIds": [
           "0x89f60b35835deab6939243827212820d00d06db7485833182a254f2cf6a7dc2c"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1533,7 +1533,7 @@
         "templateIds": [
           "0xb8e5cfab4fc0f9f9791253e621de6867057e63c9e2dcbd2b4fc9fd1468c5198d"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1541,7 +1541,7 @@
         "templateIds": [
           "0x4c23a315118ec7cc3cfb9fb749a45af03da4466659ab7c5639a0b6f5ccdecc2a"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1549,7 +1549,7 @@
         "templateIds": [
           "0x61da8d12a1dd37360fd221511c679d18765d3eb9b284e564529283e4c53dd6a5"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1557,7 +1557,7 @@
         "templateIds": [
           "0xb501fe47e4ad40fd34f5e5a685e79b991b51e2c887d2dbe35bc645ed1f390241"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1565,7 +1565,7 @@
         "templateIds": [
           "0x1dd7c0d9fa744bda6df19761d02c15d55128cdf62e9234dbf2f22feba357ca2d"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1573,7 +1573,7 @@
         "templateIds": [
           "0x1a083735b3c4d634201c9b2f041e12daa6d376e1e223a9debae75a3d2a3223bb"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1581,7 +1581,7 @@
         "templateIds": [
           "0x2c3c05d499bcf65e7fdfab87da588b59bf8a428871befdaec3fee6e116e54bd7"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1589,7 +1589,7 @@
         "templateIds": [
           "0xe6348f62381b4c31515df84fa1d7036a2398ce522ffedda29fe7ee6b74bbdd2d"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1597,7 +1597,7 @@
         "templateIds": [
           "0x9278ef509ce3ef8cc46754ca782d6febc2c7a2cdee738d5cf2390781002cd1b2"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1605,7 +1605,7 @@
         "templateIds": [
           "0x4d343240d206b98029f470d6a3f7092db9ea0ce6729d8b8e3bd3cdec6e68f74e"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1613,7 +1613,7 @@
         "templateIds": [
           "0xeb32e9653024ccb5bf8b1dc7effa99928aeacdd5aa3d7392299348c7d64c5b45"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1621,7 +1621,7 @@
         "templateIds": [
           "0xf422d17b9fce718f8f42fec2f9ac33ae614bed5642a0d3eb82093cb2f8edf667"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1629,7 +1629,7 @@
         "templateIds": [
           "0x0d9b9016b69a058ad39aa3e30ff27d827e987dd64bddc7f4627929ce24a79750"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1637,7 +1637,7 @@
         "templateIds": [
           "0x880a7aa8cb410bf4a8768320124ac284d91a1c7e0f46f95b230bee3aabf7e7fd"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1645,7 +1645,7 @@
         "templateIds": [
           "0x552cb57921b80935c4ed9692e5a5e7f34bbecfd6ef60e1eead776542e446df40"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1653,7 +1653,7 @@
         "templateIds": [
           "0x5cf63692d0abe6d47800b73ffb261fa4fdacefed0373fa679f660dc558de1bad"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1661,7 +1661,7 @@
         "templateIds": [
           "0x937d7cd0cddcdd72e3e374101c173755076fdec5f4105f43dfe33141226482c5"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1669,7 +1669,7 @@
         "templateIds": [
           "0xeb15db04e727933ea7e7a038f4b2fe66201cf90e6cd499809221e1d5b72fba75"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1677,7 +1677,7 @@
         "templateIds": [
           "0xf88c95380519df80bc4886d3c025eccb09b3aed2bed9f2b039a1a269476643a8"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1685,7 +1685,7 @@
         "templateIds": [
           "0x77256b395cbfff258fb66b2dd2b44d70f83822ad44f447151f54d5d97606a47b"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1693,7 +1693,7 @@
         "templateIds": [
           "0x7bee5f0dee56cabeb429233161b79cd36adfc7c271ec6b34e7873ee8c665d9f4"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1701,7 +1701,7 @@
         "templateIds": [
           "0xa581c0786f3fc8bdfd2d67bc8e2f60011a47dffb606bb51ca897490a3d366b93"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1709,7 +1709,7 @@
         "templateIds": [
           "0xd64d4b2dc125ef89bf11fd7035bf11ae4e763f6aba3a459ecf7d4d91c742ecd3"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1717,7 +1717,7 @@
         "templateIds": [
           "0xad0b6634ddd3df3fe0d3372c374d12bb388f1f7139fc98925a4139c6abe49f23"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1725,7 +1725,7 @@
         "templateIds": [
           "0x031487ca600cd3a26a39206b5b4373f9231f75e4bd23edeb3d5bdc513c147e2a"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1733,7 +1733,7 @@
         "templateIds": [
           "0xdda9df47a1e5bbdaebddc1ed1033bb4c5a3009eee3bfb22cbffff40e22a348b0"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1741,7 +1741,7 @@
         "templateIds": [
           "0x7a58b12371f1cc8720cca5fdf651aa5c306cdf0e523cdcbbd73e6bb3398f5aed"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1749,7 +1749,7 @@
         "templateIds": [
           "0x4c9cbd0ab3a1e97caddf2f16594b6c5c6078b702ac0d03c21cb432019255b101"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1757,7 +1757,7 @@
         "templateIds": [
           "0x0c94b9e047cc204e63708f9d01d470ea96dc12ba79cfaa8198f5cf3030a422d2"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1765,7 +1765,7 @@
         "templateIds": [
           "0x88a86226d494eacc340ae3dd8ce32780bd2f9bb35f4d1e1e02a2183b0bf554f5"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1773,7 +1773,7 @@
         "templateIds": [
           "0xbc39b28ce5a611e533a2e8b8b7ea9d93e9857aa3646c46b79728dfc5ef0d2164"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1781,7 +1781,7 @@
         "templateIds": [
           "0x43c266e2876662baea1877c3dab148b350d72629dcbb04065ef5a55ec2f3bf18"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1789,7 +1789,7 @@
         "templateIds": [
           "0x3f5c469995c72670cec07bfe40fe713ff534b8c321ef1d98a26f4bd2a51e9303"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1797,7 +1797,7 @@
         "templateIds": [
           "0x124a9b5ad4336c54f9873d1a19502a6af12d44f3879fe3575b142a42420bd3ff"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1805,7 +1805,7 @@
         "templateIds": [
           "0x1998d1c5e381c1edec0feec35e8bc3c9d7cb39ace96d9279b6f9a07a7ea45424"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1813,7 +1813,7 @@
         "templateIds": [
           "0xf266dd58120df20072f31fbb86b57d47fd12abf74249ec4fcb2e5cdabfea0562"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1821,7 +1821,7 @@
         "templateIds": [
           "0x1b083375487cdc2d3bfd47080120c34a3da0e0c4b38a9c1e32ad789eed992b41"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1829,7 +1829,7 @@
         "templateIds": [
           "0xcfb6fce3a70dbd0fd57479084516fd86a31bc03e999b459b787c3a29bc17406f"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1837,7 +1837,7 @@
         "templateIds": [
           "0xd344fa4aafe6b9380c6ac3dab991911d93a53bb48f465ae698e8ed2ff5f801da"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1845,7 +1845,7 @@
         "templateIds": [
           "0xd41a2a6bc844e83a77b33180d9aa8de800a01942bccdb3061b63ed634bede003"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1853,7 +1853,7 @@
         "templateIds": [
           "0xa42d17af6782fa50c9aeb1a1616d1597feb0d408cf040d885670db0c95544d78"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1861,7 +1861,7 @@
         "templateIds": [
           "0xce1b66f025964a4263ae700e5abf8a2388096df8693b592a346153e5a2ec0868"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1869,7 +1869,7 @@
         "templateIds": [
           "0x8e3580c006511ec21c53765a6c70cf79b9a6577c4fceaefa86de6a43ebfbad98"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1877,7 +1877,7 @@
         "templateIds": [
           "0xbd2a32a77e03abcfb5901ba606dd310559a10176d6058a855817d06bc251e285"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1885,7 +1885,7 @@
         "templateIds": [
           "0x97f80f70bde0460eaf3e014b552c6e5922f4ca6b0577efde9168a29d12f45d4d"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1893,7 +1893,7 @@
         "templateIds": [
           "0x9a452b4ec86af3d2153efe491f3e337d6e55ec0ff2d577874f643b6a0ff47a58"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1901,7 +1901,7 @@
         "templateIds": [
           "0xc6a45b7816e3aa4035967f79633189d6e7349545ae4609e2ac1bd3a6245e1fe6"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1909,7 +1909,7 @@
         "templateIds": [
           "0xe5dc95eb9a951ae1025daca805cb5951b05b8fdb0c0974bab140447add3cbc94"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1917,7 +1917,7 @@
         "templateIds": [
           "0x9de09967577fd03ff84275d747f5fd251a70d3e294c282e52eb5e59137aefd11"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1925,7 +1925,7 @@
         "templateIds": [
           "0x9810d65138d25490320b828b6eb6652d3081b6cc161a6884122dedc032523a36"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1933,7 +1933,7 @@
         "templateIds": [
           "0x4328f91c7e753a72c1075da89cf3871d35d4856cc15ecf15c6fa8a1acd4fd0e0"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1941,7 +1941,7 @@
         "templateIds": [
           "0xf9a6a8f580e2708e1760e0549d0f0800d16278b9d00f2ddaa5b66c46edf69d78"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1949,7 +1949,7 @@
         "templateIds": [
           "0x93ce9a4fa62d71149c762af4d36ef43ac724d4fed8ea5761f640077cfe34833f"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1957,7 +1957,7 @@
         "templateIds": [
           "0x133af01a821a4b5283db8e95945d6abd5f6feff727eb6b345fc2a52078b3e1e2"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1965,7 +1965,7 @@
         "templateIds": [
           "0x49cd72aa09e4b330956173b9154ef63fbb7642d4b8e36b0fbd31af5dc9dc131a"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1973,7 +1973,7 @@
         "templateIds": [
           "0x101f552faae34174a7f2390ce513ca30b52f4488e1bc3104c6bebbd754075e3f"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1981,7 +1981,7 @@
         "templateIds": [
           "0xcfc59e30f669ba0aa441b813e7e97b983496c3157880ed8b9d9a064e24d08d9e"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1989,7 +1989,7 @@
         "templateIds": [
           "0x7c6b8605ea8cb4ed6f2c0aa94b41fa7aef30ddcc8ae1218eedb7f5697429cc38"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -1997,7 +1997,7 @@
         "templateIds": [
           "0x6882d8910e8a8693b0e7b6d326793c1e36b2890781d042adefb354d94c3788ea"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -2005,7 +2005,7 @@
         "templateIds": [
           "0xcd84d42799333e961e497727c17930c6442be0c529f257ef7e3d181606aa4090"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -2013,7 +2013,7 @@
         "templateIds": [
           "0x08279875a0cb8886d7d45a3b8e65fccd930b5988181b7ed5ddd99ec11c3f190c"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -2021,7 +2021,7 @@
         "templateIds": [
           "0xb3755713edc9c81b0303889d07307e8ac6da1b735c76611c5c33d73b27e6eb7c"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -2029,7 +2029,7 @@
         "templateIds": [
           "0xa1a6fa39b56f53f8e9dd273fafa5f8b933baf6546cc70975a991f1b15e53f03a"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -2037,7 +2037,7 @@
         "templateIds": [
           "0x931a3ed51f78f75a8bad3ecd73b1eea696a1117cd2026cf41359fecbea645ba0"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -2045,7 +2045,7 @@
         "templateIds": [
           "0xa5ab627ef4efdfd54db903dec33546f87f7cc1110d17193766b2e4daf05d276f"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -2053,7 +2053,7 @@
         "templateIds": [
           "0xb1fb36e7f55d7eafd9552fb5f607100c73fb17f031c400b98b8f9526816a47d1"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -2061,7 +2061,7 @@
         "templateIds": [
           "0x4eaaa5f3bd4c88cc730c04769776662b9d755604186ef13f9675157d74641083"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -2069,7 +2069,7 @@
         "templateIds": [
           "0x36ea36d062b9c141a5c50873c55e46e8de75cda91343c4f0541367f9875a346a"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -2077,7 +2077,7 @@
         "templateIds": [
           "0xda4c0f9d262b88fe8edfdc9dcec7c583c907f2c9758e1ef3e3e88a18323155f5"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -2085,7 +2085,7 @@
         "templateIds": [
           "0x8f6eca9605d72b6887ceabad0b9d03721c1228b41c68776480b7e66d457b4a87"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -2093,7 +2093,7 @@
         "templateIds": [
           "0x4a1d9a7d2a474a72d470abe9fdda57a4961153b482fbe943b09e6c50e72a6ade"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -2101,7 +2101,7 @@
         "templateIds": [
           "0xe157f3a9e8917196fab5d463aa106491426bccfbdcd73e282dffe6c8b20a38aa"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -2109,7 +2109,7 @@
         "templateIds": [
           "0xbde96dfec0d69012960feafa082452311d837a1964f6a0b7dc3585c536f2a9af"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       }
     ]

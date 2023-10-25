@@ -270,7 +270,7 @@
           "0xb8776540f7e3fe641f9281afbf3d9f7066ad25e6a71abb4b6090e08418244c60",
           "0x515c41dba7e07ccbc90e9e4f2a9acb0d2ccaf3104217227aff3a5eb2f2ac6c1d"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       },
       {
@@ -280,7 +280,7 @@
           "0x881445ff4b7fc9569fd77a12451a96ecc81c13abba26c8c5c5642f72f692ce36",
           "0xb353415b3998a697a5f756837fe3899a7d3cd0ec411a59d4ed3b65197c335745"
         ],
-        "fetchInterval": 5,
+        "fetchInterval": 30,
         "updateDelay": 0
       }
     ]
