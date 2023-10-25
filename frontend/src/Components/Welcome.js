@@ -5,14 +5,32 @@ import Title from "../Custom/Title";
 import ApiProvider from "./ApiProvider";
 import { checkFiles } from "../Helpers/FetchApis";
 import Integrations from "./Integrations";
+import { ApiIntegrationsContext } from "../Context";
+import { useContext } from "react";
 
 const Welcome = () => {
 
-  const [deployments, setDeployments] = useState(null);
+  const [provider, setProvider] = useState(null);
+
+  const { config, setConfig, comparePair, setComparePair } = useContext(ApiIntegrationsContext);
 
   const configFiles = (ctx => {
     return checkFiles(ctx);
-  })(require.context('../../../data/apis/', true, /\/[a-z0-9]+-pusher.json/));
+  })(require.context('../../../data/apis/', true, /\/[a-z0-9-]+-pusher.json/));
+
+  const detach = () => {
+    if (comparePair.left !== null && comparePair.right !== null) {
+      setComparePair({ left: null, right: null });
+      return;
+    }
+
+    if (config !== null) {
+      setConfig(null);
+      return;
+    }
+
+    setProvider(null);
+  }
 
   return (
     <Flex spacing={4} height={"100vh"} overflow={"scroll"}>
@@ -24,9 +42,8 @@ const Welcome = () => {
       >
 
         {
-          deployments === null
+          provider === null
             ?
-
             <VStack
               p={3}
               bgColor={COLORS.table}
@@ -46,7 +63,7 @@ const Welcome = () => {
               <Flex justifyContent={"center"} direction={"row"} wrap={"wrap"}>
                 {
                   configFiles.map((deployments, index) => (
-                    <ApiProvider key={index} deployments={deployments} setDeployments={setDeployments} />
+                    <ApiProvider key={index} deployments={deployments} setProvider={setProvider} />
                   ))
                 }
               </Flex>
@@ -67,14 +84,13 @@ const Welcome = () => {
               justifyItems={"center"}
             >
               <Title
-                header={"Deployments"}
+                header={config == null ? provider.header.toUpperCase() : config.stage}
                 buttonVisibility={true}
-                buttonText={"X"}
-                onClick={() => setDeployments(null)}
+                buttonText={"< Back"}
+                onClick={() => detach()}
                 isLoading={false}
               />
-              <Integrations integrations={deployments} />
-
+              <Integrations integrations={provider.deployments} />
             </VStack>
         }
 
