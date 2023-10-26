@@ -2801,14 +2801,14 @@
           "postProcessingSpecifications": [
             {
               "environment": "Node",
-              "value": "const postProcessingObject = {\n  \"AAVE/USD\":\n    \"(response) => {\\n              return response.id\\n            }\",\n  \"ADA/USD\":\n    \"(response) => {\\n              return response.id\\n            }\", \"ALGO/USD\":\n    \"(response) => {\\n              return response.id.headerparam\\n            }\",\n  \"ZRX/USD\":\n    \"(response) => {\\n              return response.cookieParam\\n            }\",\n}\nconst parser = eval(postProcessingObject[endpointParameters.name])\noutput = parser(input)\n",
+              "value": "const postProcessingObject = {\n \"ADA/USD\":\n    \"(response) => {\\n              return response.id\\n            }\", \"ALGO/USD\":\n    \"(response) => {\\n              return response.id.headerparam\\n            }\",\n  \"AAA/USD\":\n    \"(response) => {\\n              return response.cookieParam\\n            }\",\n}\nconst parser = eval(postProcessingObject[endpointParameters.name])\noutput = parser(input)\n",
               "timeoutMs": 5000
             }
           ],
           "preProcessingSpecifications": [
             {
               "environment": "Node",
-              "value": "const preProcessingObject = {\n \"AAVE/USD\": { path: \"post/query\", parameters: { id: \"AAVE_USD\" } },\n  \"ADA/USD\": { path: \"post/path/ADA_USD\", parameters: { } },\n  \"ALGO/USD\": { path: \"post/header\", parameters: { headerParam: \"ALGO/USD\"  } },\n \"ZRX/USD\": { path: \"post/cookie\", parameters: { cookieParam: \"ZRX/USD\" } },\n}\noutput = {\n  path: preProcessingObject[endpointParameters.name].path,\n  ...preProcessingObject[endpointParameters.name].parameters,\n}\n",
+              "value": "const preProcessingObject = {\n \"ADA/USD\": { path: \"post/path/ADA_USD\", parameters: { } },\n  \"ALGO/USD\": { path: \"post/header\", parameters: { headerParam: \"ALGO/USD\"  } },\n \"AAA/USD\": { path: \"post/cookie\", parameters: { cookieParam: \"AAA/USD\" } },\n}\noutput = {\n  path: preProcessingObject[endpointParameters.name].path,\n  ...preProcessingObject[endpointParameters.name].parameters,\n}\n",
               "timeoutMs": 5000
             }
           ],
@@ -2842,5 +2842,5 @@
       "securitySchemeValue": "MockApiKey1"
     }
   ],
-  "stage": "1c6fc553"
+  "stage": "old-mock-deployment"
 }
