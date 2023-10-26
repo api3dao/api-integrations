@@ -24,15 +24,15 @@ export const populateOis = (
   mode = CONSTANTS.CLOUD_FORMATION_DEPLOY,
   callback
 ) => {
-  const config = configData === null ? null : JSON.parse(configData);
-  if (config == null) return;
-  if (config.ois === null) return;
-  if (config.ois.length === 0) return;
 
-  if (config.airnodeWalletMnemonic === null) return;
+  if (configData == null) return;
+  if (configData.ois === null) return;
+  if (configData.ois.length === 0) return;
 
-  config.airnodeWalletMnemonic = AIRNODE_WALLET_MNEMONIC;
-  config.apiCredentials = SECURITY_SCHEME_VALUES;
+  if (configData.airnodeWalletMnemonic === null) return;
+
+  configData.airnodeWalletMnemonic = AIRNODE_WALLET_MNEMONIC;
+  configData.apiCredentials = SECURITY_SCHEME_VALUES;
 
   const mnemonicTest = testMnemonic(AIRNODE_WALLET_MNEMONIC);
   if (mnemonicTest.status === false) {

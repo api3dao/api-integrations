@@ -48,44 +48,49 @@ export const preProcessing = (endpoint, apiCallParameters, callback) => {
 
 export const getAPIResponse = async (request, method, apiKey) => {
 
-  const options = {
-    method: method,
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
+  try {
+    const options = {
+      method: method,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
 
-  if (request.headers !== undefined) {
-    request.headers.forEach((header) => {
-      options.headers[header.name] = header.value;
-    });
-  }
-
-  if (request.cookies !== undefined) {
-    request.cookies.forEach((cookie) => {
-      options.headers[cookie.name] = cookie.value;
-    });
-  }
-
-  if (request.body !== null) {
-    options.body = JSON.stringify(request.body);
-  }
-
-  if (apiKey !== undefined) {
-    switch (apiKey.in) {
-      case "header":
-        options.headers[apiKey.key] = apiKey.value;
-        break;
-      case "query":
-        request.path += `&${apiKey.key}=${apiKey.value}`;
-        break;
-      default:
-        break;
+    if (request.headers !== undefined) {
+      request.headers.forEach((header) => {
+        options.headers[header.name] = header.value;
+      });
     }
+
+    if (request.cookies !== undefined) {
+      request.cookies.forEach((cookie) => {
+        options.headers[cookie.name] = cookie.value;
+      });
+    }
+
+    if (request.body !== null) {
+      options.body = JSON.stringify(request.body);
+    }
+
+    if (apiKey !== undefined) {
+      switch (apiKey.in) {
+        case "header":
+          options.headers[apiKey.key] = apiKey.value;
+          break;
+        case "query":
+          request.path += `&${apiKey.key}=${apiKey.value}`;
+          break;
+        default:
+          break;
+      }
+    }
+
+    const response = await fetch(request.url, options);
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    throw error;
   }
 
-  const response = await fetch(request.url, options);
-  const data = await response.json();
-
-  return data;
 };

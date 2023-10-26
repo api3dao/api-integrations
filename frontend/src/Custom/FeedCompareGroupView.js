@@ -7,6 +7,7 @@ const FeedGroupView = ({ index, feed, oldServers, newEndpoint, oldEndpoint, newS
   return feed.length === 0 ? null : (
     <VStack key={index} alignItems={"left"} width={"100%"}>
       <ExpandableView
+        size="xl"
         status={0}
         view={feed.map((feed, index) => (
           <VStack key={index} alignItems={"left"} width={"100%"}>

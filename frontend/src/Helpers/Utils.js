@@ -2,6 +2,7 @@
 import parserTypeScript from "prettier/parser-babel";
 import prettier from "prettier/standalone";
 import { log } from "../Helpers/Logger";
+import _ from "lodash";
 
 export const cut = (
   object,
@@ -31,6 +32,7 @@ export const cut = (
       log("debug", ["newObject: ", newObject])
       const val = jsonify(newObject[0], setError);
       log("debug", ["val: ", val])
+      return val;
     } else {
       log("debug", ["newObject: ", newObject])
       if (newObject == null || newObject === undefined) return [];
@@ -69,24 +71,19 @@ export const combine = (endpoint, setError) => {
     /{.+(" |)}(,|) },}/g,
     /["A-Z0-9]+\/[A-Z"]+: (?:\{+)(.+?)(?:(,|}) \}+)/g,
     false,
-    false,
+    true,
     setError
   );
   log("debug", ["postProcessingSpecifications: ", postProcessingSpecifications])
   log("debug", ["preProcessingSpecifications: ", preProcessingSpecifications])
 
   const combined = postProcessingSpecifications.map((item, index) => {
-    const specifications = preProcessingSpecifications.filter(
-      (j) => j[0].replaceAll(/(\\n)|(\\)|(")/g, "") === item[0]
-    );
-    const preProcessingSpecificationsValue =
-      specifications.length > 0 ? specifications : [["", ""]];
 
-    log("debug", ["preProcessingSpecificationsValue: ", preProcessingSpecificationsValue])
+    log("debug", [item[0], item[1], preProcessingSpecifications[item[0]]])
     return {
       feed: item[0],
       code: item[1],
-      preProcessingSpecificationsValue: preProcessingSpecificationsValue[0][1],
+      preProcessingSpecificationsValue: preProcessingSpecifications[item[0]],
     };
   });
 
@@ -128,16 +125,14 @@ export const compareFeeds = (newFeeds, oldFeeds) => {
   const isCodeChanged = (a, b) => {
     return (
       a.feed === b.feed &&
-      (a.code !== b.code ||
-        a.preProcessingSpecificationsValue !==
-        b.preProcessingSpecificationsValue)
+      (a.code !== b.code || _.isEqual(a.preProcessingSpecificationsValue, b.preProcessingSpecificationsValue) === false)
     );
   };
   const isUnchanged = (a, b) => {
     return (
       a.feed === b.feed &&
       a.code === b.code &&
-      a.preProcessingSpecificationsValue === b.preProcessingSpecificationsValue
+      _.isEqual(a.preProcessingSpecificationsValue, b.preProcessingSpecificationsValue)
     );
   };
 
@@ -196,15 +191,6 @@ export const jsonify = (object, setError) => {
   }
 };
 
-export const getApiCallParameters = (
-  preProcessingSpecificationsValue,
-  setError
-) => {
-  const apiCallParameters = jsonify(preProcessingSpecificationsValue, setError);
-  if (apiCallParameters === null) return null;
-  return apiCallParameters;
-};
-
 export const getServerUrl = (servers) => {
   if (servers.length === 0) return "";
   const server = servers[0];
@@ -214,7 +200,7 @@ export const getServerUrl = (servers) => {
 
 export const getPath = (endpointParameters, feed, servers, setError) => {
   try {
-    const parameters = jsonify(feed.preProcessingSpecificationsValue, setError);
+    const parameters = feed.preProcessingSpecificationsValue
     if (parameters === undefined) return null;
     if (servers.length === 0) return parameters.path;
 
@@ -222,9 +208,6 @@ export const getPath = (endpointParameters, feed, servers, setError) => {
     const url = server.url;
 
     let path = parameters.path;
-    let headers = [];
-    let cookies = [];
-    let body = null;
     let queryString = "?";
 
     Object.keys(parameters.parameters).forEach((key) => {
@@ -233,15 +216,6 @@ export const getPath = (endpointParameters, feed, servers, setError) => {
       switch (parameterIn.in) {
         case "path":
           path += parameters[key];
-          break;
-        case "header":
-          headers.push({ name: parameterIn.name, value: parameters.parameters[key] });
-          break;
-        case "cookie":
-          cookies.push({ name: parameterIn.name, value: parameters.parameters[key] });
-          break;
-        case "body":
-          body = parameters.parameters[key];
           break;
         case "query":
           queryString += `${parameterIn.name}=${parameters.parameters[key]}&`;
@@ -256,25 +230,10 @@ export const getPath = (endpointParameters, feed, servers, setError) => {
 
     const pathWithBase = url + "/" + path + queryString;
 
-    const result = {
-      url: pathWithBase,
-      headers: headers,
-      cookies: cookies,
-      body: body
-    }
-
-    return result
+    return pathWithBase
   } catch (error) {
     setError(error);
-
-    const result = {
-      url: "ERROR",
-      headers: [],
-      cookies: [],
-      body: null
-    }
-
-    return result
+    return "ERROR"
   }
 };
 

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { VStack, Flex } from "@chakra-ui/react";
 import { COLORS } from "../data/constants";
 import Title from "../Custom/Title";
-import ApiProvider from "./ApiProvider";
+import ApiProvider from "../Custom/ApiProvider";
 import { checkFiles } from "../Helpers/FetchApis";
 import Integrations from "./Integrations";
 import { ApiIntegrationsContext } from "../Context";
@@ -86,7 +86,6 @@ const Welcome = () => {
               <Title
                 header={config == null ? provider.header.toUpperCase() : config.stage}
                 buttonVisibility={true}
-                buttonText={"< Back"}
                 onClick={() => detach()}
                 isLoading={false}
               />
