@@ -4,7 +4,6 @@ import { formatCode } from "../Helpers/Utils";
 import { useState } from "react";
 import {
   getPath,
-  getApiCallParameters,
   pathFromPrePreProcessing,
   getApiKey,
 } from "../Helpers/Utils";
@@ -19,12 +18,6 @@ const FeedRowView = ({ endpoint, feed, apiSpecifications, apiCredentials, tryit 
 
   const formatParameters = (parameters) => {
     try {
-      const apiCallParameters = getApiCallParameters(
-        feed.preProcessingSpecificationsValue,
-        setError
-      );
-
-      if (apiCallParameters === null) return [];
 
       const formattedParameters = [];
       Object.keys(parameters).forEach((key) => {
@@ -32,8 +25,8 @@ const FeedRowView = ({ endpoint, feed, apiSpecifications, apiCredentials, tryit 
         if (parameter.name === "path") return;
         const data =
           parameter.name === "path"
-            ? apiCallParameters.path
-            : apiCallParameters.parameters[parameter.name];
+            ? feed.preProcessingSpecificationsValue.path
+            : feed.preProcessingSpecificationsValue.parameters[parameter.name];
 
         if (data === undefined) {
           return;
@@ -109,7 +102,7 @@ const FeedRowView = ({ endpoint, feed, apiSpecifications, apiCredentials, tryit 
           p={2}
           fontSize={"sm"}
         >
-          {error !== null ? "error" : getPath(endpoint.parameters, feed, apiSpecifications.servers, setError).url}
+          {error !== null ? "error" : getPath(endpoint.parameters, feed, apiSpecifications.servers, setError)}
         </Text>
         <Spacer />
       </Flex>
