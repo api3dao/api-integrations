@@ -7,10 +7,11 @@ const Hero = ({
     inW = "150px",
     outW = "150px",
     isSelected = false,
+    isDisabled = false,
 }) => {
     return (
         <VStack
-            onClick={() => onClick()}
+            onClick={isDisabled ? () => { } : () => onClick()}
             cursor={"pointer"}
             spacing={0}
             direction="row"
@@ -28,7 +29,7 @@ const Hero = ({
                     borderColor={"gray.200"}
                     alignItems={"center"}
                 >
-                    <Image borderRadius={"lg"} src={src} width={inW} height={inW} />
+                    <Image src={src} width={inW} height={inW} />
                 </Flex>
             </Box>
         </VStack>

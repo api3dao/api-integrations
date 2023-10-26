@@ -11,7 +11,7 @@ const Hero = ({
 }) => {
   return (
     <VStack p={3} alignItems={"left"}>
-      <Flex alignItems={"center"}>
+      <Flex alignItems={"center"} borderBottomWidth={1}>
         <Text fontWeight={"light"} fontSize={"2xl"} textUnderlineOffset={1}>
           {header}
         </Text>
