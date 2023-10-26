@@ -1,41 +1,35 @@
-import { Flex, VStack } from "@chakra-ui/react";
-import { Box, Text, Image } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Flex, VStack } from '@chakra-ui/react';
+import { Box, Text, Image } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 const Hero = ({ link, bgColor, description, icon }) => {
   return (
     <Link to={link}>
-      <VStack cursor={"pointer"} spacing={0} direction="row" align="left">
-        <Box p={"1"} alignItems={"center"} width={"150px"} height={"150px"}>
+      <VStack cursor={'pointer'} spacing={0} direction="row" align="left">
+        <Box p={'1'} alignItems={'center'} width={'150px'} height={'150px'}>
           <Flex
-            justify={"center"}
+            justify={'center'}
             bgColor={bgColor}
-            width={"100%"}
-            height={"100%"}
-            borderRadius={"sm"}
+            width={'100%'}
+            height={'100%'}
+            borderRadius={'sm'}
             boxShadow="md"
-            alignItems={"center"}
+            alignItems={'center'}
           >
-            <Image src={icon} width={"60px"} height={"60px"} />
+            <Image src={icon} width={'60px'} height={'60px'} />
           </Flex>
         </Box>
-        <Box
-          p={"1"}
-          borderRadius={"10"}
-          alignItems={"center"}
-          width={"150px"}
-          height={"50px"}
-        >
+        <Box p={'1'} borderRadius={'10'} alignItems={'center'} width={'150px'} height={'50px'}>
           <Flex
-            justify={"center"}
+            justify={'center'}
             bgColor={bgColor}
-            width={"100%"}
-            height={"100%"}
-            borderRadius={"sm"}
+            width={'100%'}
+            height={'100%'}
+            borderRadius={'sm'}
             boxShadow="md"
-            alignItems={"center"}
+            alignItems={'center'}
           >
-            <Text fontSize={"md"} fontWeight={"bold"}>
+            <Text fontSize={'md'} fontWeight={'bold'}>
               {description}
             </Text>
           </Flex>

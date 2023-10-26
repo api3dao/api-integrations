@@ -1,10 +1,10 @@
-import Particles from "react-particles";
+import Particles from 'react-particles';
 
-import { useCallback } from "react";
-import { loadSlim } from "tsparticles-slim"; // if you are going to use `loadSlim`, install the "tsparticles-slim" package too.
-import { VStack } from "@chakra-ui/layout";
+import { useCallback } from 'react';
+import { loadSlim } from 'tsparticles-slim'; // if you are going to use `loadSlim`, install the "tsparticles-slim" package too.
+import { VStack } from '@chakra-ui/layout';
 
-import { COLORS } from "../data/constants";
+import { COLORS } from '../data/constants';
 
 const ParticlesBg = () => {
   const particlesInit = useCallback(async (engine) => {
@@ -22,49 +22,49 @@ const ParticlesBg = () => {
         options={{
           background: {
             color: {
-              value: COLORS.app,
-            },
+              value: COLORS.app
+            }
           },
           fpsLimit: 120,
           particles: {
             color: {
-              value: COLORS.particles,
+              value: COLORS.particles
             },
             links: {
               color: COLORS.particles,
               distance: 150,
               enable: true,
               opacity: 0.1,
-              width: 1,
+              width: 1
             },
             move: {
-              direction: "none",
+              direction: 'none',
               enable: true,
               outModes: {
-                default: "bounce",
+                default: 'bounce'
               },
               random: false,
               speed: 2,
-              straight: false,
+              straight: false
             },
             number: {
               density: {
                 enable: true,
-                area: 800,
+                area: 800
               },
-              value: 80,
+              value: 80
             },
             opacity: {
-              value: 0.1,
+              value: 0.1
             },
             shape: {
-              type: "square",
+              type: 'square'
             },
             size: {
-              value: { min: 1, max: 5 },
-            },
+              value: { min: 1, max: 5 }
+            }
           },
-          detectRetina: true,
+          detectRetina: true
         }}
       />
     </VStack>

@@ -1,53 +1,42 @@
+import parserTypeScript from 'prettier/parser-babel';
+import prettier from 'prettier/standalone';
+import { log } from '../Helpers/Logger';
+import _ from 'lodash';
 
-import parserTypeScript from "prettier/parser-babel";
-import prettier from "prettier/standalone";
-import { log } from "../Helpers/Logger";
-import _ from "lodash";
-
-export const cut = (
-  object,
-  initialMatch,
-  finalMatch,
-  replaceQuotes = true,
-  json = false,
-  setError
-) => {
+export const cut = (object, initialMatch, finalMatch, replaceQuotes = true, json = false, setError) => {
   try {
     const newObject = object.map((code, index) => {
-      let sanitized = code.value.replaceAll(/(\n)/g, "");
-      sanitized = sanitized.replace(/ +(?= )/g, "");
-      log("debug", ["sanitized: ", sanitized]);
+      let sanitized = code.value.replaceAll(/(\n)/g, '');
+      sanitized = sanitized.replace(/ +(?= )/g, '');
+      log('debug', ['sanitized: ', sanitized]);
       const object = sanitized.match(initialMatch);
-      log("debug", ["object: ", object])
+      log('debug', ['object: ', object]);
 
-      let filtered = replaceQuotes
-        ? object[0].replaceAll(/(\\n)|(\\)|(")/g, "")
-        : object[0].replaceAll(/(\\n)/g, "");
-      filtered = filtered.replace(/ +(?= )/g, "");
-      log("debug", ["filtered: ", filtered]);
+      let filtered = replaceQuotes ? object[0].replaceAll(/(\\n)|(\\)|(")/g, '') : object[0].replaceAll(/(\\n)/g, '');
+      filtered = filtered.replace(/ +(?= )/g, '');
+      log('debug', ['filtered: ', filtered]);
       return filtered;
     });
 
     if (json) {
-      log("debug", ["newObject: ", newObject])
+      log('debug', ['newObject: ', newObject]);
       const val = jsonify(newObject[0], setError);
-      log("debug", ["val: ", val])
+      log('debug', ['val: ', val]);
       return val;
     } else {
-      log("debug", ["newObject: ", newObject])
+      log('debug', ['newObject: ', newObject]);
       if (newObject == null || newObject === undefined) return [];
       const splitParanthesis = newObject[0].match(finalMatch);
-      log("debug", ["splitParanthesis: ", splitParanthesis])
+      log('debug', ['splitParanthesis: ', splitParanthesis]);
       let final = [];
 
       for (let i = 0; i < splitParanthesis.length; i++) {
         const split = splitParanthesis[i].split(/:(.*)/s);
         final.push(split);
       }
-      log("debug", ["final: ", final])
+      log('debug', ['final: ', final]);
       return final;
     }
-
   } catch (error) {
     setError(error);
   }
@@ -56,8 +45,7 @@ export const cut = (
 };
 
 export const combine = (endpoint, setError) => {
-  if (endpoint === null || endpoint === undefined || endpoint.length === 0)
-    return [];
+  if (endpoint === null || endpoint === undefined || endpoint.length === 0) return [];
   const postProcessingSpecifications = cut(
     endpoint.postProcessingSpecifications,
     /{.+}/g,
@@ -74,29 +62,26 @@ export const combine = (endpoint, setError) => {
     true,
     setError
   );
-  log("debug", ["postProcessingSpecifications: ", postProcessingSpecifications])
-  log("debug", ["preProcessingSpecifications: ", preProcessingSpecifications])
+  log('debug', ['postProcessingSpecifications: ', postProcessingSpecifications]);
+  log('debug', ['preProcessingSpecifications: ', preProcessingSpecifications]);
 
   const combined = postProcessingSpecifications.map((item, index) => {
-
-    log("debug", [item[0], item[1], preProcessingSpecifications[item[0]]])
+    log('debug', [item[0], item[1], preProcessingSpecifications[item[0]]]);
     return {
       feed: item[0],
       code: item[1],
-      preProcessingSpecificationsValue: preProcessingSpecifications[item[0]],
+      preProcessingSpecificationsValue: preProcessingSpecifications[item[0]]
     };
   });
 
-  log("debug", ["combined: ", combined])
+  log('debug', ['combined: ', combined]);
   return combined;
 };
 
 export const getEndpoints = (ois) => {
   let endpoints = [];
   ois.map((ois) =>
-    ois.endpoints
-      .filter((endpoint) => endpoint.name === "feed")
-      .map((endpoint, index) => endpoints.push(endpoint))
+    ois.endpoints.filter((endpoint) => endpoint.name === 'feed').map((endpoint, index) => endpoints.push(endpoint))
   );
   return endpoints;
 };
@@ -108,10 +93,7 @@ export const getFeeds = (endpoints) => {
 };
 
 const onlyInLeft = (left, right, compareFunction) =>
-  left.filter(
-    (leftValue) =>
-      !right.some((rightValue) => compareFunction(leftValue, rightValue))
-  );
+  left.filter((leftValue) => !right.some((rightValue) => compareFunction(leftValue, rightValue)));
 
 export const compareFeeds = (newFeeds, oldFeeds) => {
   let newAdded = [];
@@ -151,18 +133,14 @@ export const compareFeeds = (newFeeds, oldFeeds) => {
       });
     });
     newUpdated.push(tmp);
-    newUnchanged.push(
-      newFeeds[i].filter((newFeed) =>
-        oldFeeds[i].some((oldFeed) => isUnchanged(newFeed, oldFeed))
-      )
-    );
+    newUnchanged.push(newFeeds[i].filter((newFeed) => oldFeeds[i].some((oldFeed) => isUnchanged(newFeed, oldFeed))));
   }
 
   return {
     added: newAdded,
     removed: newRemoved,
     updated: newUpdated,
-    unchanged: newUnchanged,
+    unchanged: newUnchanged
   };
 };
 
@@ -176,23 +154,23 @@ export const extractFeeds = (newOis, oldOis) => {
   return {
     compareFeeds: compareFeeds(newFeeds, oldFeeds),
     endpointsOld: endpointsOld,
-    endpointsNew: endpointsNew,
+    endpointsNew: endpointsNew
   };
 };
 
 export const jsonify = (object, setError) => {
   try {
-    const formattedJson = formatCode(object, "json");
+    const formattedJson = formatCode(object, 'json');
     const json = JSON.parse(formattedJson);
     return json;
   } catch (error) {
-    log("error", ["jsonify: ", error])
+    log('error', ['jsonify: ', error]);
     setError(error);
   }
 };
 
 export const getServerUrl = (servers) => {
-  if (servers.length === 0) return "";
+  if (servers.length === 0) return '';
   const server = servers[0];
   const url = server.url;
   return url;
@@ -200,7 +178,7 @@ export const getServerUrl = (servers) => {
 
 export const getPath = (endpointParameters, feed, servers, setError) => {
   try {
-    const parameters = feed.preProcessingSpecificationsValue
+    const parameters = feed.preProcessingSpecificationsValue;
     if (parameters === undefined) return null;
     if (servers.length === 0) return parameters.path;
 
@@ -208,32 +186,31 @@ export const getPath = (endpointParameters, feed, servers, setError) => {
     const url = server.url;
 
     let path = parameters.path;
-    let queryString = "?";
+    let queryString = '?';
 
     Object.keys(parameters.parameters).forEach((key) => {
       const parameterIn = endpointParameters.filter((item) => item.name === key)[0].operationParameter;
 
       switch (parameterIn.in) {
-        case "path":
+        case 'path':
           path += parameters[key];
           break;
-        case "query":
+        case 'query':
           queryString += `${parameterIn.name}=${parameters.parameters[key]}&`;
           break;
         default:
           break;
       }
-
     });
 
     queryString = queryString.substring(0, queryString.length - 1);
 
-    const pathWithBase = url + "/" + path + queryString;
+    const pathWithBase = url + '/' + path + queryString;
 
-    return pathWithBase
+    return pathWithBase;
   } catch (error) {
     setError(error);
-    return "ERROR"
+    return 'ERROR';
   }
 };
 
@@ -244,73 +221,71 @@ export const pathFromPrePreProcessing = (endpointParameters, parameters, servers
   const server = servers[0];
   const url = server.url;
 
-  let path = "";
+  let path = '';
   let headers = [];
   let cookies = [];
   let body = null;
-  let queryString = "?";
+  let queryString = '?';
 
   Object.keys(parameters).forEach((key) => {
     const parameterIn = endpointParameters.filter((item) => item.name === key)[0].operationParameter;
 
     switch (parameterIn.in) {
-      case "path":
+      case 'path':
         path += parameters[key];
         break;
-      case "header":
+      case 'header':
         headers.push({ name: parameterIn.name, value: parameters[key] });
         break;
-      case "cookie":
+      case 'cookie':
         cookies.push({ name: parameterIn.name, value: parameters[key] });
         break;
-      case "body":
+      case 'body':
         body = parameters[key];
         break;
-      case "query":
+      case 'query':
         queryString += `${parameterIn.name}=${parameters[key]}&`;
         break;
       default:
         break;
     }
-
   });
 
   queryString = queryString.substring(0, queryString.length - 1);
 
-  const pathWithBase = url + "/" + path + queryString;
+  const pathWithBase = url + '/' + path + queryString;
 
   const result = {
     url: pathWithBase,
     headers: headers,
     cookies: cookies,
     body: body
-  }
+  };
 
   return result;
 };
 
 export const getApiKey = (apiCredentials, securitySchemes) => {
-  const securitySchemeName = Object.keys(securitySchemes).find(key => key === apiCredentials.securitySchemeName);
+  const securitySchemeName = Object.keys(securitySchemes).find((key) => key === apiCredentials.securitySchemeName);
   const securityScheme = securitySchemes[securitySchemeName];
 
   const apiKey = {
     in: securityScheme.in,
     key: securityScheme.name,
     value: apiCredentials.securitySchemeValue
-  }
+  };
 
   return apiKey;
 };
 
-export const formatCode = (code, parser = "babel") => {
+export const formatCode = (code, parser = 'babel') => {
   try {
     return prettier.format(code, {
       semi: true,
       parser: parser,
-      plugins: [parserTypeScript],
+      plugins: [parserTypeScript]
     });
   } catch (error) {
     return code;
   }
 };
-

@@ -1,15 +1,8 @@
-import React from "react";
-import { Button, VStack } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { Button, VStack } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 
-const Hero = ({
-  link,
-  isDisabled,
-  onClick,
-  text,
-  minWidth = "200px",
-  height = "50px",
-}) => {
+const Hero = ({ link, isDisabled, onClick, text, minWidth = '200px', height = '50px' }) => {
   const navigate = useNavigate();
 
   function handleClick(route) {

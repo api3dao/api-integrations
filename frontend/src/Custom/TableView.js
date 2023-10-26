@@ -1,12 +1,4 @@
-import {
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  Td,
-  TableContainer,
-} from "@chakra-ui/react";
+import { Table, Thead, Tbody, Tr, Th, Td, TableContainer } from '@chakra-ui/react';
 
 const TableView = ({ headers, parameters }) => {
   const getHeaders = () => {
@@ -34,7 +26,7 @@ const TableView = ({ headers, parameters }) => {
 
   return (
     <TableContainer>
-      <Table variant="striped" size={"sm"}>
+      <Table variant="striped" size={'sm'}>
         <Thead>
           <Tr>{getHeaders()}</Tr>
         </Thead>

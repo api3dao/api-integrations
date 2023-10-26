@@ -33,14 +33,7 @@
           "$ref": "#/definitions/Triggers"
         }
       },
-      "required": [
-        "apiCredentials",
-        "chains",
-        "nodeSettings",
-        "ois",
-        "templates",
-        "triggers"
-      ],
+      "required": ["apiCredentials", "chains", "nodeSettings", "ois", "templates", "triggers"],
       "title": "ConfigJSON"
     },
     "APICredential": {
@@ -172,13 +165,7 @@
           }
         }
       },
-      "required": [
-        "apiSpecifications",
-        "endpoints",
-        "oisFormat",
-        "title",
-        "version"
-      ],
+      "required": ["apiSpecifications", "endpoints", "oisFormat", "title", "version"],
       "title": "Ois"
     },
     "APISpecifications": {
