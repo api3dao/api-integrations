@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { VStack, Text } from "@chakra-ui/react";
+import { VStack } from "@chakra-ui/react";
 import { extractFeeds } from "../Helpers/Utils";
 import FeedGroupView from "../Custom/FeedGroupView";
 import FeedCompareGroupView from "../Custom/FeedCompareGroupView";
-import { COLORS } from "../data/constants";
+import Title from "../Custom/Title";
 
 const CompareEndpoints = ({ oldOis, newOis }) => {
   const [comparison, setComparison] = useState(null);
@@ -25,9 +25,7 @@ const CompareEndpoints = ({ oldOis, newOis }) => {
       {
         newOis.map((oi, j) => (
           <VStack key={j} alignItems={"left"}>
-            <Text p={2} bgColor={COLORS.main} fontSize={"md"} fontWeight={"bold"}>
-              {oi.title}
-            </Text>
+            <Title header={oi.title} buttonVisibility={false} isLoading={false} />
 
             {comparison.compareFeeds.added.map((feed, index) => (index !== j ? null :
               <FeedGroupView
