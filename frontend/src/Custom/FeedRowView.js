@@ -67,6 +67,9 @@ const FeedRowView = ({ endpoint, feed, apiSpecifications, apiCredentials, tryit 
         endpoint,
         setPostProcessResult
       );
+    }, (error) => {
+      setIsLoading(false);
+      setError(error);
     }
     );
   };
@@ -103,7 +106,7 @@ const FeedRowView = ({ endpoint, feed, apiSpecifications, apiCredentials, tryit 
           fontSize={"sm"}
           noOfLines={0}
         >
-          {error !== null ? "error" : getPath(endpoint.parameters, feed, apiSpecifications.servers, setError)}
+          {getPath(endpoint.parameters, feed, apiSpecifications.servers, setError)}
         </Text>
         <Spacer />
       </Flex>

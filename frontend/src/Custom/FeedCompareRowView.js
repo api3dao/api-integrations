@@ -27,7 +27,7 @@ const FeedCompareRowView = ({ feed, oldServers, newEndpoint, oldEndpoint, newSer
             GET
           </Text>
           <Text bgColor={"gray.200"} p={2} fontSize={"sm"}>
-            {error !== null ? "error" : getPath(oldEndpoint.parameters, feed.oldFeed, oldServers, setError)}
+            {getPath(oldEndpoint.parameters, feed.oldFeed, oldServers, setError)}
           </Text>
         </Flex>
         <Text fontSize={"md"} fontWeight={"bold"}>
@@ -61,7 +61,7 @@ const FeedCompareRowView = ({ feed, oldServers, newEndpoint, oldEndpoint, newSer
             GET
           </Text>
           <Text bgColor={"blue.200"} p={2} fontSize={"sm"}>
-            {error !== null ? "error" : getPath(newEndpoint.parameters, feed.newFeed, newServers, setError)}
+            {getPath(newEndpoint.parameters, feed.newFeed, newServers, setError)}
           </Text>
           <Spacer />
         </Flex>
@@ -77,6 +77,20 @@ const FeedCompareRowView = ({ feed, oldServers, newEndpoint, oldEndpoint, newSer
           codeBlock={true}
         />
       </VStack>
+      {error == null ? null : (
+        <VStack alignItems={"left"} width={"100%"}>
+          <Text fontSize={"md"} fontWeight={"bold"}>
+            Error
+          </Text>
+          <CopyBlock
+            text={formatCode(error)}
+            language={"json"}
+            showLineNumbers={false}
+            theme={dracula}
+            codeBlock={true}
+          />
+        </VStack>
+      )}
     </VStack>
   );
 };
