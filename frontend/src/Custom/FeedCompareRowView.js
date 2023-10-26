@@ -27,7 +27,7 @@ const FeedCompareRowView = ({ feed, oldServers, newEndpoint, oldEndpoint, newSer
             GET
           </Text>
           <Text bgColor={"gray.200"} p={2} fontSize={"sm"}>
-            {error !== null ? "error" : getPath(oldEndpoint.parameters, feed.oldFeed, oldServers, setError).url}
+            {error !== null ? "error" : getPath(oldEndpoint.parameters, feed.oldFeed, oldServers, setError)}
           </Text>
         </Flex>
         <Text fontSize={"md"} fontWeight={"bold"}>
@@ -61,7 +61,7 @@ const FeedCompareRowView = ({ feed, oldServers, newEndpoint, oldEndpoint, newSer
             GET
           </Text>
           <Text bgColor={"blue.200"} p={2} fontSize={"sm"}>
-            {error !== null ? "error" : getPath(newEndpoint.parameters, feed.newFeed, newServers, setError).url}
+            {error !== null ? "error" : getPath(newEndpoint.parameters, feed.newFeed, newServers, setError)}
           </Text>
           <Spacer />
         </Flex>

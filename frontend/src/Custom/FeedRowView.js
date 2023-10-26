@@ -101,6 +101,7 @@ const FeedRowView = ({ endpoint, feed, apiSpecifications, apiCredentials, tryit 
           bgColor={getColor(endpoint.operation.method.toUpperCase(), false)}
           p={2}
           fontSize={"sm"}
+          noOfLines={0}
         >
           {error !== null ? "error" : getPath(endpoint.parameters, feed, apiSpecifications.servers, setError)}
         </Text>

@@ -24,7 +24,7 @@ const ApiProvider = ({ index, deployments, setProvider }) => {
                     height={"100px"}
                 />
 
-                <Text fontWeight={"bold"}>
+                <Text fontSize={"xs"} fontWeight={"light"}>
                     {key.toUpperCase()}
                 </Text>
 
