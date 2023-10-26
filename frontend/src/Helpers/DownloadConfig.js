@@ -1,18 +1,18 @@
-import { CONSTANTS } from "../data/constants";
-import JSZip from "jszip";
+import { CONSTANTS } from '../data/constants';
+import JSZip from 'jszip';
 
 export const testMnemonic = (mnemonic) => {
-  if (mnemonic.split(" ").length !== 12)
+  if (mnemonic.split(' ').length !== 12)
     return {
       status: false,
-      message: "Invalid mnemonic: Mnemonic must be 12 words",
+      message: 'Invalid mnemonic: Mnemonic must be 12 words'
     };
   if (mnemonic.match(/[^a-zA-Z ]/))
     return {
       status: false,
-      message: "Invalid mnemonic: Mnemonic must only contain letters",
+      message: 'Invalid mnemonic: Mnemonic must only contain letters'
     };
-  return { status: true, message: "Valid mnemonic" };
+  return { status: true, message: 'Valid mnemonic' };
 };
 
 export const populateOis = (
@@ -24,7 +24,6 @@ export const populateOis = (
   mode = CONSTANTS.CLOUD_FORMATION_DEPLOY,
   callback
 ) => {
-
   if (configData == null) return;
   if (configData.ois === null) return;
   if (configData.ois.length === 0) return;
@@ -40,11 +39,10 @@ export const populateOis = (
     return;
   }
 
-  let API_KEY = "";
+  let API_KEY = '';
   ois.forEach((ois) => {
     SECURITY_SCHEME_VALUES.forEach((item) => {
-      API_KEY += `\\n${ois.title.toUpperCase()}_API_KEY=${item.securitySchemeValue
-        }`;
+      API_KEY += `\\n${ois.title.toUpperCase()}_API_KEY=${item.securitySchemeValue}`;
     });
   });
 
@@ -62,44 +60,41 @@ export const populateOis = (
 
   callback({
     status: true,
-    message: "File downloaded successfully",
-    mode: mode,
+    message: 'File downloaded successfully',
+    mode: mode
   });
 };
 
 const downloadCloudFormation = (CloudFormation, secrets) => {
-  CloudFormation.Resources.MyAppDefinition.Properties.ContainerDefinitions[0].Environment[0].Value =
-    secrets;
+  CloudFormation.Resources.MyAppDefinition.Properties.ContainerDefinitions[0].Environment[0].Value = secrets;
 
-  const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(
-    JSON.stringify(CloudFormation, null, 2)
-  )}`;
+  const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(JSON.stringify(CloudFormation, null, 2))}`;
 
-  const link = document.createElement("a");
+  const link = document.createElement('a');
   link.href = jsonString;
-  link.download = "CloudFormation.json";
+  link.download = 'CloudFormation.json';
   link.click();
 };
 
 export const downloadZip = (secrets, config) => {
   var zip = new JSZip();
-  zip.file("secrets.env", secrets.replaceAll(/(\\n)/g, "\n"));
-  zip.file("pusher.json", config);
+  zip.file('secrets.env', secrets.replaceAll(/(\\n)/g, '\n'));
+  zip.file('pusher.json', config);
 
-  zip.generateAsync({ type: "blob" }).then(function (content) {
-    saveAs(content, "pusher-config.zip");
+  zip.generateAsync({ type: 'blob' }).then(function (content) {
+    saveAs(content, 'pusher-config.zip');
   });
-}
+};
 
 const saveAs = (blob, filename) => {
   if (window.navigator.msSaveOrOpenBlob) {
     window.navigator.msSaveBlob(blob, filename);
   } else {
-    var elem = window.document.createElement("a");
+    var elem = window.document.createElement('a');
     elem.href = window.URL.createObjectURL(blob);
     elem.download = filename;
     document.body.appendChild(elem);
     elem.click();
     document.body.removeChild(elem);
   }
-}
+};

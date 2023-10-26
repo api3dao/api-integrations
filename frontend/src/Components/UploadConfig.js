@@ -1,6 +1,6 @@
-import { useState, useRef } from "react";
-import { VStack, Flex, Text, Box, Button, Spacer } from "@chakra-ui/react";
-import { COLORS } from "../data/constants";
+import { useState, useRef } from 'react';
+import { VStack, Flex, Text, Box, Button, Spacer } from '@chakra-ui/react';
+import { COLORS } from '../data/constants';
 
 const Hero = ({ configFile, setConfig, description }) => {
   let fileReader;
@@ -41,23 +41,11 @@ const Hero = ({ configFile, setConfig, description }) => {
   };
 
   return (
-    <VStack
-      width={"100%"}
-      justifyContent={"center"}
-      alignItems={"left"}
-      direction={"column"}
-    >
-      <Text fontSize={"sm"}>{description}</Text>
-      <Box
-        p={"2"}
-        border={"2px"}
-        borderColor={COLORS.main}
-        borderRadius={"md"}
-        alignItems={"center"}
-        width={"100%"}
-      >
+    <VStack width={'100%'} justifyContent={'center'} alignItems={'left'} direction={'column'}>
+      <Text fontSize={'sm'}>{description}</Text>
+      <Box p={'2'} border={'2px'} borderColor={COLORS.main} borderRadius={'md'} alignItems={'center'} width={'100%'}>
         <Flex>
-          <Text fontSize={"lg"} fontWeight={"bold"}>
+          <Text fontSize={'lg'} fontWeight={'bold'}>
             {filename}
           </Text>
           <Spacer />
@@ -65,19 +53,13 @@ const Hero = ({ configFile, setConfig, description }) => {
             onClick={() => {
               handleClick();
             }}
-            variant={"outline"}
-            size={"sm"}
+            variant={'outline'}
+            size={'sm'}
           >
-            {configFile == null ? "Browse" : "Remove"}
+            {configFile == null ? 'Browse' : 'Remove'}
           </Button>
           <div>
-            <input
-              style={{ display: "none" }}
-              accept=".json"
-              ref={inputFile}
-              onChange={handleFileUpload}
-              type="file"
-            />
+            <input style={{ display: 'none' }} accept=".json" ref={inputFile} onChange={handleFileUpload} type="file" />
           </div>
         </Flex>
       </Box>

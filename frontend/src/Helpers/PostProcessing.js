@@ -1,20 +1,15 @@
-export const postProcessing = (
-  apiCallResponse,
-  apiCallParameters,
-  endpoint,
-  callback
-) => {
-  const url = "https://commons.api3dev.com/post";
+export const postProcessing = (apiCallResponse, apiCallParameters, endpoint, callback) => {
+  const url = 'https://commons.api3dev.com/post';
   const body = {
     apiCallResponse: apiCallResponse,
     apiCallParameters: apiCallParameters,
-    endpoint: endpoint,
+    endpoint: endpoint
   };
 
   fetch(url, {
-    method: "POST",
+    method: 'POST',
     body: JSON.stringify(body),
-    headers: { "Content-Type": "application/json" },
+    headers: { 'Content-Type': 'application/json' }
   })
     .then((response) => response.json())
     .then((res) => {
@@ -26,16 +21,16 @@ export const postProcessing = (
 };
 
 export const preProcessing = (endpoint, apiCallParameters, callback) => {
-  const url = "https://commons.api3dev.com/pre";
+  const url = 'https://commons.api3dev.com/pre';
   const body = {
     apiCallParameters: apiCallParameters,
-    endpoint: endpoint,
+    endpoint: endpoint
   };
 
   fetch(url, {
-    method: "POST",
+    method: 'POST',
     body: JSON.stringify(body),
-    headers: { "Content-Type": "application/json" },
+    headers: { 'Content-Type': 'application/json' }
   })
     .then((response) => response.json())
     .then((res) => {
@@ -47,13 +42,12 @@ export const preProcessing = (endpoint, apiCallParameters, callback) => {
 };
 
 export const getAPIResponse = async (request, method, apiKey) => {
-
   try {
     const options = {
       method: method,
       headers: {
-        "Content-Type": "application/json",
-      },
+        'Content-Type': 'application/json'
+      }
     };
 
     if (request.headers !== undefined) {
@@ -74,10 +68,10 @@ export const getAPIResponse = async (request, method, apiKey) => {
 
     if (apiKey !== undefined) {
       switch (apiKey.in) {
-        case "header":
+        case 'header':
           options.headers[apiKey.key] = apiKey.value;
           break;
-        case "query":
+        case 'query':
           request.path += `&${apiKey.key}=${apiKey.value}`;
           break;
         default:
@@ -92,5 +86,4 @@ export const getAPIResponse = async (request, method, apiKey) => {
   } catch (error) {
     throw error;
   }
-
 };
