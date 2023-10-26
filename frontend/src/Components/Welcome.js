@@ -86,7 +86,6 @@ const Welcome = () => {
               <Title
                 header={config == null ? provider.header.toUpperCase() : config.stage}
                 buttonVisibility={true}
-                buttonText={"< Back"}
                 onClick={() => detach()}
                 isLoading={false}
               />

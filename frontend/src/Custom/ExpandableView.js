@@ -3,7 +3,7 @@ import { COLORS, CONSTANTS } from "../data/constants";
 import { TriangleDownIcon, TriangleUpIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 
-const ExpandableView = ({ view, header, defaultState = false, status = 0 }) => {
+const ExpandableView = ({ view, header, defaultState = false, status = 0, size = "md" }) => {
   const [isOpen, setIsOpen] = useState(defaultState);
 
   const getColor = () => {
@@ -35,7 +35,7 @@ const ExpandableView = ({ view, header, defaultState = false, status = 0 }) => {
     >
       <Box p={2} alignItems={"center"} borderRadius={"sm"} bgColor={getColor()}>
         <Flex alignItems={"center"}>
-          <Text fontWeight={"bold"} fontSize={"md"}>
+          <Text fontWeight={"bold"} fontSize={size}>
             {header}
           </Text>
           <Spacer />

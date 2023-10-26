@@ -1,6 +1,5 @@
 import { Flex, Text, Image } from "@chakra-ui/react";
 import { COLORS, CONSTANTS } from "../data/constants";
-import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -14,8 +13,8 @@ const Header = () => {
     >
       <Flex as="header" align="center" justify="space-between" p={4}>
         <Flex align="flex-start" cursor="pointer" gap={"12px"}>
-          <Image src={`/logo.svg`} width={"25px"} height={"25px"} />
-          <Text fontWeight={"bold"} size="lg">
+          <Image src={`/logo.svg`} width={"32px"} height={"32px"} />
+          <Text fontWeight={"light"} fontSize="xl">
             API Integrations Tool
           </Text>
         </Flex>

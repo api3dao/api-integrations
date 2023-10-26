@@ -1,19 +1,18 @@
 import React from "react";
-import { Text, Flex, Spacer, VStack, Button } from "@chakra-ui/react";
+import { Text, Flex, Spacer, VStack } from "@chakra-ui/react";
 import { ColorRing } from "react-loader-spinner";
-import { COLORS } from "../data/constants";
+import { ArrowBackIcon } from "@chakra-ui/icons";
 
 const Hero = ({
   isLoading,
   header,
   onClick,
-  buttonText,
   buttonVisibility = true,
 }) => {
   return (
-    <VStack p={3} alignItems={"left"} bgColor={COLORS.title}>
+    <VStack p={3} alignItems={"left"}>
       <Flex alignItems={"center"}>
-        <Text fontWeight={"bold"} size={"lg"}>
+        <Text fontWeight={"light"} fontSize={"2xl"} textUnderlineOffset={1}>
           {header}
         </Text>
         <Spacer />
@@ -26,9 +25,8 @@ const Hero = ({
           visible={isLoading}
         />
         {!buttonVisibility ? null : (
-          <Button height={"24px"} colorScheme="orange" size="sm" onClick={onClick}>
-            {buttonText}
-          </Button>
+          <ArrowBackIcon onClick={onClick} width={"30px"} height={"30px"} cursor={"pointer"} />
+
         )}
       </Flex>
     </VStack>
