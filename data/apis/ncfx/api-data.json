@@ -125,5 +125,6 @@
         "MNT/USD"
       ]
     ]
-  }
+  },
+  "deploymentLocations": ["aws"]
 }
