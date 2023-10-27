@@ -31,5 +31,6 @@
       ["TRY/USD"],
       ["ZAR/USD"]
     ]
-  }
+  },
+  "deploymentLocations": ["aws"]
 }

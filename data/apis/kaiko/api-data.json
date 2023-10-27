@@ -103,5 +103,6 @@
       ["MNT/USD"],
       ["KAVA/USD"]
     ]
-  }
+  },
+  "deploymentLocations": ["aws"]
 }

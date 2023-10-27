@@ -28,5 +28,6 @@
       ],
       ["XAG/USD", "XAU/USD", "WTI/USD"]
     ]
-  }
+  },
+  "deploymentLocations": ["aws"]
 }

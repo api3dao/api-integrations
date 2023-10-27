@@ -39,5 +39,6 @@
       ["ZAR/USD"],
       ["RUB/USD"]
     ]
-  }
+  },
+  "deploymentLocations": ["aws"]
 }

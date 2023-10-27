@@ -140,5 +140,6 @@
       ["XAG/USD"],
       ["XAU/USD"]
     ]
-  }
+  },
+  "deploymentLocations": ["aws"]
 }
