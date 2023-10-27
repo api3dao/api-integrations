@@ -8,33 +8,25 @@ export const cut = (object, initialMatch, finalMatch, replaceQuotes = true, json
     const newObject = object.map((code, index) => {
       let sanitized = code.value.replaceAll(/(\n)/g, '');
       sanitized = sanitized.replace(/ +(?= )/g, '');
-      log('debug', ['sanitized: ', sanitized]);
       const object = sanitized.match(initialMatch);
-      log('debug', ['object: ', object]);
 
       let filtered = replaceQuotes ? object[0].replaceAll(/(\\n)|(\\)|(")/g, '') : object[0].replaceAll(/(\\n)/g, '');
       filtered = filtered.replace(/ +(?= )/g, '');
-      log('debug', ['filtered: ', filtered]);
       return filtered;
     });
 
     if (json) {
-      log('debug', ['newObject: ', newObject]);
       const val = jsonify(newObject[0], setError);
-      log('debug', ['val: ', val]);
       return val;
     } else {
-      log('debug', ['newObject: ', newObject]);
       if (newObject == null || newObject === undefined) return [];
       const splitParanthesis = newObject[0].match(finalMatch);
-      log('debug', ['splitParanthesis: ', splitParanthesis]);
       let final = [];
 
       for (let i = 0; i < splitParanthesis.length; i++) {
         const split = splitParanthesis[i].split(/:(.*)/s);
         final.push(split);
       }
-      log('debug', ['final: ', final]);
       return final;
     }
   } catch (error) {
@@ -164,7 +156,6 @@ export const jsonify = (object, setError) => {
     const json = JSON.parse(formattedJson);
     return json;
   } catch (error) {
-    log('error', ['jsonify: ', error]);
     setError(error);
   }
 };

@@ -3,50 +3,40 @@ import { Stack } from '@chakra-ui/react';
 import { COLORS } from '../data/constants';
 import { Text } from '@chakra-ui/react';
 import { ApiIntegrationsContext } from '../Context';
-import { useContext, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import ImageButton from '../Custom/ImageButton';
 
-const IntegrationsRow = ({ integration }) => {
-  const { setConfig, setComparePair, comparePair } = useContext(ApiIntegrationsContext);
-  const [side, setSide] = useState(null);
+const IntegrationsRow = ({ apiProvider, category, integration }) => {
+  const { setConfig, setComparePair, comparePair, setDeploymentVariant } = useContext(ApiIntegrationsContext);
+
+  const setView = () => {
+    setConfig(integration);
+    setDeploymentVariant({
+      apiProvider: apiProvider,
+      category: category,
+      filename: integration.stage
+    });
+  };
 
   const compare = () => {
-    if (side === 'left') {
-      setComparePair({ left: null, right: comparePair.right });
-      setSide(null);
-      return;
-    }
-
-    if (side === 'right') {
-      setComparePair({ left: comparePair.left, right: null });
-      setSide(null);
-      return;
-    }
-
-    if (comparePair.left === null) {
+    if (category !== 'active') {
       setComparePair({ left: integration, right: comparePair.right });
-      setSide('left');
-      return;
-    }
-
-    if (comparePair.right === null) {
-      setComparePair({ left: comparePair.left, right: integration });
-      setSide('right');
       return;
     }
   };
 
   const isCompareAvailable = () => {
-    if (comparePair.left === null) {
-      return true;
-    }
-
-    if (comparePair.right === null) {
-      return true;
-    }
-
-    return false;
+    if (category === 'active') return false
+    if (comparePair.right === null) return false
+    return comparePair.left === null;
   };
+
+  useEffect(() => {
+    if (category !== 'active') return
+    if (comparePair.right !== null) return
+    setComparePair({ left: comparePair.left, right: integration });
+
+  }, [category, comparePair, integration, setComparePair]);
 
   return (
     <VStack spacing={0} direction="row" align="left">
@@ -67,20 +57,8 @@ const IntegrationsRow = ({ integration }) => {
           <Flex width={'100%'} wrap={'wrap'}>
             <Stack direction={'row'} alignItems={'center'} spacing={5} wrap={'wrap'}>
               <Circle size={'10px'} bgColor={'green.400'} />
-              <Text minWidth={'300px'} fontSize={'md'} fontWeight={'bold'}>
+              <Text minWidth={'400px'} fontSize={'md'} fontWeight={'bold'}>
                 {integration.stage}
-              </Text>
-              <Text
-                align={'center'}
-                width={'100px'}
-                minW={'100px'}
-                p={1}
-                bgColor={'blue'}
-                borderRadius={'lg'}
-                fontSize={'xs'}
-                color={'white'}
-              >
-                Candidate
               </Text>
               <Text width={'100px'} p={1} fontSize={'xs'}>
                 Pusher 0.0.1
@@ -92,20 +70,22 @@ const IntegrationsRow = ({ integration }) => {
                 inW="24px"
                 outW="48px"
                 onClick={() => {
-                  setConfig(integration);
+                  setView();
                 }}
                 src={'./view.svg'}
               />
-              <ImageButton
-                isDisabled={!isCompareAvailable()}
-                inW="24px"
-                outW="48px"
-                onClick={() => {
-                  compare();
-                }}
-                src={'./compare.svg'}
-                isSelected={side != null}
-              />
+              {
+                !isCompareAvailable() ? null :
+                  <ImageButton
+                    inW="24px"
+                    outW="48px"
+                    onClick={() => {
+                      compare();
+                    }}
+                    src={'./compare.svg'}
+                  />
+              }
+
             </Stack>
           </Flex>
         )}

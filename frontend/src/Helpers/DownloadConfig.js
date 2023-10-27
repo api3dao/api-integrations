@@ -22,6 +22,7 @@ export const populateOis = (
   ois,
   CloudFormation,
   mode = CONSTANTS.CLOUD_FORMATION_DEPLOY,
+  deploymentVariant,
   callback
 ) => {
   if (configData == null) return;
@@ -49,7 +50,7 @@ export const populateOis = (
   const secrets = `WALLET_MNEMONIC=${AIRNODE_WALLET_MNEMONIC}${API_KEY}`;
   switch (mode) {
     case CONSTANTS.CLOUD_FORMATION_DEPLOY:
-      downloadCloudFormation(CloudFormation, secrets);
+      downloadCloudFormation(CloudFormation, secrets, deploymentVariant);
       break;
     case CONSTANTS.DOCKER_DEPLOY:
       downloadZip(secrets, configData);
@@ -65,8 +66,14 @@ export const populateOis = (
   });
 };
 
-const downloadCloudFormation = (CloudFormation, secrets) => {
+const downloadCloudFormation = (CloudFormation, secrets, deploymentVariant) => {
+
+  const entryPoint = ["/bin/sh",
+    "-c",
+    `echo -e $SECRETS_ENV >> ./config/secrets.env && wget -O - https://raw.githubusercontent.com/api3dao/api-integrations/main/data/apis/${deploymentVariant.apiProvider}/deployments/${deploymentVariant.category}-deployments/${deploymentVariant.filename}-pusher.json >> ./config/pusher.json && node --enable-source-maps dist/index.js`];
+
   CloudFormation.Resources.MyAppDefinition.Properties.ContainerDefinitions[0].Environment[0].Value = secrets;
+  CloudFormation.Resources.MyAppDefinition.Properties.ContainerDefinitions[0].EntryPoint = entryPoint;
 
   const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(JSON.stringify(CloudFormation, null, 2))}`;
 
@@ -79,7 +86,7 @@ const downloadCloudFormation = (CloudFormation, secrets) => {
 export const downloadZip = (secrets, config) => {
   var zip = new JSZip();
   zip.file('secrets.env', secrets.replaceAll(/(\\n)/g, '\n'));
-  zip.file('pusher.json', config);
+  zip.file('pusher.json', JSON.stringify(config));
 
   zip.generateAsync({ type: 'blob' }).then(function (content) {
     saveAs(content, 'pusher-config.zip');

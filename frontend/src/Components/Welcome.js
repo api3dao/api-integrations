@@ -18,10 +18,12 @@ const Welcome = () => {
   })(require.context('../../../data/apis/', true, /\/[a-z0-9-]+-pusher.json/));
 
   const detach = () => {
-    if (comparePair.left !== null || comparePair.right !== null) {
+    if (comparePair.left !== null) {
       setComparePair({ left: null, right: null });
       return;
     }
+
+    setComparePair({ left: null, right: null });
 
     if (config !== null) {
       setConfig(null);
@@ -71,7 +73,7 @@ const Welcome = () => {
               onClick={() => detach()}
               isLoading={false}
             />
-            <Integrations integrations={provider.deployments} />
+            <Integrations apiProvider={provider.header} integrations={provider.deployments} />
           </VStack>
         )}
       </VStack>
