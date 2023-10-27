@@ -58,3 +58,13 @@ export function extractPostProcessingObject(ois: OIS) {
   const evaluated = Function('endpointParameters', 'input', 'output', postProcValue + 'return postProcessingObject;');
   return evaluated({ name: '' }, '', '');
 }
+
+export function getPreProcessingString(ois: OIS) {
+  const feedEndpoint = ois.endpoints.find((e: any) => e.name === 'feed');
+  return feedEndpoint!.preProcessingSpecifications;
+}
+
+export function getPostProcessingString(ois: OIS) {
+  const feedEndpoint = ois.endpoints.find((e: any) => e.name === 'feed');
+  return feedEndpoint!.postProcessingSpecifications;
+}
