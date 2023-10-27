@@ -23,8 +23,16 @@ function main() {
         difference(supportedFeeds, feedsInPreProcessingObject)
       );
       if (mismatchPreSupp.length !== 0) {
-        logger.error(`Mismatch between supported feeds and preProcessingObject >> ${JSON.stringify(mismatchPreSupp)}`);
-        throw Error(`Mismatch between supported feeds and preProcessingObject >> ${JSON.stringify(mismatchPreSupp)}`);
+        logger.error(
+          `Mismatch between supported feeds and preProcessingObject ${apiData.alias} >> ${JSON.stringify(
+            mismatchPreSupp
+          )}`
+        );
+        throw Error(
+          `Mismatch between supported feeds and preProcessingObject ${apiData.alias} >> ${JSON.stringify(
+            mismatchPreSupp
+          )}`
+        );
       }
 
       // validate postProcessingObject & supported feeds
@@ -35,9 +43,15 @@ function main() {
       );
       if (mismatchPostSupp.length !== 0) {
         logger.error(
-          `Mismatch between supported feeds and postProcessingObject >> ${JSON.stringify(mismatchPostSupp)}`
+          `Mismatch between supported feeds and postProcessingObject ${apiData.alias} >> ${JSON.stringify(
+            mismatchPostSupp
+          )}`
         );
-        throw Error(`Mismatch between supported feeds and postProcessingObject >> ${JSON.stringify(mismatchPostSupp)}`);
+        throw Error(
+          `Mismatch between supported feeds and postProcessingObject ${apiData.alias} >> ${JSON.stringify(
+            mismatchPostSupp
+          )}`
+        );
       }
 
       // validate preProcessingObject & postProcessingObject (might not be necessary)
@@ -46,10 +60,14 @@ function main() {
       );
       if (mismatchPostSupp.length !== 0) {
         logger.error(
-          `Mismatch between postProcessingObject and preProcessingObject >> ${JSON.stringify(mismatchPrePost)}`
+          `Mismatch between postProcessingObject and preProcessingObject >> ${apiData.alias} ${JSON.stringify(
+            mismatchPrePost
+          )}`
         );
         throw Error(
-          `Mismatch between postProcessingObject and preProcessingObject >> ${JSON.stringify(mismatchPrePost)}`
+          `Mismatch between postProcessingObject and preProcessingObject >> ${apiData.alias} ${JSON.stringify(
+            mismatchPrePost
+          )}`
         );
       }
     });
