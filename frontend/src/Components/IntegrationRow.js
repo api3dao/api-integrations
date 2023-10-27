@@ -6,8 +6,17 @@ import { ApiIntegrationsContext } from '../Context';
 import { useContext, useEffect } from 'react';
 import ImageButton from '../Custom/ImageButton';
 
-const IntegrationsRow = ({ category, integration }) => {
-  const { setConfig, setComparePair, comparePair } = useContext(ApiIntegrationsContext);
+const IntegrationsRow = ({ apiProvider, category, integration }) => {
+  const { setConfig, setComparePair, comparePair, setDeploymentVariant } = useContext(ApiIntegrationsContext);
+
+  const setView = () => {
+    setConfig(integration);
+    setDeploymentVariant({
+      apiProvider: apiProvider,
+      category: category,
+      filename: integration.stage
+    });
+  };
 
   const compare = () => {
     if (category !== 'active') {
@@ -61,7 +70,7 @@ const IntegrationsRow = ({ category, integration }) => {
                 inW="24px"
                 outW="48px"
                 onClick={() => {
-                  setConfig(integration);
+                  setView();
                 }}
                 src={'./view.svg'}
               />

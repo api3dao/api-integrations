@@ -73,7 +73,7 @@ const Welcome = () => {
               onClick={() => detach()}
               isLoading={false}
             />
-            <Integrations integrations={provider.deployments} />
+            <Integrations apiProvider={provider.header} integrations={provider.deployments} />
           </VStack>
         )}
       </VStack>
