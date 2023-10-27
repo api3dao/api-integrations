@@ -104,7 +104,7 @@ const main = async () => {
   // generate templates
   Object.keys(apiData.supportedFeedsInBatches).map((oisTitle) => {
     // add endpoints
-    const endpointId = deriveEndpointId(oisTitle);
+    const endpointId = deriveEndpointId({ oisTitle: oisTitle }) as string;
     pusherConfig.endpoints[endpointId] = {
       endpointName: 'feed',
       oisTitle: oisTitle
@@ -113,12 +113,12 @@ const main = async () => {
     // add templates
     apiData.supportedFeedsInBatches[oisTitle].map((batch: string[]) => {
       const templateIds: string[] = batch.map((feedName: string) => {
-        const templateId = deriveTemplateId(oisTitle, feedName);
+        const templateId = deriveTemplateId({oisTitle: oisTitle, feedName: feedName}) as string;
         pusherConfig.templates[templateId] = {
           endpointId: endpointId,
           parameters: [{ type: 'string32', name: 'name', value: feedName }]
         };
-        return templateId;
+        return templateId as string;
       });
 
       // add triggers
