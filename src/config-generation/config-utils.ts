@@ -3,63 +3,64 @@ import { OIS } from '@api3/ois';
 import * as crypto from 'crypto';
 import { ethers } from 'ethers';
 import { encode } from '@api3/airnode-abi';
-import oisTitles from "../../data/oisTitles.json";
-
+import oisTitles from '../../data/oisTitles.json';
 
 export function getOisTitleWithAirnodeAddress(airnodeAddress: string) {
   return (oisTitles as Record<string, string[]>)[airnodeAddress];
 }
 
 export function deriveDataFeedId(feedName: string, airnodeAddress: string) {
-  const templateId = deriveTemplateId({airnodeAddress: airnodeAddress, feedName: feedName});
+  const templateId = deriveTemplateId({ airnodeAddress: airnodeAddress, feedName: feedName });
   return ethers.utils.solidityKeccak256(['address', 'bytes32'], [airnodeAddress, templateId]);
 }
 
-export function deriveTemplateId(inputs: {feedName: string, oisTitle?: string, airnodeAddress?: string}) {
+export function deriveTemplateId(inputs: { feedName: string; oisTitle?: string; airnodeAddress?: string }) {
   const { feedName, oisTitle, airnodeAddress } = inputs;
 
-  if(oisTitle) {
+  if (oisTitle) {
     const endpointId = deriveEndpointId({ oisTitle: oisTitle });
     const parameters = encode([{ name: 'name', type: 'string32', value: feedName }]);
     return ethers.utils.solidityKeccak256(['bytes32', 'bytes'], [endpointId, parameters]);
-  } 
+  }
   const endpointIds = deriveEndpointId({ airnodeAddress: airnodeAddress }) as string[];
   return endpointIds.map((endpointId: string) => {
     const parameters = encode([{ name: 'name', type: 'string32', value: feedName }]);
     return ethers.utils.solidityKeccak256(['bytes32', 'bytes'], [endpointId, parameters]);
-  })
-  
+  });
 }
 
-export function deriveEndpointId(input: {oisTitle?: string, airnodeAddress?: string}): string | string[] {
+export function deriveEndpointId(input: { oisTitle?: string; airnodeAddress?: string }): string | string[] {
   const endpointName = 'feed';
   const { oisTitle, airnodeAddress } = input;
 
-  if(oisTitle) {
+  if (oisTitle) {
     const existingOisTitles = Object.values(oisTitles).flat();
-    if(existingOisTitles.includes(oisTitle)) {
-      return ethers.utils.keccak256(ethers.utils.defaultAbiCoder.encode(['string', 'string'], [oisTitle, endpointName]));
+    if (existingOisTitles.includes(oisTitle)) {
+      return ethers.utils.keccak256(
+        ethers.utils.defaultAbiCoder.encode(['string', 'string'], [oisTitle, endpointName])
+      );
     } else {
       throw Error(`Can't derive endpoint ID. The OIS title ${oisTitle} is not existing in the current OISes!`);
     }
-  } 
+  }
 
-  if(airnodeAddress) {
+  if (airnodeAddress) {
     const existingAirnodeAddresses = Object.keys(oisTitles);
 
-    if(existingAirnodeAddresses.includes(airnodeAddress)) {
+    if (existingAirnodeAddresses.includes(airnodeAddress)) {
       const targetOisTitles = getOisTitleWithAirnodeAddress(airnodeAddress);
       const endpointIds = targetOisTitles.map((title: string) => {
         return ethers.utils.keccak256(ethers.utils.defaultAbiCoder.encode(['string', 'string'], [title, endpointName]));
-      })
+      });
       return endpointIds;
     } else {
-      throw Error(`Can't derive endpoint ID. The Airnode Address ${airnodeAddress} is not existing in the current Airnode addresses!`);
+      throw Error(
+        `Can't derive endpoint ID. The Airnode Address ${airnodeAddress} is not existing in the current Airnode addresses!`
+      );
     }
   }
 
   throw Error("Must set an 'airnodeAddress' or 'oisTitle'!");
-  
 }
 
 export function readJson(path: string) {

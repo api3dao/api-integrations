@@ -113,7 +113,7 @@ const main = async () => {
     // add templates
     apiData.supportedFeedsInBatches[oisTitle].map((batch: string[]) => {
       const templateIds: string[] = batch.map((feedName: string) => {
-        const templateId = deriveTemplateId({oisTitle: oisTitle, feedName: feedName}) as string;
+        const templateId = deriveTemplateId({ oisTitle: oisTitle, feedName: feedName }) as string;
         pusherConfig.templates[templateId] = {
           endpointId: endpointId,
           parameters: [{ type: 'string32', name: 'name', value: feedName }]
