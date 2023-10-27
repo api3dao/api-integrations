@@ -3,5 +3,6 @@
 
 echo "Validating pre-post processing objects..."
 yarn run validate-processings
+yarn run validate-frontend
 echo "Done."
 
