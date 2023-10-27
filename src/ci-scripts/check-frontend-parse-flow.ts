@@ -1,6 +1,5 @@
 import { globSync } from 'glob';
-import { difference } from 'lodash';
-import { OIS } from '@api3/ois';
+import { OIS, EndpointParameter, ApiSpecification } from '@api3/ois';
 import { Logger, ILogObj } from 'tslog';
 
 import * as prettier from 'prettier/standalone';
@@ -14,28 +13,22 @@ import {
   getPostProcessingString
 } from '../config-generation/config-utils';
 
-export interface EndpointParameters {
-  name: string;
-  required: boolean;
-  operationParameter?: OperationParameter;
-}
-
-export interface OperationParameter {
-  in: string;
-  name: string;
+export interface Parameters {
+  path: string;
+  parameters: any[];
 }
 
 export interface Feed {
   feed: string;
   code: string;
-  preProcessingSpecificationsValue: any[];
+  preProcessingSpecificationsValue: Parameters;
 }
 
 export interface Deployments {
   oisTitle: string;
-  apiSpec: any;
+  apiSpec: ApiSpecification;
   pusherConfig: Feed[];
-  endpointParameters: EndpointParameters;
+  endpointParameters: EndpointParameter[];
 }
 
 const logger: Logger<ILogObj> = new Logger();
@@ -171,7 +164,7 @@ async function parse() {
       const oisTitle = providers[index];
       const apiSpec = apiSpecifications[index];
       const endpointParametersValue = endpointParameters[index];
-      const pusherConfig = provider.map((item) => {
+      const pusherConfig = provider.map((item: string[]) => {
         const feed = item[0];
         const code = item[1];
         const preProcessingSpecificationsValue = preProcessingObjects[index][feed];
@@ -208,10 +201,12 @@ async function parse() {
   }
 }
 
-function getPath(endpointParameters, feed, servers) {
+function getPath(endpointParameters: EndpointParameter[], feed: Feed, apiSpec: ApiSpecification) {
   try {
     const parameters = feed.preProcessingSpecificationsValue;
     if (parameters === undefined) return null;
+
+    const servers = apiSpec.servers;
     if (servers.length === 0) return parameters.path;
 
     const server = servers[0];
@@ -251,8 +246,8 @@ async function checkPathGeneration(deployments: Deployments[]) {
     for (let j = 0; j < deployments[i].pusherConfig.length; j++) {
       const feed = deployments[i].pusherConfig[j];
       const endpointParameters = deployments[i].endpointParameters;
-      const servers = deployments[i].apiSpec.servers;
-      getPath(endpointParameters, feed, servers);
+      const apiSpec = deployments[i].apiSpec;
+      getPath(endpointParameters, feed, apiSpec);
     }
     logger.info(`Checked ${deployments[i].oisTitle} path generation.`);
   }
