@@ -68,3 +68,7 @@ export function getPostProcessingString(ois: OIS) {
   const feedEndpoint = ois.endpoints.find((e: any) => e.name === 'feed');
   return feedEndpoint!.postProcessingSpecifications;
 }
+
+export function getFeedEndpointParameters(ois: OIS) {
+  return ois.endpoints.filter((e: any) => e.name === 'feed')[0].parameters;
+}

@@ -2,8 +2,6 @@ import { globSync } from 'glob';
 import { difference } from 'lodash';
 import { OIS } from '@api3/ois';
 import { Logger, ILogObj } from 'tslog';
-import * as fs from 'fs';
-import * as paths from 'path';
 
 import * as prettier from 'prettier/standalone';
 import tsBabel = require('prettier/plugins/babel');
@@ -11,10 +9,34 @@ import tsEstree = require('prettier/plugins/estree');
 
 import {
   getPreProcessingString,
-  extractPreProcessingObject,
+  getFeedEndpointParameters,
   readJson,
   getPostProcessingString
 } from '../config-generation/config-utils';
+
+export interface EndpointParameters {
+  name: string;
+  required: boolean;
+  operationParameter?: OperationParameter;
+}
+
+export interface OperationParameter {
+  in: string;
+  name: string;
+}
+
+export interface Feed {
+  feed: string;
+  code: string;
+  preProcessingSpecificationsValue: any[];
+}
+
+export interface Deployments {
+  oisTitle: string;
+  apiSpec: any;
+  pusherConfig: Feed[];
+  endpointParameters: EndpointParameters;
+}
 
 const logger: Logger<ILogObj> = new Logger();
 
@@ -89,11 +111,13 @@ async function parse() {
     let providers = [];
     let preProcessingSpecifications = [];
     let postProcessingSpecifications = [];
+    let apiSpecifications = [];
+    let endpointParameters = [];
     let totalOises = 0;
 
     apiPaths.map((path) => {
       const oises: OIS[] = globSync(`${path}/oises/*`).map((oisPath) => readJson(oisPath));
-      logger.info('\tTotal oises found:', oises.length, 'for', path);
+      logger.info('Total oises found:', oises.length, 'for', path);
       totalOises += oises.length;
 
       oises.map((ois) => {
@@ -102,6 +126,8 @@ async function parse() {
 
         preProcessingSpecifications.push(preProcessingObject);
         postProcessingSpecifications.push(postProcessingObject);
+        apiSpecifications.push(ois.apiSpecifications);
+        endpointParameters.push(getFeedEndpointParameters(ois));
         providers.push(ois.title);
       });
     });
@@ -142,7 +168,10 @@ async function parse() {
 
     // combining the preProcessingSpecifications and postProcessingSpecifications
     const combinedDeployments = postProcessingObjects.map((provider, index) => {
-      return provider.map((item) => {
+      const oisTitle = providers[index];
+      const apiSpec = apiSpecifications[index];
+      const endpointParametersValue = endpointParameters[index];
+      const pusherConfig = provider.map((item) => {
         const feed = item[0];
         const code = item[1];
         const preProcessingSpecificationsValue = preProcessingObjects[index][feed];
@@ -158,6 +187,13 @@ async function parse() {
           preProcessingSpecificationsValue
         };
       });
+
+      return {
+        oisTitle,
+        apiSpec,
+        pusherConfig,
+        endpointParameters: endpointParametersValue
+      };
     });
 
     if (combinedDeployments.length !== totalOises) {
@@ -172,7 +208,55 @@ async function parse() {
   }
 }
 
-async function checkPathGeneration() {}
+function getPath(endpointParameters, feed, servers) {
+  try {
+    const parameters = feed.preProcessingSpecificationsValue;
+    if (parameters === undefined) return null;
+    if (servers.length === 0) return parameters.path;
+
+    const server = servers[0];
+    const url = server.url;
+
+    let path = parameters.path;
+    let queryString = '?';
+
+    Object.keys(parameters.parameters).forEach((key) => {
+      const parameterIn = endpointParameters.filter((item) => item.name === key)[0].operationParameter;
+
+      switch (parameterIn.in) {
+        case 'path':
+          path += parameters[key];
+          break;
+        case 'query':
+          queryString += `${parameterIn.name}=${parameters.parameters[key]}&`;
+          break;
+        default:
+          break;
+      }
+    });
+
+    queryString = queryString.substring(0, queryString.length - 1);
+
+    const pathWithBase = url + '/' + path + queryString;
+
+    return pathWithBase;
+  } catch (error) {
+    throw Error(`getPath >> ${error}`);
+  }
+}
+
+async function checkPathGeneration(deployments: Deployments[]) {
+  for (let i = 0; i < deployments.length; i++) {
+    logger.info(`Checking ${deployments[i].oisTitle} path generation.`);
+    for (let j = 0; j < deployments[i].pusherConfig.length; j++) {
+      const feed = deployments[i].pusherConfig[j];
+      const endpointParameters = deployments[i].endpointParameters;
+      const servers = deployments[i].apiSpec.servers;
+      getPath(endpointParameters, feed, servers);
+    }
+    logger.info(`Checked ${deployments[i].oisTitle} path generation.`);
+  }
+}
 
 async function main() {
   logger.info('##########################################################################.');
@@ -182,7 +266,7 @@ async function main() {
 
   logger.info('##########################################################################.');
   logger.info('Checking path generation.');
-  await checkPathGeneration();
+  await checkPathGeneration(deployments);
   logger.info('##########################################################################.');
 }
 
