@@ -28,7 +28,7 @@ const Integrations = ({ integrations }) => {
               )}
             </>
           ) : (
-            <Display configData={config.config} />
+            <Display configData={config} />
           )}
         </VStack>
       </VStack>

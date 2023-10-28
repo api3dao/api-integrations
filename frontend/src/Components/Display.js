@@ -16,14 +16,14 @@ const Hero = ({ configData }) => {
     setOis([]);
 
     if (configData == null) return;
-    if (configData.ois === undefined) return;
-    if (configData.ois.length === 0) return;
+    if (configData.config.ois === undefined) return;
+    if (configData.config.ois.length === 0) return;
 
-    if (configData.airnodeWalletMnemonic === null) return;
+    if (configData.config.airnodeWalletMnemonic === null) return;
 
-    setOis(configData.ois);
-    setAirnodeWalletMnemonic(String(configData.airnodeWalletMnemonic));
-    setSecuritySchemeValue(configData.apiCredentials);
+    setOis(configData.config.ois);
+    setAirnodeWalletMnemonic(String(configData.config.airnodeWalletMnemonic));
+    setSecuritySchemeValue(configData.config.apiCredentials);
   }, [configData]);
 
   const setSecuritySchemeValues = (i, value) => {

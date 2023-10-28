@@ -57,8 +57,14 @@ const IntegrationsRow = ({ config }) => {
               <Text minWidth={'400px'} fontSize={'md'} fontWeight={'bold'}>
                 {config.filename}
               </Text>
-              <StageLocation location={CONSTANTS.CLOUD_FORMATION_DEPLOY} />
-              <StageLocation location={CONSTANTS.DOCKER_DEPLOY} />
+              {
+                config.category === 'candidate' ? null :
+                  <>
+                    <StageLocation location={CONSTANTS.CLOUD_FORMATION_DEPLOY} />
+                    <StageLocation location={CONSTANTS.DOCKER_DEPLOY} />
+                  </>
+              }
+
               <Text width={'100px'} p={1} fontSize={'xs'}>
                 Pusher 0.0.1
               </Text>

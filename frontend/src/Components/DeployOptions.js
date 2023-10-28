@@ -11,15 +11,10 @@ import { COLORS } from '../data/constants';
 import { populateOis } from '../Helpers/DownloadConfig';
 import CloudFormation from '../data/cloud-formation.json';
 
-import { ApiIntegrationsContext } from '../Context';
-import { useContext } from 'react';
-
 const DeployOptions = ({ configData, AIRNODE_WALLET_MNEMONIC, SECURITY_SCHEME_VALUES, ois }) => {
   const [selected, setSelected] = useState(0);
   const [step, setStep] = useState(0);
   const [remarks, setRemarks] = useState(null);
-
-  const { deploymentVariant } = useContext(ApiIntegrationsContext);
 
   const isSuccessful = (res) => {
     if (res.status === false) {
@@ -68,7 +63,6 @@ const DeployOptions = ({ configData, AIRNODE_WALLET_MNEMONIC, SECURITY_SCHEME_VA
       ois,
       CloudFormation,
       selected,
-      deploymentVariant,
       isSuccessful
     );
   };
