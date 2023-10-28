@@ -30,7 +30,16 @@ export const CONSTANTS = {
   MAC: 10004,
   LINUX: 10005,
   boxShadowLight: '0px 0px 2px 0px rgba(0,0,0,0.2)',
-  boxShadowSolid: '0px 0px 1px 0px rgba(0,0,0,0.7)'
+  boxShadowSolid: '0px 0px 1px 0px rgba(0,0,0,0.7)',
+  RUNNING: 'running',
+  STOPPED: 'stopped',
+  STARTING: 'starting',
+  STOPPING: 'stopping',
+  RESTARTING: 'restarting',
+  REMOVING: 'removing',
+  PAUSED: 'paused',
+  EXITED: 'exited',
+  DEAD: 'dead'
 };
 
 export const COLORS2 = {

@@ -1,10 +1,11 @@
-import { Flex, Spacer, VStack, Circle } from '@chakra-ui/react';
+import { Flex, Spacer, VStack } from '@chakra-ui/react';
 import { Stack } from '@chakra-ui/react';
-import { COLORS } from '../data/constants';
+import { COLORS, CONSTANTS } from '../data/constants';
 import { Text } from '@chakra-ui/react';
 import { ApiIntegrationsContext } from '../Context';
 import { useContext, useEffect } from 'react';
 import ImageButton from '../Custom/ImageButton';
+import StageLocation from '../Custom/StageLocation';
 
 const IntegrationsRow = ({ config }) => {
   const { setConfig, setComparePair, comparePair } = useContext(ApiIntegrationsContext);
@@ -53,10 +54,11 @@ const IntegrationsRow = ({ config }) => {
         ) : (
           <Flex width={'100%'} wrap={'wrap'}>
             <Stack direction={'row'} alignItems={'center'} spacing={5} wrap={'wrap'}>
-              <Circle size={'10px'} bgColor={'green.400'} />
               <Text minWidth={'400px'} fontSize={'md'} fontWeight={'bold'}>
                 {config.filename}
               </Text>
+              <StageLocation location={CONSTANTS.CLOUD_FORMATION_DEPLOY} />
+              <StageLocation location={CONSTANTS.DOCKER_DEPLOY} />
               <Text width={'100px'} p={1} fontSize={'xs'}>
                 Pusher 0.0.1
               </Text>
