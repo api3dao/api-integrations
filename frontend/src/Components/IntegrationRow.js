@@ -6,37 +6,34 @@ import { ApiIntegrationsContext } from '../Context';
 import { useContext, useEffect } from 'react';
 import ImageButton from '../Custom/ImageButton';
 
-const IntegrationsRow = ({ apiProvider, category, integration }) => {
-  const { setConfig, setComparePair, comparePair, setDeploymentVariant } = useContext(ApiIntegrationsContext);
+const IntegrationsRow = ({ config }) => {
+  const { setConfig, setComparePair, comparePair } = useContext(ApiIntegrationsContext);
+
+  const integration = config.config
 
   const setView = () => {
-    setConfig(integration);
-    setDeploymentVariant({
-      apiProvider: apiProvider,
-      category: category,
-      filename: integration.stage
-    });
+    setConfig(config);
   };
 
   const compare = () => {
-    if (category !== 'active') {
+    if (config.category !== 'active') {
       setComparePair({ left: integration, right: comparePair.right });
       return;
     }
   };
 
   const isCompareAvailable = () => {
-    if (category === 'active') return false
+    if (config.category === 'active') return false
     if (comparePair.right === null) return false
     return comparePair.left === null;
   };
 
   useEffect(() => {
-    if (category !== 'active') return
+    if (config.category !== 'active') return
     if (comparePair.right !== null) return
     setComparePair({ left: comparePair.left, right: integration });
 
-  }, [category, comparePair, integration, setComparePair]);
+  }, [config.category, comparePair, integration, setComparePair]);
 
   return (
     <VStack spacing={0} direction="row" align="left">
@@ -58,7 +55,7 @@ const IntegrationsRow = ({ apiProvider, category, integration }) => {
             <Stack direction={'row'} alignItems={'center'} spacing={5} wrap={'wrap'}>
               <Circle size={'10px'} bgColor={'green.400'} />
               <Text minWidth={'400px'} fontSize={'md'} fontWeight={'bold'}>
-                {integration.stage}
+                {config.filename}
               </Text>
               <Text width={'100px'} p={1} fontSize={'xs'}>
                 Pusher 0.0.1

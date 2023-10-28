@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import { ApiIntegrationsContext } from '../Context';
 import DeploymentCategory from '../Custom/DeploymentCategory';
 
-const Integrations = ({ apiProvider, integrations }) => {
+const Integrations = ({ integrations }) => {
   const { config, comparePair } = useContext(ApiIntegrationsContext);
 
   return (
@@ -19,10 +19,8 @@ const Integrations = ({ apiProvider, integrations }) => {
                 <CompareEndpoints oldOis={comparePair.left.ois} newOis={comparePair.right.ois} />
               ) : (
                 <>
-                  <DeploymentCategory apiProvider={apiProvider} category={"active"} header={'Active Deployments'} integrations={integrations.activeDeployment} />
+                  <DeploymentCategory header={'Active Deployments'} integrations={integrations.activeDeployment} />
                   <DeploymentCategory
-                    apiProvider={apiProvider}
-                    category={"candidate"}
                     header={'Candidate Deployments'}
                     integrations={integrations.candidateDeployment}
                   />
@@ -30,7 +28,7 @@ const Integrations = ({ apiProvider, integrations }) => {
               )}
             </>
           ) : (
-            <Display configData={config} />
+            <Display configData={config.config} />
           )}
         </VStack>
       </VStack>

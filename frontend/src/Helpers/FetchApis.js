@@ -27,6 +27,8 @@ export const checkFiles = (ctx) => {
     const api = keys[i].split('/')[1];
     const value = values[i];
 
+    const filename = keys[i].match(/[a-z0-9-]+-pusher.json$/)[0];
+
     const isExist = apis.find((item) => item[api]);
 
     if (isExist) {
@@ -34,18 +36,18 @@ export const checkFiles = (ctx) => {
       candidateDeployment = isExist[api].candidateDeployment;
 
       if (keys[i].includes('active-deployments')) {
-        activeDeployment.push(value);
+        activeDeployment.push({ filename: filename, config: value, category: 'active', apiProvider: api });
       } else if (keys[i].includes('candidate-deployments')) {
-        candidateDeployment.push(value);
+        candidateDeployment.push({ filename: filename, config: value, category: 'candidate', apiProvider: api });
       }
     } else {
       let activeDeployment = [];
       let candidateDeployment = [];
 
       if (keys[i].includes('active-deployments')) {
-        activeDeployment = [value];
+        activeDeployment = [{ filename: filename, config: value, category: 'active', apiProvider: api }];
       } else if (keys[i].includes('candidate-deployments')) {
-        candidateDeployment = [value];
+        candidateDeployment = [{ filename: filename, config: value, category: 'candidate', apiProvider: api }];
       }
 
       const obj = {
