@@ -20,7 +20,9 @@
         "ExecutionRoleArn": {
           "Ref": "ECSTaskRole"
         },
-        "RequiresCompatibilities": ["FARGATE"],
+        "RequiresCompatibilities": [
+          "FARGATE"
+        ],
         "ContainerDefinitions": [
           {
             "Name": "my_app",
@@ -31,11 +33,7 @@
                 "Value": ""
               }
             ],
-            "EntryPoint": [
-              "/bin/sh",
-              "-c",
-              "echo -e $SECRETS_ENV >> ./config/secrets.env && wget -O - https://raw.githubusercontent.com/metobom/pusher-operations/master/data/apis/cryptocompare/deployments/11-10-2023/cryptocompare-pusher-config.json >> ./config/pusher.json && node --enable-source-maps dist/index.js"
-            ],
+            "EntryPoint": [],
             "LogConfiguration": {
               "LogDriver": "awslogs",
               "Options": {
@@ -160,9 +158,13 @@
           "Statement": {
             "Effect": "Allow",
             "Principal": {
-              "Service": ["ecs-tasks.amazonaws.com"]
+              "Service": [
+                "ecs-tasks.amazonaws.com"
+              ]
             },
-            "Action": ["sts:AssumeRole"]
+            "Action": [
+              "sts:AssumeRole"
+            ]
           }
         },
         "Policies": [

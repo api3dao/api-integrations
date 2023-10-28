@@ -47,7 +47,8 @@ export const populateOis = (
     });
   });
 
-  const secrets = `WALLET_MNEMONIC=${AIRNODE_WALLET_MNEMONIC}${API_KEY}`;
+  const stage = `\\nSTAGE=${mode}`;
+  const secrets = `WALLET_MNEMONIC=${AIRNODE_WALLET_MNEMONIC}${API_KEY}${stage}`;
   switch (mode) {
     case CONSTANTS.CLOUD_FORMATION_DEPLOY:
       downloadCloudFormation(CloudFormation, secrets, deploymentVariant);
@@ -86,7 +87,7 @@ const downloadCloudFormation = (CloudFormation, secrets, deploymentVariant) => {
 export const downloadZip = (secrets, config) => {
   var zip = new JSZip();
   zip.file('secrets.env', secrets.replaceAll(/(\\n)/g, '\n'));
-  zip.file('pusher.json', JSON.stringify(config));
+  zip.file('pusher.json', JSON.stringify(config, null, 2));
 
   zip.generateAsync({ type: 'blob' }).then(function (content) {
     saveAs(content, 'pusher-config.zip');
