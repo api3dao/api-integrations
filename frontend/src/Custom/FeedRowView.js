@@ -65,6 +65,7 @@ const FeedRowView = ({ endpoint, feed, apiSpecifications, apiCredentials, tryit 
     callApiWithAdapter(payload).then(
       (res) => {
         setIsLoading(false);
+        setError(null);
         setPostProcessResult(res);
       }).catch((error) => {
         setIsLoading(false);
