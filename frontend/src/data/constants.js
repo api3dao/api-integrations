@@ -22,6 +22,11 @@ export const COLORS = {
   success: 'green.300'
 };
 
+export const FIRST_API_CALL_TIMEOUT = 10_000;
+export const SECOND_API_CALL_TIMEOUT = 20_000;
+export const PROCESSING_TIMEOUT = 10_000;
+
+
 export const CONSTANTS = {
   CLOUD_FORMATION_DEPLOY: "aws",
   DOCKER_DEPLOY: "local",
