@@ -1972,7 +1972,19 @@
                 },
                 {
                   "in": "query",
-                  "name": "quotes"
+                  "name": "id"
+                },
+                {
+                  "in": "path",
+                  "name": "id"
+                },
+                {
+                  "in": "header",
+                  "name": "headerParam"
+                },
+                {
+                  "in": "cookie",
+                  "name": "cookieParam"
                 }
               ]
             }
@@ -2403,7 +2415,7 @@
         },
         "paths": {
           "/{path}": {
-            "get": {
+            "post": {
               "parameters": [
                 {
                   "in": "path",
@@ -2411,7 +2423,19 @@
                 },
                 {
                   "in": "query",
-                  "name": "quotes"
+                  "name": "id"
+                },
+                {
+                  "in": "path",
+                  "name": "id"
+                },
+                {
+                  "in": "header",
+                  "name": "headerParam"
+                },
+                {
+                  "in": "cookie",
+                  "name": "cookieParam"
                 }
               ]
             }
