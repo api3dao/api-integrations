@@ -10,7 +10,7 @@ import StageLocation from '../Custom/StageLocation';
 const IntegrationsRow = ({ config }) => {
   const { setConfig, setComparePair, comparePair } = useContext(ApiIntegrationsContext);
 
-  const integration = config.config
+  const integration = config.config;
 
   const setView = () => {
     setConfig(config);
@@ -24,16 +24,15 @@ const IntegrationsRow = ({ config }) => {
   };
 
   const isCompareAvailable = () => {
-    if (config.category === 'active') return false
-    if (comparePair.right === null) return false
+    if (config.category === 'active') return false;
+    if (comparePair.right === null) return false;
     return comparePair.left === null;
   };
 
   useEffect(() => {
-    if (config.category !== 'active') return
-    if (comparePair.right !== null) return
+    if (config.category !== 'active') return;
+    if (comparePair.right !== null) return;
     setComparePair({ left: comparePair.left, right: integration });
-
   }, [config.category, comparePair, integration, setComparePair]);
 
   return (
@@ -57,13 +56,12 @@ const IntegrationsRow = ({ config }) => {
               <Text minWidth={'400px'} fontSize={'md'} fontWeight={'bold'}>
                 {config.filename}
               </Text>
-              {
-                config.category === 'candidate' ? null :
-                  <>
-                    <StageLocation location={CONSTANTS.CLOUD_FORMATION_DEPLOY} />
-                    <StageLocation location={CONSTANTS.DOCKER_DEPLOY} />
-                  </>
-              }
+              {config.category === 'candidate' ? null : (
+                <>
+                  <StageLocation location={CONSTANTS.CLOUD_FORMATION_DEPLOY} />
+                  <StageLocation location={CONSTANTS.DOCKER_DEPLOY} />
+                </>
+              )}
 
               <Text width={'100px'} p={1} fontSize={'xs'}>
                 Pusher 0.0.1
@@ -79,18 +77,16 @@ const IntegrationsRow = ({ config }) => {
                 }}
                 src={'./view.svg'}
               />
-              {
-                !isCompareAvailable() ? null :
-                  <ImageButton
-                    inW="24px"
-                    outW="48px"
-                    onClick={() => {
-                      compare();
-                    }}
-                    src={'./compare.svg'}
-                  />
-              }
-
+              {!isCompareAvailable() ? null : (
+                <ImageButton
+                  inW="24px"
+                  outW="48px"
+                  onClick={() => {
+                    compare();
+                  }}
+                  src={'./compare.svg'}
+                />
+              )}
             </Stack>
           </Flex>
         )}

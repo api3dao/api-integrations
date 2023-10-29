@@ -20,9 +20,7 @@
         "ExecutionRoleArn": {
           "Ref": "ECSTaskRole"
         },
-        "RequiresCompatibilities": [
-          "FARGATE"
-        ],
+        "RequiresCompatibilities": ["FARGATE"],
         "ContainerDefinitions": [
           {
             "Name": "my_app",
@@ -158,13 +156,9 @@
           "Statement": {
             "Effect": "Allow",
             "Principal": {
-              "Service": [
-                "ecs-tasks.amazonaws.com"
-              ]
+              "Service": ["ecs-tasks.amazonaws.com"]
             },
-            "Action": [
-              "sts:AssumeRole"
-            ]
+            "Action": ["sts:AssumeRole"]
           }
         },
         "Policies": [

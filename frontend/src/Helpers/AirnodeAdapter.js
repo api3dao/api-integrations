@@ -2,26 +2,24 @@ import * as adapter from '@api3/airnode-adapter';
 import isEmpty from 'lodash/isEmpty';
 import { RESERVED_PARAMETERS } from '@api3/ois';
 import { FIRST_API_CALL_TIMEOUT, PROCESSING_TIMEOUT } from '../data/constants';
-import axios from "axios";
+import axios from 'axios';
 
 export const removeKeys = (obj, keys) => {
   const newObj = { ...obj };
   keys.forEach((key) => delete newObj[key]);
   return newObj;
-}
+};
 
 export function buildOptions(payload) {
   const { config, aggregatedApiCall } = payload;
   const { endpointName, parameters, oisTitle } = aggregatedApiCall;
 
   const ois = config.ois.find((o) => o.title === oisTitle);
-  const apiCredentials = config.apiCredentials
-    .filter((c) => c.oisTitle === oisTitle)
+  const apiCredentials = config.apiCredentials.filter((c) => c.oisTitle === oisTitle);
 
   // Gather the default endpoint parameter values
   const endpoint = ois.endpoints.find((endpoint) => endpoint.name === endpointName);
-  const defaultParameters = endpoint.parameters
-    .filter((p) => p.default !== undefined)
+  const defaultParameters = endpoint.parameters.filter((p) => p.default !== undefined);
 
   // Override (and merge) the default endpoint parameters with the user parameters
   const allParameters = { ...defaultParameters, ...parameters };
@@ -34,7 +32,7 @@ export function buildOptions(payload) {
     parameters: sanitizedParameters,
     ois,
     apiCredentials,
-    metadata: null,
+    metadata: null
   };
 }
 
@@ -45,7 +43,7 @@ async function execute(config) {
     headers: config.headers,
     data: config.data,
     params: config.params,
-    timeout: config.timeout,
+    timeout: config.timeout
   });
   return axiosResponse;
 }
@@ -56,7 +54,7 @@ async function post(request, config) {
     url: `${request.baseUrl}${request.path}`,
     method: 'post',
     data: request.data,
-    timeout: config?.timeout,
+    timeout: config?.timeout
   });
 }
 
@@ -67,7 +65,7 @@ async function get(request, config) {
     method: 'get',
     params: request.data,
     data: undefined,
-    timeout: config?.timeout,
+    timeout: config?.timeout
   });
 }
 
@@ -97,7 +95,7 @@ async function performApiCall(payload) {
   const log = `Failed to call Endpoint:${aggregatedApiCall.endpointName}`;
   console.log(log);
   // eslint-disable-next-line import/no-named-as-default-member
-  return [[log], { success: false, errorMessage: "errorMessage" }];
+  return [[log], { success: false, errorMessage: 'errorMessage' }];
 }
 
 export async function preProcessApiCall(endpoint, apiCallParameters) {
@@ -116,11 +114,10 @@ export async function preProcessApiCall(endpoint, apiCallParameters) {
 
     const data = await response.json();
     return data;
-
   } catch (error) {
     return { success: false, error };
   }
-};
+}
 
 export async function postProcessApiCall(apiCallResponse, endpoint, apiCallParameters) {
   const url = 'https://commons.api3dev.com/post';
@@ -142,14 +139,9 @@ export async function postProcessApiCall(apiCallResponse, endpoint, apiCallParam
   } catch (error) {
     return { success: false, error };
   }
+}
 
-};
-
-export function getReservedParameterValue(
-  name,
-  endpoint,
-  requestParameters
-) {
+export function getReservedParameterValue(name, endpoint, requestParameters) {
   const reservedParameter = endpoint.reservedParameters.find((rp) => rp.name === name);
   // Reserved parameters must be whitelisted in order to be used, even if they have no fixed or default value
   if (!reservedParameter) {
@@ -168,18 +160,15 @@ export function getReservedParameters(endpoint, requestParameters) {
   return { _type, _path, _times, _gasPrice };
 }
 
-export async function processSuccessfulApiCall(
-  payload,
-  rawResponse
-) {
+export async function processSuccessfulApiCall(payload, rawResponse) {
   const { config, aggregatedApiCall } = payload;
   const { endpointName, oisTitle } = aggregatedApiCall;
   const ois = config.ois.find((o) => o.title === oisTitle);
   const endpoint = ois.endpoints.find((e) => e.name === endpointName);
 
   const postProcessApiCallResponse = await postProcessApiCall(rawResponse, endpoint, aggregatedApiCall.parameters, {
-    totalTimeoutMs: PROCESSING_TIMEOUT,
-  })
+    totalTimeoutMs: PROCESSING_TIMEOUT
+  });
 
   if (!postProcessApiCallResponse.success) {
     const log = postProcessApiCallResponse.error.message;
@@ -189,14 +178,12 @@ export async function processSuccessfulApiCall(
   return postProcessApiCallResponse.data;
 }
 
-
 export async function callApiWithAdapter(payload) {
-
   const ois = payload.config.ois.find((o) => o.title === payload.aggregatedApiCall.oisTitle);
   const endpoint = ois.endpoints.find((e) => e.name === payload.aggregatedApiCall.endpointName);
 
   const {
-    aggregatedApiCall: { parameters },
+    aggregatedApiCall: { parameters }
   } = payload;
   const processedParameters = await preProcessApiCall(endpoint, parameters);
 
@@ -215,7 +202,7 @@ export async function callApiWithAdapter(payload) {
 
   const [response] = await performApiCall({
     ...payload,
-    aggregatedApiCall: { ...payload.aggregatedApiCall, parameters: processedParameters },
+    aggregatedApiCall: { ...payload.aggregatedApiCall, parameters: processedParameters }
   });
   return processSuccessfulApiCall(payload, response);
 }

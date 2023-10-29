@@ -68,9 +68,11 @@ export const populateOis = (
 
 const downloadCloudFormation = (CloudFormation, secrets, configData) => {
   console.log(configData);
-  const entryPoint = ["/bin/sh",
-    "-c",
-    `echo -e $SECRETS_ENV >> ./config/secrets.env && wget -O - https://raw.githubusercontent.com/api3dao/api-integrations/main/data/apis/${configData.apiProvider}/deployments/${configData.category}-deployments/${configData.filename} >> ./config/pusher.json && node --enable-source-maps dist/index.js`];
+  const entryPoint = [
+    '/bin/sh',
+    '-c',
+    `echo -e $SECRETS_ENV >> ./config/secrets.env && wget -O - https://raw.githubusercontent.com/api3dao/api-integrations/main/data/apis/${configData.apiProvider}/deployments/${configData.category}-deployments/${configData.filename} >> ./config/pusher.json && node --enable-source-maps dist/index.js`
+  ];
 
   CloudFormation.Resources.MyAppDefinition.Properties.ContainerDefinitions[0].Environment[0].Value = secrets;
   CloudFormation.Resources.MyAppDefinition.Properties.ContainerDefinitions[0].EntryPoint = entryPoint;

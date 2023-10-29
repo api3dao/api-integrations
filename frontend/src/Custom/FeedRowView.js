@@ -52,7 +52,6 @@ const FeedRowView = ({ endpoint, feed, apiSpecifications, apiCredentials, tryit 
   };
 
   const callApi = () => {
-
     const payload = {
       config: config.config,
       aggregatedApiCall: {
@@ -60,14 +59,15 @@ const FeedRowView = ({ endpoint, feed, apiSpecifications, apiCredentials, tryit 
         parameters: { name: feed.feed },
         oisTitle: apiCredentials.oisTitle
       }
-    }
-
-    callApiWithAdapter(payload).then(
-      (res) => {
+    };
+    setIsLoading(true);
+    callApiWithAdapter(payload)
+      .then((res) => {
         setIsLoading(false);
         setError(null);
         setPostProcessResult(res);
-      }).catch((error) => {
+      })
+      .catch((error) => {
         setIsLoading(false);
         setError(error);
       });
