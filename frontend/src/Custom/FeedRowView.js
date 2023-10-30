@@ -1,11 +1,11 @@
-import { Text, Flex, VStack, Button, Spacer } from '@chakra-ui/react';
-import { CopyBlock, dracula } from 'react-code-blocks';
-import { formatCode } from '../Helpers/Utils';
+import { VStack } from '@chakra-ui/react';
 import { useState } from 'react';
-import { getPath } from '../Helpers/Utils';
-import TableView from './TableView';
-import { ColorRing } from 'react-loader-spinner';
+import { getPath, formatParameters } from '../Helpers/Utils';
 import { callApiWithAdapter } from '../Helpers/AirnodeAdapter';
+import CodeBlockView from './CodeBlockView';
+import PathView from './PathView';
+import TryButton from './TryButton';
+import ParametersView from './ParametersView';
 
 import { ApiIntegrationsContext } from '../Context';
 import { useContext } from 'react';
@@ -13,171 +13,57 @@ import { useContext } from 'react';
 const FeedRowView = ({ endpoint, feed, apiSpecifications, oisTitle, tryit = true }) => {
   const [postProcessResult, setPostProcessResult] = useState(null);
   const [error, setError] = useState(null);
+  const [parametersError, setParametersError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const { config } = useContext(ApiIntegrationsContext);
 
-  const formatParameters = (parameters) => {
+  const getParameters = () => {
+    return formatParameters(
+      endpoint.parameters,
+      feed.preProcessingSpecificationsValue,
+      endpoint.operation.method,
+      setParametersError
+    );
+  };
+
+  const callApi = () => {
     try {
-      const formattedParameters = [];
-      Object.keys(parameters).forEach((key) => {
-        const parameter = parameters[key];
-        if (parameter.name === 'path') return;
-        const data =
-          parameter.name === 'path'
-            ? feed.preProcessingSpecificationsValue.path
-            : feed.preProcessingSpecificationsValue.parameters[parameter.name];
-
-        if (data === undefined) {
-          return;
+      const payload = {
+        config: config.config,
+        aggregatedApiCall: {
+          endpointName: endpoint.name,
+          parameters: { name: feed.feed },
+          oisTitle: oisTitle
         }
-
-        formattedParameters.push({
-          name: parameter.name,
-          type: parameter.operationParameter == null ? 'string' : parameter.operationParameter.in,
-          value: data,
-          required: parameter.required ? 'Yes' : 'No'
+      };
+      setIsLoading(true);
+      callApiWithAdapter(payload)
+        .then((res) => {
+          setIsLoading(false);
+          setError(null);
+          setPostProcessResult(res);
+        })
+        .catch((error) => {
+          setIsLoading(false);
+          setError(error);
         });
-      });
-
-      formattedParameters.sort((a, b) => {
-        if (b.value === undefined && a.value !== undefined) return -1;
-        return 0;
-      });
-
-      return formattedParameters;
     } catch (error) {
       setError(error);
     }
   };
 
-  const callApi = () => {
-    const payload = {
-      config: config.config,
-      aggregatedApiCall: {
-        endpointName: endpoint.name,
-        parameters: { name: feed.feed },
-        oisTitle: oisTitle
-      }
-    };
-    setIsLoading(true);
-    callApiWithAdapter(payload)
-      .then((res) => {
-        setIsLoading(false);
-        setError(null);
-        setPostProcessResult(res);
-      })
-      .catch((error) => {
-        setIsLoading(false);
-        setError(error);
-      });
-  };
-
-  const getColor = (method, darker) => {
-    if (method === 'GET') return darker ? 'blue.300' : 'blue.200';
-    if (method === 'POST') return darker ? 'green.300' : 'green.200';
-    return 'yellow.300';
-  };
-
   return (
-    <VStack alignItems={'left'} spacing={4} p={2} width={'100%'}>
-      <Text fontSize={'md'} fontWeight={'bold'}>
-        HTTP Request
-      </Text>
-      <Flex maxW={'100%'}>
-        <Text
-          bgColor={getColor(endpoint.operation.method.toUpperCase(), true)}
-          p={2}
-          fontSize={'sm'}
-          fontWeight={'bold'}
-        >
-          {endpoint.operation.method.toUpperCase()}
-        </Text>
-        <Text bgColor={getColor(endpoint.operation.method.toUpperCase(), false)} p={2} fontSize={'sm'} noOfLines={0}>
-          {getPath(endpoint.parameters, feed, apiSpecifications.servers, setError)}
-        </Text>
-        <Spacer />
-      </Flex>
-
-      {formatParameters(endpoint.parameters).length === 0 ? null : (
-        <>
-          <Text fontSize={'md'} fontWeight={'bold'}>
-            Parameters
-          </Text>
-          {error !== null ? (
-            'error'
-          ) : (
-            <TableView
-              parameters={formatParameters(endpoint.parameters)}
-              headers={[
-                { key: 'name', value: 'Name' },
-                { key: 'type', value: 'Type' },
-                { key: 'value', value: 'Value' },
-                { key: 'required', value: 'Required' }
-              ]}
-            />
-          )}
-        </>
-      )}
-      <Text fontSize={'md'} fontWeight={'bold'}>
-        Post Processing
-      </Text>
-      <CopyBlock
-        text={formatCode(feed.code)}
-        language={'javascript'}
-        showLineNumbers={true}
-        theme={dracula}
-        codeBlock={true}
+    <VStack alignItems={'left'} spacing={8} p={2} width={'100%'}>
+      <PathView
+        method={endpoint.operation.method}
+        path={getPath(endpoint.parameters, feed, apiSpecifications.servers, endpoint.operation.method, setError)}
       />
-
-      <VStack alignItems={'left'} width={'100%'}>
-        {!tryit ? null : (
-          <Flex>
-            <Button
-              colorScheme={'orange'}
-              p={2}
-              fontSize={'sm'}
-              h={'50px'}
-              w={'100px'}
-              onClick={() => {
-                callApi();
-              }}
-            >
-              Try it out
-            </Button>
-            <Spacer />
-            <ColorRing height="50px" width="50px" radius="9" color="green" ariaLabel="loading" visible={isLoading} />
-          </Flex>
-        )}
-      </VStack>
-      {postProcessResult == null ? null : (
-        <VStack alignItems={'left'} width={'100%'}>
-          <Text fontSize={'md'} fontWeight={'bold'}>
-            Result
-          </Text>
-          <CopyBlock
-            text={formatCode(postProcessResult)}
-            language={'json'}
-            showLineNumbers={true}
-            theme={dracula}
-            codeBlock={true}
-          />
-        </VStack>
-      )}
-      {error == null ? null : (
-        <VStack alignItems={'left'} width={'100%'}>
-          <Text fontSize={'md'} fontWeight={'bold'}>
-            Error
-          </Text>
-          <CopyBlock
-            text={formatCode(error)}
-            language={'json'}
-            showLineNumbers={false}
-            theme={dracula}
-            codeBlock={true}
-          />
-        </VStack>
-      )}
+      <ParametersView parameters={getParameters()} parametersError={parametersError} />
+      <CodeBlockView title={'Post Processing'} showLineNumbers={true} language={'javascript'} response={feed.code} />
+      <TryButton action={() => callApi()} tryIt={tryit} isLoading={isLoading} />
+      <CodeBlockView title={'Result'} response={postProcessResult} />
+      <CodeBlockView title={'An Error Occured'} response={error} />
     </VStack>
   );
 };
