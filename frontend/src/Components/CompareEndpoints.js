@@ -48,7 +48,7 @@ const CompareEndpoints = ({ oldOis, newOis }) => {
     if (oldOis.length === 0) return;
     if (newOis.length === 0) return;
 
-    const comparison = extractFeeds(oldOis, newOis);
+    const comparison = extractFeeds(newOis, oldOis);
 
     setComparison(comparison);
   }, [newOis, oldOis]);

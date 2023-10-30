@@ -16,7 +16,7 @@ const Integrations = ({ integrations }) => {
           {config === null ? (
             <>
               {comparePair.left !== null && comparePair.right !== null ? (
-                <CompareEndpoints oldOis={comparePair.left.ois} newOis={comparePair.right.ois} />
+                <CompareEndpoints oldOis={comparePair.right.ois} newOis={comparePair.left.ois} />
               ) : (
                 <>
                   <DeploymentCategory header={'Active Deployments'} integrations={integrations.activeDeployment} />
