@@ -9,7 +9,7 @@ const CodeBlockView = ({ title, showLineNumbers = false, language = 'json', resp
         {title}
       </Text>
       <CopyBlock
-        text={formatCode(response)}
+        text={formatCode(response, language === 'json')}
         language={language}
         showLineNumbers={showLineNumbers}
         theme={dracula}

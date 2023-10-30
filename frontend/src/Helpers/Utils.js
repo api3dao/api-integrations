@@ -271,10 +271,10 @@ export const getApiKey = (apiCredentials, securitySchemes) => {
   return apiKey;
 };
 
-export const formatCode = (code, parser = 'babel') => {
+export const formatCode = (code, parser = 'babel', semi = true) => {
   try {
     return prettier.format(code, {
-      semi: true,
+      semi: semi,
       parser: parser,
       plugins: [parserTypeScript]
     });
