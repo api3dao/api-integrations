@@ -167,7 +167,7 @@ export const getServerUrl = (servers) => {
   return url;
 };
 
-export const getPath = (endpointParameters, feed, servers, setError) => {
+export const getPath = (endpointParameters, feed, servers, method, setError) => {
   try {
     const parameters = feed.preProcessingSpecificationsValue;
     if (parameters === undefined) return null;
@@ -187,7 +187,9 @@ export const getPath = (endpointParameters, feed, servers, setError) => {
           path += parameters[key];
           break;
         case 'query':
-          queryString += `${parameterIn.name}=${parameters.parameters[key]}&`;
+          if (method === 'get') {
+            queryString += `${parameterIn.name}=${parameters.parameters[key]}&`;
+          }
           break;
         default:
           break;
@@ -278,5 +280,42 @@ export const formatCode = (code, parser = 'babel') => {
     });
   } catch (error) {
     return code;
+  }
+};
+
+export const formatParameters = (parameters, preProcessingSpecificationsValue, method, setError) => {
+  try {
+    const formattedParameters = [];
+    Object.keys(parameters).forEach((key) => {
+      const parameter = parameters[key];
+      if (parameter.name === 'path') return;
+      const data =
+        parameter.name === 'path'
+          ? preProcessingSpecificationsValue.path
+          : preProcessingSpecificationsValue.parameters[parameter.name];
+
+      if (data === undefined) {
+        return;
+      }
+
+      let type = parameter.operationParameter == null ? 'string' : parameter.operationParameter.in;
+      if (type === 'query' && method === 'post') type = 'body';
+
+      formattedParameters.push({
+        name: parameter.name,
+        type: type,
+        value: data,
+        required: parameter.required ? 'Yes' : 'No'
+      });
+    });
+
+    formattedParameters.sort((a, b) => {
+      if (b.value === undefined && a.value !== undefined) return -1;
+      return 0;
+    });
+
+    return formattedParameters;
+  } catch (error) {
+    setError(error);
   }
 };
