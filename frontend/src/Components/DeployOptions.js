@@ -56,15 +56,7 @@ const DeployOptions = ({ configData, mnemonic, schemeValues, ois }) => {
 
   const selectDownloadMode = () => {
     setRemarks(null);
-    populateOis(
-      configData,
-      mnemonic,
-      schemeValues,
-      ois,
-      CloudFormation,
-      selected,
-      isSuccessful
-    );
+    populateOis(configData, mnemonic, schemeValues, ois, CloudFormation, selected, isSuccessful);
   };
 
   return (

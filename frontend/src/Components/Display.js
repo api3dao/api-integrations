@@ -77,11 +77,7 @@ const Hero = ({ configData }) => {
                 .filter((endpoint) => endpoint.name === 'feed')
                 .map((endpoint, index) => (
                   <VStack key={index} alignItems={'left'} width={'100%'}>
-                    <Endpoint
-                      endpoint={endpoint}
-                      apiSpecifications={ois.apiSpecifications}
-                      oisTitle={ois.title}
-                    />
+                    <Endpoint endpoint={endpoint} apiSpecifications={ois.apiSpecifications} oisTitle={ois.title} />
                   </VStack>
                 ))}
               header={'Feeds'}

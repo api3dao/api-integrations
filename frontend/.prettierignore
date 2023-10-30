@@ -1,0 +1,8 @@
+# Package directories & files
+/node_modules
+/dist
+*.tgz
+/build
+# IDE specific files
+.vscode
+.idea
