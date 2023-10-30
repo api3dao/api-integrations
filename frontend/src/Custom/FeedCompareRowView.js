@@ -1,8 +1,9 @@
-import { Text, Flex, VStack, Spacer } from '@chakra-ui/react';
-import { CopyBlock, dracula } from 'react-code-blocks';
-import { formatCode } from '../Helpers/Utils';
+import { Text, VStack } from '@chakra-ui/react';
 import { getPath } from '../Helpers/Utils';
 import { useState } from 'react';
+
+import CodeBlockView from './CodeBlockView';
+import PathView from './PathView';
 
 const FeedCompareRowView = ({ feed, oldServers, newEndpoint, oldEndpoint, newServers }) => {
   const [error, setError] = useState(null);
@@ -13,27 +14,15 @@ const FeedCompareRowView = ({ feed, oldServers, newEndpoint, oldEndpoint, newSer
         <Text bgColor={'yellow.400'} p={2} fontSize={'md'} fontWeight={'bold'}>
           [DEPRECATED]
         </Text>
-        <Text fontSize={'md'} fontWeight={'bold'}>
-          HTTP Request
-        </Text>
-        <Flex>
-          <Text bgColor={'gray.300'} p={2} fontSize={'sm'} fontWeight={'bold'}>
-            GET
-          </Text>
-          <Text bgColor={'gray.200'} p={2} fontSize={'sm'}>
-            {getPath(oldEndpoint.parameters, feed.oldFeed, oldServers, setError)}
-          </Text>
-        </Flex>
-        <Text fontSize={'md'} fontWeight={'bold'}>
-          Post Processing
-        </Text>
-
-        <CopyBlock
-          text={formatCode(feed.oldFeed.code)}
-          language={'javascript'}
+        <PathView
+          method={newEndpoint.operation.method}
+          path={getPath(oldEndpoint.parameters, feed.oldFeed, oldServers, oldEndpoint.operation.method, setError)}
+        />
+        <CodeBlockView
+          title={'Post Processing'}
           showLineNumbers={true}
-          theme={dracula}
-          codeBlock={true}
+          language={'javascript'}
+          response={feed.oldFeed.code}
         />
       </VStack>
 
@@ -41,44 +30,18 @@ const FeedCompareRowView = ({ feed, oldServers, newEndpoint, oldEndpoint, newSer
         <Text bgColor={'green.400'} p={2} fontSize={'md'} fontWeight={'bold'}>
           [ACTIVE]
         </Text>
-        <Text fontSize={'md'} fontWeight={'bold'}>
-          HTTP Request
-        </Text>
-        <Flex>
-          <Text bgColor={'blue.300'} p={2} fontSize={'sm'} fontWeight={'bold'}>
-            GET
-          </Text>
-          <Text bgColor={'blue.200'} p={2} fontSize={'sm'}>
-            {getPath(newEndpoint.parameters, feed.newFeed, newServers, setError)}
-          </Text>
-          <Spacer />
-        </Flex>
-        <Text fontSize={'md'} fontWeight={'bold'}>
-          Post Processing
-        </Text>
-
-        <CopyBlock
-          text={formatCode(feed.newFeed.code)}
-          language={'javascript'}
+        <PathView
+          method={newEndpoint.operation.method}
+          path={getPath(newEndpoint.parameters, feed.newFeed, newServers, newEndpoint.operation.method, setError)}
+        />
+        <CodeBlockView
+          title={'Post Processing'}
           showLineNumbers={true}
-          theme={dracula}
-          codeBlock={true}
+          language={'javascript'}
+          response={feed.newFeed.code}
         />
       </VStack>
-      {error == null ? null : (
-        <VStack alignItems={'left'} width={'100%'}>
-          <Text fontSize={'md'} fontWeight={'bold'}>
-            Error
-          </Text>
-          <CopyBlock
-            text={formatCode(error)}
-            language={'json'}
-            showLineNumbers={false}
-            theme={dracula}
-            codeBlock={true}
-          />
-        </VStack>
-      )}
+      <CodeBlockView title={'Error'} response={error} />
     </VStack>
   );
 };
