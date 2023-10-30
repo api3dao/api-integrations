@@ -5,6 +5,40 @@ import FeedGroupView from '../Custom/FeedGroupView';
 import FeedCompareGroupView from '../Custom/FeedCompareGroupView';
 import Title from '../Custom/Title';
 
+const FeedGroup = ({ title, group, endpoints, oises, j, status }) => {
+  return group.map((feed, index) =>
+    index !== j ? null : (
+      <FeedGroupView
+        key={index}
+        endpoint={endpoints[j]}
+        index={index}
+        feed={feed}
+        apiSpecifications={oises[j].apiSpecifications}
+        title={title}
+        status={status}
+      />
+    )
+  );
+};
+
+const CompareGroup = ({ title, group, comparison, oldOis, newOis, j, status }) => {
+  return group.map((feed, index) =>
+    index !== j ? null : (
+      <FeedCompareGroupView
+        key={index}
+        index={index}
+        feed={feed}
+        newEndpoint={comparison.endpointsNew[j]}
+        oldEndpoint={comparison.endpointsOld[j]}
+        oldServers={oldOis[j].apiSpecifications}
+        newServers={newOis[j].apiSpecifications}
+        title={title}
+        status={status}
+      />
+    )
+  );
+};
+
 const CompareEndpoints = ({ oldOis, newOis }) => {
   const [comparison, setComparison] = useState(null);
 
@@ -24,61 +58,39 @@ const CompareEndpoints = ({ oldOis, newOis }) => {
       {newOis.map((oi, j) => (
         <VStack key={j} alignItems={'left'}>
           <Title header={oi.title} buttonVisibility={false} isLoading={false} />
-
-          {comparison.compareFeeds.added.map((feed, index) =>
-            index !== j ? null : (
-              <FeedGroupView
-                key={index}
-                endpoint={comparison.endpointsNew[j]}
-                index={index}
-                feed={feed}
-                apiSpecifications={newOis[j].apiSpecifications}
-                title={'Added'}
-                status={1}
-              />
-            )
-          )}
-          {comparison.compareFeeds.removed.map((feed, index) =>
-            index !== j ? null : (
-              <FeedGroupView
-                key={index}
-                endpoint={comparison.endpointsOld[j]}
-                index={index}
-                feed={feed}
-                apiSpecifications={oldOis[j].apiSpecifications}
-                title={'Removed'}
-                status={2}
-              />
-            )
-          )}
-          {comparison.compareFeeds.updated.map((feed, index) =>
-            index !== j ? null : (
-              <FeedCompareGroupView
-                key={index}
-                index={index}
-                feed={feed}
-                newEndpoint={comparison.endpointsNew[j]}
-                oldEndpoint={comparison.endpointsOld[j]}
-                oldServers={oldOis[j].apiSpecifications}
-                newServers={newOis[j].apiSpecifications}
-                title={'Updated'}
-                status={3}
-              />
-            )
-          )}
-          {comparison.compareFeeds.unchanged.map((feed, index) =>
-            index !== j ? null : (
-              <FeedGroupView
-                key={index}
-                endpoint={comparison.endpointsNew[j]}
-                index={index}
-                feed={feed}
-                apiSpecifications={newOis[j].apiSpecifications}
-                title={'Unchanged'}
-                status={0}
-              />
-            )
-          )}
+          <FeedGroup
+            title={'Added'}
+            group={comparison.compareFeeds.added}
+            endpoints={comparison.endpointsNew}
+            oises={newOis}
+            j={j}
+            status={1}
+          />
+          <FeedGroup
+            title={'Removed'}
+            group={comparison.compareFeeds.removed}
+            endpoints={comparison.endpointsOld}
+            oises={oldOis}
+            j={j}
+            status={2}
+          />
+          <CompareGroup
+            title={'Updated'}
+            group={comparison.compareFeeds.updated}
+            comparison={comparison}
+            oldOis={oldOis}
+            newOis={newOis}
+            j={j}
+            status={3}
+          />
+          <FeedGroup
+            title={'Unchanged'}
+            group={comparison.compareFeeds.unchanged}
+            endpoints={comparison.endpointsNew}
+            oises={newOis}
+            j={j}
+            status={0}
+          />
         </VStack>
       ))}
     </VStack>
