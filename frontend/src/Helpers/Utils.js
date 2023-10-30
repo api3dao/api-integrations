@@ -75,13 +75,13 @@ export const getEndpoints = (ois) => {
   let oisTitles = [];
   try {
     for (let i = 0; i < ois.length; i++) {
-      ois[i].endpoints.filter((endpoint) => endpoint.name === 'feed').map((endpoint) => endpoints.push(endpoint))
+      ois[i].endpoints.filter((endpoint) => endpoint.name === 'feed').map((endpoint) => endpoints.push(endpoint));
       oisTitles.push(ois[i].title);
-    };
+    }
   } catch (error) {
-    return { endpoints, oisTitles }
+    return { endpoints, oisTitles };
   }
-  return { endpoints, oisTitles }
+  return { endpoints, oisTitles };
 };
 
 export const getFeeds = (endpoints) => {
@@ -132,7 +132,9 @@ export const compareFeeds = (newFeeds, oldFeeds) => {
         });
       });
       newUpdated.push(tmp);
-      newUnchanged.push(newFeeds.feeds[i].filter((newFeed) => oldFeeds.feeds[i].some((oldFeed) => isUnchanged(newFeed, oldFeed))));
+      newUnchanged.push(
+        newFeeds.feeds[i].filter((newFeed) => oldFeeds.feeds[i].some((oldFeed) => isUnchanged(newFeed, oldFeed)))
+      );
     }
   } catch (error) {
     console.log(error);

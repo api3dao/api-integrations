@@ -54,7 +54,7 @@ const CompareEndpoints = ({ oldOis, newOis }) => {
   }, [newOis, oldOis]);
 
   return oldOis == null || newOis === null ? null : comparison === null ? null : (
-    <VStack alignItems={'left'}>
+    <VStack width={'100%'} alignItems={'left'}>
       {newOis.map((oi, j) => (
         <VStack key={j} alignItems={'left'}>
           <Title header={oi.title} buttonVisibility={false} isLoading={false} />
