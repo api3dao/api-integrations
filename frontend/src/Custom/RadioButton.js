@@ -2,7 +2,7 @@ import { Flex, VStack } from '@chakra-ui/react';
 import { Box, Text, Image } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
-const Hero = ({ link, bgColor, description, icon }) => {
+const RadioButton = ({ link, bgColor, description, icon }) => {
   return (
     <Link to={link}>
       <VStack cursor={'pointer'} spacing={0} direction="row" align="left">
@@ -39,4 +39,4 @@ const Hero = ({ link, bgColor, description, icon }) => {
   );
 };
 
-export default Hero;
+export default RadioButton;

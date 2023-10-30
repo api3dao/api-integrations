@@ -3,7 +3,7 @@ import { VStack } from '@chakra-ui/react';
 import ExpandableView from './ExpandableView';
 import FeedCompareRowView from './FeedCompareRowView';
 
-const FeedGroupView = ({ index, feed, oldServers, newEndpoint, oldEndpoint, newServers, title, status }) => {
+const FeedCompareGroupView = ({ index, feed, oldServers, newEndpoint, oldEndpoint, newServers, title, status }) => {
   return feed.length === 0 ? null : (
     <VStack key={index} alignItems={'left'} width={'100%'}>
       <ExpandableView
@@ -32,4 +32,4 @@ const FeedGroupView = ({ index, feed, oldServers, newEndpoint, oldEndpoint, newS
   );
 };
 
-export default FeedGroupView;
+export default FeedCompareGroupView;

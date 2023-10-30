@@ -6,7 +6,7 @@ import { CopyBlock, dracula } from 'react-code-blocks';
 import ImageButton from '../Custom/ImageButton';
 import { useState } from 'react';
 
-const Hero = ({ mode }) => {
+const Help = ({ mode }) => {
   const [dockerMode, setDockerMode] = useState(CONSTANTS.WINDOWS);
 
   const dockerCmd = `docker run -it --rm \\
@@ -139,4 +139,4 @@ const Hero = ({ mode }) => {
   );
 };
 
-export default Hero;
+export default Help;

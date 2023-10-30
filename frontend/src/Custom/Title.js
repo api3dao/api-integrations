@@ -3,7 +3,7 @@ import { Text, Flex, Spacer, VStack } from '@chakra-ui/react';
 import { ColorRing } from 'react-loader-spinner';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 
-const Hero = ({ isLoading, header, onClick, buttonVisibility = true }) => {
+const Title = ({ isLoading, header, onClick, buttonVisibility = true }) => {
   return (
     <VStack p={3} alignItems={'left'}>
       <Flex alignItems={'center'} borderBottomWidth={1}>
@@ -20,4 +20,4 @@ const Hero = ({ isLoading, header, onClick, buttonVisibility = true }) => {
   );
 };
 
-export default Hero;
+export default Title;

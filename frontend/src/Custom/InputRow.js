@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, Box, Flex, Spacer, VStack, Input } from '@chakra-ui/react';
 import { COLORS } from '../data/constants';
 
-const Hero = ({ title, text, setText, margin = 0 }) => {
+const InputRow = ({ title, text, setText, margin = 0 }) => {
   return (
     <VStack width={'100%'} direction="row" align="left" m={margin}>
       <Text fontWeight={'bold'} fontSize={'md'}>
@@ -18,4 +18,4 @@ const Hero = ({ title, text, setText, margin = 0 }) => {
   );
 };
 
-export default Hero;
+export default InputRow;

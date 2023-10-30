@@ -7,7 +7,7 @@ import Title from '../Custom/Title';
 import ExpandableView from '../Custom/ExpandableView';
 import DeployOptions from './DeployOptions';
 
-const Hero = ({ configData }) => {
+const Display = ({ configData }) => {
   const [ois, setOis] = useState([]);
   const [SECURITY_SCHEME_VALUES, setSecuritySchemeValue] = useState([]);
   const [AIRNODE_WALLET_MNEMONIC, setAirnodeWalletMnemonic] = useState('');
@@ -96,4 +96,4 @@ const Hero = ({ configData }) => {
   );
 };
 
-export default Hero;
+export default Display;
