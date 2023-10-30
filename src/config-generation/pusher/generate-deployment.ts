@@ -154,7 +154,7 @@ const main = async () => {
   // derive deployment id
   const today = format(new Date(), 'yyyyMMdd');
   const stage = `api3-${today}`;
-  pusherConfig.stage = "${STAGE}";
+  pusherConfig.stage = '${STAGE}';
 
   // save the deployment
   const deploymentPath = `./data/apis/${apiName}/deployments/candidate-deployments`;
