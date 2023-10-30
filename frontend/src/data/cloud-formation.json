@@ -31,11 +31,7 @@
                 "Value": ""
               }
             ],
-            "EntryPoint": [
-              "/bin/sh",
-              "-c",
-              "echo -e $SECRETS_ENV >> ./config/secrets.env && wget -O - https://raw.githubusercontent.com/metobom/pusher-operations/master/data/apis/cryptocompare/deployments/11-10-2023/cryptocompare-pusher-config.json >> ./config/pusher.json && node --enable-source-maps dist/index.js"
-            ],
+            "EntryPoint": [],
             "LogConfiguration": {
               "LogDriver": "awslogs",
               "Options": {

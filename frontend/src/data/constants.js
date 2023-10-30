@@ -22,15 +22,28 @@ export const COLORS = {
   success: 'green.300'
 };
 
+export const FIRST_API_CALL_TIMEOUT = 10_000;
+export const SECOND_API_CALL_TIMEOUT = 20_000;
+export const PROCESSING_TIMEOUT = 10_000;
+
 export const CONSTANTS = {
-  CLOUD_FORMATION_DEPLOY: 10000,
-  DOCKER_DEPLOY: 10001,
+  CLOUD_FORMATION_DEPLOY: 'aws',
+  DOCKER_DEPLOY: 'local',
   DOWNLOAD_FILES: 10002,
   WINDOWS: 10003,
   MAC: 10004,
   LINUX: 10005,
   boxShadowLight: '0px 0px 2px 0px rgba(0,0,0,0.2)',
-  boxShadowSolid: '0px 0px 1px 0px rgba(0,0,0,0.7)'
+  boxShadowSolid: '0px 0px 1px 0px rgba(0,0,0,0.7)',
+  RUNNING: 'running',
+  STOPPED: 'stopped',
+  STARTING: 'starting',
+  STOPPING: 'stopping',
+  RESTARTING: 'restarting',
+  REMOVING: 'removing',
+  PAUSED: 'paused',
+  EXITED: 'exited',
+  DEAD: 'dead'
 };
 
 export const COLORS2 = {

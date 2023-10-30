@@ -16,14 +16,14 @@ const Hero = ({ configData }) => {
     setOis([]);
 
     if (configData == null) return;
-    if (configData.ois === undefined) return;
-    if (configData.ois.length === 0) return;
+    if (configData.config.ois === undefined) return;
+    if (configData.config.ois.length === 0) return;
 
-    if (configData.airnodeWalletMnemonic === null) return;
+    if (configData.config.airnodeWalletMnemonic === null) return;
 
-    setOis(configData.ois);
-    setAirnodeWalletMnemonic(String(configData.airnodeWalletMnemonic));
-    setSecuritySchemeValue(configData.apiCredentials);
+    setOis(configData.config.ois);
+    setAirnodeWalletMnemonic(String(configData.config.airnodeWalletMnemonic));
+    setSecuritySchemeValue(configData.config.apiCredentials);
   }, [configData]);
 
   const setSecuritySchemeValues = (i, value) => {
@@ -35,13 +35,6 @@ const Hero = ({ configData }) => {
       return obj;
     });
     setSecuritySchemeValue(newState);
-  };
-
-  const getApiKey = (oisTitle) => {
-    const apiKey = SECURITY_SCHEME_VALUES.find((securitySchemeValue) => securitySchemeValue.oisTitle === oisTitle);
-
-    if (apiKey === undefined) return null;
-    return apiKey;
   };
 
   return configData === null ? null : (
@@ -87,7 +80,7 @@ const Hero = ({ configData }) => {
                     <Endpoint
                       endpoint={endpoint}
                       apiSpecifications={ois.apiSpecifications}
-                      apiCredentials={getApiKey(ois.title)}
+                      oisTitle={ois.title}
                     />
                   </VStack>
                 ))}
@@ -98,8 +91,8 @@ const Hero = ({ configData }) => {
       ))}
       <DeployOptions
         configData={configData}
-        AIRNODE_WALLET_MNEMONIC={AIRNODE_WALLET_MNEMONIC}
-        SECURITY_SCHEME_VALUES={SECURITY_SCHEME_VALUES}
+        mnemonic={AIRNODE_WALLET_MNEMONIC}
+        schemeValues={SECURITY_SCHEME_VALUES}
         ois={ois}
       />
       <VStack p={3} height={'50px'} align={'left'} />

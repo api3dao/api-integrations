@@ -68,12 +68,12 @@ const Welcome = () => {
             justifyItems={'center'}
           >
             <Title
-              header={config == null ? provider.header.toUpperCase() : config.stage}
+              header={config == null ? provider.header.toUpperCase() : config.filename}
               buttonVisibility={true}
               onClick={() => detach()}
               isLoading={false}
             />
-            <Integrations apiProvider={provider.header} integrations={provider.deployments} />
+            <Integrations integrations={provider.deployments} />
           </VStack>
         )}
       </VStack>

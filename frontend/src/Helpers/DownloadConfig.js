@@ -17,24 +17,23 @@ export const testMnemonic = (mnemonic) => {
 
 export const populateOis = (
   configData,
-  AIRNODE_WALLET_MNEMONIC,
-  SECURITY_SCHEME_VALUES,
+  mnemonic,
+  schemeValues,
   ois,
   CloudFormation,
   mode = CONSTANTS.CLOUD_FORMATION_DEPLOY,
-  deploymentVariant,
   callback
 ) => {
   if (configData == null) return;
-  if (configData.ois === null) return;
-  if (configData.ois.length === 0) return;
+  if (configData.config.ois === null) return;
+  if (configData.config.ois.length === 0) return;
 
-  if (configData.airnodeWalletMnemonic === null) return;
+  if (configData.config.airnodeWalletMnemonic === null) return;
 
-  configData.airnodeWalletMnemonic = AIRNODE_WALLET_MNEMONIC;
-  configData.apiCredentials = SECURITY_SCHEME_VALUES;
+  configData.config.airnodeWalletMnemonic = mnemonic;
+  configData.config.apiCredentials = schemeValues;
 
-  const mnemonicTest = testMnemonic(AIRNODE_WALLET_MNEMONIC);
+  const mnemonicTest = testMnemonic(mnemonic);
   if (mnemonicTest.status === false) {
     callback({ status: false, message: mnemonicTest.message, mode: mode });
     return;
@@ -42,15 +41,16 @@ export const populateOis = (
 
   let API_KEY = '';
   ois.forEach((ois) => {
-    SECURITY_SCHEME_VALUES.forEach((item) => {
+    schemeValues.forEach((item) => {
       API_KEY += `\\n${ois.title.toUpperCase()}_API_KEY=${item.securitySchemeValue}`;
     });
   });
 
-  const secrets = `WALLET_MNEMONIC=${AIRNODE_WALLET_MNEMONIC}${API_KEY}`;
+  const stage = `\\nSTAGE=${mode}`;
+  const secrets = `WALLET_MNEMONIC=${mnemonic}${API_KEY}${stage}`;
   switch (mode) {
     case CONSTANTS.CLOUD_FORMATION_DEPLOY:
-      downloadCloudFormation(CloudFormation, secrets, deploymentVariant);
+      downloadCloudFormation(CloudFormation, secrets, configData);
       break;
     case CONSTANTS.DOCKER_DEPLOY:
       downloadZip(secrets, configData);
@@ -66,11 +66,13 @@ export const populateOis = (
   });
 };
 
-const downloadCloudFormation = (CloudFormation, secrets, deploymentVariant) => {
-
-  const entryPoint = ["/bin/sh",
-    "-c",
-    `echo -e $SECRETS_ENV >> ./config/secrets.env && wget -O - https://raw.githubusercontent.com/api3dao/api-integrations/main/data/apis/${deploymentVariant.apiProvider}/deployments/${deploymentVariant.category}-deployments/${deploymentVariant.filename}-pusher.json >> ./config/pusher.json && node --enable-source-maps dist/index.js`];
+const downloadCloudFormation = (CloudFormation, secrets, configData) => {
+  console.log(configData);
+  const entryPoint = [
+    '/bin/sh',
+    '-c',
+    `echo -e $SECRETS_ENV >> ./config/secrets.env && wget -O - https://raw.githubusercontent.com/api3dao/api-integrations/main/data/apis/${configData.apiProvider}/deployments/${configData.category}-deployments/${configData.filename} >> ./config/pusher.json && node --enable-source-maps dist/index.js`
+  ];
 
   CloudFormation.Resources.MyAppDefinition.Properties.ContainerDefinitions[0].Environment[0].Value = secrets;
   CloudFormation.Resources.MyAppDefinition.Properties.ContainerDefinitions[0].EntryPoint = entryPoint;
@@ -86,7 +88,7 @@ const downloadCloudFormation = (CloudFormation, secrets, deploymentVariant) => {
 export const downloadZip = (secrets, config) => {
   var zip = new JSZip();
   zip.file('secrets.env', secrets.replaceAll(/(\\n)/g, '\n'));
-  zip.file('pusher.json', JSON.stringify(config));
+  zip.file('pusher.json', JSON.stringify(config, null, 2));
 
   zip.generateAsync({ type: 'blob' }).then(function (content) {
     saveAs(content, 'pusher-config.zip');

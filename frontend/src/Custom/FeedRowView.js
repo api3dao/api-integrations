@@ -2,15 +2,20 @@ import { Text, Flex, VStack, Button, Spacer } from '@chakra-ui/react';
 import { CopyBlock, dracula } from 'react-code-blocks';
 import { formatCode } from '../Helpers/Utils';
 import { useState } from 'react';
-import { getPath, pathFromPrePreProcessing, getApiKey } from '../Helpers/Utils';
-import { postProcessing, preProcessing, getAPIResponse } from '../Helpers/PostProcessing';
+import { getPath } from '../Helpers/Utils';
 import TableView from './TableView';
 import { ColorRing } from 'react-loader-spinner';
+import { callApiWithAdapter } from '../Helpers/AirnodeAdapter';
 
-const FeedRowView = ({ endpoint, feed, apiSpecifications, apiCredentials, tryit = true }) => {
+import { ApiIntegrationsContext } from '../Context';
+import { useContext } from 'react';
+
+const FeedRowView = ({ endpoint, feed, apiSpecifications, oisTitle, tryit = true }) => {
   const [postProcessResult, setPostProcessResult] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+
+  const { config } = useContext(ApiIntegrationsContext);
 
   const formatParameters = (parameters) => {
     try {
@@ -46,27 +51,26 @@ const FeedRowView = ({ endpoint, feed, apiSpecifications, apiCredentials, tryit 
     }
   };
 
-  const callApi = (result) => {
-    if (apiSpecifications == null) return;
-    const request = pathFromPrePreProcessing(endpoint.parameters, result, apiSpecifications.servers);
-    const apiKey = getApiKey(apiCredentials, apiSpecifications.components.securitySchemes);
-
-    getAPIResponse(request, endpoint.operation.method, apiKey).then(
-      (res) => {
+  const callApi = () => {
+    const payload = {
+      config: config.config,
+      aggregatedApiCall: {
+        endpointName: endpoint.name,
+        parameters: { name: feed.feed },
+        oisTitle: oisTitle
+      }
+    };
+    setIsLoading(true);
+    callApiWithAdapter(payload)
+      .then((res) => {
         setIsLoading(false);
-        postProcessing(res, { name: feed.feed }, endpoint, setPostProcessResult);
-      },
-      (error) => {
+        setError(null);
+        setPostProcessResult(res);
+      })
+      .catch((error) => {
         setIsLoading(false);
         setError(error);
-      }
-    );
-  };
-
-  const preProcess = () => {
-    setIsLoading(true);
-    setPostProcessResult(null);
-    preProcessing(endpoint, { name: feed.feed }, callApi);
+      });
   };
 
   const getColor = (method, darker) => {
@@ -136,7 +140,7 @@ const FeedRowView = ({ endpoint, feed, apiSpecifications, apiCredentials, tryit 
               h={'50px'}
               w={'100px'}
               onClick={() => {
-                preProcess();
+                callApi();
               }}
             >
               Try it out

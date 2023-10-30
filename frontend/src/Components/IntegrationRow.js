@@ -1,42 +1,39 @@
-import { Flex, Spacer, VStack, Circle } from '@chakra-ui/react';
+import { Flex, Spacer, VStack } from '@chakra-ui/react';
 import { Stack } from '@chakra-ui/react';
-import { COLORS } from '../data/constants';
+import { COLORS, CONSTANTS } from '../data/constants';
 import { Text } from '@chakra-ui/react';
 import { ApiIntegrationsContext } from '../Context';
 import { useContext, useEffect } from 'react';
 import ImageButton from '../Custom/ImageButton';
+import StageLocation from '../Custom/StageLocation';
 
-const IntegrationsRow = ({ apiProvider, category, integration }) => {
-  const { setConfig, setComparePair, comparePair, setDeploymentVariant } = useContext(ApiIntegrationsContext);
+const IntegrationsRow = ({ config }) => {
+  const { setConfig, setComparePair, comparePair } = useContext(ApiIntegrationsContext);
+
+  const integration = config.config;
 
   const setView = () => {
-    setConfig(integration);
-    setDeploymentVariant({
-      apiProvider: apiProvider,
-      category: category,
-      filename: integration.stage
-    });
+    setConfig(config);
   };
 
   const compare = () => {
-    if (category !== 'active') {
+    if (config.category !== 'active') {
       setComparePair({ left: integration, right: comparePair.right });
       return;
     }
   };
 
   const isCompareAvailable = () => {
-    if (category === 'active') return false
-    if (comparePair.right === null) return false
+    if (config.category === 'active') return false;
+    if (comparePair.right === null) return false;
     return comparePair.left === null;
   };
 
   useEffect(() => {
-    if (category !== 'active') return
-    if (comparePair.right !== null) return
+    if (config.category !== 'active') return;
+    if (comparePair.right !== null) return;
     setComparePair({ left: comparePair.left, right: integration });
-
-  }, [category, comparePair, integration, setComparePair]);
+  }, [config.category, comparePair, integration, setComparePair]);
 
   return (
     <VStack spacing={0} direction="row" align="left">
@@ -56,10 +53,16 @@ const IntegrationsRow = ({ apiProvider, category, integration }) => {
         ) : (
           <Flex width={'100%'} wrap={'wrap'}>
             <Stack direction={'row'} alignItems={'center'} spacing={5} wrap={'wrap'}>
-              <Circle size={'10px'} bgColor={'green.400'} />
               <Text minWidth={'400px'} fontSize={'md'} fontWeight={'bold'}>
-                {integration.stage}
+                {config.filename}
               </Text>
+              {config.category === 'candidate' ? null : (
+                <>
+                  <StageLocation location={CONSTANTS.CLOUD_FORMATION_DEPLOY} />
+                  <StageLocation location={CONSTANTS.DOCKER_DEPLOY} />
+                </>
+              )}
+
               <Text width={'100px'} p={1} fontSize={'xs'}>
                 Pusher 0.0.1
               </Text>
@@ -74,18 +77,16 @@ const IntegrationsRow = ({ apiProvider, category, integration }) => {
                 }}
                 src={'./view.svg'}
               />
-              {
-                !isCompareAvailable() ? null :
-                  <ImageButton
-                    inW="24px"
-                    outW="48px"
-                    onClick={() => {
-                      compare();
-                    }}
-                    src={'./compare.svg'}
-                  />
-              }
-
+              {!isCompareAvailable() ? null : (
+                <ImageButton
+                  inW="24px"
+                  outW="48px"
+                  onClick={() => {
+                    compare();
+                  }}
+                  src={'./compare.svg'}
+                />
+              )}
             </Stack>
           </Flex>
         )}

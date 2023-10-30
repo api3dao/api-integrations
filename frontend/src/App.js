@@ -18,11 +18,10 @@ function App() {
   const [config, setConfig] = useState(null);
   const [stage, setStage] = useState(null);
   const [comparePair, setComparePair] = useState({ left: null, right: null });
-  const [deploymentVariant, setDeploymentVariant] = useState({ apiProvider: null, category: null, filename: null });
 
   return (
     <ChakraProvider theme={theme}>
-      <ApiIntegrationsContext.Provider value={{ config, setConfig, stage, setStage, comparePair, setComparePair, deploymentVariant, setDeploymentVariant }}>
+      <ApiIntegrationsContext.Provider value={{ config, setConfig, stage, setStage, comparePair, setComparePair }}>
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <HashRouter>
           <Header />
