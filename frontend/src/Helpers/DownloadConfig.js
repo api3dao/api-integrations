@@ -17,8 +17,8 @@ export const testMnemonic = (mnemonic) => {
 
 export const populateOis = (
   configData,
-  AIRNODE_WALLET_MNEMONIC,
-  SECURITY_SCHEME_VALUES,
+  mnemonic,
+  schemeValues,
   ois,
   CloudFormation,
   mode = CONSTANTS.CLOUD_FORMATION_DEPLOY,
@@ -30,10 +30,10 @@ export const populateOis = (
 
   if (configData.config.airnodeWalletMnemonic === null) return;
 
-  configData.config.airnodeWalletMnemonic = AIRNODE_WALLET_MNEMONIC;
-  configData.config.apiCredentials = SECURITY_SCHEME_VALUES;
+  configData.config.airnodeWalletMnemonic = mnemonic;
+  configData.config.apiCredentials = schemeValues;
 
-  const mnemonicTest = testMnemonic(AIRNODE_WALLET_MNEMONIC);
+  const mnemonicTest = testMnemonic(mnemonic);
   if (mnemonicTest.status === false) {
     callback({ status: false, message: mnemonicTest.message, mode: mode });
     return;
@@ -41,13 +41,13 @@ export const populateOis = (
 
   let API_KEY = '';
   ois.forEach((ois) => {
-    SECURITY_SCHEME_VALUES.forEach((item) => {
+    schemeValues.forEach((item) => {
       API_KEY += `\\n${ois.title.toUpperCase()}_API_KEY=${item.securitySchemeValue}`;
     });
   });
 
   const stage = `\\nSTAGE=${mode}`;
-  const secrets = `WALLET_MNEMONIC=${AIRNODE_WALLET_MNEMONIC}${API_KEY}${stage}`;
+  const secrets = `WALLET_MNEMONIC=${mnemonic}${API_KEY}${stage}`;
   switch (mode) {
     case CONSTANTS.CLOUD_FORMATION_DEPLOY:
       downloadCloudFormation(CloudFormation, secrets, configData);
