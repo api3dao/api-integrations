@@ -10,7 +10,7 @@ import { callApiWithAdapter } from '../Helpers/AirnodeAdapter';
 import { ApiIntegrationsContext } from '../Context';
 import { useContext } from 'react';
 
-const FeedRowView = ({ endpoint, feed, apiSpecifications, apiCredentials, tryit = true }) => {
+const FeedRowView = ({ endpoint, feed, apiSpecifications, oisTitle, tryit = true }) => {
   const [postProcessResult, setPostProcessResult] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -57,7 +57,7 @@ const FeedRowView = ({ endpoint, feed, apiSpecifications, apiCredentials, tryit 
       aggregatedApiCall: {
         endpointName: endpoint.name,
         parameters: { name: feed.feed },
-        oisTitle: apiCredentials.oisTitle
+        oisTitle: oisTitle
       }
     };
     setIsLoading(true);

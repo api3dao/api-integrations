@@ -37,13 +37,6 @@ const Hero = ({ configData }) => {
     setSecuritySchemeValue(newState);
   };
 
-  const getApiKey = (oisTitle) => {
-    const apiKey = SECURITY_SCHEME_VALUES.find((securitySchemeValue) => securitySchemeValue.oisTitle === oisTitle);
-
-    if (apiKey === undefined) return null;
-    return apiKey;
-  };
-
   return configData === null ? null : (
     <VStack p={1} spacing={4} alignItems={'left'}>
       <Title header={'Airnode Wallet Mnemonic'} isLoading={false} buttonVisibility={false} />
@@ -87,7 +80,7 @@ const Hero = ({ configData }) => {
                     <Endpoint
                       endpoint={endpoint}
                       apiSpecifications={ois.apiSpecifications}
-                      apiCredentials={getApiKey(ois.title)}
+                      oisTitle={ois.title}
                     />
                   </VStack>
                 ))}
@@ -98,8 +91,8 @@ const Hero = ({ configData }) => {
       ))}
       <DeployOptions
         configData={configData}
-        AIRNODE_WALLET_MNEMONIC={AIRNODE_WALLET_MNEMONIC}
-        SECURITY_SCHEME_VALUES={SECURITY_SCHEME_VALUES}
+        mnemonic={AIRNODE_WALLET_MNEMONIC}
+        schemeValues={SECURITY_SCHEME_VALUES}
         ois={ois}
       />
       <VStack p={3} height={'50px'} align={'left'} />

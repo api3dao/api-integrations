@@ -4,7 +4,7 @@ import { combine } from '../Helpers/Utils';
 import { log } from '../Helpers/Logger';
 import ExpandableView from '../Custom/ExpandableView';
 
-const Endpoint = ({ endpoint, apiSpecifications, apiCredentials }) => {
+const Endpoint = ({ endpoint, apiSpecifications, oisTitle }) => {
   const error = (error) => {
     log('ERROR', [error]);
   };
@@ -19,7 +19,7 @@ const Endpoint = ({ endpoint, apiSpecifications, apiCredentials }) => {
                 endpoint={endpoint}
                 feed={feed}
                 apiSpecifications={apiSpecifications}
-                apiCredentials={apiCredentials}
+                oisTitle={oisTitle}
               />
             }
             header={feed.feed}
