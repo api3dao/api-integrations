@@ -1097,5 +1097,5 @@
       "securitySchemeValue": "${TRADERMADESECURITYSCHEME1APIKEY_VALUE}"
     }
   ],
-  "stage": "api3-20231025"
+  "stage": "${STAGE}"
 }
