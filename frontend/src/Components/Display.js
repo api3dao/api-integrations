@@ -7,7 +7,7 @@ import Title from '../Custom/Title';
 import ExpandableView from '../Custom/ExpandableView';
 import DeployOptions from './DeployOptions';
 
-const Display = ({ configData }) => {
+const Display = ({ configData, apiData }) => {
   const [ois, setOis] = useState([]);
   const [SECURITY_SCHEME_VALUES, setSecuritySchemeValue] = useState([]);
   const [AIRNODE_WALLET_MNEMONIC, setAirnodeWalletMnemonic] = useState('');
@@ -90,6 +90,7 @@ const Display = ({ configData }) => {
         mnemonic={AIRNODE_WALLET_MNEMONIC}
         schemeValues={SECURITY_SCHEME_VALUES}
         ois={ois}
+        apiData={apiData}
       />
       <VStack p={3} height={'50px'} align={'left'} />
     </VStack>

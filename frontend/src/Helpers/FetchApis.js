@@ -1,19 +1,3 @@
-export const getApis = (callback) => {
-  const url = 'https://fetch.api3dev.com/get/apis';
-
-  fetch(url, {
-    method: 'GET',
-    headers: { 'Content-Type': 'application/json' }
-  })
-    .then((response) => response.json())
-    .then((res) => {
-      callback(res);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
-
 export const checkFiles = (ctx) => {
   let keys = ctx.keys();
   let values = keys.map(ctx);
@@ -23,11 +7,32 @@ export const checkFiles = (ctx) => {
   let activeDeployment = [];
   let candidateDeployment = [];
 
+  let apiData = [];
+
   for (let i = 0; i < keys.length; i++) {
     const api = keys[i].split('/')[1];
     const value = values[i];
 
-    const filename = keys[i].match(/[a-z0-9-]+-pusher.json$/)[0];
+    const filename = keys[i].match(/api-data.json/);
+
+    if (filename === null) {
+      continue;
+    }
+
+    if (filename[0] === 'api-data.json') {
+      apiData.push({ config: value, apiProvider: api });
+    }
+  }
+
+  for (let i = 0; i < keys.length; i++) {
+    const api = keys[i].split('/')[1];
+    const value = values[i];
+
+    const filename = keys[i].match(/[a-z0-9-]+-pusher.json/);
+
+    if (filename === null) {
+      continue;
+    }
 
     const isExist = apis.find((item) => item[api]);
 
@@ -38,7 +43,12 @@ export const checkFiles = (ctx) => {
       if (keys[i].includes('active-deployments')) {
         activeDeployment.push({ filename: filename, config: value, category: 'active', apiProvider: api });
       } else if (keys[i].includes('candidate-deployments')) {
-        candidateDeployment.push({ filename: filename, config: value, category: 'candidate', apiProvider: api });
+        candidateDeployment.push({
+          filename: filename,
+          config: value,
+          category: 'candidate',
+          apiProvider: api
+        });
       }
     } else {
       let activeDeployment = [];
@@ -53,7 +63,8 @@ export const checkFiles = (ctx) => {
       const obj = {
         [api]: {
           activeDeployment: activeDeployment,
-          candidateDeployment: candidateDeployment
+          candidateDeployment: candidateDeployment,
+          apiData: apiData.find((item) => item.apiProvider === api)
         }
       };
       apis.push(obj);

@@ -11,7 +11,7 @@ import { COLORS } from '../data/constants';
 import { populateOis } from '../Helpers/DownloadConfig';
 import CloudFormation from '../data/cloud-formation.json';
 
-const DeployOptions = ({ configData, mnemonic, schemeValues, ois }) => {
+const DeployOptions = ({ configData, mnemonic, schemeValues, ois, apiData }) => {
   const [selected, setSelected] = useState(0);
   const [step, setStep] = useState(0);
   const [remarks, setRemarks] = useState(null);
@@ -59,63 +59,77 @@ const DeployOptions = ({ configData, mnemonic, schemeValues, ois }) => {
     populateOis(configData, mnemonic, schemeValues, ois, CloudFormation, selected, isSuccessful);
   };
 
+  const getIcon = (mode) => {
+    switch (mode) {
+      case CONSTANTS.DOCKER_DEPLOY:
+        return './docker.svg';
+      case CONSTANTS.CLOUD_FORMATION_DEPLOY:
+        return './cloudFormation.svg';
+      default:
+        return './download.svg';
+    }
+  };
+
+  const getDeploymentLocations = () => {
+    if (apiData === undefined) return [];
+    return apiData.config.deploymentLocations
+  }
+
   return (
-    <VStack spacing={4} w={'100%'} direction="row" align="left">
-      <Title header="Deploy" buttonVisibility={false} isLoading={false} />
+    apiData === undefined ? null :
+      <VStack spacing={4} w={'100%'} direction="row" align="left">
+        <Title header="Deploy" buttonVisibility={false} isLoading={false} />
 
-      {step < 0 ? null : (
-        <>
-          <NumberedBox title={'Select a deployment mode'} number={1} />
+        {step < 0 ? null : (
+          <>
+            <NumberedBox title={'Select a deployment mode'} number={1} />
 
-          <Stack direction={'row'} spacing={'2'} justifyContent={'left'}>
+            <Stack direction={'row'} spacing={'2'} justifyContent={'left'}>
+              {
+                getDeploymentLocations().map((location, index) => (
+                  <ImageButton
+                    key={index}
+                    inW={'50px'}
+                    outW={'100px'}
+                    onClick={() => setMode(location)}
+                    isSelected={selected === location}
+                    description={null}
+                    src={getIcon(location)}
+                  />
+                ))
+              }
+            </Stack>
+          </>
+        )}
+
+        {step < 1 ? null : (
+          <>
+            <NumberedBox title={'Download files'} number={2} />
+            {remarks === null ? null : (
+              <VStack p={2} bgColor={remarks.color} borderRadius={'md'} alignItems={'left'} width={'100%'}>
+                <Flex>
+                  <Image src={remarks.image} alt={'error'} width={'30px'} height={'20px'} />
+                  <Text fontWeight={'bold'} fontSize={'md'}>
+                    {remarks.message}
+                  </Text>
+                </Flex>
+              </VStack>
+            )}
             <ImageButton
               inW={'50px'}
               outW={'100px'}
-              onClick={() => setMode(CONSTANTS.CLOUD_FORMATION_DEPLOY)}
-              isSelected={selected === CONSTANTS.CLOUD_FORMATION_DEPLOY}
+              onClick={() => selectDownloadMode()}
               description={null}
-              src={'./cloudFormation.svg'}
+              src={'./download.svg'}
             />
-            <ImageButton
-              inW={'50px'}
-              outW={'100px'}
-              onClick={() => setMode(CONSTANTS.DOCKER_DEPLOY)}
-              isSelected={selected === CONSTANTS.DOCKER_DEPLOY}
-              description={null}
-              src={'./docker.svg'}
-            />
-          </Stack>
-        </>
-      )}
 
-      {step < 1 ? null : (
-        <>
-          <NumberedBox title={'Download files'} number={2} />
-          {remarks === null ? null : (
-            <VStack p={2} bgColor={remarks.color} borderRadius={'md'} alignItems={'left'} width={'100%'}>
-              <Flex>
-                <Image src={remarks.image} alt={'error'} width={'30px'} height={'20px'} />
-                <Text fontWeight={'bold'} fontSize={'md'}>
-                  {remarks.message}
-                </Text>
-              </Flex>
-            </VStack>
-          )}
-          <ImageButton
-            inW={'50px'}
-            outW={'100px'}
-            onClick={() => selectDownloadMode()}
-            description={null}
-            src={'./download.svg'}
-          />
-
-          <NumberedBox title={'Deploy Pusher'} number={3} />
-          <Flex>
-            <Help mode={selected} />
-          </Flex>
-        </>
-      )}
-    </VStack>
+            <NumberedBox title={'Deploy Pusher'} number={3} />
+            <Flex>
+              <Help mode={selected} />
+            </Flex>
+          </>
+        )}
+      </VStack>
   );
 };
 
