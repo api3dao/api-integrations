@@ -1,0 +1,163 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "A CloudFormation template for deploying the Pusher on AWS.",
+  "Resources": {
+    "CloudWatchLogsGroup": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "LogGroupName": "myAppLogs",
+        "RetentionInDays": 7
+      }
+    },
+    "MyAppDefinition": {
+      "Type": "AWS::ECS::TaskDefinition",
+      "Properties": {
+        "NetworkMode": "awsvpc",
+        "Cpu": 512,
+        "Memory": 1024,
+        "ExecutionRoleArn": {
+          "Ref": "ECSTaskRole"
+        },
+        "RequiresCompatibilities": ["FARGATE"],
+        "ContainerDefinitions": [
+          {
+            "Name": "my_app",
+            "Image": "api3/pusher:0.1.0-rc2",
+            "Environment": [
+              {
+                "Name": "SECRETS_ENV",
+                "Value": "WALLET_MNEMONIC=<MNEMONIC>\\nAPIKEY_VALUE=<API_KEY>"
+              }
+            ],
+            "EntryPoint": [
+              "/bin/sh",
+              "-c",
+              "echo -e $SECRETS_ENV >> ./config/secrets.env && wget -O - <PUBLIC_CONFIG_URL> >> ./config/pusher.json && node --enable-source-maps dist/index.js"
+            ],
+            "LogConfiguration": {
+              "LogDriver": "awslogs",
+              "Options": {
+                "awslogs-group": {
+                  "Ref": "CloudWatchLogsGroup"
+                },
+                "awslogs-region": {
+                  "Ref": "AWS::Region"
+                },
+                "awslogs-stream-prefix": "my_app"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "MyAppCluster": {
+      "Type": "AWS::ECS::Cluster",
+      "Properties": {
+        "ClusterName": "my_app_cluster"
+      }
+    },
+    "MyAppService": {
+      "Type": "AWS::ECS::Service",
+      "Properties": {
+        "Cluster": {
+          "Ref": "MyAppCluster"
+        },
+        "ServiceName": "my_app_service",
+        "DesiredCount": 1,
+        "LaunchType": "FARGATE",
+        "TaskDefinition": {
+          "Ref": "MyAppDefinition"
+        },
+        "NetworkConfiguration": {
+          "AwsvpcConfiguration": {
+            "AssignPublicIp": "ENABLED",
+            "Subnets": [{ "Ref": "MySubnet" }]
+          }
+        },
+        "DeploymentConfiguration": {
+          "MinimumHealthyPercent": 100,
+          "MaximumPercent": 200
+        }
+      }
+    },
+    "MyVPC": {
+      "Type": "AWS::EC2::VPC",
+      "Properties": {
+        "CidrBlock": "10.0.0.0/16",
+        "EnableDnsSupport": true,
+        "EnableDnsHostnames": true
+      }
+    },
+    "MyInternetGateway": {
+      "Type": "AWS::EC2::InternetGateway"
+    },
+    "MyVPCGatewayAttachment": {
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+      "Properties": {
+        "VpcId": { "Ref": "MyVPC" },
+        "InternetGatewayId": { "Ref": "MyInternetGateway" }
+      }
+    },
+    "MyPublicRouteTable": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": { "Ref": "MyVPC" }
+      }
+    },
+    "MyPublicRoute": {
+      "Type": "AWS::EC2::Route",
+      "DependsOn": "MyVPCGatewayAttachment",
+      "Properties": {
+        "RouteTableId": { "Ref": "MyPublicRouteTable" },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": { "Ref": "MyInternetGateway" }
+      }
+    },
+    "MySubnet": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.0.0/24",
+        "VpcId": { "Ref": "MyVPC" },
+        "MapPublicIpOnLaunch": true
+      }
+    },
+    "MyPublicSubnet1RouteTableAssociation": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": { "Ref": "MyPublicRouteTable" },
+        "SubnetId": { "Ref": "MySubnet" }
+      }
+    },
+    "ECSTaskRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": {
+            "Effect": "Allow",
+            "Principal": {
+              "Service": ["ecs-tasks.amazonaws.com"]
+            },
+            "Action": ["sts:AssumeRole"]
+          }
+        },
+        "Policies": [
+          {
+            "PolicyName": "MyAppAmazonECSTaskExecutionRolePolicy",
+            "PolicyDocument": {
+              "Statement": {
+                "Effect": "Allow",
+                "Action": [
+                  "logs:CreateLogGroup",
+                  "logs:CreateLogStream",
+                  "logs:DescribeLogStreams",
+                  "logs:PutLogEvents"
+                ],
+                "Resource": "*"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
