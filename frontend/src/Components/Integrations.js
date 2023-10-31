@@ -13,8 +13,16 @@ const DeploymentsView = ({ integrations }) => {
     <CompareEndpoints oldOis={comparePair.right.ois} newOis={comparePair.left.ois} />
   ) : (
     <VStack width={'100%'}>
-      <DeploymentCategory header={'Active Deployments'} integrations={integrations.activeDeployment} apiData={integrations.apiData} />
-      <DeploymentCategory header={'Candidate Deployments'} integrations={integrations.candidateDeployment} apiData={integrations.apiData} />
+      <DeploymentCategory
+        header={'Active Deployments'}
+        integrations={integrations.activeDeployment}
+        apiData={integrations.apiData}
+      />
+      <DeploymentCategory
+        header={'Candidate Deployments'}
+        integrations={integrations.candidateDeployment}
+        apiData={integrations.apiData}
+      />
     </VStack>
   );
 };
@@ -26,7 +34,11 @@ const Integrations = ({ integrations }) => {
     <Flex spacing={4} overflow={'scroll'}>
       <VStack spacing={4} width={'100%'} alignItems={'center'} justifyItems={'stretch'}>
         <VStack p={1} bgColor={COLORS.canvas} spacing={4} width={'100%'} alignItems={'left'} justifyItems={'center'}>
-          {config === null ? <DeploymentsView integrations={integrations} /> : <Display configData={config} apiData={integrations.apiData} />}
+          {config === null ? (
+            <DeploymentsView integrations={integrations} />
+          ) : (
+            <Display configData={config} apiData={integrations.apiData} />
+          )}
         </VStack>
       </VStack>
     </Flex>
