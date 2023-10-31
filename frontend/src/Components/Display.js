@@ -10,10 +10,6 @@ import { ApiIntegrationsContext } from '../Context';
 import { useContext } from 'react';
 
 const FeedsView = ({ ois }) => {
-  const getSecuritySchemeValue = (i) => {
-    return 'ERROR FINDING SECURITY SCHEME VALUE';
-  };
-
   return (
     <ExpandableView
       status={5}
@@ -21,12 +17,7 @@ const FeedsView = ({ ois }) => {
         .filter((endpoint) => endpoint.name === 'feed')
         .map((endpoint, index) => (
           <VStack key={index} alignItems={'left'} width={'100%'}>
-            <Endpoint
-              endpoint={endpoint}
-              apiSpecifications={ois.apiSpecifications}
-              oisTitle={ois.title}
-              apiCredentials={getSecuritySchemeValue(index)}
-            />
+            <Endpoint endpoint={endpoint} apiSpecifications={ois.apiSpecifications} oisTitle={ois.title} />
           </VStack>
         ))}
       header={'Feeds'}

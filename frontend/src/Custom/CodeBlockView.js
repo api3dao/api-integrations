@@ -1,5 +1,5 @@
 import { Text, VStack } from '@chakra-ui/react';
-import { CopyBlock, dracula } from 'react-code-blocks';
+import { CodeBlock, dracula } from 'react-code-blocks';
 import { formatCode } from '../Helpers/Utils';
 
 const CodeBlockView = ({ title, showLineNumbers = false, language = 'json', response, codeBlock = true }) => {
@@ -10,8 +10,8 @@ const CodeBlockView = ({ title, showLineNumbers = false, language = 'json', resp
           {title}
         </Text>
       )}
-      <CopyBlock
-        text={formatCode(response, language === 'json')}
+      <CodeBlock
+        text={formatCode(response, 'babel', language !== 'json')}
         language={language}
         showLineNumbers={showLineNumbers}
         theme={dracula}
