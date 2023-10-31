@@ -9,12 +9,16 @@ import { CONSTANTS } from '../data/constants';
 import { COLORS } from '../data/constants';
 
 import { populateOis } from '../Helpers/DownloadConfig';
-import CloudFormation from '../data/cloud-formation.json';
 
-const DeployOptions = ({ configData, mnemonic, schemeValues, ois, apiData }) => {
+import { ApiIntegrationsContext } from '../Context';
+import { useContext } from 'react';
+
+const DeployOptions = ({ apiData }) => {
   const [selected, setSelected] = useState(0);
   const [step, setStep] = useState(0);
   const [remarks, setRemarks] = useState(null);
+
+  const { config } = useContext(ApiIntegrationsContext);
 
   const isSuccessful = (res) => {
     if (res.status === false) {
@@ -56,7 +60,7 @@ const DeployOptions = ({ configData, mnemonic, schemeValues, ois, apiData }) => 
 
   const selectDownloadMode = () => {
     setRemarks(null);
-    populateOis(configData, mnemonic, schemeValues, ois, CloudFormation, selected, isSuccessful);
+    populateOis(config, selected, isSuccessful);
   };
 
   const getIcon = (mode) => {

@@ -37,7 +37,7 @@ const Integrations = ({ integrations }) => {
           {config === null ? (
             <DeploymentsView integrations={integrations} />
           ) : (
-            <Display configData={config} apiData={integrations.apiData} />
+            <Display apiData={integrations.apiData} />
           )}
         </VStack>
       </VStack>

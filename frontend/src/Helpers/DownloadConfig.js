@@ -1,4 +1,6 @@
 import { CONSTANTS } from '../data/constants';
+import CloudFormation from '../data/cloud-formation.json';
+
 import JSZip from 'jszip';
 
 export const testMnemonic = (mnemonic) => {
@@ -15,39 +17,26 @@ export const testMnemonic = (mnemonic) => {
   return { status: true, message: 'Valid mnemonic' };
 };
 
-export const populateOis = (
-  configData,
-  mnemonic,
-  schemeValues,
-  ois,
-  CloudFormation,
-  mode = CONSTANTS.CLOUD_FORMATION_DEPLOY,
-  callback
-) => {
+export const populateOis = (configData, mode = CONSTANTS.CLOUD_FORMATION_DEPLOY, callback) => {
   if (configData == null) return;
   if (configData.config.ois === null) return;
   if (configData.config.ois.length === 0) return;
 
   if (configData.config.airnodeWalletMnemonic === null) return;
 
-  configData.config.airnodeWalletMnemonic = mnemonic;
-  configData.config.apiCredentials = schemeValues;
-
-  const mnemonicTest = testMnemonic(mnemonic);
+  const mnemonicTest = testMnemonic(configData.config.airnodeWalletMnemonic);
   if (mnemonicTest.status === false) {
     callback({ status: false, message: mnemonicTest.message, mode: mode });
     return;
   }
 
   let API_KEY = '';
-  ois.forEach((ois) => {
-    schemeValues.forEach((item) => {
-      API_KEY += `\\n${ois.title.toUpperCase()}_API_KEY=${item.securitySchemeValue}`;
-    });
+  configData.config.apiCredentials.forEach((item) => {
+    API_KEY += `\\n${item.securitySchemeName.toUpperCase()}_VALUE=${item.securitySchemeValue}`;
   });
 
   const stage = `\\nSTAGE=${mode}`;
-  const secrets = `WALLET_MNEMONIC=${mnemonic}${API_KEY}${stage}`;
+  const secrets = `WALLET_MNEMONIC=${configData.config.airnodeWalletMnemonic}${API_KEY}${stage}`;
   switch (mode) {
     case CONSTANTS.CLOUD_FORMATION_DEPLOY:
       downloadCloudFormation(CloudFormation, secrets, configData);
@@ -67,7 +56,6 @@ export const populateOis = (
 };
 
 const downloadCloudFormation = (CloudFormation, secrets, configData) => {
-  console.log(configData);
   const entryPoint = [
     '/bin/sh',
     '-c',
