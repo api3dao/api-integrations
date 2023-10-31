@@ -98,7 +98,7 @@
         "InternetGatewayId": { "Ref": "MyInternetGateway" }
       }
     },
-    "MInstancePublicRouteTable": {
+    "InstancePublicRouteTable": {
       "Type": "AWS::EC2::RouteTable",
       "Properties": {
         "VpcId": { "Ref": "MyVPC" }
