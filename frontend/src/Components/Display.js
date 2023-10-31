@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { VStack, Flex, Text, Box, Input, Spacer } from '@chakra-ui/react';
 import Endpoint from './Endpoint';
 import InputRow from '../Custom/InputRow';
@@ -7,97 +6,114 @@ import Title from '../Custom/Title';
 import ExpandableView from '../Custom/ExpandableView';
 import DeployOptions from './DeployOptions';
 
-const Hero = ({ configData }) => {
-  const [ois, setOis] = useState([]);
-  const [SECURITY_SCHEME_VALUES, setSecuritySchemeValue] = useState([]);
-  const [AIRNODE_WALLET_MNEMONIC, setAirnodeWalletMnemonic] = useState('');
+import { ApiIntegrationsContext } from '../Context';
+import { useContext } from 'react';
 
-  useEffect(() => {
-    setOis([]);
+const FeedsView = ({ ois }) => {
+  const getSecuritySchemeValue = (i) => {
+    return 'ERROR FINDING SECURITY SCHEME VALUE';
+  };
 
-    if (configData == null) return;
-    if (configData.config.ois === undefined) return;
-    if (configData.config.ois.length === 0) return;
+  return (
+    <ExpandableView
+      status={5}
+      view={ois.endpoints
+        .filter((endpoint) => endpoint.name === 'feed')
+        .map((endpoint, index) => (
+          <VStack key={index} alignItems={'left'} width={'100%'}>
+            <Endpoint
+              endpoint={endpoint}
+              apiSpecifications={ois.apiSpecifications}
+              oisTitle={ois.title}
+              apiCredentials={getSecuritySchemeValue(index)}
+            />
+          </VStack>
+        ))}
+      header={'Feeds'}
+    ></ExpandableView>
+  );
+};
 
-    if (configData.config.airnodeWalletMnemonic === null) return;
-
-    setOis(configData.config.ois);
-    setAirnodeWalletMnemonic(String(configData.config.airnodeWalletMnemonic));
-    setSecuritySchemeValue(configData.config.apiCredentials);
-  }, [configData]);
+const SecretsView = ({ index }) => {
+  const { config, setConfig } = useContext(ApiIntegrationsContext);
 
   const setSecuritySchemeValues = (i, value) => {
-    const newState = SECURITY_SCHEME_VALUES.map((obj, index) => {
+    const newApiCredentials = config.config.apiCredentials.map((obj, index) => {
       if (index === i) {
         return { ...obj, securitySchemeValue: value };
       }
 
       return obj;
     });
-    setSecuritySchemeValue(newState);
+    config.config = { ...config.config, apiCredentials: newApiCredentials };
+    setConfig({ ...config });
   };
 
-  return configData === null ? null : (
+  return (
+    <ExpandableView
+      status={5}
+      view={
+        <VStack alignItems={'left'} p={2} border={'1px'} borderColor={COLORS.main} width={'100%'}>
+          <VStack width={'100%'} direction="row" align="left">
+            <Text fontWeight={'bold'} fontSize={'md'}>
+              {'Security Scheme Value'}
+            </Text>
+            <Box p="2" width={'100%'} borderRadius={'10'} bgColor={COLORS.table} alignItems={'center'}>
+              <Flex className="box">
+                <Input
+                  type="text"
+                  value={config.config.apiCredentials[index].securitySchemeValue}
+                  onChange={(e) => setSecuritySchemeValues(index, e.target.value)}
+                  size="md"
+                />
+                <Spacer />
+              </Flex>
+            </Box>
+          </VStack>
+        </VStack>
+      }
+      header={'Secrets'}
+    ></ExpandableView>
+  );
+};
+
+const OisView = () => {
+  const { config } = useContext(ApiIntegrationsContext);
+
+  return config.config.ois.map((ois, index) => (
+    <VStack key={index} alignItems={'left'} width={'100%'}>
+      <Title header={ois.title} buttonVisibility={false} isLoading={false} />
+      <VStack bgColor={COLORS.table} spacing={4} alignItems={'left'}>
+        <SecretsView index={index} />
+        <FeedsView ois={ois} />
+      </VStack>
+    </VStack>
+  ));
+};
+
+const Display = ({ apiData }) => {
+  const { config, setConfig } = useContext(ApiIntegrationsContext);
+
+  const setAirnodeWalletMnemonic = (value) => {
+    config.config.airnodeWalletMnemonic = value;
+    setConfig({ ...config });
+  };
+
+  return config === null ? null : (
     <VStack p={1} spacing={4} alignItems={'left'}>
       <Title header={'Airnode Wallet Mnemonic'} isLoading={false} buttonVisibility={false} />
       <VStack alignItems={'left'} p={2} border={'1px'} borderColor={COLORS.main} width={'100%'}>
-        <InputRow text={AIRNODE_WALLET_MNEMONIC} title={'Enter wallet mnemonic:'} setText={setAirnodeWalletMnemonic} />
+        <InputRow
+          text={config.config.airnodeWalletMnemonic}
+          title={'Enter wallet mnemonic:'}
+          setText={setAirnodeWalletMnemonic}
+        />
       </VStack>
-      {ois.map((ois, index) => (
-        <VStack key={index} alignItems={'left'} width={'100%'}>
-          <Title header={ois.title} buttonVisibility={false} isLoading={false} />
-          <VStack bgColor={COLORS.table} spacing={4} alignItems={'left'}>
-            <ExpandableView
-              status={5}
-              view={
-                <VStack alignItems={'left'} p={2} border={'1px'} borderColor={COLORS.main} width={'100%'}>
-                  <VStack width={'100%'} direction="row" align="left">
-                    <Text fontWeight={'bold'} fontSize={'md'}>
-                      {'Security Scheme Value'}
-                    </Text>
-                    <Box p="2" width={'100%'} borderRadius={'10'} bgColor={COLORS.table} alignItems={'center'}>
-                      <Flex className="box">
-                        <Input
-                          type="text"
-                          value={SECURITY_SCHEME_VALUES[index].securitySchemeValue}
-                          onChange={(e) => setSecuritySchemeValues(index, e.target.value)}
-                          size="md"
-                        />
-                        <Spacer />
-                      </Flex>
-                    </Box>
-                  </VStack>
-                </VStack>
-              }
-              header={'Secrets'}
-            ></ExpandableView>
-            <ExpandableView
-              status={5}
-              view={ois.endpoints
-                .filter((endpoint) => endpoint.name === 'feed')
-                .map((endpoint, index) => (
-                  <VStack key={index} alignItems={'left'} width={'100%'}>
-                    <Endpoint
-                      endpoint={endpoint}
-                      apiSpecifications={ois.apiSpecifications}
-                      oisTitle={ois.title}
-                    />
-                  </VStack>
-                ))}
-              header={'Feeds'}
-            ></ExpandableView>
-          </VStack>
-        </VStack>
-      ))}
-      <DeployOptions
-        configData={configData}
-        mnemonic={AIRNODE_WALLET_MNEMONIC}
-        schemeValues={SECURITY_SCHEME_VALUES}
-        ois={ois}
-      />
+      <OisView />
+      <DeployOptions apiData={apiData} />
       <VStack p={3} height={'50px'} align={'left'} />
     </VStack>
   );
 };
 
-export default Hero;
+export default Display;

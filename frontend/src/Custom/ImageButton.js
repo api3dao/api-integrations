@@ -1,7 +1,7 @@
 import { Flex, VStack } from '@chakra-ui/react';
 import { Box, Image } from '@chakra-ui/react';
 
-const Hero = ({ onClick, src, inW = '150px', outW = '150px', isSelected = false, isDisabled = false }) => {
+const ImageButton = ({ onClick, src, inW = '150px', outW = '150px', isSelected = false, isDisabled = false }) => {
   return (
     <VStack
       onClick={isDisabled ? () => {} : () => onClick()}
@@ -29,4 +29,4 @@ const Hero = ({ onClick, src, inW = '150px', outW = '150px', isSelected = false,
   );
 };
 
-export default Hero;
+export default ImageButton;

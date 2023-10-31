@@ -72,16 +72,22 @@ export const combine = (endpoint, setError) => {
 
 export const getEndpoints = (ois) => {
   let endpoints = [];
-  ois.map((ois) =>
-    ois.endpoints.filter((endpoint) => endpoint.name === 'feed').map((endpoint, index) => endpoints.push(endpoint))
-  );
-  return endpoints;
+  let oisTitles = [];
+  try {
+    for (let i = 0; i < ois.length; i++) {
+      ois[i].endpoints.filter((endpoint) => endpoint.name === 'feed').map((endpoint) => endpoints.push(endpoint));
+      oisTitles.push(ois[i].title);
+    }
+  } catch (error) {
+    return { endpoints, oisTitles };
+  }
+  return { endpoints, oisTitles };
 };
 
 export const getFeeds = (endpoints) => {
   let feeds = [];
-  endpoints.map((endpoint) => feeds.push(combine(endpoint)));
-  return feeds;
+  endpoints.endpoints.map((endpoint) => feeds.push(combine(endpoint)));
+  return { oisTitle: endpoints.oisTitles, feeds };
 };
 
 const onlyInLeft = (left, right, compareFunction) =>
@@ -110,22 +116,28 @@ export const compareFeeds = (newFeeds, oldFeeds) => {
     );
   };
 
-  for (let i = 0; i < oldFeeds.length; i++) {
-    newRemoved.push(onlyInLeft(oldFeeds[i], newFeeds[i], isSameFeed));
-    newAdded.push(onlyInLeft(newFeeds[i], oldFeeds[i], isSameFeed));
+  try {
+    for (let i = 0; i < oldFeeds.feeds.length; i++) {
+      newRemoved.push(onlyInLeft(oldFeeds.feeds[i], newFeeds.feeds[i], isSameFeed));
+      newAdded.push(onlyInLeft(newFeeds.feeds[i], oldFeeds.feeds[i], isSameFeed));
 
-    let tmp = [];
-    newFeeds[i].filter((newFeed) => {
-      return oldFeeds[i].some((oldFeed) => {
-        const result = isCodeChanged(newFeed, oldFeed);
-        if (result) {
-          tmp.push({ oldFeed: oldFeed, newFeed: newFeed });
-        }
-        return result;
+      let tmp = [];
+      newFeeds.feeds[i].filter((newFeed) => {
+        return oldFeeds.feeds[i].some((oldFeed) => {
+          const result = isCodeChanged(newFeed, oldFeed);
+          if (result) {
+            tmp.push({ oldFeed: oldFeed, newFeed: newFeed });
+          }
+          return result;
+        });
       });
-    });
-    newUpdated.push(tmp);
-    newUnchanged.push(newFeeds[i].filter((newFeed) => oldFeeds[i].some((oldFeed) => isUnchanged(newFeed, oldFeed))));
+      newUpdated.push(tmp);
+      newUnchanged.push(
+        newFeeds.feeds[i].filter((newFeed) => oldFeeds.feeds[i].some((oldFeed) => isUnchanged(newFeed, oldFeed)))
+      );
+    }
+  } catch (error) {
+    console.log(error);
   }
 
   return {
@@ -167,7 +179,7 @@ export const getServerUrl = (servers) => {
   return url;
 };
 
-export const getPath = (endpointParameters, feed, servers, setError) => {
+export const getPath = (endpointParameters, feed, servers, method, setError) => {
   try {
     const parameters = feed.preProcessingSpecificationsValue;
     if (parameters === undefined) return null;
@@ -187,7 +199,9 @@ export const getPath = (endpointParameters, feed, servers, setError) => {
           path += parameters[key];
           break;
         case 'query':
-          queryString += `${parameterIn.name}=${parameters.parameters[key]}&`;
+          if (method === 'get') {
+            queryString += `${parameterIn.name}=${parameters.parameters[key]}&`;
+          }
           break;
         default:
           break;
@@ -269,14 +283,51 @@ export const getApiKey = (apiCredentials, securitySchemes) => {
   return apiKey;
 };
 
-export const formatCode = (code, parser = 'babel') => {
+export const formatCode = (code, parser = 'babel', semi = true) => {
   try {
     return prettier.format(code, {
-      semi: true,
+      semi: semi,
       parser: parser,
       plugins: [parserTypeScript]
     });
   } catch (error) {
     return code;
+  }
+};
+
+export const formatParameters = (parameters, preProcessingSpecificationsValue, method, setError) => {
+  try {
+    const formattedParameters = [];
+    Object.keys(parameters).forEach((key) => {
+      const parameter = parameters[key];
+      if (parameter.name === 'path') return;
+      const data =
+        parameter.name === 'path'
+          ? preProcessingSpecificationsValue.path
+          : preProcessingSpecificationsValue.parameters[parameter.name];
+
+      if (data === undefined) {
+        return;
+      }
+
+      let type = parameter.operationParameter == null ? 'string' : parameter.operationParameter.in;
+      if (type === 'query' && method === 'post') type = 'body';
+
+      formattedParameters.push({
+        name: parameter.name,
+        type: type,
+        value: data,
+        required: parameter.required ? 'Yes' : 'No'
+      });
+    });
+
+    formattedParameters.sort((a, b) => {
+      if (b.value === undefined && a.value !== undefined) return -1;
+      return 0;
+    });
+
+    return formattedParameters;
+  } catch (error) {
+    setError(error);
   }
 };

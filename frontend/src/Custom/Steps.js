@@ -1,7 +1,7 @@
 import { VStack } from '@chakra-ui/react';
 import { Box, Text } from '@chakra-ui/react';
 
-const Hero = ({ steps }) => {
+const Steps = ({ steps }) => {
   return (
     <VStack p={2} spacing={0} direction="row" align="left">
       {steps.map((step, index) => {
@@ -15,4 +15,4 @@ const Hero = ({ steps }) => {
   );
 };
 
-export default Hero;
+export default Steps;

@@ -6,7 +6,20 @@ import { CopyBlock, dracula } from 'react-code-blocks';
 import ImageButton from '../Custom/ImageButton';
 import { useState } from 'react';
 
-const Hero = ({ mode }) => {
+const DeployLocationButton = ({ mode, src, isSelected, setDockerMode }) => {
+  return (
+    <ImageButton
+      inW={'30px'}
+      outW={'40px'}
+      onClick={() => setDockerMode(mode)}
+      isSelected={isSelected}
+      description={null}
+      src={src}
+    />
+  );
+};
+
+const Help = ({ mode }) => {
   const [dockerMode, setDockerMode] = useState(CONSTANTS.WINDOWS);
 
   const dockerCmd = `docker run -it --rm \\
@@ -91,29 +104,23 @@ const Hero = ({ mode }) => {
         <VStack p={5} width={'100%'} align={'left'}>
           <VStack bgColor={COLORS.main} alignItems={'left'} p={2} width={'100%'}>
             <Flex>
-              <ImageButton
-                inW={'30px'}
-                outW={'40px'}
-                onClick={() => setDockerMode(CONSTANTS.WINDOWS)}
-                isSelected={dockerMode === CONSTANTS.WINDOWS}
-                description={null}
+              <DeployLocationButton
+                mode={CONSTANTS.WINDOWS}
                 src={'./windows.svg'}
+                isSelected={dockerMode === CONSTANTS.WINDOWS}
+                setDockerMode={setDockerMode}
               />
-              <ImageButton
-                inW={'30px'}
-                outW={'40px'}
-                onClick={() => setDockerMode(CONSTANTS.MAC)}
-                isSelected={dockerMode === CONSTANTS.MAC}
-                description={null}
+              <DeployLocationButton
+                mode={CONSTANTS.MAC}
                 src={'./mac.svg'}
+                isSelected={dockerMode === CONSTANTS.MAC}
+                setDockerMode={setDockerMode}
               />
-              <ImageButton
-                inW={'30px'}
-                outW={'40px'}
-                onClick={() => setDockerMode(CONSTANTS.LINUX)}
-                isSelected={dockerMode === CONSTANTS.LINUX}
-                description={null}
+              <DeployLocationButton
+                mode={CONSTANTS.LINUX}
                 src={'./linux.svg'}
+                isSelected={dockerMode === CONSTANTS.LINUX}
+                setDockerMode={setDockerMode}
               />
             </Flex>
             <CopyBlock
@@ -139,4 +146,4 @@ const Hero = ({ mode }) => {
   );
 };
 
-export default Hero;
+export default Help;

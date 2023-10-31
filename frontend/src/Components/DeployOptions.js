@@ -9,12 +9,16 @@ import { CONSTANTS } from '../data/constants';
 import { COLORS } from '../data/constants';
 
 import { populateOis } from '../Helpers/DownloadConfig';
-import CloudFormation from '../data/cloud-formation.json';
 
-const DeployOptions = ({ configData, mnemonic, schemeValues, ois }) => {
+import { ApiIntegrationsContext } from '../Context';
+import { useContext } from 'react';
+
+const DeployOptions = ({ apiData }) => {
   const [selected, setSelected] = useState(0);
   const [step, setStep] = useState(0);
   const [remarks, setRemarks] = useState(null);
+
+  const { config } = useContext(ApiIntegrationsContext);
 
   const isSuccessful = (res) => {
     if (res.status === false) {
@@ -56,18 +60,26 @@ const DeployOptions = ({ configData, mnemonic, schemeValues, ois }) => {
 
   const selectDownloadMode = () => {
     setRemarks(null);
-    populateOis(
-      configData,
-      mnemonic,
-      schemeValues,
-      ois,
-      CloudFormation,
-      selected,
-      isSuccessful
-    );
+    populateOis(config, selected, isSuccessful);
   };
 
-  return (
+  const getIcon = (mode) => {
+    switch (mode) {
+      case CONSTANTS.DOCKER_DEPLOY:
+        return './docker.svg';
+      case CONSTANTS.CLOUD_FORMATION_DEPLOY:
+        return './cloudFormation.svg';
+      default:
+        return './download.svg';
+    }
+  };
+
+  const getDeploymentLocations = () => {
+    if (apiData === undefined) return [];
+    return apiData.config.deploymentLocations;
+  };
+
+  return apiData === undefined ? null : (
     <VStack spacing={4} w={'100%'} direction="row" align="left">
       <Title header="Deploy" buttonVisibility={false} isLoading={false} />
 
@@ -76,22 +88,17 @@ const DeployOptions = ({ configData, mnemonic, schemeValues, ois }) => {
           <NumberedBox title={'Select a deployment mode'} number={1} />
 
           <Stack direction={'row'} spacing={'2'} justifyContent={'left'}>
-            <ImageButton
-              inW={'50px'}
-              outW={'100px'}
-              onClick={() => setMode(CONSTANTS.CLOUD_FORMATION_DEPLOY)}
-              isSelected={selected === CONSTANTS.CLOUD_FORMATION_DEPLOY}
-              description={null}
-              src={'./cloudFormation.svg'}
-            />
-            <ImageButton
-              inW={'50px'}
-              outW={'100px'}
-              onClick={() => setMode(CONSTANTS.DOCKER_DEPLOY)}
-              isSelected={selected === CONSTANTS.DOCKER_DEPLOY}
-              description={null}
-              src={'./docker.svg'}
-            />
+            {getDeploymentLocations().map((location, index) => (
+              <ImageButton
+                key={index}
+                inW={'50px'}
+                outW={'100px'}
+                onClick={() => setMode(location)}
+                isSelected={selected === location}
+                description={null}
+                src={getIcon(location)}
+              />
+            ))}
           </Stack>
         </>
       )}

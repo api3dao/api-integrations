@@ -1,13 +1,28 @@
 import { Flex, Spacer, VStack } from '@chakra-ui/react';
 import { Stack } from '@chakra-ui/react';
-import { COLORS, CONSTANTS } from '../data/constants';
+import { COLORS } from '../data/constants';
 import { Text } from '@chakra-ui/react';
 import { ApiIntegrationsContext } from '../Context';
 import { useContext, useEffect } from 'react';
 import ImageButton from '../Custom/ImageButton';
 import StageLocation from '../Custom/StageLocation';
 
-const IntegrationsRow = ({ config }) => {
+const DeploymentLocation = ({ apiData, category }) => {
+  const getDeploymentLocations = () => {
+    if (apiData === undefined) return [];
+    return apiData.config.deploymentLocations;
+  };
+
+  return (
+    <Stack direction={'row'} alignItems={'center'} spacing={5} wrap={'wrap'}>
+      {getDeploymentLocations().map((location, index) => (
+        <StageLocation location={location} index={index} category={category} />
+      ))}
+    </Stack>
+  );
+};
+
+const IntegrationsRow = ({ config, apiData }) => {
   const { setConfig, setComparePair, comparePair } = useContext(ApiIntegrationsContext);
 
   const integration = config.config;
@@ -35,7 +50,7 @@ const IntegrationsRow = ({ config }) => {
     setComparePair({ left: comparePair.left, right: integration });
   }, [config.category, comparePair, integration, setComparePair]);
 
-  return (
+  return integration === undefined ? null : (
     <VStack spacing={0} direction="row" align="left">
       <Stack
         p={3}
@@ -46,50 +61,38 @@ const IntegrationsRow = ({ config }) => {
         alignItems={'left'}
         spacing={'10'}
       >
-        {integration === null ? (
-          <Text fontSize={'md'} fontWeight={'bold'}>
-            Not available
-          </Text>
-        ) : (
-          <Flex width={'100%'} wrap={'wrap'}>
-            <Stack direction={'row'} alignItems={'center'} spacing={5} wrap={'wrap'}>
-              <Text minWidth={'400px'} fontSize={'md'} fontWeight={'bold'}>
-                {config.filename}
-              </Text>
-              {config.category === 'candidate' ? null : (
-                <>
-                  <StageLocation location={CONSTANTS.CLOUD_FORMATION_DEPLOY} />
-                  <StageLocation location={CONSTANTS.DOCKER_DEPLOY} />
-                </>
-              )}
-
-              <Text width={'100px'} p={1} fontSize={'xs'}>
-                Pusher 0.0.1
-              </Text>
-            </Stack>
-            <Spacer />
-            <Stack direction={'row'}>
+        <Flex width={'100%'} wrap={'wrap'}>
+          <Stack direction={'row'} alignItems={'center'} spacing={5} wrap={'wrap'}>
+            <Text minWidth={'400px'} fontSize={'md'} fontWeight={'bold'}>
+              {config.filename}
+            </Text>
+            <DeploymentLocation apiData={apiData} category={config.category} />
+            <Text width={'100px'} p={1} fontSize={'xs'}>
+              Pusher 0.0.1
+            </Text>
+          </Stack>
+          <Spacer />
+          <Stack direction={'row'}>
+            <ImageButton
+              inW="24px"
+              outW="48px"
+              onClick={() => {
+                setView();
+              }}
+              src={'./view.svg'}
+            />
+            {!isCompareAvailable() ? null : (
               <ImageButton
                 inW="24px"
                 outW="48px"
                 onClick={() => {
-                  setView();
+                  compare();
                 }}
-                src={'./view.svg'}
+                src={'./compare.svg'}
               />
-              {!isCompareAvailable() ? null : (
-                <ImageButton
-                  inW="24px"
-                  outW="48px"
-                  onClick={() => {
-                    compare();
-                  }}
-                  src={'./compare.svg'}
-                />
-              )}
-            </Stack>
-          </Flex>
-        )}
+            )}
+          </Stack>
+        </Flex>
       </Stack>
     </VStack>
   );

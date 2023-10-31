@@ -15,12 +15,7 @@ const Endpoint = ({ endpoint, apiSpecifications, oisTitle }) => {
         <VStack key={index} alignItems={'left'} width={'100%'}>
           <ExpandableView
             view={
-              <FeedRowView
-                endpoint={endpoint}
-                feed={feed}
-                apiSpecifications={apiSpecifications}
-                oisTitle={oisTitle}
-              />
+              <FeedRowView endpoint={endpoint} feed={feed} apiSpecifications={apiSpecifications} oisTitle={oisTitle} />
             }
             header={feed.feed}
           />

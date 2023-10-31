@@ -1,84 +1,46 @@
-import { Text, Flex, VStack, Spacer } from '@chakra-ui/react';
-import { CopyBlock, dracula } from 'react-code-blocks';
-import { formatCode } from '../Helpers/Utils';
+import { Text, VStack } from '@chakra-ui/react';
 import { getPath } from '../Helpers/Utils';
 import { useState } from 'react';
 
-const FeedCompareRowView = ({ feed, oldServers, newEndpoint, oldEndpoint, newServers }) => {
-  const [error, setError] = useState(null);
+import CodeBlockView from './CodeBlockView';
+import PathView from './PathView';
+
+const FeedView = ({ mode, endpoint, feed, servers, setError }) => {
+  const getColor = (mode, darker = false) => {
+    if (mode === 'active') {
+      return darker ? 'green.400' : 'green.200';
+    }
+
+    return darker ? 'yellow.400' : 'yellow.200';
+  };
 
   return (
+    <VStack bgColor={getColor(mode)} alignItems={'left'} spacing={4} p={2} width={'100%'}>
+      <Text bgColor={getColor(mode, true)} p={2} fontSize={'md'} fontWeight={'bold'}>
+        [{mode.toUpperCase()}]
+      </Text>
+      <PathView
+        method={endpoint.operation.method}
+        path={getPath(endpoint.parameters, feed, servers, endpoint.operation.method, setError)}
+      />
+      <CodeBlockView title={'Post Processing'} showLineNumbers={true} language={'javascript'} response={feed.code} />
+    </VStack>
+  );
+};
+
+const FeedCompareRowView = ({ feed, oldServers, newEndpoint, oldEndpoint, newServers }) => {
+  const [error, setError] = useState(null);
+  return (
     <VStack alignItems={'left'} spacing={4} p={5} width={'100%'}>
-      <VStack bgColor={'yellow.200'} alignItems={'left'} spacing={4} p={2} width={'100%'}>
-        <Text bgColor={'yellow.400'} p={2} fontSize={'md'} fontWeight={'bold'}>
-          [DEPRECATED]
-        </Text>
-        <Text fontSize={'md'} fontWeight={'bold'}>
-          HTTP Request
-        </Text>
-        <Flex>
-          <Text bgColor={'gray.300'} p={2} fontSize={'sm'} fontWeight={'bold'}>
-            GET
-          </Text>
-          <Text bgColor={'gray.200'} p={2} fontSize={'sm'}>
-            {getPath(oldEndpoint.parameters, feed.oldFeed, oldServers, setError)}
-          </Text>
-        </Flex>
-        <Text fontSize={'md'} fontWeight={'bold'}>
-          Post Processing
-        </Text>
-
-        <CopyBlock
-          text={formatCode(feed.oldFeed.code)}
-          language={'javascript'}
-          showLineNumbers={true}
-          theme={dracula}
-          codeBlock={true}
-        />
-      </VStack>
-
-      <VStack bgColor={'green.200'} alignItems={'left'} spacing={4} p={2} width={'100%'}>
-        <Text bgColor={'green.400'} p={2} fontSize={'md'} fontWeight={'bold'}>
-          [ACTIVE]
-        </Text>
-        <Text fontSize={'md'} fontWeight={'bold'}>
-          HTTP Request
-        </Text>
-        <Flex>
-          <Text bgColor={'blue.300'} p={2} fontSize={'sm'} fontWeight={'bold'}>
-            GET
-          </Text>
-          <Text bgColor={'blue.200'} p={2} fontSize={'sm'}>
-            {getPath(newEndpoint.parameters, feed.newFeed, newServers, setError)}
-          </Text>
-          <Spacer />
-        </Flex>
-        <Text fontSize={'md'} fontWeight={'bold'}>
-          Post Processing
-        </Text>
-
-        <CopyBlock
-          text={formatCode(feed.newFeed.code)}
-          language={'javascript'}
-          showLineNumbers={true}
-          theme={dracula}
-          codeBlock={true}
-        />
-      </VStack>
-      {error == null ? null : (
-        <VStack alignItems={'left'} width={'100%'}>
-          <Text fontSize={'md'} fontWeight={'bold'}>
-            Error
-          </Text>
-          <CopyBlock
-            text={formatCode(error)}
-            language={'json'}
-            showLineNumbers={false}
-            theme={dracula}
-            codeBlock={true}
-          />
-        </VStack>
-      )}
+      <FeedView
+        mode={'deprecated'}
+        endpoint={oldEndpoint}
+        feed={feed.oldFeed}
+        servers={oldServers}
+        setError={setError}
+      />
+      <FeedView mode={'active'} endpoint={newEndpoint} feed={feed.newFeed} servers={newServers} setError={setError} />
+      <CodeBlockView title={'Error'} response={error} />
     </VStack>
   );
 };

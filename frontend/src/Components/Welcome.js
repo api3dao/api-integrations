@@ -15,7 +15,7 @@ const Welcome = () => {
 
   const configFiles = ((ctx) => {
     return checkFiles(ctx);
-  })(require.context('../../../data/apis/', true, /\/[a-z0-9-]+-pusher.json/));
+  })(require.context('../../../data/apis/', true, /([a-z0-9-]+-pusher.json|api-data.json)/));
 
   const detach = () => {
     if (comparePair.left !== null) {

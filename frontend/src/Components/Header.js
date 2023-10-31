@@ -13,7 +13,7 @@ const Header = () => {
     >
       <Flex as="header" align="center" justify="space-between" p={4}>
         <Flex align="flex-start" cursor="pointer" gap={'12px'}>
-          <Image src={`/logo.svg`} width={'32px'} height={'32px'} />
+          <Image src={`./logo.svg`} width={'32px'} height={'32px'} />
           <Text fontWeight={'light'} fontSize="xl">
             API Integrations Tool
           </Text>
