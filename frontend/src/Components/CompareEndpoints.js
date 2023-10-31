@@ -10,7 +10,7 @@ const FeedGroup = ({ title, group, endpoints, oises, j, status }) => {
     index !== j ? null : (
       <FeedGroupView
         key={index}
-        endpoint={endpoints[j]}
+        endpoint={endpoints.endpoints[j]}
         index={index}
         feed={feed}
         apiSpecifications={oises[j].apiSpecifications}
