@@ -16,7 +16,7 @@ const DeploymentLocation = ({ apiData, category }) => {
   return (
     <Stack direction={'row'} alignItems={'center'} spacing={5} wrap={'wrap'}>
       {getDeploymentLocations().map((location, index) => (
-        <StageLocation location={location} index={index} category={category} />
+        <StageLocation key={index} location={location} index={index} category={category} />
       ))}
     </Stack>
   );
