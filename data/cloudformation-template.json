@@ -9,7 +9,7 @@
         "RetentionInDays": 7
       }
     },
-    "MyAppDefinition": {
+    "AppDefinition": {
       "Type": "AWS::ECS::TaskDefinition",
       "Properties": {
         "NetworkMode": "awsvpc",
@@ -50,13 +50,13 @@
         ]
       }
     },
-    "MyAppCluster": {
+    "AppCluster": {
       "Type": "AWS::ECS::Cluster",
       "Properties": {
         "ClusterName": "my_app_cluster"
       }
     },
-    "MyAppService": {
+    "AppService": {
       "Type": "AWS::ECS::Service",
       "Properties": {
         "Cluster": {
@@ -80,7 +80,7 @@
         }
       }
     },
-    "MyVPC": {
+    "InstanceVPC": {
       "Type": "AWS::EC2::VPC",
       "Properties": {
         "CidrBlock": "10.0.0.0/16",
@@ -88,23 +88,23 @@
         "EnableDnsHostnames": true
       }
     },
-    "MyInternetGateway": {
+    "InstanceInternetGateway": {
       "Type": "AWS::EC2::InternetGateway"
     },
-    "MyVPCGatewayAttachment": {
+    "InstanceVPCGatewayAttachment": {
       "Type": "AWS::EC2::VPCGatewayAttachment",
       "Properties": {
         "VpcId": { "Ref": "MyVPC" },
         "InternetGatewayId": { "Ref": "MyInternetGateway" }
       }
     },
-    "MyPublicRouteTable": {
+    "MInstancePublicRouteTable": {
       "Type": "AWS::EC2::RouteTable",
       "Properties": {
         "VpcId": { "Ref": "MyVPC" }
       }
     },
-    "MyPublicRoute": {
+    "InstancePublicRoute": {
       "Type": "AWS::EC2::Route",
       "DependsOn": "MyVPCGatewayAttachment",
       "Properties": {
@@ -113,7 +113,7 @@
         "GatewayId": { "Ref": "MyInternetGateway" }
       }
     },
-    "MySubnet": {
+    "InstanceSubnet": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "CidrBlock": "10.0.0.0/24",
@@ -121,7 +121,7 @@
         "MapPublicIpOnLaunch": true
       }
     },
-    "MyPublicSubnet1RouteTableAssociation": {
+    "InstancePublicSubnet1RouteTableAssociation": {
       "Type": "AWS::EC2::SubnetRouteTableAssociation",
       "Properties": {
         "RouteTableId": { "Ref": "MyPublicRouteTable" },
