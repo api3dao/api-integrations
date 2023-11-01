@@ -22,7 +22,7 @@
         "ContainerDefinitions": [
           {
             "Name": "Pusher",
-            "Image": "api3/pusher:0.1.0-rc2",
+            "Image": "<IMAGE>",
             "Environment": [
               {
                 "Name": "SECRETS_ENV",
@@ -32,7 +32,7 @@
             "EntryPoint": [
               "/bin/sh",
               "-c",
-              "echo -e $SECRETS_ENV >> ./config/secrets.env && wget -O - <PUBLIC_CONFIG_URL> >> ./config/pusher.json && node --enable-source-maps dist/index.js"
+              "echo -e $SECRETS_ENV >> ./config/secrets.env && wget -O - <PUBLIC_CONFIG_URL> >> ./config/pusher.json && node dist/src/index.js"
             ],
             "LogConfiguration": {
               "LogDriver": "awslogs",
