@@ -5,6 +5,7 @@ import { COLORS } from '../data/constants';
 import Title from '../Custom/Title';
 import ExpandableView from '../Custom/ExpandableView';
 import DeployOptions from './DeployOptions';
+import { checkSupportedFeedsInBatches } from '../Helpers/Utils';
 
 import { ApiIntegrationsContext } from '../Context';
 import { useContext } from 'react';
@@ -82,6 +83,33 @@ const OisView = () => {
   ));
 };
 
+const UnsupportedFeedsView = ({ apiData }) => {
+  const { config } = useContext(ApiIntegrationsContext);
+
+  if (apiData === undefined) return (
+    <VStack p={2} bgColor={"red"} borderRadius={'md'} alignItems={'left'} width={'100%'}>
+      <Flex>
+        <Text fontWeight={'bold'} color={"white"} fontSize={'md'}>
+          API Data file is missing.
+        </Text>
+      </Flex>
+    </VStack>
+  )
+  const unsupportedFeeds = (checkSupportedFeedsInBatches(apiData.config.supportedFeedsInBatches, config.config.ois));
+
+  return apiData === undefined || unsupportedFeeds.length === 0 ? null : (
+    <ExpandableView
+      status={5}
+      view={unsupportedFeeds.map((feed, index) => (
+        <VStack key={index} alignItems={'left'} width={'100%'}>
+          <Title header={feed} buttonVisibility={false} isLoading={false} />
+        </VStack>
+      ))}
+      header={'Unsupported Feeds'}
+    ></ExpandableView>
+  )
+};
+
 const Display = ({ apiData }) => {
   const { config, setConfig } = useContext(ApiIntegrationsContext);
 
@@ -100,6 +128,7 @@ const Display = ({ apiData }) => {
           setText={setAirnodeWalletMnemonic}
         />
       </VStack>
+      <UnsupportedFeedsView apiData={apiData} />
       <OisView />
       <DeployOptions apiData={apiData} />
       <VStack p={3} height={'50px'} align={'left'} />
