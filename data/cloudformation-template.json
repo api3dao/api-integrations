@@ -5,7 +5,7 @@
     "CloudWatchLogsGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "myAppLogs",
+        "LogGroupName": "PusherLogGroup",
         "RetentionInDays": 7
       }
     },
@@ -21,7 +21,7 @@
         "RequiresCompatibilities": ["FARGATE"],
         "ContainerDefinitions": [
           {
-            "Name": "my_app",
+            "Name": "Pusher",
             "Image": "api3/pusher:0.1.0-rc2",
             "Environment": [
               {
@@ -43,7 +43,7 @@
                 "awslogs-region": {
                   "Ref": "AWS::Region"
                 },
-                "awslogs-stream-prefix": "my_app"
+                "awslogs-stream-prefix": "pusher"
               }
             }
           }
@@ -53,25 +53,25 @@
     "AppCluster": {
       "Type": "AWS::ECS::Cluster",
       "Properties": {
-        "ClusterName": "my_app_cluster"
+        "ClusterName": "PusherCluster"
       }
     },
     "AppService": {
       "Type": "AWS::ECS::Service",
       "Properties": {
         "Cluster": {
-          "Ref": "MyAppCluster"
+          "Ref": "AppCluster"
         },
-        "ServiceName": "my_app_service",
+        "ServiceName": "PusherService",
         "DesiredCount": 1,
         "LaunchType": "FARGATE",
         "TaskDefinition": {
-          "Ref": "MyAppDefinition"
+          "Ref": "AppDefinition"
         },
         "NetworkConfiguration": {
           "AwsvpcConfiguration": {
             "AssignPublicIp": "ENABLED",
-            "Subnets": [{ "Ref": "MySubnet" }]
+            "Subnets": [{ "Ref": "InstanceSubnet" }]
           }
         },
         "DeploymentConfiguration": {
@@ -94,38 +94,38 @@
     "InstanceVPCGatewayAttachment": {
       "Type": "AWS::EC2::VPCGatewayAttachment",
       "Properties": {
-        "VpcId": { "Ref": "MyVPC" },
-        "InternetGatewayId": { "Ref": "MyInternetGateway" }
+        "VpcId": { "Ref": "InstanceVPC" },
+        "InternetGatewayId": { "Ref": "InstanceInternetGateway" }
       }
     },
     "InstancePublicRouteTable": {
       "Type": "AWS::EC2::RouteTable",
       "Properties": {
-        "VpcId": { "Ref": "MyVPC" }
+        "VpcId": { "Ref": "InstanceVPC" }
       }
     },
     "InstancePublicRoute": {
       "Type": "AWS::EC2::Route",
-      "DependsOn": "MyVPCGatewayAttachment",
+      "DependsOn": "InstanceVPCGatewayAttachment",
       "Properties": {
-        "RouteTableId": { "Ref": "MyPublicRouteTable" },
+        "RouteTableId": { "Ref": "InstancePublicRouteTable" },
         "DestinationCidrBlock": "0.0.0.0/0",
-        "GatewayId": { "Ref": "MyInternetGateway" }
+        "GatewayId": { "Ref": "InstanceInternetGateway" }
       }
     },
     "InstanceSubnet": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "CidrBlock": "10.0.0.0/24",
-        "VpcId": { "Ref": "MyVPC" },
+        "VpcId": { "Ref": "InstanceVPC" },
         "MapPublicIpOnLaunch": true
       }
     },
     "InstancePublicSubnet1RouteTableAssociation": {
       "Type": "AWS::EC2::SubnetRouteTableAssociation",
       "Properties": {
-        "RouteTableId": { "Ref": "MyPublicRouteTable" },
-        "SubnetId": { "Ref": "MySubnet" }
+        "RouteTableId": { "Ref": "InstancePublicRouteTable" },
+        "SubnetId": { "Ref": "InstanceSubnet" }
       }
     },
     "ECSTaskRole": {
