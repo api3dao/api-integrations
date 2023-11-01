@@ -26,7 +26,7 @@
             "Environment": [
               {
                 "Name": "SECRETS_ENV",
-                "Value": "WALLET_MNEMONIC=<MNEMONIC>\\nAPIKEY_VALUE=<API_KEY>"
+                "Value": "WALLET_MNEMONIC=<MNEMONIC>\\nAPIKEY1_VALUE=<API_KEY1>\\nAPIKEY2_VALUE=<API_KEY2>\\n..."
               }
             ],
             "EntryPoint": [
@@ -142,7 +142,7 @@
         },
         "Policies": [
           {
-            "PolicyName": "MyAppAmazonECSTaskExecutionRolePolicy",
+            "PolicyName": "ECSTaskExecutionRolePolicy",
             "PolicyDocument": {
               "Statement": {
                 "Effect": "Allow",
