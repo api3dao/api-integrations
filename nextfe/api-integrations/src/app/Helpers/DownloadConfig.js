@@ -75,6 +75,11 @@ const downloadCloudFormation = (CloudFormation, secrets, configData) => {
   CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[0].EntryPoint = entryPoint;
 
   const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(JSON.stringify(CloudFormation, null, 2))}`;
+
+  const link = document.createElement('a');
+  link.href = jsonString;
+  link.download = 'CloudFormation.json';
+  link.click();
 };
 
 export const downloadZip = (secrets, config) => {
@@ -91,5 +96,11 @@ const saveAs = (blob, filename) => {
   if (window.navigator.msSaveOrOpenBlob) {
     window.navigator.msSaveBlob(blob, filename);
   } else {
+    var elem = window.document.createElement('a');
+    elem.href = window.URL.createObjectURL(blob);
+    elem.download = filename;
+    document.body.appendChild(elem);
+    elem.click();
+    document.body.removeChild(elem);
   }
 };
