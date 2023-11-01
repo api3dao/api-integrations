@@ -17,10 +17,9 @@ export const testMnemonic = (mnemonic) => {
 };
 
 export const populateOis = (configData, mode = CONSTANTS.CLOUD_FORMATION_DEPLOY, callback) => {
-
   const checkCloudFormationFile = (ctx) => {
     let values = ctx.keys().map(ctx);
-    return values[0]
+    return values[0];
   };
 
   const cloudFormation = ((ctx) => {
@@ -76,8 +75,6 @@ const downloadCloudFormation = (CloudFormation, secrets, configData) => {
   CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[0].EntryPoint = entryPoint;
 
   const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(JSON.stringify(CloudFormation, null, 2))}`;
-
-
 };
 
 export const downloadZip = (secrets, config) => {
@@ -94,6 +91,5 @@ const saveAs = (blob, filename) => {
   if (window.navigator.msSaveOrOpenBlob) {
     window.navigator.msSaveBlob(blob, filename);
   } else {
-
   }
 };

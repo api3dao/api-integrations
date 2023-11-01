@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import './App.css';
 import Header from './Components/Header';
 import Welcome from './Components/Welcome';
@@ -17,7 +17,6 @@ function App() {
   const [config, setConfig] = useState(null);
   const [stage, setStage] = useState(null);
   const [comparePair, setComparePair] = useState({ left: null, right: null });
-
 
   return (
     <ChakraProvider theme={theme}>

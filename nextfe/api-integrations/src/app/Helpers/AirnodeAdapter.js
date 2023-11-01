@@ -1,4 +1,4 @@
-"use server"
+'use server';
 import * as adapter from '@api3/airnode-adapter';
 import isEmpty from 'lodash/isEmpty';
 import { RESERVED_PARAMETERS } from '@api3/ois';

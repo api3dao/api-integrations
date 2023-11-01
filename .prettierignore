@@ -2,6 +2,7 @@
 /node_modules
 /dist
 /frontend
+/.next
 *.tgz
 
 # IDE specific files

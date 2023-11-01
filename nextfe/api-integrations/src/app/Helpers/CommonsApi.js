@@ -1,9 +1,6 @@
-"use server"
+'use server';
 
-import {
-    postProcessApiCallResponse,
-    preProcessApiCallParameters,
-} from "@api3/commons";
+import { postProcessApiCallResponse, preProcessApiCallParameters } from '@api3/commons';
 
 /*
  * This is a wrapper for the processing functions in commons/processing.js
@@ -16,7 +13,7 @@ import {
  * @returns {Object} - The response of the API call
  */
 export async function preProcess(endpoint, apiCallParameters) {
-    return await preProcessApiCallParameters(endpoint, apiCallParameters);
+  return await preProcessApiCallParameters(endpoint, apiCallParameters);
 }
 
 /*
@@ -30,12 +27,7 @@ export async function preProcess(endpoint, apiCallParameters) {
  * @returns {Object} - The response of the API call
  */
 export async function postProcess(apiCallResponse, endpoint, apiCallParameters) {
+  const response = await postProcessApiCallResponse(apiCallResponse, endpoint, apiCallParameters);
 
-    const response = await postProcessApiCallResponse(
-        apiCallResponse,
-        endpoint,
-        apiCallParameters,
-    );
-
-    return { success: true, data: response };
+  return { success: true, data: response };
 }
