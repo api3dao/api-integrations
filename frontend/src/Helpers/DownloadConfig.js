@@ -72,8 +72,8 @@ const downloadCloudFormation = (CloudFormation, secrets, configData) => {
     `echo -e $SECRETS_ENV >> ./config/secrets.env && wget -O - https://raw.githubusercontent.com/api3dao/api-integrations/main/data/apis/${configData.apiProvider}/deployments/${configData.category}-deployments/${configData.filename} >> ./config/pusher.json && node --enable-source-maps dist/index.js`
   ];
 
-  CloudFormation.Resources.MyAppDefinition.Properties.ContainerDefinitions[0].Environment[0].Value = secrets;
-  CloudFormation.Resources.MyAppDefinition.Properties.ContainerDefinitions[0].EntryPoint = entryPoint;
+  CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[0].Environment[0].Value = secrets;
+  CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[0].EntryPoint = entryPoint;
 
   const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(JSON.stringify(CloudFormation, null, 2))}`;
 
