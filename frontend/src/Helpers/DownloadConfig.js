@@ -1,5 +1,4 @@
 import { CONSTANTS } from '../data/constants';
-import CloudFormation from '../data/cloud-formation.json';
 
 import JSZip from 'jszip';
 
@@ -18,6 +17,17 @@ export const testMnemonic = (mnemonic) => {
 };
 
 export const populateOis = (configData, mode = CONSTANTS.CLOUD_FORMATION_DEPLOY, callback) => {
+
+  const checkCloudFormationFile = (ctx) => {
+    let values = ctx.keys().map(ctx);
+    return values[0]
+  };
+
+  const cloudFormation = ((ctx) => {
+    return checkCloudFormationFile(ctx);
+  })(require.context('../../../data/', true, /cloudformation-template.json/));
+
+  if (cloudFormation == null) return;
   if (configData == null) return;
   if (configData.config.ois === null) return;
   if (configData.config.ois.length === 0) return;
@@ -39,7 +49,7 @@ export const populateOis = (configData, mode = CONSTANTS.CLOUD_FORMATION_DEPLOY,
   const secrets = `WALLET_MNEMONIC=${configData.config.airnodeWalletMnemonic}${API_KEY}${stage}`;
   switch (mode) {
     case CONSTANTS.CLOUD_FORMATION_DEPLOY:
-      downloadCloudFormation(CloudFormation, secrets, configData);
+      downloadCloudFormation(cloudFormation, secrets, configData);
       break;
     case CONSTANTS.DOCKER_DEPLOY:
       downloadZip(secrets, configData);
@@ -62,8 +72,8 @@ const downloadCloudFormation = (CloudFormation, secrets, configData) => {
     `echo -e $SECRETS_ENV >> ./config/secrets.env && wget -O - https://raw.githubusercontent.com/api3dao/api-integrations/main/data/apis/${configData.apiProvider}/deployments/${configData.category}-deployments/${configData.filename} >> ./config/pusher.json && node --enable-source-maps dist/index.js`
   ];
 
-  CloudFormation.Resources.MyAppDefinition.Properties.ContainerDefinitions[0].Environment[0].Value = secrets;
-  CloudFormation.Resources.MyAppDefinition.Properties.ContainerDefinitions[0].EntryPoint = entryPoint;
+  CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[0].Environment[0].Value = secrets;
+  CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[0].EntryPoint = entryPoint;
 
   const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(JSON.stringify(CloudFormation, null, 2))}`;
 
