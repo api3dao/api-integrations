@@ -1,6 +1,9 @@
 {
-  "airnodeWalletMnemonic": "${WALLET_MNEMONIC}",
-  "rateLimiting": {},
+  "nodeSettings": {
+    "airnodeWalletMnemonic": "${WALLET_MNEMONIC}",
+    "nodeVersion": "0.1",
+    "stage": ""
+  },
   "templates": {},
   "endpoints": {},
   "triggers": {},
@@ -12,6 +15,5 @@
       "securitySchemeName": "NodarySecurityScheme1ApiKey",
       "securitySchemeValue": "${NODARY_API_KEY}"
     }
-  ],
-  "stage": ""
+  ]
 }

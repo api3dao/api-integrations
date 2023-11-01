@@ -45,9 +45,8 @@ const main = async () => {
   // init "signedApiUpdates" triggers
   pusherConfig.triggers['signedApiUpdates'] = [];
 
-  // generate rateLimiting object & push OIS objects
+  // push OIS objects
   oises.map((ois) => {
-    pusherConfig.rateLimiting[ois.title] = { maxConcurrency: 25, minTime: 10 };
     pusherConfig.ois.push(ois);
   });
 
@@ -154,7 +153,7 @@ const main = async () => {
   // derive deployment id
   const today = format(new Date(), 'yyyyMMdd');
   const stage = `api3-${today}`;
-  pusherConfig.stage = '${STAGE}';
+  pusherConfig.nodeSettings.stage = '${STAGE}';
 
   // save the deployment
   const deploymentPath = `./data/apis/${apiName}/deployments/candidate-deployments`;
