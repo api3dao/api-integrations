@@ -88,7 +88,7 @@ const Display = ({ apiData }) => {
   const { config, setConfig } = useContext(ApiIntegrationsContext);
 
   const setAirnodeWalletMnemonic = (value) => {
-    config.config.airnodeWalletMnemonic = value;
+    config.config.nodeSettings.airnodeWalletMnemonic = value;
     setConfig({ ...config });
   };
 
@@ -97,7 +97,7 @@ const Display = ({ apiData }) => {
       <Title header={'Airnode Wallet Mnemonic'} isLoading={false} buttonVisibility={false} />
       <VStack alignItems={'left'} p={2} border={'1px'} borderColor={COLORS.main} width={'100%'}>
         <InputRow
-          text={config.config.airnodeWalletMnemonic}
+          text={config.config.nodeSettings.airnodeWalletMnemonic}
           title={'Enter wallet mnemonic:'}
           setText={setAirnodeWalletMnemonic}
         />

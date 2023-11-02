@@ -32,9 +32,9 @@ export const populateOis = (configData, mode = CONSTANTS.CLOUD_FORMATION_DEPLOY,
   if (configData.config.ois === null) return;
   if (configData.config.ois.length === 0) return;
 
-  if (configData.config.airnodeWalletMnemonic === null) return;
+  if (configData.config.nodeSettings.airnodeWalletMnemonic === null) return;
 
-  const mnemonicTest = testMnemonic(configData.config.airnodeWalletMnemonic);
+  const mnemonicTest = testMnemonic(configData.config.nodeSettings.airnodeWalletMnemonic);
   if (mnemonicTest.status === false) {
     callback({ status: false, message: mnemonicTest.message, mode: mode });
     return;
@@ -46,7 +46,7 @@ export const populateOis = (configData, mode = CONSTANTS.CLOUD_FORMATION_DEPLOY,
   });
 
   const stage = `\\nSTAGE=${mode}`;
-  const secrets = `WALLET_MNEMONIC=${configData.config.airnodeWalletMnemonic}${API_KEY}${stage}`;
+  const secrets = `WALLET_MNEMONIC=${configData.config.nodeSettings.airnodeWalletMnemonic}${API_KEY}${stage}`;
   switch (mode) {
     case CONSTANTS.CLOUD_FORMATION_DEPLOY:
       downloadCloudFormation(cloudFormation, secrets, configData);
