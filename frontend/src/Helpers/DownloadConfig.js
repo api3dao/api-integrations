@@ -17,10 +17,9 @@ export const testMnemonic = (mnemonic) => {
 };
 
 export const populateOis = (configData, mode = CONSTANTS.CLOUD_FORMATION_DEPLOY, callback) => {
-
   const checkCloudFormationFile = (ctx) => {
     let values = ctx.keys().map(ctx);
-    return values[0]
+    return values[0];
   };
 
   const cloudFormation = ((ctx) => {

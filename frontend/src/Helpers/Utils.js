@@ -333,14 +333,13 @@ export const formatParameters = (parameters, preProcessingSpecificationsValue, m
 };
 
 export const checkSupportedFeedsInBatches = (supportedFeedsInBatches, oises) => {
-
   const feedEndpoints = oises.map((ois) => {
     const feedEndpoint = ois.endpoints.filter((endpoint) => endpoint.name === 'feed');
 
     return {
       oisTitle: ois.title,
       feeds: combine(feedEndpoint[0])
-    }
+    };
   });
 
   return feedEndpoints.map((feedEndpoint) => {
@@ -351,7 +350,6 @@ export const checkSupportedFeedsInBatches = (supportedFeedsInBatches, oises) => 
       unsupportedFeeds: feedEndpoint.feeds.filter((feed) => {
         return !feeds.includes(feed.feed);
       })
-    }
-
+    };
   });
-}
+};
