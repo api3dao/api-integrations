@@ -5,5 +5,6 @@ module.exports = {
   },
   rules: {
     '@typescript-eslint/prefer-destructuring': 'off' // The commons universal ESLint configuration already uses "prefer-destructuring" and this extended version is not needed.
-  }
+  },
+  ignorePatterns: ['dev-scripts/*']
 };
