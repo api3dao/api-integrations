@@ -5,7 +5,7 @@ import { COLORS } from '../data/constants';
 import Title from '../Custom/Title';
 import ExpandableView from '../Custom/ExpandableView';
 import DeployOptions from './DeployOptions';
-import { checkSupportedFeedsInBatches } from '../Helpers/Utils';
+import UnsupportedFeedsView from '../Custom/UnsupportedFeedsView';
 
 import { ApiIntegrationsContext } from '../Context';
 import { useContext } from 'react';
@@ -69,45 +69,19 @@ const SecretsView = ({ index }) => {
   );
 };
 
-const OisView = () => {
+const OisView = ({ apiData }) => {
   const { config } = useContext(ApiIntegrationsContext);
 
   return config.config.ois.map((ois, index) => (
     <VStack key={index} alignItems={'left'} width={'100%'}>
       <Title header={ois.title} buttonVisibility={false} isLoading={false} />
       <VStack bgColor={COLORS.table} spacing={4} alignItems={'left'}>
+        <UnsupportedFeedsView apiData={apiData} ois={ois} />
         <SecretsView index={index} />
         <FeedsView ois={ois} />
       </VStack>
     </VStack>
   ));
-};
-
-const UnsupportedFeedsView = ({ apiData }) => {
-  const { config } = useContext(ApiIntegrationsContext);
-
-  if (apiData === undefined) return (
-    <VStack p={2} bgColor={"red"} borderRadius={'md'} alignItems={'left'} width={'100%'}>
-      <Flex>
-        <Text fontWeight={'bold'} color={"white"} fontSize={'md'}>
-          API Data file is missing.
-        </Text>
-      </Flex>
-    </VStack>
-  )
-  const unsupportedFeeds = (checkSupportedFeedsInBatches(apiData.config.supportedFeedsInBatches, config.config.ois));
-
-  return apiData === undefined || unsupportedFeeds.length === 0 ? null : (
-    <ExpandableView
-      status={5}
-      view={unsupportedFeeds.map((feed, index) => (
-        <VStack key={index} alignItems={'left'} width={'100%'}>
-          <Title header={feed} buttonVisibility={false} isLoading={false} />
-        </VStack>
-      ))}
-      header={'Unsupported Feeds'}
-    ></ExpandableView>
-  )
 };
 
 const Display = ({ apiData }) => {
@@ -128,8 +102,7 @@ const Display = ({ apiData }) => {
           setText={setAirnodeWalletMnemonic}
         />
       </VStack>
-      <UnsupportedFeedsView apiData={apiData} />
-      <OisView />
+      <OisView apiData={apiData} />
       <DeployOptions apiData={apiData} />
       <VStack p={3} height={'50px'} align={'left'} />
     </VStack>

@@ -334,32 +334,24 @@ export const formatParameters = (parameters, preProcessingSpecificationsValue, m
 
 export const checkSupportedFeedsInBatches = (supportedFeedsInBatches, oises) => {
 
-  const values = Object.values(supportedFeedsInBatches);
+  const feedEndpoints = oises.map((ois) => {
+    const feedEndpoint = ois.endpoints.filter((endpoint) => endpoint.name === 'feed');
 
-  let supportedFeeds = [];
-
-  for (let i = 0; i < values[0].length; i++) {
-    for (let j = 0; j < values[0][i].length; j++) {
-      supportedFeeds.push(values[0][i][j]);
+    return {
+      oisTitle: ois.title,
+      feeds: combine(feedEndpoint[0])
     }
-  }
+  });
 
-  let unsupportedFeeds = [];
+  return feedEndpoints.map((feedEndpoint) => {
+    const feeds = supportedFeedsInBatches[feedEndpoint.oisTitle].flat();
 
-  for (let i = 0; i < oises.length; i++) {
-    for (let j = 0; j < oises[i].endpoints.length; j++) {
-      if (oises[i].endpoints[j].name === 'feed') {
-        for (let k = 0; k < oises[i].endpoints[j].preProcessingSpecifications.length; k++) {
-          const feeds = combine(oises[i].endpoints[j]);
-          for (let l = 0; l < feeds.length; l++) {
-            if (!supportedFeeds.includes(feeds[l].feed)) {
-              unsupportedFeeds.push(feeds[l].feed);
-            }
-          }
-        }
-      }
+    return {
+      oisTitle: feedEndpoint.oisTitle,
+      unsupportedFeeds: feedEndpoint.feeds.filter((feed) => {
+        return !feeds.includes(feed.feed);
+      })
     }
-  }
 
-  return unsupportedFeeds;
+  });
 }
