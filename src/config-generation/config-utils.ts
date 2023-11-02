@@ -1,6 +1,5 @@
 import * as fs from 'fs';
 import { OIS, Endpoint } from '@api3/ois';
-import * as crypto from 'crypto';
 import { ethers } from 'ethers';
 import { encode } from '@api3/airnode-abi';
 import oisTitles from '../../data/oisTitles.json';
@@ -64,12 +63,12 @@ export function deriveEndpointId(input: { oisTitle?: string; airnodeAddress?: st
 }
 
 export function readJson(path: string) {
-  let file = JSON.parse(fs.readFileSync(path).toString());
+  const file = JSON.parse(fs.readFileSync(path).toString());
   return file;
 }
 
 export function saveJson(path: string, jsonObject: object) {
-  let strJson = JSON.stringify(jsonObject, null, 2);
+  const strJson = JSON.stringify(jsonObject, null, 2);
   fs.writeFileSync(path, strJson);
 }
 
