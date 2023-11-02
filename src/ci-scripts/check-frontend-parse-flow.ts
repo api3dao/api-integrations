@@ -84,7 +84,7 @@ async function cut(
         throw Error(`newObject is null or undefined for provider: ${provider}`);
       const splitParanthesis = newObject[0].match(finalMatch);
 
-      let final = [];
+      const final = [];
 
       for (let i = 0; i < splitParanthesis.length; i++) {
         const split = splitParanthesis[i].split(/:(.*)/s);
@@ -101,13 +101,13 @@ async function parse() {
   try {
     const apiPaths = globSync('./data/apis/*').filter((item) => !item.includes('mock'));
 
-    let providers = [];
-    let preProcessingSpecifications = [];
-    let postProcessingSpecifications = [];
-    let apiSpecifications = [];
-    let endpointParameters = [];
+    const providers = [];
+    const preProcessingSpecifications = [];
+    const postProcessingSpecifications = [];
+    const apiSpecifications = [];
+    const endpointParameters = [];
     let totalOises = 0;
-    let apiDatas = [];
+    const apiDatas = [];
 
     apiPaths.map((path) => {
       const apiData = readJson(`${path}/api-data.json`);
@@ -129,8 +129,8 @@ async function parse() {
     });
 
     //all objects will be in the same order as the ois
-    let preProcessingObjects = [];
-    let postProcessingObjects = [];
+    const preProcessingObjects = [];
+    const postProcessingObjects = [];
 
     // splitting the preProcessingSpecifications
     for (let i = 0; i < preProcessingSpecifications.length; i++) {
