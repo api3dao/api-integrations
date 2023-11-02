@@ -1,82 +1,80 @@
-# Getting Started with Create React App
+# API integrations Frontend Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend application for the API integrations project.
 
-## Available Scripts
+## Getting started
 
-In the project directory, you can run:
+### Prerequisites
 
-### `npm start`
+- [Node.js](https://nodejs.org/en/) (>= 16)
+- [npm](https://www.npmjs.com/) (>= 9)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+npm install
+```
 
-### `npm test`
+### Running the application
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm start
+```
 
-### `npm run build`
+### Accessing the application
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The application will be available at [http://localhost:3056](http://localhost:3056).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Usage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Home page
 
-### `npm run eject`
+The home page is the main page of the application. It contains a list of all the API providers.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### API provider page
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will
-remove the single build dependency from your project.
+#### Active Deployment
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right
-into your project so you have full control over them. All of the commands except `eject` will still work, but they will
-point to the copied scripts so you can tweak them. At this point you're on your own.
+The API provider page contains the details of an API provider. An api provider can have only one active deployment for
+every deployment locations. These deployment locations are: `aws` and `local`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you
-shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't
-customize it when you are ready for it.
+- The `aws` deployment location is the production deployment location and hosted on AWS.
+- The `local` deployment location is the production deployment location and hosted as a container on the local machine
+  or on a server.
 
-## Learn More
+Each API integration has a name, deployment status, and a list of feeds.
 
-You can learn more in the
-[Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Candidate Deployment
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This section contains a list of candidate deployments for the API provider. API provider can replace the active
+deployment with a candidate deployment.
 
-### Code Splitting
+### Deployment page
 
-This section has moved here:
-[https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The deployment page contains the ois details. A deployment can have multiple oises. Each can have their own feeds,
+secret keys, and other details.
 
-### Analyzing the Bundle Size
+Thus deployment page contains the following sections:
 
-This section has moved here:
-[https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Pusher mnemonic
+- OIS details
+- Deployment details
 
-### Making a Progressive Web App
+#### Pusher mnemonic
 
-This section has moved here:
-[https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This section contains the mnemonic of the pusher account. This mnemonic is used to sign the transactions.
 
-### Advanced Configuration
+#### OIS details
 
-This section has moved here:
-[https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This section contains the details of the OIS. The OIS details are:
 
-### Deployment
+- OIS title
+- API secret key
+- Feeds
 
-This section has moved here:
-[https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### Deployment details
 
-### `npm run build` fails to minify
+This section contains the details of the deployment. The deployment details are:
 
-This section has moved here:
-[https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Deployment location
+- Deployment instructions
