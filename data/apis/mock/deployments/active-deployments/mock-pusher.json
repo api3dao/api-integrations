@@ -1,5 +1,9 @@
 {
-  "airnodeWalletMnemonic": "${WALLET_MNEMONIC}",
+  "nodeSettings": {
+    "airnodeWalletMnemonic": "${WALLET_MNEMONIC}",
+    "nodeVersion": "0.1",
+    "stage": "${STAGE}"
+  },
   "rateLimiting": {
     "Coinpaprika": {
       "maxConcurrency": 25,
