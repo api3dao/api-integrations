@@ -159,7 +159,12 @@ docker run -it --rm \\
 Click on the `Compare` button to compare the active deployment with the candidate deployment. The comparison is done for
 each ois and feed.
 
+<img width="979" alt="image" src="https://github.com/api3dao/api-integrations/assets/31757771/5e1d4939-90a7-4add-8f36-c09fb2c7a43e">
+
 - Added feeds
 - Removed feeds
 - Updated feeds
 - Unchanged feeds
+
+<img width="975" alt="image" src="https://github.com/api3dao/api-integrations/assets/31757771/271a7ac4-18f6-4fd1-97b3-b76ca003e3b5">
+
