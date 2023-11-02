@@ -34,3 +34,6 @@ coverage
 cache
 artifacts
 credentials.json
+
+# Custom
+/dev-scripts
