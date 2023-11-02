@@ -15,6 +15,7 @@ import {
 } from '../config-utils';
 
 import * as fs from 'fs';
+import { apiDataSchema } from '../validation';
 
 const prompts = require('prompts');
 
@@ -37,7 +38,7 @@ const main = async () => {
 
   // read required files
   let pusherConfig = readJson('./boilerplates/boilerplate-pusher-config.json');
-  const apiData = readJson(`./data/apis/${apiName}/api-data.json`);
+  const apiData = apiDataSchema.parse(readJson(`./data/apis/${apiName}/api-data.json`));
 
   // read oises
   const oises: OIS[] = globSync(`./data/apis/${apiName}/oises/*`).map((oisPath) => readJson(oisPath));
@@ -46,14 +47,14 @@ const main = async () => {
   pusherConfig.triggers['signedApiUpdates'] = [];
 
   // push OIS objects
-  oises.map((ois) => {
+  oises.map((ois: OIS) => {
     pusherConfig.ois.push(ois);
   });
 
   // validate OIS titles in "apiData.supportedFeedsInBatches"
   const originalOisTitlesHash = ethers.utils.solidityKeccak256(
-    oises.map((o) => 'string'),
-    oises.map((o) => o.title).sort()
+    oises.map((o: OIS) => 'string'),
+    oises.map((o: OIS) => o.title).sort()
   );
   const oisTitlesHashFromApiData = ethers.utils.solidityKeccak256(
     Object.keys(apiData.supportedFeedsInBatches).map((ot) => 'string'),
@@ -66,7 +67,7 @@ const main = async () => {
   }
 
   // validate pre/postProcessingObject
-  oises.map((ois) => {
+  oises.map((ois: OIS) => {
     const supportedFeeds = apiData.supportedFeedsInBatches[ois.title].flat();
 
     // validate preProcessingObject & supported feeds
@@ -140,7 +141,7 @@ const main = async () => {
 
   // generate apiCredentials
   pusherConfig.apiCredentials = [];
-  oises.map((ois) => {
+  oises.map((ois: OIS) => {
     Object.keys(ois.apiSpecifications.components.securitySchemes).map((schemeName) => {
       pusherConfig.apiCredentials.push({
         oisTitle: ois.title,
