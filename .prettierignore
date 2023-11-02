@@ -1,9 +1,0 @@
-# Package directories & files
-/node_modules
-/dist
-/frontend
-*.tgz
-
-# IDE specific files
-.vscode
-.idea
