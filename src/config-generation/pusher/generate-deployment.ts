@@ -1,4 +1,5 @@
 import { join } from 'path';
+import * as fs from 'fs';
 import { globSync } from 'glob';
 import { ethers } from 'ethers';
 import { format } from 'date-fns';
@@ -14,13 +15,10 @@ import {
   extractPostProcessingObject
 } from '../config-utils';
 
-import * as fs from 'fs';
-
 const prompts = require('prompts');
 
 const main = async () => {
   const APIS_ROOT = './data/apis/';
-  const configGenerationTimestamp = Math.floor(Date.now() / 1000);
 
   const logger: Logger<ILogObj> = new Logger();
 
@@ -36,7 +34,7 @@ const main = async () => {
   });
 
   // read required files
-  let pusherConfig = readJson('./boilerplates/boilerplate-pusher-config.json');
+  const pusherConfig = readJson('./boilerplates/boilerplate-pusher-config.json');
   const apiData = readJson(`./data/apis/${apiName}/api-data.json`);
 
   // read oises
@@ -52,11 +50,11 @@ const main = async () => {
 
   // validate OIS titles in "apiData.supportedFeedsInBatches"
   const originalOisTitlesHash = ethers.utils.solidityKeccak256(
-    oises.map((o) => 'string'),
+    oises.map((_o) => 'string'),
     oises.map((o) => o.title).sort()
   );
   const oisTitlesHashFromApiData = ethers.utils.solidityKeccak256(
-    Object.keys(apiData.supportedFeedsInBatches).map((ot) => 'string'),
+    Object.keys(apiData.supportedFeedsInBatches).map((_ot) => 'string'),
     Object.keys(apiData.supportedFeedsInBatches).sort()
   );
   if (originalOisTitlesHash !== oisTitlesHashFromApiData) {
