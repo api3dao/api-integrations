@@ -107,8 +107,10 @@ async function parse() {
     let apiSpecifications = [];
     let endpointParameters = [];
     let totalOises = 0;
+    let apiDatas = [];
 
     apiPaths.map((path) => {
+      const apiData = readJson(`${path}/api-data.json`);
       const oises: OIS[] = globSync(`${path}/oises/*`).map((oisPath) => readJson(oisPath));
       logger.info('Total oises found:', oises.length, 'for', path);
       totalOises += oises.length;
@@ -122,6 +124,7 @@ async function parse() {
         apiSpecifications.push(ois.apiSpecifications);
         endpointParameters.push(getFeedEndpointParameters(ois));
         providers.push(ois.title);
+        apiDatas.push(apiData);
       });
     });
 
@@ -180,6 +183,19 @@ async function parse() {
           preProcessingSpecificationsValue
         };
       });
+
+      const supportedFeeds = apiDatas[index].supportedFeedsInBatches[oisTitle].flat();
+
+      const excludedFeeds = supportedFeeds.filter((feed: string) => {
+        const found = pusherConfig.filter((config: Feed) => config.feed === feed);
+        return found.length === 0;
+      });
+
+      if (excludedFeeds.length > 0) {
+        throw Error(
+          `Excluded feeds: ${excludedFeeds} for ${oisTitle}. Please check if you have added the feed in the postProcessingSpecifications.`
+        );
+      }
 
       return {
         oisTitle,
@@ -255,12 +271,12 @@ async function checkPathGeneration(deployments: Deployments[]) {
 
 async function main() {
   logger.info('##########################################################################.');
-  logger.info('Parsing the preProcessingSpecifications and postProcessingSpecifications.');
+  logger.info('Parse preProcessingSpecifications and postProcessingSpecifications.');
   const deployments = await parse();
   logger.info('##########################################################################.');
 
   logger.info('##########################################################################.');
-  logger.info('Checking path generation.');
+  logger.info('Check path generation.');
   await checkPathGeneration(deployments);
   logger.info('##########################################################################.');
 }
