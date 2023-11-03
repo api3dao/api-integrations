@@ -1,0 +1,61 @@
+service: api-integrations-logging
+useDotenv: true
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - 'dynamodb:PutItem'
+            - 'dynamodb:GetItem'
+            - 'dynamodb:Scan'
+            - 'dynamodb:Query'
+
+          Resource:
+            - { 'Fn::GetAtt': ['TokenOwnerGroup', 'Arn'] }
+
+  environment:
+    TOKEN_REQUEST_MESSAGE: ${env:TOKEN_REQUEST_MESSAGE}
+    GF_REGION: ${env:GF_REGION}
+    GF_ADMIN_TOKEN: ${env:GF_ADMIN_TOKEN}
+    GF_ACCESS_POLICY_ID: ${env:GF_ACCESS_POLICY_ID}
+
+# package:
+#   patterns:
+#     - "!.build/**"
+#     - "!.vscode/**"
+#     - "!node_modules/**"
+#     - "!test/**"
+
+functions:
+  getToken:
+    memorySize: 128
+    handler: src/handlers.getToken
+    events:
+      - httpApi:
+          path: /getToken
+          method: post
+
+plugins:
+  - serverless-plugin-typescript
+
+resources:
+  Resources:
+    TokenOwnerGroup:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: tokenOwnerGroup
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        AttributeDefinitions:
+          - AttributeName: airnode
+            AttributeType: S
+        KeySchema:
+          - AttributeName: airnode
+            KeyType: HASH
