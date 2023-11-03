@@ -1,30 +1,28 @@
 import { Text, Image, VStack } from '@chakra-ui/react';
 import { COLORS, CONSTANTS } from '../data/constants';
 
-const ApiProvider = ({ index, deployments, setProvider }) => {
-  const key = Object.keys(deployments)[0];
-
-  return (
-    <VStack key={index} p={3} cursor={'pointer'}>
+const ApiProvider = ({ deployment, setProvider }) => {
+  return deployment === undefined || deployment == null ? null : (
+    <VStack p={3} cursor={'pointer'}>
       <VStack
         minWidth={'150px'}
         height={'150px'}
         bg={COLORS.header}
         boxShadow={CONSTANTS.boxShadowSolid}
         justifyContent={'center'}
-        onClick={() => setProvider({ header: key, deployments: deployments[key] })}
+        onClick={() => setProvider(deployment)}
       >
         <Image
-          src={`./providers/${key}.png`}
-          fallbackSrc={`./providers/${key}.svg`}
-          alt={key}
+          src={`./providers/${deployment.alias}.png`}
+          fallbackSrc={`./providers/${deployment.alias}.svg`}
+          alt={deployment.alias}
           objectFit={'contain'}
           width={'100px'}
           height={'100px'}
         />
 
         <Text fontSize={'xs'} fontWeight={'light'}>
-          {key.toUpperCase()}
+          {deployment.alias.toUpperCase()}
         </Text>
       </VStack>
     </VStack>

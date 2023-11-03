@@ -61,11 +61,10 @@ export const checkFiles = (ctx) => {
       }
 
       const obj = {
-        [api]: {
-          activeDeployment: activeDeployment,
-          candidateDeployment: candidateDeployment,
-          apiData: apiData.find((item) => item.apiProvider === api)
-        }
+        alias: api,
+        activeDeployment: activeDeployment,
+        candidateDeployment: candidateDeployment,
+        apiData: apiData.find((item) => item.apiProvider === api)
       };
       apis.push(obj);
     }
