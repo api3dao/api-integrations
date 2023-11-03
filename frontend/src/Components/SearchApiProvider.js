@@ -60,9 +60,7 @@ const SearchApiProvider = ({ providers, setProvider }) => {
           bgColor={COLORS.info}
         />
       </Flex>
-      <Flex justifyContent={'left'} direction={'row'}>
-        <ApiProvider deployment={deployment} setProvider={setProvider} />
-      </Flex>
+      <ApiProvider deployment={deployment} setProvider={setProvider} />
       <CodeBlockView title={'An error occured'} response={error} />
     </VStack>
   );
