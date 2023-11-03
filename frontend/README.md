@@ -1,82 +1,170 @@
-# Getting Started with Create React App
+# API integrations Frontend Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend application for the API integrations project.
 
-## Available Scripts
+## Getting started
 
-In the project directory, you can run:
+### Prerequisites
 
-### `npm start`
+- [Node.js](https://nodejs.org/en/) (>= 16)
+- [npm](https://www.npmjs.com/) (>= 9)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+npm install
+```
 
-### `npm test`
+### Running the application
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm run start
+```
 
-### `npm run build`
+### Accessing the application
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The application will be available at [http://localhost:3056](http://localhost:3056).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## General Information
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Home page
 
-### `npm run eject`
+The home page is the main page of the application. It contains a list of all the API providers.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### API provider page
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will
-remove the single build dependency from your project.
+#### Active Deployment
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right
-into your project so you have full control over them. All of the commands except `eject` will still work, but they will
-point to the copied scripts so you can tweak them. At this point you're on your own.
+The API provider page contains the details of an API provider. An api provider can have only one active deployment for
+every deployment locations. These deployment locations are: `aws` and `local`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you
-shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't
-customize it when you are ready for it.
+- The `aws` deployment location is the production deployment location and hosted on AWS.
+- The `local` deployment location is the production deployment location and hosted as a container on the local machine
+  or on a server.
 
-## Learn More
+Each API integration has a name, deployment status, and a list of feeds.
 
-You can learn more in the
-[Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Candidate Deployment
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This section contains a list of candidate deployments for the API provider. API provider can replace the active
+deployment with a candidate deployment.
 
-### Code Splitting
+### Deployment page
 
-This section has moved here:
-[https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The deployment page contains the ois details. A deployment can have multiple oises. Each can have their own feeds,
+secret keys, and other details.
 
-### Analyzing the Bundle Size
+Thus deployment page contains the following sections:
 
-This section has moved here:
-[https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Pusher mnemonic
+- OIS details
+- Deployment details
 
-### Making a Progressive Web App
+#### Pusher mnemonic
 
-This section has moved here:
-[https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This section contains the mnemonic of the pusher account. This mnemonic is used to sign the transactions.
 
-### Advanced Configuration
+#### OIS details
 
-This section has moved here:
-[https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This section contains the details of the OIS. The OIS details are:
 
-### Deployment
+- OIS title
+- API secret key
+- Feeds
 
-This section has moved here:
-[https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### Deployment details
 
-### `npm run build` fails to minify
+This section contains the details of the deployment. The deployment details are:
 
-This section has moved here:
-[https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Deployment location
+- Deployment instructions
+
+# Usage
+
+## Deployment details
+
+Click on the deployment name to view the details of the deployment. The page contains the details of the OIS and the
+deployment section.
+
+## OIS details
+
+Each OIS has its own secret key and feeds.
+
+### View secret key
+
+Click on the expand button on `Secrets` section to enter the secret key of the OIS. The secret key is used to call api
+endpoints and its used to generate deployment configurations.
+
+### View feeds
+
+Click on the expand button on `Feeds` section to view the feeds of the OIS.
+
+#### Feed details:
+
+- Feed name
+- Feed request type and url
+- Feed parameters
+- Feed post processing
+- Try it out button
+
+### Testing feeds
+
+Click on the `Try it out` button to test the feed. Test process is as follows:
+
+- Preprocess the feed parameters
+- Call the feed endpoint
+- Post process the feed response
+- Display the feed response
+
+## View deployment instructions
+
+Click on the expand deployment location to view the deployment instructions. The deployment locations are:
+
+- AWS
+- Local
+
+### AWS deployment instructions
+
+The AWS deployment instructions contains the following:
+
+- Go to CloudFormation section in the AWS dashboard, and upload your template
+- Wait for AWS to deploy everything and check CloudWatch log group named myAppLogs to see what's up.
+- After 1 or 2 minutes, you should see your signed data in https://pool.nodary.io/ after a successful deployment.
+
+### Local deployment instructions
+
+The local deployment instructions contains the following:
+
+- Run the following command to deploy the OIS on your local machine or server:
+
+for Windows:
+
+```bash
+docker run -it --rm ^
+      -v "%cd%:/app/config" ^
+      api3/pusher:0.1.0-rc2 deploy
+```
+
+for Linux and Mac:
+
+```bash
+docker run -it --rm \\
+      -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \\
+      -v "$(pwd):/app/config" \\
+      api3/pusher:0.1.0-rc2 deploy;
+```
+
+## Compare deployments
+
+Click on the `Compare` button to compare the active deployment with the candidate deployment. The comparison is done for
+each ois and feed.
+
+<img width="979" alt="image" src="https://github.com/api3dao/api-integrations/assets/31757771/5e1d4939-90a7-4add-8f36-c09fb2c7a43e">
+
+- Added feeds
+- Removed feeds
+- Updated feeds
+- Unchanged feeds
+
+<img width="975" alt="image" src="https://github.com/api3dao/api-integrations/assets/31757771/271a7ac4-18f6-4fd1-97b3-b76ca003e3b5">
+
