@@ -1,15 +1,41 @@
-import * as fs from 'fs';
 import { OIS, Endpoint } from '@api3/ois';
 import { ethers } from 'ethers';
 import { encode } from '@api3/airnode-abi';
+import { globSync } from 'glob';
+import { apiDataSchema } from './validation';
 import oisTitles from '../../data/oisTitles.json';
+import * as fs from 'fs';
 
 export function getOisTitleWithAirnodeAddress(airnodeAddress: string) {
   return (oisTitles as Record<string, string[]>)[airnodeAddress];
 }
 
+export function getOisTitleByFeedNameAndAirnodeAddress(feedName: string, airnodeAddress) {
+  const apiPaths = globSync('./data/apis/*').filter((item) => !item.includes('mock'));
+  const apis = apiPaths.map((path) => {
+    return apiDataSchema.parse(readJson(`${path}/api-data.json`));
+  });
+
+  const targetApiData = apis.find((a) => a.airnode === airnodeAddress);
+  if(!targetApiData) {
+    throw Error(`Couldn't find any API with Airnode address ${airnodeAddress}`);
+  }
+  
+  // find which OIS includes the data feed
+  const targetOisTitle = Object.keys(targetApiData.supportedFeedsInBatches).find((oisTitle) => {
+    return targetApiData.supportedFeedsInBatches[oisTitle].flat().includes(feedName);
+  });
+
+  if(!targetOisTitle) {
+    throw Error(`Data feed ${feedName} does not exists in any OIS.`);
+  }
+
+  return targetOisTitle;
+}
+
 export function deriveDataFeedId(feedName: string, airnodeAddress: string) {
-  const templateId = deriveTemplateId({ airnodeAddress: airnodeAddress, feedName: feedName });
+  const targetOisTitle = getOisTitleByFeedNameAndAirnodeAddress(feedName, airnodeAddress);
+  const templateId = deriveTemplateId({ oisTitle: targetOisTitle, feedName: feedName });
   return ethers.utils.solidityKeccak256(['address', 'bytes32'], [airnodeAddress, templateId]);
 }
 
@@ -21,11 +47,11 @@ export function deriveTemplateId(inputs: { feedName: string; oisTitle?: string; 
     const parameters = encode([{ name: 'name', type: 'string32', value: feedName }]);
     return ethers.utils.solidityKeccak256(['bytes32', 'bytes'], [endpointId, parameters]);
   }
-  const endpointIds = deriveEndpointId({ airnodeAddress: airnodeAddress }) as string[];
-  return endpointIds.map((endpointId: string) => {
-    const parameters = encode([{ name: 'name', type: 'string32', value: feedName }]);
-    return ethers.utils.solidityKeccak256(['bytes32', 'bytes'], [endpointId, parameters]);
-  });
+
+  const targetOisTitle = getOisTitleByFeedNameAndAirnodeAddress(feedName, airnodeAddress);
+  const parameters = encode([{ name: 'name', type: 'string32', value: feedName }]);
+  const endpointId = deriveEndpointId({oisTitle: targetOisTitle})
+  return ethers.utils.solidityKeccak256(['bytes32', 'bytes'], [endpointId, parameters]);
 }
 
 export function deriveEndpointId(input: { oisTitle?: string; airnodeAddress?: string }): string | string[] {
