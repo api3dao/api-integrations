@@ -1,10 +1,13 @@
-import { globSync } from "glob";
-import { readJson } from "./config-generation/config-utils";
-import { apiDataSchema } from "./types";
+import { globSync } from 'glob';
+import { readJson } from './config-generation/config-utils';
+import { apiDataSchema } from './types';
 
-
-
-export { deriveDataFeedId, deriveTemplateId, deriveEndpointId, getOisTitleByFeedNameAndAirnodeAddress } from "./config-generation/config-utils";
+export {
+  deriveDataFeedId,
+  deriveTemplateId,
+  deriveEndpointId,
+  getOisTitleByFeedNameAndAirnodeAddress
+} from './config-generation/config-utils';
 
 export function getAirnodeAddressByAlias(alias: string) {
   const apiPaths = globSync('./data/apis/*').filter((item) => !item.includes('mock'));
@@ -23,7 +26,3 @@ export function getApiProviderAliases() {
     return apiData.alias!;
   });
 }
-
-
-
-

@@ -17,16 +17,16 @@ export function getOisTitleByFeedNameAndAirnodeAddress(feedName: string, airnode
   });
 
   const targetApiData = apis.find((a) => a.airnode === airnodeAddress);
-  if(!targetApiData) {
+  if (!targetApiData) {
     throw Error(`Couldn't find any API with Airnode address ${airnodeAddress}`);
   }
-  
+
   // find which OIS includes the data feed
   const targetOisTitle = Object.keys(targetApiData.supportedFeedsInBatches).find((oisTitle) => {
     return targetApiData.supportedFeedsInBatches[oisTitle].flat().includes(feedName);
   });
 
-  if(!targetOisTitle) {
+  if (!targetOisTitle) {
     throw Error(`Data feed ${feedName} does not exists in any OIS.`);
   }
 
@@ -50,7 +50,7 @@ export function deriveTemplateId(inputs: { feedName: string; oisTitle?: string; 
 
   const targetOisTitle = getOisTitleByFeedNameAndAirnodeAddress(feedName, airnodeAddress);
   const parameters = encode([{ name: 'name', type: 'string32', value: feedName }]);
-  const endpointId = deriveEndpointId({oisTitle: targetOisTitle})
+  const endpointId = deriveEndpointId({ oisTitle: targetOisTitle });
   return ethers.utils.solidityKeccak256(['bytes32', 'bytes'], [endpointId, parameters]);
 }
 
