@@ -6,7 +6,8 @@ export {
   deriveDataFeedId,
   deriveTemplateId,
   deriveEndpointId,
-  getOisTitleByFeedNameAndAirnodeAddress
+  getOisTitleByFeedNameAndAirnodeAddress,
+  getDecodedParameters
 } from './config-generation/config-utils';
 
 export function getAirnodeAddressByAlias(alias: string) {

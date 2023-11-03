@@ -140,3 +140,7 @@ export function getPostProcessingString(ois: OIS) {
 export function getFeedEndpointParameters(ois: OIS) {
   return ois.endpoints.filter((e: Endpoint) => e.name === 'feed')[0].parameters;
 }
+
+export function getDecodedParameters(feedName: string) {
+  return [{ name: 'name', type: 'string32', value: feedName }]
+}
