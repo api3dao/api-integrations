@@ -29,7 +29,7 @@ The application will be available at [http://localhost:3056](http://localhost:30
 
 ### Home page
 
-The home page is the main page of the application. It contains a list of all the API providers.
+The home page is the main page of the application. API providers can paste their Airnode address to view their API configurations.
 
 ### API provider page
 
@@ -167,4 +167,3 @@ each ois and feed.
 - Unchanged feeds
 
 <img width="975" alt="image" src="https://github.com/api3dao/api-integrations/assets/31757771/271a7ac4-18f6-4fd1-97b3-b76ca003e3b5">
-

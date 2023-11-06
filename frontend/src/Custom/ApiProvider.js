@@ -1,32 +1,32 @@
-import { Text, Image, VStack } from '@chakra-ui/react';
+import { Text, Image, VStack, Flex } from '@chakra-ui/react';
 import { COLORS, CONSTANTS } from '../data/constants';
 
-const ApiProvider = ({ index, deployments, setProvider }) => {
-  const key = Object.keys(deployments)[0];
-
-  return (
-    <VStack key={index} p={3} cursor={'pointer'}>
-      <VStack
-        minWidth={'150px'}
-        height={'150px'}
+const ApiProvider = ({ deployment, setProvider }) => {
+  return deployment === undefined || deployment == null ? null : (
+    <VStack cursor={'pointer'}>
+      <Flex
+        p={3}
+        gap={3}
+        width={'100%'}
+        height={'50px'}
         bg={COLORS.header}
         boxShadow={CONSTANTS.boxShadowSolid}
-        justifyContent={'center'}
-        onClick={() => setProvider({ header: key, deployments: deployments[key] })}
+        alignItems={'center'}
+        onClick={() => setProvider(deployment)}
       >
         <Image
-          src={`./providers/${key}.png`}
-          fallbackSrc={`./providers/${key}.svg`}
-          alt={key}
+          src={`./providers/${deployment.alias}.png`}
+          fallbackSrc={`./providers/${deployment.alias}.svg`}
+          alt={deployment.alias}
           objectFit={'contain'}
           width={'100px'}
-          height={'100px'}
+          height={'50px'}
         />
-
-        <Text fontSize={'xs'} fontWeight={'light'}>
-          {key.toUpperCase()}
+        <Text fontSize={'2xl'} fontWeight={'light'}>|</Text>
+        <Text fontSize={'md'} fontWeight={'semi-bold'}>
+          {deployment.alias.toUpperCase()}
         </Text>
-      </VStack>
+      </Flex>
     </VStack>
   );
 };

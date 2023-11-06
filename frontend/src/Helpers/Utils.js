@@ -353,3 +353,17 @@ export const checkSupportedFeedsInBatches = (supportedFeedsInBatches, oises) => 
     };
   });
 };
+
+export const checkValidEthAddresses = (ethAddresses) => {
+  try {
+    const isValid = ethAddresses.match(/^0x[a-fA-F0-9]{40}$/) !== null;
+
+    if (isValid) {
+      return true;
+    } else {
+      throw new Error('Invalid eth address');
+    }
+  } catch (error) {
+    throw new Error('Invalid eth address');
+  }
+};

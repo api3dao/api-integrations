@@ -34,11 +34,11 @@ export const checkFiles = (ctx) => {
       continue;
     }
 
-    const isExist = apis.find((item) => item[api]);
+    const isExist = apis.find((item) => item.alias === api);
 
     if (isExist) {
-      activeDeployment = isExist[api].activeDeployment;
-      candidateDeployment = isExist[api].candidateDeployment;
+      activeDeployment = isExist.activeDeployment;
+      candidateDeployment = isExist.candidateDeployment;
 
       if (keys[i].includes('active-deployments')) {
         activeDeployment.push({ filename: filename, config: value, category: 'active', apiProvider: api });
@@ -61,11 +61,10 @@ export const checkFiles = (ctx) => {
       }
 
       const obj = {
-        [api]: {
-          activeDeployment: activeDeployment,
-          candidateDeployment: candidateDeployment,
-          apiData: apiData.find((item) => item.apiProvider === api)
-        }
+        alias: api,
+        activeDeployment: activeDeployment,
+        candidateDeployment: candidateDeployment,
+        apiData: apiData.find((item) => item.apiProvider === api)
       };
       apis.push(obj);
     }
