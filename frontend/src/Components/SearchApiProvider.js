@@ -53,12 +53,7 @@ const SearchApiProvider = ({ providers, setProvider }) => {
         Copy your Airnode address and paste it in the box below.
       </Text>
       <Flex justifyContent={'left'} direction={'row'}>
-        <PasteRow
-          title={'Airnode address'}
-          text={airnodeAddress}
-          setText={setAirnodeAddress}
-          margin={0}
-        />
+        <PasteRow title={'Airnode address'} text={airnodeAddress} setText={setAirnodeAddress} margin={0} />
       </Flex>
       {deployment === null ? null : (
         <VStack width={'100%'} align={'left'}>

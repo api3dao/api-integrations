@@ -27,21 +27,16 @@ const FeedsView = ({ ois }) => {
 };
 
 const SecretsView = ({ index, text, setText }) => {
-
   const setSecuritySchemeValue = (value) => {
     setText(index, value);
-  }
+  };
 
   return (
     <ExpandableView
       status={5}
       view={
         <VStack alignItems={'left'} p={2} border={'1px'} borderColor={COLORS.main} width={'100%'}>
-          <PasteRow
-            text={text}
-            title={'Security Scheme Value:'}
-            setText={setSecuritySchemeValue}
-          />
+          <PasteRow text={text} title={'Security Scheme Value:'} setText={setSecuritySchemeValue} />
         </VStack>
       }
       header={'Secrets'}
@@ -66,7 +61,7 @@ const OisView = ({ apiData }) => {
 
   const getSecuritySchemeValue = (i) => {
     return config.config.apiCredentials[i].securitySchemeValue;
-  }
+  };
 
   return config.config.ois.map((ois, index) => (
     <VStack key={index} alignItems={'left'} width={'100%'}>
