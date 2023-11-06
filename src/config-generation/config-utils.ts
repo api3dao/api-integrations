@@ -1,21 +1,18 @@
 import { OIS, Endpoint } from '@api3/ois';
 import { ethers } from 'ethers';
 import { encode } from '@api3/airnode-abi';
-import { globSync } from 'glob';
 import { apiDataSchema } from './validation';
 import oisTitles from '../../data/oisTitles.json';
 import * as fs from 'fs';
+import { apisData } from '../generated/apis';
+
 
 export function getOisTitleWithAirnodeAddress(airnodeAddress: string) {
   return (oisTitles as Record<string, string[]>)[airnodeAddress];
 }
 
 export function getOisTitleByFeedNameAndAirnodeAddress(feedName: string, airnodeAddress) {
-  const apiPaths = globSync('./data/apis/*').filter((item) => !item.includes('mock'));
-  const apis = apiPaths.map((path) => {
-    return apiDataSchema.parse(readJson(`${path}/api-data.json`));
-  });
-
+  const apis = Object.values(apisData);
   const targetApiData = apis.find((a) => a.airnode === airnodeAddress);
   if (!targetApiData) {
     throw Error(`Couldn't find any API with Airnode address ${airnodeAddress}`);
