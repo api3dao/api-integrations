@@ -2,7 +2,11 @@
   "name": "api-integrations",
   "version": "1.0.0",
   "description": "Repository for API integration related operations.",
-  "main": "index.js",
+  "main": "./dist/src/index.js",
+  "files": [
+    "src",
+    "dist"
+  ],
   "repository": "git@github.com:api3dao/api-integrations.git",
   "author": "metobom <unutkan2013@yandex.com>",
   "license": "MIT",
@@ -30,6 +34,7 @@
     "zod": "^3.22.4"
   },
   "scripts": {
+    "build": "rm -rf ./dist && ts-node ./scripts/generate-apis.ts && tsc -p tsconfig.build.json",
     "prettier:check": "prettier --check \"./**/*.{js,ts,md,json,json.example}\"",
     "prettier:write": "prettier --write \"./**/*.{js,ts,md,json,json.example}\"",
     "eslint:check": "eslint . --ext .js,.ts",
