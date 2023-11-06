@@ -50,7 +50,7 @@ const SearchApiProvider = ({ providers, setProvider }) => {
         <Spacer />
       </Flex>
       <Text fontSize={'md'} fontWeight={'light'}>
-        Copy your Airnode address and paste it below using the paste button below.
+        Copy your Airnode address and paste it in the box below.
       </Text>
       <Flex justifyContent={'left'} direction={'row'}>
         <PasteRow
