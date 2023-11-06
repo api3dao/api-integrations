@@ -35,7 +35,7 @@ const main = async () => {
   });
 
   // read required files
-  let pusherConfig = readJson('./boilerplates/boilerplate-pusher-config.json');
+  const pusherConfig = readJson('./boilerplates/boilerplate-pusher-config.json');
   const apiData = apiDataSchema.parse(readJson(`./data/apis/${apiName}/api-data.json`));
 
   // read oises
@@ -51,7 +51,7 @@ const main = async () => {
 
   // validate OIS titles in "apiData.supportedFeedsInBatches"
   const originalOisTitlesHash = ethers.utils.solidityKeccak256(
-    oises.map((o: OIS) => 'string'),
+    oises.map((_o: OIS) => 'string'),
     oises.map((o: OIS) => o.title).sort()
   );
   const oisTitlesHashFromApiData = ethers.utils.solidityKeccak256(
