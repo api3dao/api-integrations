@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import ApiProvider from '../Custom/ApiProvider';
 import CodeBlockView from '../Custom/CodeBlockView';
 import { checkValidEthAddresses } from '../Helpers/Utils';
+import Title from '../Custom/Title';
 
 const SearchApiProvider = ({ providers, setProvider }) => {
   const [airnodeAddress, setAirnodeAddress] = useState(null);
@@ -41,9 +42,9 @@ const SearchApiProvider = ({ providers, setProvider }) => {
       alignItems={'left'}
       justifyItems={'center'}
     >
-      <Flex alignItems={'center'}>
+      <Flex p={3} border={"1px"} borderColor={COLORS.main} alignItems={'center'}>
         <SearchIcon width={'32px'} height={'32px'} mr={2} />
-        <Text fontSize={'3xl'} fontWeight={'light'}>
+        <Text fontSize={'3xl'} fontWeight={'semi-bold'}>
           Search Api Provider
         </Text>
         <Spacer />
@@ -60,7 +61,14 @@ const SearchApiProvider = ({ providers, setProvider }) => {
           bgColor={COLORS.info}
         />
       </Flex>
-      <ApiProvider deployment={deployment} setProvider={setProvider} />
+      {
+        deployment === null ? null : (
+          <VStack width={"100%"} align={"left"}>
+            <Title header={"Search results"} buttonVisibility={false} isLoading={false} fontWeight='semi-bold' p={0} />
+            <ApiProvider deployment={deployment} setProvider={setProvider} />
+          </VStack>
+        )
+      }
       <CodeBlockView title={'An error occured'} response={error} />
     </VStack>
   );

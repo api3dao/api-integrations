@@ -60,10 +60,11 @@ const Integrations = ({ integrations, setProvider }) => {
       justifyItems={'center'}
     >
       <Title
-        header={config == null ? integrations.alias.toUpperCase() : config.filename}
+        header={config == null ? integrations.alias : config.filename}
         buttonVisibility={true}
         onClick={() => detach()}
         isLoading={false}
+        fontWeight='semi-bold'
       />
 
       <Flex spacing={4} overflow={'scroll'}>

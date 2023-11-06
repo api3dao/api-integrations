@@ -3,11 +3,11 @@ import { Text, Flex, Spacer, VStack } from '@chakra-ui/react';
 import { ColorRing } from 'react-loader-spinner';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 
-const Title = ({ isLoading, header, onClick, buttonVisibility = true }) => {
+const Title = ({ isLoading, header, onClick, buttonVisibility = true, fontWeight = 'light', p = 3 }) => {
   return (
-    <VStack p={3} alignItems={'left'}>
+    <VStack p={p} alignItems={'left'}>
       <Flex alignItems={'center'} borderBottomWidth={1}>
-        <Text fontWeight={'light'} fontSize={'2xl'} textUnderlineOffset={1}>
+        <Text fontWeight={fontWeight} fontSize={'2xl'} textUnderlineOffset={1}>
           {header}
         </Text>
         <Spacer />
