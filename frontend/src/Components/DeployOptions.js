@@ -1,17 +1,14 @@
-import { VStack, Stack } from '@chakra-ui/react';
-import { Flex, Image, Text } from '@chakra-ui/react';
+import { VStack, Stack, Flex, Image, Text } from '@chakra-ui/react';
+import { useContext, useState } from 'react';
+import Help from './Help';
 import Title from '../Custom/Title';
 import NumberedBox from '../Custom/NumberedBox';
 import ImageButton from '../Custom/ImageButton';
-import { useState } from 'react';
-import Help from './Help';
-import { CONSTANTS } from '../data/constants';
-import { COLORS } from '../data/constants';
+import { CONSTANTS, COLORS } from '../data/constants';
 
 import { populateOis } from '../Helpers/DownloadConfig';
 
 import { ApiIntegrationsContext } from '../Context';
-import { useContext } from 'react';
 
 const DeployOptions = ({ apiData }) => {
   const [selected, setSelected] = useState(0);

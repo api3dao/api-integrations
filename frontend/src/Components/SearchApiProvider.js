@@ -1,8 +1,8 @@
 import { Flex, Text, VStack, Spacer } from '@chakra-ui/react';
-import { COLORS } from '../data/constants';
-import { SearchIcon } from '@chakra-ui/icons';
-import PasteRow from '../Custom/PasteRow';
 import { useEffect, useState } from 'react';
+import { SearchIcon } from '@chakra-ui/icons';
+import { COLORS } from '../data/constants';
+import PasteRow from '../Custom/PasteRow';
 import ApiProvider from '../Custom/ApiProvider';
 import CodeBlockView from '../Custom/CodeBlockView';
 import { checkValidEthAddresses } from '../Helpers/Utils';

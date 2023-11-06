@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { VStack, Flex } from '@chakra-ui/react';
-import { checkFiles } from '../Helpers/FetchApis';
 import Integrations from './Integrations';
 import SearchApiProvider from './SearchApiProvider';
+import { checkFiles } from '../Helpers/FetchApis';
 
 const Welcome = () => {
   const [provider, setProvider] = useState(null);

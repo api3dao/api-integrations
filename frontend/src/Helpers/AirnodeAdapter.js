@@ -1,8 +1,8 @@
 import * as adapter from '@api3/airnode-adapter';
 import isEmpty from 'lodash/isEmpty';
 import { RESERVED_PARAMETERS } from '@api3/ois';
-import { FIRST_API_CALL_TIMEOUT, PROCESSING_TIMEOUT } from '../data/constants';
 import axios from 'axios';
+import { FIRST_API_CALL_TIMEOUT, PROCESSING_TIMEOUT } from '../data/constants';
 
 export const removeKeys = (obj, keys) => {
   const newObj = { ...obj };

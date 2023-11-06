@@ -10,7 +10,13 @@ module.exports = {
   },
   globals: {
     Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly'
+    SharedArrayBuffer: 'readonly',
+    window: true,
+    document: true,
+    navigator: true,
+    alert: true,
+    test: true,
+    expect: true
   },
   extends: [
     'eslint:recommended',

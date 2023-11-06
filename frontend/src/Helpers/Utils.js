@@ -1,11 +1,11 @@
 import parserTypeScript from 'prettier/parser-babel';
 import prettier from 'prettier/standalone';
-import { log } from '../Helpers/Logger';
 import _ from 'lodash';
+import { log } from '../Helpers/Logger';
 
 export const cut = (object, initialMatch, finalMatch, replaceQuotes = true, json = false, setError) => {
   try {
-    const newObject = object.map((code, index) => {
+    const newObject = object.map((code) => {
       let sanitized = code.value.replaceAll(/(\n)/g, '');
       sanitized = sanitized.replace(/ +(?= )/g, '');
       const object = sanitized.match(initialMatch);
@@ -57,7 +57,7 @@ export const combine = (endpoint, setError) => {
   log('debug', ['postProcessingSpecifications: ', postProcessingSpecifications]);
   log('debug', ['preProcessingSpecifications: ', preProcessingSpecifications]);
 
-  const combined = postProcessingSpecifications.map((item, index) => {
+  const combined = postProcessingSpecifications.map((item) => {
     log('debug', [item[0], item[1], preProcessingSpecifications[item[0]]]);
     return {
       feed: item[0],

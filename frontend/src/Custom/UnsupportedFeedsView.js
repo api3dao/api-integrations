@@ -1,7 +1,7 @@
 import { Flex, Text, VStack } from '@chakra-ui/react';
-import { checkSupportedFeedsInBatches } from '../Helpers/Utils';
 import TableView from './TableView';
 import ExpandableView from './ExpandableView';
+import { checkSupportedFeedsInBatches } from '../Helpers/Utils';
 
 const fileIsMissing = () => {
   return (

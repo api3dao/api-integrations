@@ -1,7 +1,7 @@
 import { Text, Flex, Spacer, VStack, Box } from '@chakra-ui/react';
-import { COLORS, CONSTANTS } from '../data/constants';
 import { TriangleDownIcon, TriangleUpIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
+import { COLORS, CONSTANTS } from '../data/constants';
 
 const ExpandableView = ({ view, header, defaultState = false, status = 0, size = 'md' }) => {
   const [isOpen, setIsOpen] = useState(defaultState);

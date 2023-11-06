@@ -1,16 +1,13 @@
 import './App.css';
+import { HashRouter, Routes, Route } from 'react-router-dom';
+import { ChakraProvider, Flex, VStack, ColorModeScript } from '@chakra-ui/react';
+import { useState } from 'react';
 import Header from './Components/Header';
 import Welcome from './Components/Welcome';
 
-import { HashRouter, Routes, Route } from 'react-router-dom';
-
-import { ColorModeScript } from '@chakra-ui/react';
-
-import { ChakraProvider, Flex, VStack } from '@chakra-ui/react';
 import theme from './theme';
 
 import ParticlesBg from './Custom/ParticlesBg';
-import { useState } from 'react';
 
 import { ApiIntegrationsContext } from './Context';
 
