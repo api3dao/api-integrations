@@ -344,11 +344,13 @@ export const checkSupportedFeedsInBatches = (supportedFeedsInBatches, oises) => 
 
   return feedEndpoints.map((feedEndpoint) => {
     const feeds = supportedFeedsInBatches[feedEndpoint.oisTitle].flat();
-
     return {
       oisTitle: feedEndpoint.oisTitle,
       unsupportedFeeds: feedEndpoint.feeds.filter((feed) => {
         return !feeds.includes(feed.feed);
+      }),
+      feedsNotInBatch: feeds.filter((feed) => {
+        return !feedEndpoint.feeds.some((feedEndpoint) => feedEndpoint.feed === feed);
       })
     };
   });
