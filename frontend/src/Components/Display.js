@@ -1,6 +1,6 @@
-import { VStack, Flex, Text, Box, Input, Spacer } from '@chakra-ui/react';
+import { VStack } from '@chakra-ui/react';
 import Endpoint from './Endpoint';
-import InputRow from '../Custom/InputRow';
+import PasteRow from '../Custom/PasteRow';
 import { COLORS } from '../data/constants';
 import Title from '../Custom/Title';
 import ExpandableView from '../Custom/ExpandableView';
@@ -26,7 +26,30 @@ const FeedsView = ({ ois }) => {
   );
 };
 
-const SecretsView = ({ index }) => {
+const SecretsView = ({ index, text, setText }) => {
+
+  const setSecuritySchemeValue = (value) => {
+    setText(index, value);
+  }
+
+  return (
+    <ExpandableView
+      status={5}
+      view={
+        <VStack alignItems={'left'} p={2} border={'1px'} borderColor={COLORS.main} width={'100%'}>
+          <PasteRow
+            text={text}
+            title={'Security Scheme Value:'}
+            setText={setSecuritySchemeValue}
+          />
+        </VStack>
+      }
+      header={'Secrets'}
+    ></ExpandableView>
+  );
+};
+
+const OisView = ({ apiData }) => {
   const { config, setConfig } = useContext(ApiIntegrationsContext);
 
   const setSecuritySchemeValues = (i, value) => {
@@ -41,43 +64,16 @@ const SecretsView = ({ index }) => {
     setConfig({ ...config });
   };
 
-  return (
-    <ExpandableView
-      status={5}
-      view={
-        <VStack alignItems={'left'} p={2} border={'1px'} borderColor={COLORS.main} width={'100%'}>
-          <VStack width={'100%'} direction="row" align="left">
-            <Text fontWeight={'bold'} fontSize={'md'}>
-              {'Security Scheme Value'}
-            </Text>
-            <Box p="2" width={'100%'} borderRadius={'10'} bgColor={COLORS.table} alignItems={'center'}>
-              <Flex className="box">
-                <Input
-                  type="text"
-                  value={config.config.apiCredentials[index].securitySchemeValue}
-                  onChange={(e) => setSecuritySchemeValues(index, e.target.value)}
-                  size="md"
-                />
-                <Spacer />
-              </Flex>
-            </Box>
-          </VStack>
-        </VStack>
-      }
-      header={'Secrets'}
-    ></ExpandableView>
-  );
-};
-
-const OisView = ({ apiData }) => {
-  const { config } = useContext(ApiIntegrationsContext);
+  const getSecuritySchemeValue = (i) => {
+    return config.config.apiCredentials[i].securitySchemeValue;
+  }
 
   return config.config.ois.map((ois, index) => (
     <VStack key={index} alignItems={'left'} width={'100%'}>
       <Title header={ois.title} buttonVisibility={false} isLoading={false} />
       <VStack bgColor={COLORS.table} spacing={4} alignItems={'left'}>
         <UnsupportedFeedsView apiData={apiData} ois={ois} />
-        <SecretsView index={index} />
+        <SecretsView index={index} text={getSecuritySchemeValue(index)} setText={setSecuritySchemeValues} />
         <FeedsView ois={ois} />
       </VStack>
     </VStack>
@@ -96,7 +92,7 @@ const Display = ({ apiData }) => {
     <VStack p={1} spacing={4} alignItems={'left'}>
       <Title header={'Airnode Wallet Mnemonic'} isLoading={false} buttonVisibility={false} />
       <VStack alignItems={'left'} p={2} border={'1px'} borderColor={COLORS.main} width={'100%'}>
-        <InputRow
+        <PasteRow
           text={config.config.nodeSettings.airnodeWalletMnemonic}
           title={'Enter wallet mnemonic:'}
           setText={setAirnodeWalletMnemonic}

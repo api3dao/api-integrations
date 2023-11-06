@@ -58,7 +58,6 @@ const SearchApiProvider = ({ providers, setProvider }) => {
           text={airnodeAddress}
           setText={setAirnodeAddress}
           margin={0}
-          bgColor={COLORS.info}
         />
       </Flex>
       {deployment === null ? null : (
