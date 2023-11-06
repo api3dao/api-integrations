@@ -20,13 +20,26 @@ const ListView = (table) => {
     <ExpandableView
       status={2}
       view={
-        <TableView
-          parameters={table.table}
-          headers={[
-            { key: 'name', value: 'Name' },
-            { key: 'status', value: 'Possible Reason' }
-          ]}
-        />
+        <VStack p={2} spacing={2} width={'100%'} align={'left'}>
+          <Text fontSize={'sm'}>
+            {'This deployment has unsupported feeds according to most recent API configuration specifications.'}
+          </Text>
+          <Text fontSize={'sm'}>
+            {
+              'This means that the deployment is either using a new feed that is not yet supported by the API, or that the deployment is using a feed that is no longer supported by the API.'
+            }
+          </Text>
+          <Text fontSize={'sm'}>
+            {'Please check if there is any candidate deployment present to replace current deployment'}
+          </Text>
+          <TableView
+            parameters={table.table}
+            headers={[
+              { key: 'name', value: 'Name' },
+              { key: 'status', value: 'Possible Reason' }
+            ]}
+          />
+        </VStack>
       }
       header={'Unsupported Feeds'}
     ></ExpandableView>
