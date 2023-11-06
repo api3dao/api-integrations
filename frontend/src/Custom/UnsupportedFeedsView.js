@@ -24,7 +24,7 @@ const ListView = (table) => {
           parameters={table}
           headers={[
             { key: 'name', value: 'Name' },
-            { key: 'status', value: 'Status' }
+            { key: 'status', value: 'Possible Reason' }
           ]}
         />
       }
@@ -37,12 +37,21 @@ const UnsupportedFeedsView = ({ apiData, ois }) => {
   try {
     if (apiData === undefined || apiData == null) return fileIsMissing();
     const result = checkSupportedFeedsInBatches(apiData.config.supportedFeedsInBatches, [ois])[0];
-    const table = result.unsupportedFeeds.map((feed, index) => ({
+    const feedsNotInConfig = result.unsupportedFeeds.map((feed) => ({
       name: feed.feed,
-      status: 'Could not find feed in config file.'
+      status: 'Removed from feed list'
     }));
 
-    return apiData === undefined || result.unsupportedFeeds.length === 0 ? null : <ListView table={table} />;
+    const feedsNotInBatch = result.feedsNotInBatch.map((feed) => ({
+      name: feed,
+      status: 'New feed'
+    }));
+
+    const merged = [...feedsNotInConfig, ...feedsNotInBatch];
+    return apiData === undefined ||
+      (result.unsupportedFeeds.length === 0 && result.feedsNotInBatch.length === 0) ? null : (
+      <ListView table={merged} />
+    );
   } catch (error) {
     console.log(error);
   }

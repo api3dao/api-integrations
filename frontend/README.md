@@ -167,4 +167,3 @@ each ois and feed.
 - Unchanged feeds
 
 <img width="975" alt="image" src="https://github.com/api3dao/api-integrations/assets/31757771/271a7ac4-18f6-4fd1-97b3-b76ca003e3b5">
-

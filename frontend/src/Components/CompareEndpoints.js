@@ -28,8 +28,8 @@ const CompareGroup = ({ title, group, comparison, oldOis, newOis, j, status }) =
         key={index}
         index={index}
         feed={feed}
-        newEndpoint={comparison.endpointsNew[j]}
-        oldEndpoint={comparison.endpointsOld[j]}
+        newEndpoint={comparison.endpointsNew.endpoints[j]}
+        oldEndpoint={comparison.endpointsOld.endpoints[j]}
         oldServers={oldOis[j].apiSpecifications}
         newServers={newOis[j].apiSpecifications}
         title={title}
