@@ -64,7 +64,7 @@ const Integrations = ({ integrations, setProvider }) => {
         buttonVisibility={true}
         onClick={() => detach()}
         isLoading={false}
-        fontWeight='semi-bold'
+        fontWeight="semi-bold"
       />
 
       <Flex spacing={4} overflow={'scroll'}>

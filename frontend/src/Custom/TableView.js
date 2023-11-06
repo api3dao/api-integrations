@@ -13,7 +13,7 @@ const TableView = ({ headers, parameters }) => {
     const rows = [];
     if (parameters === undefined || parameters === null) return rows;
     let index = 0;
-    parameters.table.map((parameter) => {
+    parameters.map((parameter) => {
       index = index + 1;
       return rows.push(
         <Tr key={index}>

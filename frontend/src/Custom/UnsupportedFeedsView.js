@@ -21,7 +21,7 @@ const ListView = (table) => {
       status={2}
       view={
         <TableView
-          parameters={table}
+          parameters={table.table}
           headers={[
             { key: 'name', value: 'Name' },
             { key: 'status', value: 'Possible Reason' }

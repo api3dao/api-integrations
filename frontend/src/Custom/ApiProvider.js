@@ -8,7 +8,7 @@ const ApiProvider = ({ deployment, setProvider }) => {
         p={3}
         gap={3}
         width={'100%'}
-        height={'50px'}
+        height={'70px'}
         bg={COLORS.header}
         boxShadow={CONSTANTS.boxShadowSolid}
         alignItems={'center'}
@@ -19,10 +19,12 @@ const ApiProvider = ({ deployment, setProvider }) => {
           fallbackSrc={`./providers/${deployment.alias}.svg`}
           alt={deployment.alias}
           objectFit={'contain'}
-          width={'100px'}
+          width={'50px'}
           height={'50px'}
         />
-        <Text fontSize={'2xl'} fontWeight={'light'}>|</Text>
+        <Text fontSize={'2xl'} fontWeight={'light'}>
+          |
+        </Text>
         <Text fontSize={'md'} fontWeight={'semi-bold'}>
           {deployment.alias.toUpperCase()}
         </Text>
