@@ -1,8 +1,6 @@
 import { apisData } from './generated/apis';
 
-
-
-export { apisData } from "./generated/apis";
+export { apisData } from './generated/apis';
 export {
   deriveDataFeedId,
   deriveTemplateId,
@@ -19,4 +17,4 @@ export function getApiProviderAliases() {
   Object.values(apisData).map((d) => d.alias);
 }
 
-//tsc -p tsconfig.build.json 
+//tsc -p tsconfig.build.json

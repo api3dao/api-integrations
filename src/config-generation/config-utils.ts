@@ -6,7 +6,6 @@ import oisTitles from '../../data/oisTitles.json';
 import * as fs from 'fs';
 import { apisData } from '../generated/apis';
 
-
 export function getOisTitleWithAirnodeAddress(airnodeAddress: string) {
   return (oisTitles as Record<string, string[]>)[airnodeAddress];
 }
@@ -139,5 +138,5 @@ export function getFeedEndpointParameters(ois: OIS) {
 }
 
 export function getDecodedParameters(feedName: string) {
-  return [{ name: 'name', type: 'string32', value: feedName }]
+  return [{ name: 'name', type: 'string32', value: feedName }];
 }
