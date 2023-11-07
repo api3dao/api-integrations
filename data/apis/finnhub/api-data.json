@@ -1,5 +1,6 @@
 {
   "alias": "finnhub",
+  "name": "Finnhub",
   "airnode": "0x6DAcDcc7043eCc6c898E4409F3ef50Ee7bceb062",
   "xpub": "xpub6D5daDufsGezKHrQiMuGmRwYPWRex2hFAtK3HhwckqE4twhoALFBf4TmYnxDQfC7iTeRoo9QqBBcu8AKAN2nijWaBG53sicAJw3Jiymi7ik",
   "supportedFeedsInBatches": {

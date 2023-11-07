@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "noEmit": false,
+    "sourceMap": true,
+    "outDir": "dist"
+  },
+  "exclude": ["src/**/*.test.ts", "dev-scripts", "src/ci-scripts", "src/config-generation", "src/types.ts"],
+  "include": ["src/index.ts", "src/generated"],
+  "extends": "./tsconfig.json"
+}

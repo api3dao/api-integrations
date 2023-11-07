@@ -1,5 +1,6 @@
 {
   "alias": "iexcloud",
+  "name": "IEXCloud",
   "airnode": "0xb5c0536302F5b80771fEa849C3D47A3729E97aA0",
   "xpub": "xpub6CkwEsLpGSh9Fb5m9E6FFareLYhhhBJAfac8cjgsBZQf19AhxnLkF9cWg523MV1UtiGAfUEPZnbCTum7zDgpgfM4hJiE1nvMu5r9d9srdA2",
   "supportedFeedsInBatches": {

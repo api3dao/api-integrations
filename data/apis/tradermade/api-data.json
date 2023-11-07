@@ -1,5 +1,6 @@
 {
   "alias": "tradermade",
+  "name": "TraderMade",
   "airnode": "0x8676eA8B6Ebe5b8FBbc25FF55192bADf39D7D61b",
   "xpub": "xpub6D3cpUGh9VPptibZ24bT1n3oHBb83zwghhXEU2EhyADPeG8mvMS7BiDz1svQLPnGguAoXp7mo4x59rjNHdxcBRXNS47z69eeWx8tnsirzr8",
   "supportedFeedsInBatches": {
