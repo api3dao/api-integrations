@@ -1,12 +1,13 @@
 import { go, goSync } from '@api3/promise-utils';
 import AWS from 'aws-sdk';
-import { isNil } from 'lodash';
+import _ from 'lodash';
 
 import { COMMON_HEADERS, MIN_IN_MS } from './constants';
 import { recoverSignerAddress } from './evm';
-import { TokenOwnerGroup, signedMessageSchema } from './types';
+import { APP_TYPES, TokenOwnerGroup, appTypeSchema, evmAddressSchema, signedMessageSchema } from './types';
 import { generateErrorResponse } from './utils';
-import { createToken } from './grafana-requests';
+import { createToken, queryLogs } from './grafana-requests';
+import { processHeartbeatLogs } from './process-logs';
 
 import type { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 
@@ -26,7 +27,7 @@ const docClient = new AWS.DynamoDB.DocumentClient();
 const tableName = 'tokenOwnerGroup';
 
 export const getToken = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
-  if (isNil(event.body)) return generateErrorResponse(400, 'Invalid request, http body is missing');
+  if (_.isNil(event.body)) return generateErrorResponse(400, 'Invalid request, http body is missing');
 
   const goJsonParseBody = goSync(() => JSON.parse(event.body as string));
   if (!goJsonParseBody.success) return generateErrorResponse(400, 'Invalid request, body must be in JSON');
@@ -64,7 +65,7 @@ export const getToken = async (event: APIGatewayProxyEvent): Promise<APIGatewayP
       goReadDb.error.message
     );
 
-  if (!isNil(goReadDb.data.Item))
+  if (!_.isNil(goReadDb.data.Item))
     return {
       statusCode: 200,
       headers: COMMON_HEADERS,
@@ -84,4 +85,38 @@ export const getToken = async (event: APIGatewayProxyEvent): Promise<APIGatewayP
     return generateErrorResponse(500, 'Unable to send created token to database', goWriteDb.error.message);
 
   return { statusCode: 200, headers: COMMON_HEADERS, body: JSON.stringify(newEntry) };
+};
+
+export const deploymentStatus = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+  if (_.isNil(event.queryStringParameters?.airnode))
+    return generateErrorResponse(400, 'Invalid request, query parameter airnode is missing');
+
+  if (_.isNil(event.queryStringParameters?.app))
+    return generateErrorResponse(400, 'Invalid request, query parameter app is missing');
+
+  const goValidateAirnode = await go(() => evmAddressSchema.parseAsync(event.queryStringParameters?.airnode));
+  if (!goValidateAirnode.success)
+    return generateErrorResponse(400, 'Invalid request, query parameter airnode must be valid EVM address');
+
+  const goValidateApp = await go(() => appTypeSchema.parseAsync(event.queryStringParameters?.app));
+  if (!goValidateApp.success)
+    return generateErrorResponse(400, `Invalid request, query parameter app must be in '${APP_TYPES.join(', ')}'`);
+
+  const airnode = goValidateAirnode.data;
+  const app = goValidateApp.data;
+
+  const goLogs = await go(() => queryLogs(app, airnode, 'Sending heartbeat log', '30', '5m'));
+  if (!goLogs.success) return generateErrorResponse(500, 'Unable to query logs from Grafana', goLogs.error.message);
+
+  const logs = goLogs.data.data;
+
+  const goProcessLogs = await go(() => processHeartbeatLogs(app, logs));
+  if (!goProcessLogs.success)
+    return generateErrorResponse(500, 'Unable to process logs from Grafana', goProcessLogs.error.message);
+
+  return {
+    statusCode: 200,
+    headers: { ...COMMON_HEADERS },
+    body: JSON.stringify({ app, airnode, count: goProcessLogs.data.length, data: goProcessLogs.data })
+  };
 };
