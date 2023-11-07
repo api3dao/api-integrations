@@ -19,17 +19,21 @@ const prettierConfig = readJson('./.prettierrc');
 async function generateApiDataJson() {
   const apiDataPaths = globSync('./data/apis/*/api-data.json');
   let apiDataJson = {};
+  let airnodeMapping = {};
   apiDataPaths.forEach((path) => {
     const apiData = apiDataSchema.parse(readJson(path));
     apiDataJson[apiData.alias] = apiData;
+    airnodeMapping[apiData.alias] = apiData.airnode;
   });
 
   if (!fs.existsSync(GENERATED_FILES_DIR)) {
     fs.mkdirSync(GENERATED_FILES_DIR);
   }
 
+
+
   const formattedContent = await prettier.format(
-    `${HEADER_CONTENT}\nexport const apisData = ${JSON.stringify(apiDataJson)}`,
+    `${HEADER_CONTENT}\nexport const apisData = ${JSON.stringify(apiDataJson)};\n export const airnodeAddressMap = ${JSON.stringify(airnodeMapping)};`,
     { ...prettierConfig, parser: 'typescript' }
   );
   fs.writeFileSync(join(GENERATED_FILES_DIR, 'apis.ts'), formattedContent);

@@ -888,3 +888,14 @@ export const apisData = {
     deploymentLocations: ['aws']
   }
 };
+export const airnodeAddressMap = {
+  twelvedata: '0x31C7db0e12e002E071ca0FF243ec4788a8AD189F',
+  tradermade: '0x8676eA8B6Ebe5b8FBbc25FF55192bADf39D7D61b',
+  ncfx: '0xbC6471E88d8aFe936A45bEB8bd20a210EBEF6822',
+  kaiko: '0x5791Fb78D4e37A9D0f0003199D1AE1A8C04C8d89',
+  iexcloud: '0xb5c0536302F5b80771fEa849C3D47A3729E97aA0',
+  finnhub: '0x6DAcDcc7043eCc6c898E4409F3ef50Ee7bceb062',
+  finage: '0xa924847354c551C79BAE7E75529364bA0449e51A',
+  dxfeed: '0x11030d4f8eB06F958E763C6f8b165D7CDd98DB6C',
+  coinpaprika: '0xC9B494D3c6eA3fD42779Df9A136Db10374c98D80'
+};
