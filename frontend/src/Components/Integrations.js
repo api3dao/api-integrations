@@ -1,8 +1,8 @@
 import { VStack, Flex } from '@chakra-ui/react';
-import { COLORS } from '../data/constants';
+import { useContext } from 'react';
 import Display from './Display';
 import CompareEndpoints from './CompareEndpoints';
-import { useContext } from 'react';
+import { COLORS } from '../data/constants';
 import { ApiIntegrationsContext } from '../Context';
 import DeploymentCategory from '../Custom/DeploymentCategory';
 import Title from '../Custom/Title';

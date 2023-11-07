@@ -1,8 +1,7 @@
-import { VStack } from '@chakra-ui/react';
-import { Box, Image } from '@chakra-ui/react';
+import { VStack, Box, Image } from '@chakra-ui/react';
 import { CONSTANTS } from '../data/constants';
 
-const StageLocation = ({ location, status }) => {
+const StageLocation = ({ location }) => {
   const getStatus = (status) => {
     switch (status) {
       case CONSTANTS.RUNNING:

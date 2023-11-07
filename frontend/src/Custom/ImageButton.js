@@ -1,5 +1,4 @@
-import { Flex, VStack } from '@chakra-ui/react';
-import { Box, Image } from '@chakra-ui/react';
+import { Flex, VStack, Box, Image } from '@chakra-ui/react';
 
 const ImageButton = ({ onClick, src, inW = '150px', outW = '150px', isSelected = false, isDisabled = false }) => {
   return (

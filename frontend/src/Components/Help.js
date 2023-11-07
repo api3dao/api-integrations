@@ -1,10 +1,9 @@
-import { VStack, Image, Text } from '@chakra-ui/react';
-import { Flex, Box } from '@chakra-ui/react';
+import { VStack, Image, Text, Flex, Box } from '@chakra-ui/react';
+import { CopyBlock, dracula } from 'react-code-blocks';
+import { useState } from 'react';
 import Steps from '../Custom/Steps';
 import { COLORS, CONSTANTS } from '../data/constants';
-import { CopyBlock, dracula } from 'react-code-blocks';
 import ImageButton from '../Custom/ImageButton';
-import { useState } from 'react';
 
 const DeployLocationButton = ({ mode, src, isSelected, setDockerMode }) => {
   return (

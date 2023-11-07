@@ -1,14 +1,13 @@
 import { VStack } from '@chakra-ui/react';
-import { useState } from 'react';
-import { getPath, formatParameters } from '../Helpers/Utils';
-import { callApiWithAdapter } from '../Helpers/AirnodeAdapter';
+import { useState, useContext } from 'react';
+import ParametersView from './ParametersView';
 import CodeBlockView from './CodeBlockView';
 import PathView from './PathView';
 import TryButton from './TryButton';
-import ParametersView from './ParametersView';
+import { getPath, formatParameters } from '../Helpers/Utils';
+import { callApiWithAdapter } from '../Helpers/AirnodeAdapter';
 
 import { ApiIntegrationsContext } from '../Context';
-import { useContext } from 'react';
 
 const FeedRowView = ({ endpoint, feed, apiSpecifications, oisTitle, tryit = true }) => {
   const [postProcessResult, setPostProcessResult] = useState(null);

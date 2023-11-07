@@ -1,9 +1,9 @@
 import { Text, VStack } from '@chakra-ui/react';
-import { getPath } from '../Helpers/Utils';
 import { useState } from 'react';
 
 import CodeBlockView from './CodeBlockView';
 import PathView from './PathView';
+import { getPath } from '../Helpers/Utils';
 
 const FeedView = ({ mode, endpoint, feed, servers, setError }) => {
   const getColor = (mode, darker = false) => {

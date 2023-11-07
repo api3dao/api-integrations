@@ -1,6 +1,5 @@
-import { CONSTANTS } from '../data/constants';
-
 import JSZip from 'jszip';
+import { CONSTANTS } from '../data/constants';
 
 export const testMnemonic = (mnemonic) => {
   if (mnemonic.split(' ').length !== 12)

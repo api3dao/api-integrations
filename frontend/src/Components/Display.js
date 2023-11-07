@@ -1,14 +1,14 @@
 import { VStack } from '@chakra-ui/react';
+import { useContext } from 'react';
 import Endpoint from './Endpoint';
+import DeployOptions from './DeployOptions';
 import PasteRow from '../Custom/PasteRow';
 import { COLORS } from '../data/constants';
 import Title from '../Custom/Title';
 import ExpandableView from '../Custom/ExpandableView';
-import DeployOptions from './DeployOptions';
 import UnsupportedFeedsView from '../Custom/UnsupportedFeedsView';
 
 import { ApiIntegrationsContext } from '../Context';
-import { useContext } from 'react';
 
 const FeedsView = ({ ois }) => {
   return (

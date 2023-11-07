@@ -1,4 +1,4 @@
-import Particles from 'react-particles';
+import { Particles } from 'react-particles';
 
 import { useCallback } from 'react';
 import { loadSlim } from 'tsparticles-slim'; // if you are going to use `loadSlim`, install the "tsparticles-slim" package too.
@@ -11,7 +11,7 @@ const ParticlesBg = () => {
     await loadSlim(engine);
   }, []);
 
-  const particlesLoaded = useCallback(async (container) => {}, []);
+  const particlesLoaded = useCallback(async () => {}, []);
 
   return (
     <VStack zIndex={-1}>

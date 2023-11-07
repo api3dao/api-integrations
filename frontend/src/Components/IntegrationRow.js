@@ -1,9 +1,7 @@
-import { Flex, Spacer, VStack } from '@chakra-ui/react';
-import { Stack } from '@chakra-ui/react';
-import { COLORS } from '../data/constants';
-import { Text } from '@chakra-ui/react';
-import { ApiIntegrationsContext } from '../Context';
+import { Flex, Spacer, VStack, Stack, Text } from '@chakra-ui/react';
 import { useContext, useEffect } from 'react';
+import { COLORS } from '../data/constants';
+import { ApiIntegrationsContext } from '../Context';
 import ImageButton from '../Custom/ImageButton';
 import StageLocation from '../Custom/StageLocation';
 
