@@ -17,7 +17,7 @@ export function getApiProviderAliases() {
   return Object.values(apisData).map((d) => d.alias);
 }
 
-export function getOisTitleWithAirnodeAddress(airnodeAddress: string) {
+export function getOisTitlesWithAirnodeAddress(airnodeAddress: string) {
   return (oisTitles as Record<string, string[]>)[airnodeAddress];
 }
 
@@ -80,7 +80,7 @@ export function deriveEndpointId(input: { oisTitle?: string; airnodeAddress?: st
     const existingAirnodeAddresses = Object.keys(oisTitles);
 
     if (existingAirnodeAddresses.includes(airnodeAddress)) {
-      const targetOisTitles = getOisTitleWithAirnodeAddress(airnodeAddress);
+      const targetOisTitles = getOisTitlesWithAirnodeAddress(airnodeAddress);
       const endpointIds = targetOisTitles.map((title: string) => {
         return ethers.utils.keccak256(ethers.utils.defaultAbiCoder.encode(['string', 'string'], [title, endpointName]));
       });
