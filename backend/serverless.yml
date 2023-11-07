@@ -21,9 +21,11 @@ provider:
 
   environment:
     TOKEN_REQUEST_MESSAGE: ${env:TOKEN_REQUEST_MESSAGE}
-    GF_REGION: ${env:GF_REGION}
-    GF_ADMIN_TOKEN: ${env:GF_ADMIN_TOKEN}
-    GF_ACCESS_POLICY_ID: ${env:GF_ACCESS_POLICY_ID}
+    GF_CLOUD_REGION: ${env:GF_CLOUD_REGION}
+    GF_CLOUD_TOKEN: ${env:GF_CLOUD_TOKEN}
+    GF_CLOUD_ACCESS_POLICY_ID: ${env:GF_CLOUD_ACCESS_POLICY_ID}
+    GF_LOKI_USER: ${env:GF_LOKI_USER}
+    GF_LOKI_ENDPOINT: ${env:GF_LOKI_ENDPOINT}
 
 # package:
 #   patterns:
@@ -40,6 +42,13 @@ functions:
       - httpApi:
           path: /getToken
           method: post
+  deploymentStatus:
+    memorySize: 128
+    handler: src/handlers.deploymentStatus
+    events:
+      - httpApi:
+          path: /deploymentStatus
+          method: get
 
 plugins:
   - serverless-plugin-typescript
