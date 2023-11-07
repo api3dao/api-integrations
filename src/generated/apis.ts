@@ -8,6 +8,7 @@
 export const apisData = {
   twelvedata: {
     alias: 'twelvedata',
+    name: 'TwelveData',
     airnode: '0x31C7db0e12e002E071ca0FF243ec4788a8AD189F',
     xpub: 'xpub6Cr7xJmbfHSLJqEqU9ycin3kSxbn5t29p743yq2M9FPbQQ65cU5rf2vt97WF3moA9GVCaojKQxrNNkwVBMur9p9buAquXJKLDw8gr53znYJ',
     supportedFeedsInBatches: {
@@ -153,6 +154,7 @@ export const apisData = {
   },
   tradermade: {
     alias: 'tradermade',
+    name: 'TraderMade',
     airnode: '0x8676eA8B6Ebe5b8FBbc25FF55192bADf39D7D61b',
     xpub: 'xpub6D3cpUGh9VPptibZ24bT1n3oHBb83zwghhXEU2EhyADPeG8mvMS7BiDz1svQLPnGguAoXp7mo4x59rjNHdxcBRXNS47z69eeWx8tnsirzr8',
     supportedFeedsInBatches: {
@@ -186,6 +188,7 @@ export const apisData = {
   },
   ncfx: {
     alias: 'ncfx',
+    name: 'NewChangeFX',
     airnode: '0xbC6471E88d8aFe936A45bEB8bd20a210EBEF6822',
     xpub: 'xpub6D1KuAee1Ubp3LcU76tUvrtjdoKFcU87CCBVKxYZCz3ejDRuRyYN9znp6TGv9rnTSujP7LfSirz5enf4EsUi58KbKBngsiwb8SDwZZ6pukB',
     supportedFeedsInBatches: {
@@ -316,6 +319,7 @@ export const apisData = {
   },
   kaiko: {
     alias: 'kaiko',
+    name: 'Kaiko',
     airnode: '0x5791Fb78D4e37A9D0f0003199D1AE1A8C04C8d89',
     xpub: 'xpub6Cd14fbNsTqhi7Urd3cyXHD1nfpDyFf2b5jLcNcwtcEiGzJpQ9UNDwNinYCEmoXgCEZyMZYmAPCaGCFBuCqMD8Pkz8zXWt4rgre8kQLFUMA',
     supportedFeedsInBatches: {
@@ -424,6 +428,7 @@ export const apisData = {
   },
   iexcloud: {
     alias: 'iexcloud',
+    name: 'IEXCloud',
     airnode: '0xb5c0536302F5b80771fEa849C3D47A3729E97aA0',
     xpub: 'xpub6CkwEsLpGSh9Fb5m9E6FFareLYhhhBJAfac8cjgsBZQf19AhxnLkF9cWg523MV1UtiGAfUEPZnbCTum7zDgpgfM4hJiE1nvMu5r9d9srdA2',
     supportedFeedsInBatches: {
@@ -460,6 +465,7 @@ export const apisData = {
   },
   finnhub: {
     alias: 'finnhub',
+    name: 'Finnhub',
     airnode: '0x6DAcDcc7043eCc6c898E4409F3ef50Ee7bceb062',
     xpub: 'xpub6D5daDufsGezKHrQiMuGmRwYPWRex2hFAtK3HhwckqE4twhoALFBf4TmYnxDQfC7iTeRoo9QqBBcu8AKAN2nijWaBG53sicAJw3Jiymi7ik',
     supportedFeedsInBatches: {
@@ -504,6 +510,7 @@ export const apisData = {
   },
   finage: {
     alias: 'finage',
+    name: 'Finage',
     airnode: '0xa924847354c551C79BAE7E75529364bA0449e51A',
     xpub: 'xpub6CFWer6kWqCwTQLLfMTVviYeHKmDvXM4Leq8AwUBE9XNqmQYAmgtGZnxKo6rxypmGRpeZjSZy8gHUNJioeZVrHnb6RyjsZs3MkeMoaL1JbV',
     supportedFeedsInBatches: {
@@ -651,6 +658,7 @@ export const apisData = {
   },
   dxfeed: {
     alias: 'dxfeed',
+    name: 'dxFeed',
     airnode: '0x11030d4f8eB06F958E763C6f8b165D7CDd98DB6C',
     xpub: 'xpub6DSE1Hr6hCmAXb9tapwx14DFth2qUQb8XKr5gAX7G9PcSUoszk3Wnx7zoxedVzun4vVt4ZzYZk27FcPz19bWuLA3kXYBBK3vjgYADFUCQDa',
     supportedFeedsInBatches: {
@@ -772,6 +780,7 @@ export const apisData = {
   },
   coinpaprika: {
     alias: 'coinpaprika',
+    name: 'Coinpaprika',
     airnode: '0xC9B494D3c6eA3fD42779Df9A136Db10374c98D80',
     xpub: 'xpub6D5v1hEMboS7g4TPs6PUNvChbPof3yvmuTQtPgaVtdz6PorVwy8DfUvdowKWYbMRvvoq4Qt3L2WBGJQDwKevuyrHJVUJAGapo2FkatVG9Ch',
     supportedFeedsInBatches: {

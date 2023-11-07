@@ -8,6 +8,7 @@ export const evmAddressSchema = z
 
 export const apiDataSchema = z.object({
   alias: z.string(),
+  name: z.string(),
   airnode: evmAddressSchema,
   xpub: z.string(),
   supportedFeedsInBatches: z.record(z.string(), z.array(z.array(z.string()))),
