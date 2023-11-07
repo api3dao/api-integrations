@@ -111,7 +111,9 @@
       ["MATICX/USD"],
       ["GHO/USD"],
       ["MNT/USD"],
-      ["KAVA/USD"]
+      ["KAVA/USD"],
+      ["RIF/USD"],
+      ["RDNT/USD"]
     ]
   },
   "deploymentLocations": ["aws"]
