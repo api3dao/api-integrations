@@ -117,6 +117,6 @@ export const deploymentStatus = async (event: APIGatewayProxyEvent): Promise<API
   return {
     statusCode: 200,
     headers: { ...COMMON_HEADERS },
-    body: JSON.stringify({ app, airnode, count: goProcessLogs.data.length, data: goProcessLogs.data })
+    body: JSON.stringify(goProcessLogs.data)
   };
 };
