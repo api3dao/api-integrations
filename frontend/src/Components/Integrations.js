@@ -73,7 +73,7 @@ const Integrations = ({ integrations, setProvider }) => {
       alignItems={'left'}
       justifyItems={'center'}
     >
-      <ApiProvider deployment={integrations} setProvider={() => { }} stack={getStack()} onClick={() => detach()} />
+      <ApiProvider deployment={integrations} stack={getStack()} onClick={() => detach()} />
 
       <Flex spacing={4} overflow={'scroll'}>
         <VStack spacing={4} width={'100%'} alignItems={'center'} justifyItems={'stretch'}>

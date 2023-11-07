@@ -14,7 +14,7 @@ const Path = ({ stack, onClick }) => {
           stack.map((item, index) => (
             <Stack direction={"row"}>
               <ChevronRightIcon width={'30px'} height={'30px'} cursor={'pointer'} />
-              <Text bgColor={"gray.100"} p={2} borderRadius={"xl"} key={index} fontSize={'sm'} >
+              <Text bgColor={"gray.100"} p={2} borderRadius={"xl"} key={index} fontSize={'xs'} >
                 {item}
               </Text>
             </Stack>
@@ -31,7 +31,7 @@ const Path = ({ stack, onClick }) => {
 const ApiProvider = ({ deployment, setProvider, stack, onClick }) => {
 
   return deployment === undefined || deployment == null ? null : (
-    <VStack cursor={'pointer'}>
+    <VStack cursor={setProvider === undefined ? 'auto' : 'pointer'}>
       <Flex
         p={3}
         gap={3}
@@ -40,7 +40,7 @@ const ApiProvider = ({ deployment, setProvider, stack, onClick }) => {
         bg={COLORS.header}
         boxShadow={CONSTANTS.boxShadowSolid}
         alignItems={'center'}
-        onClick={() => setProvider(deployment)}
+        onClick={() => setProvider === undefined ? {} : setProvider(deployment)}
       >
         <Image
           src={`./providers/${deployment.alias}.png`}
