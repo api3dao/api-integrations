@@ -94,4 +94,3 @@ export function deriveEndpointId(input: { oisTitle?: string; airnodeAddress?: st
 
   throw Error("Must set an 'airnodeAddress' or 'oisTitle'!");
 }
-

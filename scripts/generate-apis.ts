@@ -30,10 +30,10 @@ async function generateApiDataJson() {
     fs.mkdirSync(GENERATED_FILES_DIR);
   }
 
-
-
   const formattedContent = await prettier.format(
-    `${HEADER_CONTENT}\nexport const apisData = ${JSON.stringify(apiDataJson)};\n export const airnodeAddressMap = ${JSON.stringify(airnodeMapping)};`,
+    `${HEADER_CONTENT}\nexport const apisData = ${JSON.stringify(
+      apiDataJson
+    )};\n export const airnodeAddressMap = ${JSON.stringify(airnodeMapping)};`,
     { ...prettierConfig, parser: 'typescript' }
   );
   fs.writeFileSync(join(GENERATED_FILES_DIR, 'apis.ts'), formattedContent);

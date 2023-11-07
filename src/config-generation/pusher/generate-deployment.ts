@@ -6,15 +6,9 @@ import { format } from 'date-fns';
 import { difference } from 'lodash';
 import { Logger, ILogObj } from 'tslog';
 import { OIS } from '@api3/ois';
-import {
-  readJson,
-  saveJson,
-  extractPreProcessingObject,
-  extractPostProcessingObject
-} from '../config-utils';
+import { readJson, saveJson, extractPreProcessingObject, extractPostProcessingObject } from '../config-utils';
 import { apiDataSchema } from '../validation';
 import { deriveEndpointId, deriveTemplateId } from '../../index';
-
 
 const prompts = require('prompts');
 

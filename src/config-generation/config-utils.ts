@@ -1,7 +1,6 @@
 import { OIS, Endpoint } from '@api3/ois';
 import * as fs from 'fs';
 
-
 export function readJson(path: string) {
   const file = JSON.parse(fs.readFileSync(path).toString());
   return file;
@@ -54,5 +53,3 @@ export function getPostProcessingString(ois: OIS) {
 export function getFeedEndpointParameters(ois: OIS) {
   return ois.endpoints.filter((e: Endpoint) => e.name === 'feed')[0].parameters;
 }
-
-
