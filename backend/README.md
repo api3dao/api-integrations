@@ -11,10 +11,12 @@ running smoothly. To get started, see the "Getting Started" section below.
 
 1. Copy `.env` from the `example.env` file.
 2. Open the `.env` file and update the environment variables:
-   - `TOKEN_REQUEST_MESSAGE`: Message that is expected to be signed by frontend.
-   - `GF_REGION`: Region of the utilizied Grafana Cloud instance.
-   - `GF_ADMIN_TOKEN`: Grafana Cloud token that is enabled to generate token.
-   - `GF_ACCESS_POLICY_ID`: Policy to be used while generating token, expected to write-only logs (logs:write).
+   - `TOKEN_REQUEST_MESSAGE`: Message that is expected to be signed by frontend
+   - `GF_CLOUD_REGION`: Region of the utilizied Grafana Cloud instance
+   - `GF_CLOUD_TOKEN`: Grafana Cloud token that is enabled to generate token and read logs
+   - `GF_CLOUD_ACCESS_POLICY_ID`: Policy to be used while generating token, expected to write-only logs (logs:write)
+   - `GF_LOKI_USER`: Grafana Loki user able to use endpoint `GF_LOKI_ENDPOINT`
+   - `GF_LOKI_ENDPOINT`: Grafana Loki HTTP API endpoint
 
 ### Deployment
 
@@ -34,7 +36,8 @@ yarn removeDeployment --region us-east-2 --stage dev
 
 The API provides the following endpoints:
 
-- `POST /getToken`: Get token for the airnode address.
+- `POST /getToken`: Get token to push logs.
+- `GET /deploymentStatus`: Get status for the deployment.
 
 ### Local development
 
@@ -60,13 +63,13 @@ You can use following valid examples in the next section to test server.
 
 ### Examples
 
-First create test data:
+- Create test data to get token:
 
 ```bash
 MNEMONIC="YOUR-AIRNODE-MNEMONIC" TOKEN_REQUEST_MESSAGE="API3 log write token" yarn create-test-data
 ```
 
-Then you can use created data to test the API:
+- Get token:
 
 ```bash
 
@@ -79,4 +82,10 @@ curl --location 'localhost:8090/getToken' \
   "timestamp": "1698962113174"
 }'
 
+```
+
+- Check deployment status for the `pusher` with airnode address `0xdAD65588187bC1a76C482174e25ACcED1413d2a1`
+
+```bash
+curl --location 'localhost:8090/deploymentStatus?airnode=0xdAD65588187bC1a76C482174e25ACcED1413d2a1&app=pusher'
 ```
