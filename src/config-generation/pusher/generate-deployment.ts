@@ -7,14 +7,14 @@ import { difference } from 'lodash';
 import { Logger, ILogObj } from 'tslog';
 import { OIS } from '@api3/ois';
 import {
-  deriveEndpointId,
-  deriveTemplateId,
   readJson,
   saveJson,
   extractPreProcessingObject,
   extractPostProcessingObject
 } from '../config-utils';
 import { apiDataSchema } from '../validation';
+import { deriveEndpointId, deriveTemplateId } from '../../index';
+
 
 const prompts = require('prompts');
 

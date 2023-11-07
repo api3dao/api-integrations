@@ -1,6 +1,5 @@
 import { ethers } from 'ethers';
 import { z } from 'zod';
-import { readJson } from './config-utils';
 
 export const deploymentLocationsSchema = z.enum(['aws', 'local']).array().nonempty().max(2);
 export const evmAddressSchema = z
