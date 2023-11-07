@@ -89,3 +89,8 @@ curl --location 'localhost:8090/getToken' \
 ```bash
 curl --location 'localhost:8090/deploymentStatus?airnode=0xdAD65588187bC1a76C482174e25ACcED1413d2a1&app=pusher'
 ```
+
+## References
+
+- Custom domain support for AWS API Gateway and CDN caching, see
+  [the page](https://kylebarron.dev/blog/caching-lambda-functions-cloudflare).

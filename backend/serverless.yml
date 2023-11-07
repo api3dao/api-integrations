@@ -6,6 +6,10 @@ provider:
   name: aws
   runtime: nodejs16.x
 
+  httpApi:
+    disableDefaultEndpoint: true
+    id: ${env:HTTP_API_ID}
+
   iam:
     role:
       statements:

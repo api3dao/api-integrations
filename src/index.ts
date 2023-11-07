@@ -1,6 +1,6 @@
 import { ethers } from 'ethers';
-import { apisData } from './generated/apis';
 import { encode } from '@api3/airnode-abi';
+import { apisData } from './generated/apis';
 import oisTitles from '../data/oisTitles.json';
 
 export { apisData } from './generated/apis';

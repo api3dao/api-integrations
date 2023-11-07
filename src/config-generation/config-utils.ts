@@ -1,5 +1,5 @@
-import { OIS, Endpoint } from '@api3/ois';
 import * as fs from 'fs';
+import { OIS, Endpoint } from '@api3/ois';
 
 export function readJson(path: string) {
   const file = JSON.parse(fs.readFileSync(path).toString());
