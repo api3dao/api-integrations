@@ -19,7 +19,7 @@ const NonEditableRow = ({ text, setText, color = 'black' }) => {
   };
 
   return (
-    <Box p={2} width={'100%'} borderRadius={'1'} borderColor={'black'} alignItems={'left'}>
+    <Box p={2} width={'100%'} alignItems={'left'}>
       <Flex p={2} border={'1px'} borderRadius={'md'} borderColor={'gray.300'} alignItems={'center'}>
         <Text noOfLines={1} width={'100%'} color={color} fontSize={'md'}>
           {text}
@@ -33,7 +33,7 @@ const NonEditableRow = ({ text, setText, color = 'black' }) => {
 
 const EditableRow = ({ text, setText, color = 'black' }) => {
   return (
-    <Box p={2} width={'100%'} borderRadius={'1'} alignItems={'left'}>
+    <Box p={2} width={'100%'} alignItems={'left'}>
       <Flex alignItems={'center'}>
         <Input
           bgColor={COLORS.info}
