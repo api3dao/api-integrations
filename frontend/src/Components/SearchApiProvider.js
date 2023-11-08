@@ -1,8 +1,7 @@
 import { Flex, Text, VStack, Spacer } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-import { SearchIcon } from '@chakra-ui/icons';
 import { COLORS } from '../data/constants';
-import PasteRow from '../Custom/PasteRow';
+import SearchRow from '../Custom/SearchRow';
 import ApiProvider from '../Custom/ApiProvider';
 import CodeBlockView from '../Custom/CodeBlockView';
 import { checkValidEthAddresses } from '../Helpers/Utils';
@@ -31,38 +30,36 @@ const SearchApiProvider = ({ providers, setProvider }) => {
   }, [airnodeAddress, providers, setProvider]);
 
   return (
-    <VStack
-      p={10}
-      bgColor={COLORS.table}
-      borderRadius={'sm'}
-      boxShadow="md"
-      spacing={10}
-      width={'95vw'}
-      maxWidth={'1000px'}
-      alignItems={'left'}
-      justifyItems={'center'}
-    >
-      <Flex p={3} border={'1px'} borderColor={COLORS.main} alignItems={'center'}>
-        <SearchIcon width={'32px'} height={'32px'} mr={2} />
-        <Text fontSize={'3xl'} fontWeight={'semi-bold'}>
-          Search Api Provider
-        </Text>
-        <Spacer />
-      </Flex>
-      <Text fontSize={'md'} fontWeight={'light'}>
-        Copy your Airnode address and paste it in the box below.
-      </Text>
-      <Flex justifyContent={'left'} direction={'row'}>
-        <PasteRow title={'Airnode address'} text={airnodeAddress} setText={setAirnodeAddress} margin={0} />
-      </Flex>
-      {deployment === null ? null : (
-        <VStack width={'100%'} align={'left'}>
-          <Title header={'Search results'} buttonVisibility={false} isLoading={false} fontWeight="semi-bold" p={0} />
-          <ApiProvider deployment={deployment} setProvider={setProvider} />
-        </VStack>
-      )}
-      <CodeBlockView title={'An error occured'} response={error} />
-    </VStack>
+    <Flex height="70vh" justifyContent="center" alignItems="center">
+      <VStack
+        p={10}
+        bgColor={COLORS.table}
+        borderRadius={'sm'}
+        boxShadow="xl"
+        spacing={5}
+        width={'95vw'}
+        maxWidth={'1000px'}
+        alignItems={'left'}
+        justifyItems={'center'}
+      >
+        <Flex alignItems={'center'}>
+          <Text fontSize={'4xl'} width={'100%'} align={'center'} fontWeight={'light'}>
+            Search API Provider
+          </Text>
+          <Spacer />
+        </Flex>
+        <Flex p={3} border={'1px'} borderColor={'gray.300'} justifyContent={'left'} direction={'row'}>
+          <SearchRow text={airnodeAddress} setText={setAirnodeAddress} margin={0} />
+        </Flex>
+        {deployment === null ? null : (
+          <VStack width={'100%'} align={'left'}>
+            <Title header={'Search results'} buttonVisibility={false} isLoading={false} fontWeight="semi-bold" p={0} />
+            <ApiProvider deployment={deployment} setProvider={setProvider} />
+          </VStack>
+        )}
+        <CodeBlockView title={'An error occured'} response={error} />
+      </VStack>
+    </Flex>
   );
 };
 

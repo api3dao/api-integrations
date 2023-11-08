@@ -5,7 +5,7 @@ import CompareEndpoints from './CompareEndpoints';
 import { COLORS } from '../data/constants';
 import { ApiIntegrationsContext } from '../Context';
 import DeploymentCategory from '../Custom/DeploymentCategory';
-import Title from '../Custom/Title';
+import ApiProvider from '../Custom/ApiProvider';
 
 const DeploymentsView = ({ integrations }) => {
   const { comparePair } = useContext(ApiIntegrationsContext);
@@ -47,6 +47,20 @@ const Integrations = ({ integrations, setProvider }) => {
     setProvider(null);
   };
 
+  const getStack = () => {
+    if (comparePair.left !== null) {
+      return ['deployments', 'compare'];
+    }
+
+    if (config !== null) {
+      const category = config.category;
+      const deployment = config.filename[0];
+      return ['deployments', `${category} deployments`, deployment];
+    }
+
+    return ['deployments'];
+  };
+
   return (
     <VStack
       p={3}
@@ -59,13 +73,7 @@ const Integrations = ({ integrations, setProvider }) => {
       alignItems={'left'}
       justifyItems={'center'}
     >
-      <Title
-        header={config == null ? integrations.alias : config.filename}
-        buttonVisibility={true}
-        onClick={() => detach()}
-        isLoading={false}
-        fontWeight="semi-bold"
-      />
+      <ApiProvider deployment={integrations} stack={getStack()} onClick={() => detach()} />
 
       <Flex spacing={4} overflow={'scroll'}>
         <VStack spacing={4} width={'100%'} alignItems={'center'} justifyItems={'stretch'}>

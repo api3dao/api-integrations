@@ -19,12 +19,16 @@ export const COLORS = {
   title: LIGHT_GRAY,
   buttonDisabled: 'gray.800',
   error: 'red.300',
-  success: 'green.300'
+  success: 'green.300',
+  select: 'green.100'
 };
 
 export const FIRST_API_CALL_TIMEOUT = 10_000;
 export const SECOND_API_CALL_TIMEOUT = 20_000;
 export const PROCESSING_TIMEOUT = 10_000;
+
+const FEEDS_VIEW = 'feeds';
+const DEPLOY_VIEW = 'deploy';
 
 export const CONSTANTS = {
   CLOUD_FORMATION_DEPLOY: 'aws',
@@ -43,7 +47,9 @@ export const CONSTANTS = {
   REMOVING: 'removing',
   PAUSED: 'paused',
   EXITED: 'exited',
-  DEAD: 'dead'
+  DEAD: 'dead',
+  FEEDS_VIEW,
+  DEPLOY_VIEW
 };
 
 export const COLORS2 = {
