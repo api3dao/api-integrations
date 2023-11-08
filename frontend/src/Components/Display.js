@@ -1,4 +1,4 @@
-import { Box, Flex, VStack } from '@chakra-ui/react';
+import { Flex, VStack } from '@chakra-ui/react';
 import { useContext, useState } from 'react';
 import Endpoint from './Endpoint';
 import DeployOptions from './DeployOptions';
@@ -17,14 +17,6 @@ const FeedsView = ({ ois }) => {
         <Endpoint endpoint={endpoint} apiSpecifications={ois.apiSpecifications} oisTitle={ois.title} />
       </VStack>
     ));
-};
-
-const SecretsView = ({ index, header, text, setText }) => {
-  const setSecuritySchemeValue = (value) => {
-    setText(index, value);
-  };
-
-  return <PasteRow text={text} title={`${header} API Key:`} setText={setSecuritySchemeValue} />;
 };
 
 const OisView = ({ apiData }) => {
@@ -47,50 +39,28 @@ const NavigationView = ({ viewMode, setViewMode }) => {
   };
   return (
     <Flex width={'100%'} gap={3} alignItems={'center'}>
-      <Box onClick={() => setViewMode('feeds')}>
-        <RadioButton bgColor={getColor('feeds')} icon={`./test.svg`} description={'Test Feeds'} />
-      </Box>
-      <Box onClick={() => setViewMode('deploy')}>
-        <RadioButton bgColor={getColor('deploy')} icon={`./deploy.svg`} description={'Deploy'} />
-      </Box>
+      <RadioButton
+        onClick={() => setViewMode('feeds')}
+        bgColor={getColor('feeds')}
+        icon={`./test.svg`}
+        description={'Feeds'}
+      />
+      <RadioButton
+        onClick={() => setViewMode('deploy')}
+        bgColor={getColor('deploy')}
+        icon={`./deploy.svg`}
+        description={'Deploy'}
+      />
     </Flex>
   );
 };
 
 const DeployView = ({ apiData }) => {
-  const { config, setConfig } = useContext(ApiIntegrationsContext);
-
-  const setSecuritySchemeValues = (i, value) => {
-    const newApiCredentials = config.config.apiCredentials.map((obj, index) => {
-      if (index === i) {
-        return { ...obj, securitySchemeValue: value };
-      }
-
-      return obj;
-    });
-    config.config = { ...config.config, apiCredentials: newApiCredentials };
-    setConfig({ ...config });
-  };
-
-  const getSecuritySchemeValue = (i) => {
-    return config.config.apiCredentials[i].securitySchemeValue;
-  };
-
   return (
     <VStack alignItems={'left'} width={'100%'}>
       <Title header={'Authorization'} isLoading={false} buttonVisibility={false} />
       <VStack p={2} spacing={5} alignItems={'left'} width={'100%'}>
         <PasteRow text={''} title={'Log API:'} setText={() => {}} />
-        {config.config.ois.map((ois, index) => (
-          <VStack key={index} alignItems={'left'} width={'100%'}>
-            <SecretsView
-              index={index}
-              header={ois.title}
-              text={getSecuritySchemeValue(index)}
-              setText={setSecuritySchemeValues}
-            />
-          </VStack>
-        ))}
         <DeployOptions apiData={apiData} />
       </VStack>
     </VStack>
@@ -98,7 +68,6 @@ const DeployView = ({ apiData }) => {
 };
 
 const ContentView = ({ viewMode, apiData }) => {
-  console.log(viewMode);
   switch (viewMode) {
     case CONSTANTS.DEPLOY_VIEW:
       return <DeployView apiData={apiData} />;
