@@ -17,15 +17,10 @@ const FeedView = ({ endpoint, feed, apiSpecifications, status }) => {
       ));
 };
 
-const FeedGroupView = ({ index, endpoint, feed, apiSpecifications, title, status }) => {
+const FeedGroupView = ({ index, endpoint, feed, apiSpecifications, status }) => {
   return feed.length === 0 ? null : (
     <VStack key={index} alignItems={'left'} width={'100%'}>
-      <ExpandableView
-        size="xl"
-        status={0}
-        view={<FeedView endpoint={endpoint} feed={feed} apiSpecifications={apiSpecifications} status={status} />}
-        header={title}
-      />
+      <FeedView endpoint={endpoint} feed={feed} apiSpecifications={apiSpecifications} status={status} />
     </VStack>
   );
 };

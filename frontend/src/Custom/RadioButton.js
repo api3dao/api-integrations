@@ -1,8 +1,8 @@
 import { Flex, VStack, Box, Text, Image } from '@chakra-ui/react';
 
-const RadioButton = ({ bgColor, description, icon }) => {
+const RadioButton = ({ onClick, bgColor, description, icon }) => {
   return (
-    <VStack cursor={'pointer'} spacing={0} direction="row" align="left">
+    <VStack onClick={() => onClick()} cursor={'pointer'} spacing={0} direction="row" align="left">
       <Box p={'1'} alignItems={'center'} width={'100px'} height={'100px'}>
         <Flex
           justify={'center'}

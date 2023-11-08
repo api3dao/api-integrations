@@ -10,7 +10,7 @@ const Path = ({ stack, onClick }) => {
   return stack.length === 0 ? null : (
     <Flex width={'100%'} gap={3} alignItems={'center'}>
       {stack.map((item, index) => (
-        <Stack direction={'row'}>
+        <Stack key={index} direction={'row'}>
           <ChevronRightIcon width={'30px'} height={'30px'} cursor={'pointer'} />
           <Text bgColor={'gray.100'} p={2} borderRadius={'xl'} key={index} fontSize={'xs'}>
             {item}
