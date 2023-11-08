@@ -32,6 +32,12 @@ To remove deployment:
 yarn removeDeployment --region us-east-2 --stage dev
 ```
 
+## Public Endpoint
+
+This service is publicly accessible at the following endpoint:
+
+- <https://integration.nodary.io>
+
 ## Usage
 
 The API provides the following endpoints:
