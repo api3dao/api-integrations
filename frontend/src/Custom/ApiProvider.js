@@ -47,8 +47,8 @@ const ApiProvider = ({ deployment, setProvider, stack, onClick }) => {
         <Text fontSize={'2xl'} fontWeight={'light'}>
           |
         </Text>
-        <Text fontSize={'md'} fontWeight={'semi-bold'}>
-          {deployment.alias.toUpperCase()}
+        <Text fontSize={'md'} fontWeight={'bold'}>
+          {deployment.name}
         </Text>
         <Path stack={stack} onClick={onClick} />
       </Flex>

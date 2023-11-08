@@ -1,5 +1,6 @@
 {
   "alias": "Demo Provider",
+  "name": "Demo Provider",
   "airnode": "0x6C2ea434Be6Ba7B56b62AeE27A574e4b39f5dabf",
   "xpub": "xpub6DSE1Hr6hCmAXb9tapwx14DFth2qUQb8XKr5gAX7G9PcSUoszk3Wnx7zoxedVzun4vVt4ZzYZk27FcPz19bWuLA3kXYBBK3vjgYADFUCQDa",
   "supportedFeedsInBatches": {

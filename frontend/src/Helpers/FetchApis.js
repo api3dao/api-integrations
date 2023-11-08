@@ -7,7 +7,7 @@ export const checkFiles = (ctx) => {
   let activeDeployment = [];
   let candidateDeployment = [];
 
-  let apiData = [];
+  let apiDatas = [];
 
   for (let i = 0; i < keys.length; i++) {
     const api = keys[i].split('/')[1];
@@ -20,7 +20,7 @@ export const checkFiles = (ctx) => {
     }
 
     if (filename[0] === 'api-data.json') {
-      apiData.push({ config: value, apiProvider: api });
+      apiDatas.push({ config: value, apiProvider: api });
     }
   }
 
@@ -60,11 +60,13 @@ export const checkFiles = (ctx) => {
         candidateDeployment = [{ filename: filename, config: value, category: 'candidate', apiProvider: api }];
       }
 
+      const apiData = apiDatas.find((item) => item.apiProvider === api);
       const obj = {
         alias: api,
+        name: apiData.config.name,
         activeDeployment: activeDeployment,
         candidateDeployment: candidateDeployment,
-        apiData: apiData.find((item) => item.apiProvider === api)
+        apiData: apiData
       };
       apis.push(obj);
     }
