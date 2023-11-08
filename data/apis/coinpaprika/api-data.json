@@ -113,7 +113,8 @@
       ["MNT/USD"],
       ["KAVA/USD"],
       ["RIF/USD"],
-      ["RDNT/USD"]
+      ["RDNT/USD"],
+      ["EURE/USD"]
     ]
   },
   "deploymentLocations": ["aws"]
