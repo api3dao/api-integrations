@@ -21,6 +21,29 @@
         "RequiresCompatibilities": ["FARGATE"],
         "ContainerDefinitions": [
           {
+            "Essential": true,
+            "Image": "grafana/fluent-bit-plugin-loki:2.9.1-amd64",
+            "Name": "PusherLogForwarder",
+            "FirelensConfiguration": {
+              "Type": "fluentbit",
+              "Options": {
+                "enable-ecs-log-metadata": "true"
+              }
+            },
+            "LogConfiguration": {
+              "LogDriver": "awslogs",
+              "Options": {
+                "awslogs-group": {
+                  "Ref": "CloudWatchLogsGroup"
+                },
+                "awslogs-region": { "Ref": "AWS::Region" },
+                "awslogs-create-group": "true",
+                "awslogs-stream-prefix": "firelens"
+              }
+            },
+            "MemoryReservation": 50
+          },
+          {
             "Name": "Pusher",
             "Image": "<IMAGE>",
             "Environment": [
@@ -35,15 +58,14 @@
               "echo -e $SECRETS_ENV >> ./config/secrets.env && wget -O - <PUBLIC_CONFIG_URL> >> ./config/pusher.json && node dist/src/index.js"
             ],
             "LogConfiguration": {
-              "LogDriver": "awslogs",
-              "Options": {
-                "awslogs-group": {
-                  "Ref": "CloudWatchLogsGroup"
-                },
-                "awslogs-region": {
-                  "Ref": "AWS::Region"
-                },
-                "awslogs-stream-prefix": "pusher"
+              "logDriver": "awsfirelens",
+              "options": {
+                "Name": "grafana-loki",
+                "Url": "https://<GF_LOKI_USER>:<GF_LOKI_TOKEN>@<GF_LOKI_ENDPOINT>/loki/api/v1/push",
+                "Labels": "{app=\"pusher\",airnode=\"<AIRNODE_ADDRESS>\"}",
+                "RemoveKeys": "container_id,container_name,ecs_task_definition,source,ecs_cluster",
+                "LabelKeys": "ecs_task_arn",
+                "LineFormat": "json"
               }
             }
           }
