@@ -1,3 +1,9 @@
+/*
+
+  Compares pre/post-processing objects inside of "feed" endpoint of OIS and supported feeds inside apis-data.json.
+
+*/
+
 import { globSync } from 'glob';
 import { OIS } from '@api3/ois';
 import { difference } from 'lodash';
