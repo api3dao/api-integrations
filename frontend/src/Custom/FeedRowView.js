@@ -1,21 +1,13 @@
 import { VStack } from '@chakra-ui/react';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import ParametersView from './ParametersView';
 import CodeBlockView from './CodeBlockView';
 import PathView from './PathView';
-import TryButton from './TryButton';
 import { getPath, formatParameters } from '../Helpers/Utils';
-import { callApiWithAdapter } from '../Helpers/AirnodeAdapter';
 
-import { ApiIntegrationsContext } from '../Context';
-
-const FeedRowView = ({ endpoint, feed, apiSpecifications, oisTitle, tryit = true }) => {
-  const [postProcessResult, setPostProcessResult] = useState(null);
+const FeedRowView = ({ endpoint, feed, apiSpecifications }) => {
   const [error, setError] = useState(null);
   const [parametersError, setParametersError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-
-  const { config } = useContext(ApiIntegrationsContext);
 
   const getParameters = () => {
     return formatParameters(
@@ -26,36 +18,6 @@ const FeedRowView = ({ endpoint, feed, apiSpecifications, oisTitle, tryit = true
     );
   };
 
-  const callApi = () => {
-    const payload = {
-      config: config.config,
-      aggregatedApiCall: {
-        endpointName: endpoint.name,
-        parameters: { name: feed.feed },
-        oisTitle: oisTitle
-      }
-    };
-
-    setIsLoading(true);
-    setPostProcessResult(null);
-    setError(null);
-
-    try {
-      callApiWithAdapter(payload)
-        .then((res) => {
-          setPostProcessResult(res);
-        })
-        .catch((error) => {
-          setError(error);
-        })
-        .finally(() => {
-          setIsLoading(false);
-        });
-    } catch (error) {
-      setError(error);
-    }
-  };
-
   return (
     <VStack alignItems={'left'} spacing={8} p={2} width={'100%'}>
       <PathView
@@ -64,8 +26,7 @@ const FeedRowView = ({ endpoint, feed, apiSpecifications, oisTitle, tryit = true
       />
       <ParametersView parameters={getParameters()} parametersError={parametersError} />
       <CodeBlockView title={'Post Processing'} showLineNumbers={true} language={'javascript'} response={feed.code} />
-      <TryButton action={() => callApi()} tryIt={tryit} isLoading={isLoading} />
-      <CodeBlockView title={error ? 'An Error Occured' : 'Result'} response={error ? error : postProcessResult} />
+      <CodeBlockView title={error ? 'An Error Occured' : 'Result'} response={error} />
     </VStack>
   );
 };
