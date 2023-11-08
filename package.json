@@ -46,6 +46,7 @@
     "format:write": "yarn prettier:write && yarn eslint:write",
     "validate-processings": "ts-node src/ci-scripts/check-pre-post-processing.ts",
     "validate-frontend": "ts-node src/ci-scripts/check-frontend-parse-flow.ts",
+    "validate-apis-folder": "ts-node src/ci-scripts/check-api-files-integrity.ts",
     "generate-pusher-deployment": "ts-node src/config-generation/pusher/generate-deployment.ts",
     "prepare": "husky install"
   }
