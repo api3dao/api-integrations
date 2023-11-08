@@ -7,15 +7,15 @@
 import dirTree from 'directory-tree';
 import { Logger, ILogObj } from 'tslog';
 import { difference } from 'lodash';
-import { readJson } from '../config-generation/config-utils';
 import { oisSchema } from '@api3/ois';
+import { readJson } from '../config-generation/config-utils';
 import { apiDataSchema } from '../types';
 
 function main() {
   const logger: Logger<ILogObj> = new Logger();
   const tree = dirTree('./data/apis');
 
-  let issues = [];
+  const issues = [];
 
   tree.children
     .filter((apiFolder) => apiFolder.name !== 'demo')
@@ -31,7 +31,7 @@ function main() {
               .children.map((deploymentFolderContent) => deploymentFolderContent.name);
             const requiredFolderNames = ['staging-deployments', 'candidate-deployments', 'active-deployments'];
             const diff = difference(existingFolderNames, requiredFolderNames);
-            if(diff.length > 0) {
+            if (diff.length > 0) {
               issues.push(`${apiName} - folder is missing in 'deployments' ${diff}`);
             }
             break;
