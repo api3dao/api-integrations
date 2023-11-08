@@ -7,7 +7,7 @@ import { recoverSignerAddress } from './evm';
 import { APP_TYPES, TokenOwnerGroup, appTypeSchema, evmAddressSchema, signedMessageSchema } from './types';
 import { generateErrorResponse } from './utils';
 import { createToken, queryLogs } from './grafana-requests';
-import { processHeartbeatLogs } from './process-logs';
+import { extractHeartbeatPayloads } from './process-logs';
 
 import type { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 
@@ -110,7 +110,7 @@ export const deploymentStatus = async (event: APIGatewayProxyEvent): Promise<API
 
   const logs = goLogs.data.data;
 
-  const goProcessLogs = await go(() => processHeartbeatLogs(app, logs));
+  const goProcessLogs = await go(() => extractHeartbeatPayloads(app, airnode, logs));
   if (!goProcessLogs.success)
     return generateErrorResponse(500, 'Unable to process logs from Grafana', goProcessLogs.error.message);
 

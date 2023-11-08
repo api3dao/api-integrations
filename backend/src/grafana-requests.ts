@@ -17,5 +17,5 @@ export const createToken = (airnode: string) =>
 export const queryLogs = (app: string, airnode: string, textToFind: string, limit: string, since: string) =>
   axios.get(`https://${process.env.GF_LOKI_ENDPOINT}/loki/api/v1/query_range`, {
     params: { limit, since, query: `{airnode="${airnode}",app="${app}"} |= \`${textToFind}\`` },
-    auth: { username: process.env.GF_LOKI_USER, password: process.env.GF_CLOUD_TOKEN }
+    auth: { username: process.env.GF_LOKI_USER!, password: process.env.GF_CLOUD_TOKEN! }
   });
