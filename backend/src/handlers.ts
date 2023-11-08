@@ -45,7 +45,7 @@ export const getToken = async (event: APIGatewayProxyEvent): Promise<APIGatewayP
   if (signedMessage.message !== process.env.TOKEN_REQUEST_MESSAGE)
     return generateErrorResponse(400, `Invalid request, message sent (${signedMessage.message}) is not expected`);
 
-  if (new Date(signedMessage.timestamp) < new Date(Date.now() - 2 * MIN_IN_MS))
+  if (new Date(parseInt(signedMessage.timestamp)) < new Date(Date.now() - 2 * MIN_IN_MS))
     return generateErrorResponse(400, `Invalid request, timestamp sent (${signedMessage.timestamp}) is not fresh`);
 
   const goRecoverSigner = goSync(() => recoverSignerAddress(signedMessage));
@@ -76,9 +76,14 @@ export const getToken = async (event: APIGatewayProxyEvent): Promise<APIGatewayP
   if (!goToken.success)
     return generateErrorResponse(500, 'Unable to create new token', (goToken.error as any).response.data.message);
 
-  const token = goToken.data.data.token;
+  const lokiToken = goToken.data.data.token;
 
-  const newEntry: TokenOwnerGroup = { airnode, token };
+  const newEntry: TokenOwnerGroup = {
+    airnode,
+    lokiEndpoint: process.env.GF_LOKI_ENDPOINT!,
+    lokiToken,
+    lokiUser: process.env.GF_LOKI_USER!
+  };
 
   const goWriteDb = await go(() => docClient.put({ TableName: tableName, Item: newEntry }).promise());
   if (!goWriteDb.success)

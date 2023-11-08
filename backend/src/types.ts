@@ -16,8 +16,10 @@ export const signedMessageSchema = z.object({
 });
 
 export const tokenOwnerGroupSchema = z.object({
-  airnode: evmAddressSchema.optional(),
-  token: z.string()
+  airnode: evmAddressSchema,
+  lokiEndpoint: z.string(),
+  lokiToken: z.string(),
+  lokiUser: z.string()
 });
 
 export const pusherHeartbeatPayloadSchema = z.object({

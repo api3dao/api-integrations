@@ -88,6 +88,14 @@ curl --location 'localhost:8090/getToken' \
   "timestamp": "1698962113174"
 }'
 
+# Response will be:
+# {
+#    "airnode": "0x6CFec029322bfb6f8f6a5A6662b4A3136eeD83A7",
+#    "lokiEndpoint": "logs-prod-012.grafana.net",
+#    "lokiToken": "glc_somelokiWV1LXQtoken==",
+#    "lokiUser": "123456"
+# }
+
 ```
 
 - Check deployment status for the `pusher` with airnode address `0xdAD65588187bC1a76C482174e25ACcED1413d2a1`
