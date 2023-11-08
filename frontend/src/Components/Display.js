@@ -10,15 +10,13 @@ import RadioButton from '../Custom/RadioButton';
 import { ApiIntegrationsContext } from '../Context';
 
 const FeedsView = ({ ois }) => {
-  return (
-    ois.endpoints
-      .filter((endpoint) => endpoint.name === 'feed')
-      .map((endpoint, index) => (
-        <VStack key={index} alignItems={'left'} width={'100%'}>
-          <Endpoint endpoint={endpoint} apiSpecifications={ois.apiSpecifications} oisTitle={ois.title} />
-        </VStack>
-      ))
-  );
+  return ois.endpoints
+    .filter((endpoint) => endpoint.name === 'feed')
+    .map((endpoint, index) => (
+      <VStack key={index} alignItems={'left'} width={'100%'}>
+        <Endpoint endpoint={endpoint} apiSpecifications={ois.apiSpecifications} oisTitle={ois.title} />
+      </VStack>
+    ));
 };
 
 const SecretsView = ({ index, header, text, setText }) => {
@@ -26,9 +24,7 @@ const SecretsView = ({ index, header, text, setText }) => {
     setText(index, value);
   };
 
-  return (
-    <PasteRow text={text} title={`${header} API Key:`} setText={setSecuritySchemeValue} />
-  );
+  return <PasteRow text={text} title={`${header} API Key:`} setText={setSecuritySchemeValue} />;
 };
 
 const OisView = ({ apiData }) => {
@@ -46,17 +42,16 @@ const OisView = ({ apiData }) => {
 };
 
 const NavigationView = ({ viewMode, setViewMode }) => {
-
   const getColor = (mode) => {
     return viewMode === mode ? COLORS.select : COLORS.table;
   };
   return (
     <Flex width={'100%'} gap={3} alignItems={'center'}>
-      <Box onClick={() => setViewMode("feeds")}>
-        <RadioButton bgColor={getColor("feeds")} icon={`./test.svg`} description={'Test Feeds'} />
+      <Box onClick={() => setViewMode('feeds')}>
+        <RadioButton bgColor={getColor('feeds')} icon={`./test.svg`} description={'Test Feeds'} />
       </Box>
-      <Box onClick={() => setViewMode("deploy")}>
-        <RadioButton bgColor={getColor("deploy")} icon={`./deploy.svg`} description={'Deploy'} />
+      <Box onClick={() => setViewMode('deploy')}>
+        <RadioButton bgColor={getColor('deploy')} icon={`./deploy.svg`} description={'Deploy'} />
       </Box>
     </Flex>
   );
@@ -85,20 +80,18 @@ const DeployView = ({ apiData }) => {
     <VStack alignItems={'left'} width={'100%'}>
       <Title header={'Authorization'} isLoading={false} buttonVisibility={false} />
       <VStack p={2} spacing={5} alignItems={'left'} width={'100%'}>
-        <PasteRow
-          text={""}
-          title={'Log API:'}
-          setText={() => { }}
-        />
-        {
-          config.config.ois.map((ois, index) => (
-            <VStack key={index} alignItems={'left'} width={'100%'}>
-              <SecretsView index={index} header={ois.title} text={getSecuritySchemeValue(index)} setText={setSecuritySchemeValues} />
-            </VStack>
-          ))
-        }
+        <PasteRow text={''} title={'Log API:'} setText={() => {}} />
+        {config.config.ois.map((ois, index) => (
+          <VStack key={index} alignItems={'left'} width={'100%'}>
+            <SecretsView
+              index={index}
+              header={ois.title}
+              text={getSecuritySchemeValue(index)}
+              setText={setSecuritySchemeValues}
+            />
+          </VStack>
+        ))}
         <DeployOptions apiData={apiData} />
-
       </VStack>
     </VStack>
   );

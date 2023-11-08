@@ -3,11 +3,9 @@ import Title from './Title';
 import IntegrationRow from '../Components/IntegrationRow';
 
 const AvailableDeployments = ({ integrations, apiData }) => {
-  return (
-    integrations.map((integration, index) => (
-      <IntegrationRow key={index} config={integration} apiData={apiData} />
-    ))
-  );
+  return integrations.map((integration, index) => (
+    <IntegrationRow key={index} config={integration} apiData={apiData} />
+  ));
 };
 
 /**
@@ -22,7 +20,7 @@ const AvailableDeployments = ({ integrations, apiData }) => {
  */
 const DeploymentCategory = ({ header, integrations, apiData }) => {
   return integrations.length === 0 ? null : (
-    <VStack width={'100%'} p={3} align={"left"}>
+    <VStack width={'100%'} p={3} align={'left'}>
       <Title header={header} buttonVisibility={false} isLoading={false} p={0} />
       <AvailableDeployments integrations={integrations} apiData={apiData} />
     </VStack>

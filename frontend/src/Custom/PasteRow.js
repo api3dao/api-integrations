@@ -19,13 +19,13 @@ const NonEditableRow = ({ text, setText, color = 'black' }) => {
   };
 
   return (
-    <Box p={2} width={'100%'} alignItems={'left'}>
-      <Flex p={2} border={'1px'} borderRadius={'md'} borderColor={'gray.300'} alignItems={'center'}>
-        <Text noOfLines={1} width={'100%'} color={color} fontSize={'md'}>
+    <Box width={'100%'} alignItems={'left'}>
+      <Flex p={1} border={'1px'} borderRadius={'md'} borderColor={'gray.300'} alignItems={'center'}>
+        <Text p={1} noOfLines={1} width={'100%'} color={color} fontSize={'sm'}>
           {text}
         </Text>
         <Spacer />
-        <Image cursor={'pointer'} marginLeft={'2'} onClick={paste} src={`./paste.svg`} width={'32px'} height={'32px'} />
+        <Image cursor={'pointer'} marginLeft={'2'} onClick={paste} src={`./paste.svg`} width={'24px'} height={'24px'} />
       </Flex>
     </Box>
   );

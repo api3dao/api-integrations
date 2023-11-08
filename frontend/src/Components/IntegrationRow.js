@@ -67,11 +67,14 @@ const IntegrationsRow = ({ config, apiData }) => {
           </Stack>
           <Spacer />
           <Stack direction={'row'}>
-            <Button size={'sm'} colorScheme={'blue'} onClick={() => setView()}>View</Button>
-            {!isCompareAvailable() ? null :
-              (
-                <Button size={'sm'} colorScheme={'blue'} onClick={() => compare()}>Compare</Button>
-              )}
+            <Button size={'sm'} colorScheme={'blue'} onClick={() => setView()}>
+              View
+            </Button>
+            {!isCompareAvailable() ? null : (
+              <Button size={'sm'} colorScheme={'blue'} onClick={() => compare()}>
+                Compare
+              </Button>
+            )}
           </Stack>
         </Flex>
       </Stack>

@@ -49,16 +49,16 @@ const Integrations = ({ integrations, setProvider }) => {
 
   const getStack = () => {
     if (comparePair.left !== null) {
-      return ["deployments", "compare"];
+      return ['deployments', 'compare'];
     }
 
     if (config !== null) {
       const category = config.category;
       const deployment = config.filename[0];
-      return ["deployments", `${category} deployments`, deployment];
+      return ['deployments', `${category} deployments`, deployment];
     }
 
-    return ["deployments"];
+    return ['deployments'];
   };
 
   return (

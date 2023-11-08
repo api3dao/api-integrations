@@ -7,29 +7,23 @@ const Path = ({ stack, onClick }) => {
     return null;
   }
 
-  return (
-    stack.length === 0 ? null :
-      <Flex width={"100%"} gap={3} alignItems={'center'}>
-        {
-          stack.map((item, index) => (
-            <Stack direction={"row"}>
-              <ChevronRightIcon width={'30px'} height={'30px'} cursor={'pointer'} />
-              <Text bgColor={"gray.100"} p={2} borderRadius={"xl"} key={index} fontSize={'xs'} >
-                {item}
-              </Text>
-            </Stack>
-          ))
-        }
-        <Spacer />
-        <ArrowBackIcon onClick={onClick} width={'30px'} height={'30px'} cursor={'pointer'} />
-      </Flex>
+  return stack.length === 0 ? null : (
+    <Flex width={'100%'} gap={3} alignItems={'center'}>
+      {stack.map((item, index) => (
+        <Stack direction={'row'}>
+          <ChevronRightIcon width={'30px'} height={'30px'} cursor={'pointer'} />
+          <Text bgColor={'gray.100'} p={2} borderRadius={'xl'} key={index} fontSize={'xs'}>
+            {item}
+          </Text>
+        </Stack>
+      ))}
+      <Spacer />
+      <ArrowBackIcon onClick={onClick} width={'30px'} height={'30px'} cursor={'pointer'} />
+    </Flex>
   );
-
 };
 
-
 const ApiProvider = ({ deployment, setProvider, stack, onClick }) => {
-
   return deployment === undefined || deployment == null ? null : (
     <VStack cursor={setProvider === undefined ? 'auto' : 'pointer'}>
       <Flex
@@ -40,7 +34,7 @@ const ApiProvider = ({ deployment, setProvider, stack, onClick }) => {
         bg={COLORS.header}
         boxShadow={CONSTANTS.boxShadowSolid}
         alignItems={'center'}
-        onClick={() => setProvider === undefined ? {} : setProvider(deployment)}
+        onClick={() => (setProvider === undefined ? {} : setProvider(deployment))}
       >
         <Image
           src={`./providers/${deployment.alias}.png`}

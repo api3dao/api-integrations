@@ -20,7 +20,7 @@ export const COLORS = {
   buttonDisabled: 'gray.800',
   error: 'red.300',
   success: 'green.300',
-  select: 'green.100',
+  select: 'green.100'
 };
 
 export const FIRST_API_CALL_TIMEOUT = 10_000;
