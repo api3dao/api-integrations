@@ -1,8 +1,7 @@
-import { Flex, Spacer, VStack, Stack, Text } from '@chakra-ui/react';
+import { Flex, Spacer, VStack, Stack, Text, Button } from '@chakra-ui/react';
 import { useContext, useEffect } from 'react';
 import { COLORS } from '../data/constants';
 import { ApiIntegrationsContext } from '../Context';
-import ImageButton from '../Custom/ImageButton';
 import StageLocation from '../Custom/StageLocation';
 
 const DeploymentLocation = ({ apiData, category }) => {
@@ -65,30 +64,14 @@ const IntegrationsRow = ({ config, apiData }) => {
               {config.filename}
             </Text>
             <DeploymentLocation apiData={apiData} category={config.category} />
-            <Text width={'100px'} p={1} fontSize={'xs'}>
-              Pusher 0.0.1
-            </Text>
           </Stack>
           <Spacer />
           <Stack direction={'row'}>
-            <ImageButton
-              inW="24px"
-              outW="48px"
-              onClick={() => {
-                setView();
-              }}
-              src={'./view.svg'}
-            />
-            {!isCompareAvailable() ? null : (
-              <ImageButton
-                inW="24px"
-                outW="48px"
-                onClick={() => {
-                  compare();
-                }}
-                src={'./compare.svg'}
-              />
-            )}
+            <Button size={'sm'} colorScheme={'blue'} onClick={() => setView()}>View</Button>
+            {!isCompareAvailable() ? null :
+              (
+                <Button size={'sm'} colorScheme={'blue'} onClick={() => compare()}>Compare</Button>
+              )}
           </Stack>
         </Flex>
       </Stack>
