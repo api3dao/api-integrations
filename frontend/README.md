@@ -106,16 +106,6 @@ Click on the expand button on `Feeds` section to view the feeds of the OIS.
 - Feed request type and url
 - Feed parameters
 - Feed post processing
-- Try it out button
-
-### Testing feeds
-
-Click on the `Try it out` button to test the feed. Test process is as follows:
-
-- Preprocess the feed parameters
-- Call the feed endpoint
-- Post process the feed response
-- Display the feed response
 
 ## View deployment instructions
 
