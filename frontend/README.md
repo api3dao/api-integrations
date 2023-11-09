@@ -52,8 +52,8 @@ deployment with a candidate deployment.
 
 ### Deployment page
 
-The deployment page contains the ois details. A deployment can have multiple oises. Each can have their own feeds,
-secret keys, and other details.
+The deployment page contains the ois details. A deployment can have multiple oises. Each can have their own feeds, and
+other details.
 
 Thus deployment page contains the following sections:
 
@@ -70,7 +70,6 @@ This section contains the mnemonic of the pusher account. This mnemonic is used 
 This section contains the details of the OIS. The OIS details are:
 
 - OIS title
-- API secret key
 - Feeds
 
 #### Deployment details
@@ -89,12 +88,7 @@ deployment section.
 
 ## OIS details
 
-Each OIS has its own secret key and feeds.
-
-### View secret key
-
-Click on the expand button on `Secrets` section to enter the secret key of the OIS. The secret key is used to call api
-endpoints and its used to generate deployment configurations.
+Each OIS has its own feeds.
 
 ### View feeds
 
