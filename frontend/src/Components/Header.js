@@ -1,4 +1,4 @@
-import { Flex, Text, Image } from '@chakra-ui/react';
+import { Flex, Text, Image, Spacer } from '@chakra-ui/react';
 import { COLORS, CONSTANTS } from '../data/constants';
 
 const Header = () => {
@@ -18,6 +18,10 @@ const Header = () => {
             API Integrations Tool
           </Text>
         </Flex>
+        <Spacer />
+        <Text fontWeight={'light'} fontSize="xs">
+          v0.1.0 build 1
+        </Text>
       </Flex>
     </Flex>
   );
