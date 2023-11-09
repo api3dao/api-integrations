@@ -107,6 +107,7 @@ Click on the expand deployment location to view the deployment instructions. The
 
 - AWS
 - Local
+- Staging
 
 ### AWS deployment instructions
 
