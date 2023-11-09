@@ -75,13 +75,13 @@
                         "Ref": "airnodeMnemonic"
                       },
                       "\\n",
-                      "API_KEY1",
+                      "APIKEY1_VALUE",
                       "=",
                       {
                         "Ref": "apiKey1"
                       },
                       "\\n",
-                      "API_KEY2",
+                      "APIKEY2_VALUE",
                       "=",
                       {
                         "Ref": "apiKey2"
