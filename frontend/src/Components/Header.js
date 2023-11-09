@@ -19,9 +19,6 @@ const Header = () => {
           </Text>
         </Flex>
         <Spacer />
-        <Text fontWeight={'light'} fontSize="xs">
-          v0.1.0 build 1
-        </Text>
       </Flex>
     </Flex>
   );
