@@ -1,6 +1,23 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Description": "A CloudFormation template for deploying the Pusher on AWS.",
+  "Parameters": {
+    "airnodeMnemonic": {
+      "Type": "String",
+      "MinLength": 10,
+      "Description": "Mnemonic phrase of your Airnode address."
+    },
+    "apiKey1": {
+      "Type": "String",
+      "MinLength": 10,
+      "Description": "API secret 1."
+    },
+    "apiKey2": {
+      "Type": "String",
+      "MinLength": 10,
+      "Description": "API secret 2."
+    }
+  },
   "Resources": {
     "CloudWatchLogsGroup": {
       "Type": "AWS::Logs::LogGroup",
@@ -49,7 +66,29 @@
             "Environment": [
               {
                 "Name": "SECRETS_ENV",
-                "Value": "WALLET_MNEMONIC=<MNEMONIC>\\nAPIKEY1_VALUE=<API_KEY1>\\nAPIKEY2_VALUE=<API_KEY2>\\n..."
+                "Value": {
+                  "Fn::Join": [
+                    "", [
+                      "WALLET_MNEMONIC",
+                      "=",
+                      {
+                        "Ref": "airnodeMnemonic"
+                      },
+                      "\\n",
+                      "APIKEY1_VALUE",
+                      "=",
+                      {
+                        "Ref": "apiKey1"
+                      },
+                      "\\n",
+                      "APIKEY2_VALUE",
+                      "=",
+                      {
+                        "Ref": "apiKey2"
+                      }
+                    ]
+                  ]
+                }
               }
             ],
             "EntryPoint": [
