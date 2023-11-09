@@ -8,10 +8,6 @@ on:
     paths:
       - 'frontend/**'
       - 'data/**'
-  pull_request:
-    paths:
-      - 'frontend/**'
-      - 'data/**'
 
 jobs:
   build:
