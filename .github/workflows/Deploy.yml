@@ -10,12 +10,6 @@ on:
     paths:
       - 'frontend/**'
       - 'data/**'
-  pull_request:
-    branches:
-      - main
-    paths:
-      - 'frontend/**'
-      - 'data/**'
 
 jobs:
   build:
@@ -41,7 +35,6 @@ jobs:
     - name: Build Page
       run: yarn build
     - name: Deploy to Github Pages
-      if: github.event.pull_request.merged == true
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         branch: gh-pages
