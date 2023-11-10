@@ -28,6 +28,7 @@ jobs:
         run: yarn validate-frontend
 
   deploy-frontend:
+    needs: validate-frontend
     runs-on: ubuntu-latest
     defaults:
       run:
