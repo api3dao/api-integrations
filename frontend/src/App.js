@@ -7,8 +7,6 @@ import Welcome from './Components/Welcome';
 
 import theme from './theme';
 
-import ParticlesBg from './Custom/ParticlesBg';
-
 import { ApiIntegrationsContext } from './Context';
 
 function App() {
@@ -31,8 +29,6 @@ function App() {
             flexDirection={'row'}
           >
             <VStack overflow={'scroll'} width={'100%'} alignItems={'left'}>
-              <ParticlesBg />
-
               <Routes>
                 <Route path="/" element={<Welcome />} />
               </Routes>
