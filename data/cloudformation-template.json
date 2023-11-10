@@ -53,7 +53,9 @@
                 "awslogs-group": {
                   "Ref": "CloudWatchLogsGroup"
                 },
-                "awslogs-region": { "Ref": "AWS::Region" },
+                "awslogs-region": {
+                  "Ref": "AWS::Region"
+                },
                 "awslogs-create-group": "true",
                 "awslogs-stream-prefix": "firelens"
               }
@@ -68,7 +70,8 @@
                 "Name": "SECRETS_ENV",
                 "Value": {
                   "Fn::Join": [
-                    "", [
+                    "",
+                    [
                       "WALLET_MNEMONIC",
                       "=",
                       {
@@ -85,7 +88,11 @@
                       "=",
                       {
                         "Ref": "apiKey2"
-                      }
+                      },
+                      "\\n",
+                      "STAGE",
+                      "=",
+                      "aws"
                     ]
                   ]
                 }
@@ -132,7 +139,11 @@
         "NetworkConfiguration": {
           "AwsvpcConfiguration": {
             "AssignPublicIp": "ENABLED",
-            "Subnets": [{ "Ref": "InstanceSubnet" }]
+            "Subnets": [
+              {
+                "Ref": "InstanceSubnet"
+              }
+            ]
           }
         },
         "DeploymentConfiguration": {
@@ -155,38 +166,54 @@
     "InstanceVPCGatewayAttachment": {
       "Type": "AWS::EC2::VPCGatewayAttachment",
       "Properties": {
-        "VpcId": { "Ref": "InstanceVPC" },
-        "InternetGatewayId": { "Ref": "InstanceInternetGateway" }
+        "VpcId": {
+          "Ref": "InstanceVPC"
+        },
+        "InternetGatewayId": {
+          "Ref": "InstanceInternetGateway"
+        }
       }
     },
     "InstancePublicRouteTable": {
       "Type": "AWS::EC2::RouteTable",
       "Properties": {
-        "VpcId": { "Ref": "InstanceVPC" }
+        "VpcId": {
+          "Ref": "InstanceVPC"
+        }
       }
     },
     "InstancePublicRoute": {
       "Type": "AWS::EC2::Route",
       "DependsOn": "InstanceVPCGatewayAttachment",
       "Properties": {
-        "RouteTableId": { "Ref": "InstancePublicRouteTable" },
+        "RouteTableId": {
+          "Ref": "InstancePublicRouteTable"
+        },
         "DestinationCidrBlock": "0.0.0.0/0",
-        "GatewayId": { "Ref": "InstanceInternetGateway" }
+        "GatewayId": {
+          "Ref": "InstanceInternetGateway"
+        }
       }
     },
     "InstanceSubnet": {
       "Type": "AWS::EC2::Subnet",
       "Properties": {
         "CidrBlock": "10.0.0.0/24",
-        "VpcId": { "Ref": "InstanceVPC" },
+        "VpcId": {
+          "Ref": "InstanceVPC"
+        },
         "MapPublicIpOnLaunch": true
       }
     },
     "InstancePublicSubnet1RouteTableAssociation": {
       "Type": "AWS::EC2::SubnetRouteTableAssociation",
       "Properties": {
-        "RouteTableId": { "Ref": "InstancePublicRouteTable" },
-        "SubnetId": { "Ref": "InstanceSubnet" }
+        "RouteTableId": {
+          "Ref": "InstancePublicRouteTable"
+        },
+        "SubnetId": {
+          "Ref": "InstanceSubnet"
+        }
       }
     },
     "ECSTaskRole": {
