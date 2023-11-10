@@ -7,6 +7,21 @@
       "MinLength": 10,
       "Description": "Mnemonic phrase of your Airnode address."
     },
+    "grafanaLokiUser": {
+      "Type": "String",
+      "MinLength": 2,
+      "Description": "Username for authenticating Loki API (This should be handed to you)."
+    },
+    "grafanaLokiToken": {
+      "Type": "String",
+      "MinLength": 10,
+      "Description": "Token for authenticating Loki API (This should be handed to you)."
+    },
+    "grafanaLokiEndpoint": {
+      "Type": "String",
+      "MinLength": 10,
+      "Description": "Loki endpoint (This should be handed to you)."
+    },
     "apiKey1": {
       "Type": "String",
       "MinLength": 10,
@@ -107,7 +122,26 @@
               "logDriver": "awsfirelens",
               "options": {
                 "Name": "grafana-loki",
-                "Url": "https://<GF_LOKI_USER>:<GF_LOKI_TOKEN>@<GF_LOKI_ENDPOINT>/loki/api/v1/push",
+                "Url": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "https://",
+                      {
+                        "Ref": "grafanaLokiUser"
+                      },
+                      ":",
+                      {
+                        "Ref": "grafanaLokiToken"
+                      },
+                      "@",
+                      {
+                        "Ref": "grafanaLokiEndpoint"
+                      },
+                      "/loki/api/v1/push"
+                    ]
+                  ]
+                },
                 "Labels": "{app=\"pusher\",airnode=\"<AIRNODE_ADDRESS>\"}",
                 "RemoveKeys": "container_id,container_name,ecs_task_definition,source,ecs_cluster",
                 "LabelKeys": "ecs_task_arn",
