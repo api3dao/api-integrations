@@ -22,6 +22,8 @@ jobs:
         with:
           node-version: 18.x
           cache: 'yarn'
+      - name: Install Packages
+        run: yarn install
       - name: Validate Frontend
         run: yarn validate-frontend
 
