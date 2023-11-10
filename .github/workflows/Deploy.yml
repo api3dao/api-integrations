@@ -5,36 +5,44 @@ name: Deploy to Github Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
     paths:
       - 'frontend/**'
       - 'data/**'
+  pull_request:
+    branches: [ main ]
 
 jobs:
+  validate-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: 'yarn'
+      - name: Validate Frontend
+        run: yarn validate-frontend
+
   build:
-    
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./frontend
-    strategy:
-      matrix:
-        node-version: [18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Setup Node
       uses: actions/setup-node@v3
       with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+        node-version: 18.x
+        cache: 'yarn'
     - name: Install Packages
       run: yarn install
     - name: Build Page
       run: yarn build
     - name: Deploy to Github Pages
+      if : github.ref == 'refs/heads/main'
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         branch: gh-pages
