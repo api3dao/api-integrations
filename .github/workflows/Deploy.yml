@@ -5,17 +5,21 @@ name: Deploy to Github Pages
 
 on:
   push:
+    branches:
+      - main
     paths:
       - 'frontend/**'
       - 'data/**'
   pull_request:
+    branches:
+      - main
     paths:
       - 'frontend/**'
       - 'data/**'
 
 jobs:
   build:
-    if: github.event.pull_request.merged == true
+    
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -37,6 +41,7 @@ jobs:
     - name: Build Page
       run: yarn build
     - name: Deploy to Github Pages
+      if: github.event.pull_request.merged == true
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         branch: gh-pages
