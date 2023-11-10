@@ -154,3 +154,11 @@ each ois and feed.
 - Unchanged feeds
 
 <img width="975" alt="image" src="https://github.com/api3dao/api-integrations/assets/31757771/271a7ac4-18f6-4fd1-97b3-b76ca003e3b5">
+
+## Deploying Frontend
+
+### Prerequisites
+
+- A new branch should be created for the deployment.
+- The branch should be merged with the `main` branch.
+- The `main` branch should be up to date with the `origin/main` branch.
