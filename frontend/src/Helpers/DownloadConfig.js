@@ -25,7 +25,7 @@ export const populateOis = (configData, mode = CONSTANTS.CLOUD_FORMATION_DEPLOY,
   const secrets = `WALLET_MNEMONIC=<ENTER_MNEMONIC>${API_KEY}${stage}`;
   switch (mode) {
     case CONSTANTS.CLOUD_FORMATION_DEPLOY:
-      downloadCloudFormation(cloudFormation, secrets, configData);
+      downloadCloudFormation(cloudFormation, configData);
       break;
     case CONSTANTS.DOCKER_DEPLOY:
       downloadZip(secrets, configData);
@@ -41,15 +41,75 @@ export const populateOis = (configData, mode = CONSTANTS.CLOUD_FORMATION_DEPLOY,
   });
 };
 
-const downloadCloudFormation = (CloudFormation, secrets, configData) => {
+const getSecrets = (credentials) => {
+  let secrets = {
+    'Fn::Join': [
+      '',
+      [
+        'WALLET_MNEMONIC',
+        '=',
+        {
+          Ref: 'airnodeMnemonic'
+        }
+      ]
+    ]
+  };
+
+  credentials.forEach((item) => {
+    const entry = [
+      '\\n',
+      item.securitySchemeName.toUpperCase() + '_VALUE',
+      '=',
+      {
+        Ref: item.securitySchemeName
+      }
+    ];
+
+    entry.forEach((item) => {
+      secrets['Fn::Join'][1].push(item);
+    });
+  });
+
+  const stage = ['\\nSTAGE=aws'];
+  stage.forEach((item) => secrets['Fn::Join'][1].push(item));
+
+  return secrets;
+};
+
+const getParameters = (credentials) => {
+  let parameters = {
+    airnodeMnemonic: {
+      Type: 'String',
+      MinLength: 10,
+      Description: 'Mnemonic phrase of your Airnode address.'
+    }
+  };
+
+  credentials.forEach((item) => {
+    const val = {
+      Type: 'String',
+      MinLength: 10,
+      Description: `Please enter the value for the security parameter ${item.securitySchemeName}`
+    };
+
+    parameters[item.securitySchemeName] = val;
+  });
+
+  return parameters;
+};
+
+const downloadCloudFormation = (CloudFormation, configData) => {
   const entryPoint = [
     '/bin/sh',
     '-c',
     `echo -e $SECRETS_ENV >> ./config/secrets.env && wget -O - https://raw.githubusercontent.com/api3dao/api-integrations/main/data/apis/${configData.apiProvider}/deployments/${configData.category}-deployments/${configData.filename} >> ./config/pusher.json && node --enable-source-maps dist/index.js`
   ];
 
-  CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[0].Environment[0].Value = secrets;
-  CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[0].EntryPoint = entryPoint;
+  const secrets = getSecrets(configData.config.apiCredentials);
+
+  CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].Environment[0].Value = secrets;
+  CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].EntryPoint = entryPoint;
+  CloudFormation.Parameters = getParameters(configData.config.apiCredentials);
 
   const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(JSON.stringify(CloudFormation, null, 2))}`;
 
