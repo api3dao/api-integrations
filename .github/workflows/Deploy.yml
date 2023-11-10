@@ -10,6 +10,7 @@ on:
       - 'frontend/**'
       - 'data/**'
   pull_request:
+    branches: [ main ]
     types: [ labeled ]
 
 jobs:
