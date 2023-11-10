@@ -52,8 +52,8 @@ deployment with a candidate deployment.
 
 ### Deployment page
 
-The deployment page contains the ois details. A deployment can have multiple oises. Each can have their own feeds,
-secret keys, and other details.
+The deployment page contains the ois details. A deployment can have multiple oises. Each can have their own feeds, and
+other details.
 
 Thus deployment page contains the following sections:
 
@@ -70,7 +70,6 @@ This section contains the mnemonic of the pusher account. This mnemonic is used 
 This section contains the details of the OIS. The OIS details are:
 
 - OIS title
-- API secret key
 - Feeds
 
 #### Deployment details
@@ -89,12 +88,7 @@ deployment section.
 
 ## OIS details
 
-Each OIS has its own secret key and feeds.
-
-### View secret key
-
-Click on the expand button on `Secrets` section to enter the secret key of the OIS. The secret key is used to call api
-endpoints and its used to generate deployment configurations.
+Each OIS has its own feeds.
 
 ### View feeds
 
@@ -106,16 +100,6 @@ Click on the expand button on `Feeds` section to view the feeds of the OIS.
 - Feed request type and url
 - Feed parameters
 - Feed post processing
-- Try it out button
-
-### Testing feeds
-
-Click on the `Try it out` button to test the feed. Test process is as follows:
-
-- Preprocess the feed parameters
-- Call the feed endpoint
-- Post process the feed response
-- Display the feed response
 
 ## View deployment instructions
 
@@ -123,11 +107,13 @@ Click on the expand deployment location to view the deployment instructions. The
 
 - AWS
 - Local
+- Staging
 
 ### AWS deployment instructions
 
 The AWS deployment instructions contains the following:
 
+- Enter your secrets on specified fields before upload your template
 - Go to CloudFormation section in the AWS dashboard, and upload your template
 - Wait for AWS to deploy everything and check CloudWatch log group named myAppLogs to see what's up.
 - After 1 or 2 minutes, you should see your signed data in https://pool.nodary.io/ after a successful deployment.
