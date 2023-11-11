@@ -19,7 +19,7 @@ const NonEditableRow = ({ text, setText }) => {
   };
 
   return (
-    <Flex borderColor={'black.800'} width={'100%'} alignItems={'center'}>
+    <Flex borderColor={'black.800'} width={'100%'} alignItems={'center'} overflowX={'scroll'}>
       <Text noOfLines={1} width={'100%'} color={text === null ? 'gray.400' : 'black'} fontSize={'md'}>
         {text === null ? 'Paste your Airnode address here...' : text}
       </Text>
