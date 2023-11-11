@@ -6,6 +6,7 @@ import ApiProvider from '../Custom/ApiProvider';
 import CodeBlockView from '../Custom/CodeBlockView';
 import { checkValidEthAddresses } from '../Helpers/Utils';
 import Title from '../Custom/Title';
+import { getDeploymentStatus } from '../Helpers/DeploymentsLog';
 
 const SearchApiProvider = ({ providers, setProvider }) => {
   const [airnodeAddress, setAirnodeAddress] = useState(null);
@@ -23,6 +24,7 @@ const SearchApiProvider = ({ providers, setProvider }) => {
           throw new Error(`Could not find provider with airnode address ${airnodeAddress}`);
         }
         setDeployment(provider);
+        getDeploymentStatus(airnodeAddress);
       }
     } catch (error) {
       setError(error);
