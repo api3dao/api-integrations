@@ -42,11 +42,6 @@ jobs:
         cache: 'yarn'
     - name: Install Packages
       run: yarn install
-    - name: Build Page
-      run: yarn build
     - name: Deploy to Github Pages
       if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
-      uses: JamesIves/github-pages-deploy-action@v4
-      with:
-        branch: gh-pages
-        folder: ./frontend/build
+      run: yarn deploy

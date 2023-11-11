@@ -34,6 +34,7 @@ const ApiProvider = ({ deployment, setProvider, stack, onClick }) => {
         bg={COLORS.header}
         boxShadow={CONSTANTS.boxShadowSolid}
         alignItems={'center'}
+        overflowX={'scroll'}
         onClick={() => (setProvider === undefined ? {} : setProvider(deployment))}
       >
         <Image
