@@ -6,6 +6,7 @@ import { COLORS } from '../data/constants';
 import { ApiIntegrationsContext } from '../Context';
 import DeploymentCategory from '../Custom/DeploymentCategory';
 import ApiProvider from '../Custom/ApiProvider';
+import Title from '../Custom/Title';
 
 const DeploymentsView = ({ integrations }) => {
   const { comparePair } = useContext(ApiIntegrationsContext);
@@ -13,23 +14,15 @@ const DeploymentsView = ({ integrations }) => {
   return comparePair.left !== null && comparePair.right !== null ? (
     <CompareEndpoints oldOis={comparePair.right.ois} newOis={comparePair.left.ois} />
   ) : (
-    <VStack width={'100%'}>
-      <DeploymentCategory
-        header={'Active Deployments'}
-        integrations={integrations.activeDeployment}
-        apiData={integrations.apiData}
-      />
-      <DeploymentCategory
-        header={'Candidate Deployments'}
-        integrations={integrations.candidateDeployment}
-        apiData={integrations.apiData}
-      />
+    <VStack width={'100%'} align={'left'}>
+      <Title header={'Deployments'} buttonVisibility={false} isLoading={false} p={0} />
+      <DeploymentCategory integrations={integrations} apiData={integrations.apiData} />
     </VStack>
   );
 };
 
 const Integrations = ({ integrations, setProvider }) => {
-  const { config, setConfig, comparePair, setComparePair } = useContext(ApiIntegrationsContext);
+  const { config, setConfig, comparePair, setComparePair, setGrafanaLog } = useContext(ApiIntegrationsContext);
 
   const detach = () => {
     if (comparePair.left !== null) {
@@ -43,7 +36,7 @@ const Integrations = ({ integrations, setProvider }) => {
       setConfig(null);
       return;
     }
-
+    setGrafanaLog(null);
     setProvider(null);
   };
 
@@ -54,8 +47,8 @@ const Integrations = ({ integrations, setProvider }) => {
 
     if (config !== null) {
       const category = config.category;
-      const deployment = config.filename[0];
-      return ['deployments', `${category} deployments`, deployment];
+      const deployment = config.filename[0].replace('.json', '');
+      return ['deployments', `${deployment} (${category})`];
     }
 
     return ['deployments'];

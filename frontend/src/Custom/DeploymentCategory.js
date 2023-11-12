@@ -1,5 +1,4 @@
 import { VStack } from '@chakra-ui/react';
-import Title from './Title';
 import IntegrationRow from '../Components/IntegrationRow';
 
 const AvailableDeployments = ({ integrations, apiData }) => {
@@ -18,11 +17,12 @@ const AvailableDeployments = ({ integrations, apiData }) => {
  * @param {Object} props.apiData - An object containing API data.
  * @returns {JSX.Element|null} The JSX element for the DeploymentCategory component, or null if there are no integrations.
  */
-const DeploymentCategory = ({ header, integrations, apiData }) => {
+const DeploymentCategory = ({ integrations, apiData }) => {
   return integrations.length === 0 ? null : (
-    <VStack width={'100%'} p={3} align={'left'}>
-      <Title header={header} buttonVisibility={false} isLoading={false} p={0} />
-      <AvailableDeployments integrations={integrations} apiData={apiData} />
+    <VStack width={'100%'} align={'left'}>
+      <AvailableDeployments integrations={integrations.activeDeployment} apiData={apiData} />
+      <AvailableDeployments integrations={integrations.candidateDeployment} apiData={apiData} />
+      <AvailableDeployments integrations={integrations.stagingDeployment} apiData={apiData} />
     </VStack>
   );
 };
