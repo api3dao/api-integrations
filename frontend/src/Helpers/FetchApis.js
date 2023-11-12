@@ -12,6 +12,10 @@ export const checkFiles = (ctx) => {
 
   let apiDatas = [];
 
+  const hashFile = (file) => {
+    return '0x' + sha256(JSON.stringify(file));
+  };
+
   for (let i = 0; i < keys.length; i++) {
     const api = keys[i].split('/')[1];
     const value = values[i];
@@ -50,7 +54,7 @@ export const checkFiles = (ctx) => {
           config: value,
           category: 'active',
           apiProvider: api,
-          hash: sha256(JSON.stringify(value))
+          hash: hashFile(value)
         });
       } else if (keys[i].includes('candidate-deployments')) {
         candidateDeployment.push({
@@ -58,7 +62,7 @@ export const checkFiles = (ctx) => {
           config: value,
           category: 'candidate',
           apiProvider: api,
-          hash: sha256(JSON.stringify(value))
+          hash: hashFile(value)
         });
       } else if (keys[i].includes('staging-deployments')) {
         stagingDeployment.push({
@@ -66,7 +70,7 @@ export const checkFiles = (ctx) => {
           config: value,
           category: 'staging',
           apiProvider: api,
-          hash: sha256(JSON.stringify(value))
+          hash: hashFile(value)
         });
       }
     } else {
@@ -75,11 +79,17 @@ export const checkFiles = (ctx) => {
       let stagingDeployment = [];
 
       if (keys[i].includes('active-deployments')) {
-        activeDeployment = [{ filename: filename, config: value, category: 'active', apiProvider: api }];
+        activeDeployment = [
+          { filename: filename, config: value, category: 'active', apiProvider: api, hash: hashFile(value) }
+        ];
       } else if (keys[i].includes('candidate-deployments')) {
-        candidateDeployment = [{ filename: filename, config: value, category: 'candidate', apiProvider: api }];
+        candidateDeployment = [
+          { filename: filename, config: value, category: 'candidate', apiProvider: api, hash: hashFile(value) }
+        ];
       } else if (keys[i].includes('staging-deployments')) {
-        stagingDeployment = [{ filename: filename, config: value, category: 'staging', apiProvider: api }];
+        stagingDeployment = [
+          { filename: filename, config: value, category: 'staging', apiProvider: api, hash: hashFile(value) }
+        ];
       }
 
       const apiData = apiDatas.find((item) => item.apiProvider === api);
@@ -90,7 +100,7 @@ export const checkFiles = (ctx) => {
         candidateDeployment: candidateDeployment,
         stagingDeployment: stagingDeployment,
         apiData: apiData,
-        hash: sha256(JSON.stringify(value))
+        hash: hashFile(value)
       };
       apis.push(obj);
     }

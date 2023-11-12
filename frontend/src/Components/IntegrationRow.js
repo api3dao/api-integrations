@@ -4,7 +4,7 @@ import { COLORS } from '../data/constants';
 import { ApiIntegrationsContext } from '../Context';
 import StageLocation from '../Custom/StageLocation';
 
-const DeploymentLocation = ({ apiData, category }) => {
+const DeploymentLocation = ({ apiData, category, hash }) => {
   const getDeploymentLocations = () => {
     if (apiData === undefined) return [];
     return apiData.config.deploymentLocations;
@@ -13,7 +13,7 @@ const DeploymentLocation = ({ apiData, category }) => {
   return (
     <Stack direction={'row'} alignItems={'center'} spacing={5} wrap={'wrap'}>
       {getDeploymentLocations().map((location, index) => (
-        <StageLocation key={index} location={location} index={index} category={category} />
+        <StageLocation key={index} location={location} index={index} category={category} hash={hash} />
       ))}
     </Stack>
   );
@@ -57,13 +57,18 @@ const IntegrationsRow = ({ config, apiData }) => {
         width={'100%'}
         alignItems={'left'}
         spacing={'10'}
+        direction={'row'}
       >
         <Flex width={'100%'} wrap={'wrap'}>
           <Stack direction={'row'} alignItems={'center'} spacing={5} wrap={'wrap'}>
-            <Text minWidth={'400px'} fontSize={'md'} fontWeight={'bold'}>
-              {config.filename[0].replace('.json', '')}
-            </Text>
-            <DeploymentLocation apiData={apiData} category={config.category} />
+            <Flex minWidth={'400px'} gap={1} align={'center'}>
+              <Text fontSize={'md'} fontWeight={'bold'}>
+                {config.filename[0].replace('.json', '')}
+              </Text>
+              <Text fontSize={'xs'} fontWeight={'light'}>{` (${config.category})`}</Text>
+            </Flex>
+
+            <DeploymentLocation apiData={apiData} category={config.category} hash={config.hash} />
           </Stack>
           <Spacer />
           <Stack direction={'row'}>
