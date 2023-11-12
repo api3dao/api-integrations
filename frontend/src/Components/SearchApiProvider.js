@@ -1,5 +1,5 @@
 import { Flex, Text, VStack, Spacer } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { COLORS } from '../data/constants';
 import SearchRow from '../Custom/SearchRow';
 import ApiProvider from '../Custom/ApiProvider';
@@ -7,11 +7,14 @@ import CodeBlockView from '../Custom/CodeBlockView';
 import { checkValidEthAddresses } from '../Helpers/Utils';
 import Title from '../Custom/Title';
 import { getDeploymentStatus } from '../Helpers/DeploymentsLog';
+import { ApiIntegrationsContext } from '../Context';
 
 const SearchApiProvider = ({ providers, setProvider }) => {
   const [airnodeAddress, setAirnodeAddress] = useState(null);
   const [deployment, setDeployment] = useState(null);
   const [error, setError] = useState(null);
+
+  const { setGrafanaLog } = useContext(ApiIntegrationsContext);
 
   useEffect(() => {
     setDeployment(null);
@@ -24,12 +27,12 @@ const SearchApiProvider = ({ providers, setProvider }) => {
           throw new Error(`Could not find provider with airnode address ${airnodeAddress}`);
         }
         setDeployment(provider);
-        getDeploymentStatus(airnodeAddress);
+        getDeploymentStatus(airnodeAddress, setGrafanaLog);
       }
     } catch (error) {
       setError(error);
     }
-  }, [airnodeAddress, providers, setProvider]);
+  }, [airnodeAddress, providers, setGrafanaLog, setProvider]);
 
   return (
     <Flex height="70vh" justifyContent="center" alignItems="center">
