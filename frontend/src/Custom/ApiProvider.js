@@ -2,7 +2,7 @@ import { Text, Image, Flex, Stack } from '@chakra-ui/react';
 import { ArrowBackIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { COLORS, CONSTANTS } from '../data/constants';
 
-const Path = ({ stack, onClick }) => {
+const Path = ({ stack }) => {
   if (stack === undefined || stack == null) {
     return null;
   }
