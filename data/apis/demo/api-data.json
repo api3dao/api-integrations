@@ -1,7 +1,7 @@
 {
   "alias": "Demo Provider",
   "name": "Demo Provider",
-  "airnode": "0x6C2ea434Be6Ba7B56b62AeE27A574e4b39f5dabf",
+  "airnode": "0xdAD65588187bC1a76C482174e25ACcED1413d2a1",
   "xpub": "",
   "supportedFeedsInBatches": {
     "MOCK_GET": [["AAVE/USD"], ["ADA/USD"], ["ALGO/USD"], ["ZRX/USD"]],
@@ -111,5 +111,5 @@
       ["ZRX/USD"]
     ]
   },
-  "deploymentLocations": ["aws", "local"]
+  "deploymentLocations": ["aws", "dev"]
 }
