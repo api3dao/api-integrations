@@ -1,6 +1,6 @@
 const DEPLOYMENT_STATUS_API_URL = 'https://integration.nodary.io/';
 
-export async function getDeploymentStatus(airnodeAddress) {
+export async function getDeploymentStatus(airnodeAddress, setGrafanaLog) {
   let url = DEPLOYMENT_STATUS_API_URL;
   const options = {
     method: 'GET'
@@ -9,8 +9,8 @@ export async function getDeploymentStatus(airnodeAddress) {
   try {
     const response = await fetch(`${url}deploymentStatus?airnode=${airnodeAddress}&app=pusher`, options);
     const data = await response.json();
-    return data;
+    setGrafanaLog(data);
   } catch (error) {
-    return { success: false, error };
+    setGrafanaLog(null);
   }
 }
