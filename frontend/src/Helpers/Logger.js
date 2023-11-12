@@ -14,7 +14,7 @@ const warn = (message) => {
   console.log('[WARN]', message);
 };
 
-export const log = (mode, message, active = true) => {
+export const log = (mode, message, active = false) => {
   if (!active) return;
   switch (mode) {
     case 'error':

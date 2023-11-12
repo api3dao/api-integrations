@@ -7,29 +7,23 @@ export const cut = (object, initialMatch, finalMatch, replaceQuotes = true, json
   try {
     const newObject = object.map((code) => {
       let sanitized = code.value.replaceAll(/(\n)/g, '');
-      log('debug', ['sanitized: ', sanitized]);
 
       sanitized = sanitized.replace(/ +(?= )/g, '');
       const object = sanitized.match(initialMatch);
-      log('debug', ['object: ', object]);
 
       let filtered = replaceQuotes ? object[0].replaceAll(/(\\n)|(\\)|(")/g, '') : object[0].replaceAll(/(\\n)/g, '');
       filtered = filtered.replace(/ +(?= )/g, '');
-      log('debug', ['filtered: ', filtered]);
 
       return filtered;
     });
-    log('debug', ['newObject: ', newObject]);
 
     if (json) {
       const val = jsonify(newObject[0], setError);
-      log('debug', ['json: ', val]);
       return val;
     } else {
       if (newObject == null || newObject === undefined) return [];
       const splitParanthesis = newObject[0].match(finalMatch);
       let final = [];
-      log('debug', ['newObject: ', newObject]);
 
       for (let i = 0; i < splitParanthesis.length; i++) {
         const split = splitParanthesis[i].split(/:(.*)/s);
