@@ -2,7 +2,6 @@ import { Flex, VStack } from '@chakra-ui/react';
 import { useContext, useState } from 'react';
 import Endpoint from './Endpoint';
 import DeployOptions from './DeployOptions';
-import PasteRow from '../Custom/PasteRow';
 import { COLORS, CONSTANTS } from '../data/constants';
 import Title from '../Custom/Title';
 import UnsupportedFeedsView from '../Custom/UnsupportedFeedsView';
@@ -58,11 +57,7 @@ const NavigationView = ({ viewMode, setViewMode }) => {
 const DeployView = ({ apiData }) => {
   return (
     <VStack alignItems={'left'} width={'100%'}>
-      <Title header={'Authorization'} isLoading={false} buttonVisibility={false} />
-      <VStack p={2} spacing={5} alignItems={'left'} width={'100%'}>
-        <PasteRow text={''} title={'Log API:'} setText={() => {}} />
-        <DeployOptions apiData={apiData} />
-      </VStack>
+      <DeployOptions apiData={apiData} />
     </VStack>
   );
 };
