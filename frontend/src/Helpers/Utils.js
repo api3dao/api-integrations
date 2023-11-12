@@ -7,11 +7,13 @@ export const cut = (object, initialMatch, finalMatch, replaceQuotes = true, json
   try {
     const newObject = object.map((code) => {
       let sanitized = code.value.replaceAll(/(\n)/g, '');
+
       sanitized = sanitized.replace(/ +(?= )/g, '');
       const object = sanitized.match(initialMatch);
 
       let filtered = replaceQuotes ? object[0].replaceAll(/(\\n)|(\\)|(")/g, '') : object[0].replaceAll(/(\\n)/g, '');
       filtered = filtered.replace(/ +(?= )/g, '');
+
       return filtered;
     });
 

@@ -16,7 +16,6 @@ const warn = (message) => {
 
 export const log = (mode, message, active = false) => {
   if (!active) return;
-  console.log(new Error().stack.split('\n')[1].trim().split(' ')[1]);
   switch (mode) {
     case 'error':
       error(message);
