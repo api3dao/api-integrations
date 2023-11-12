@@ -1,4 +1,4 @@
-import { Text, Image, VStack, Flex, Spacer, Stack } from '@chakra-ui/react';
+import { Text, Image, Flex, Stack } from '@chakra-ui/react';
 import { ArrowBackIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { COLORS, CONSTANTS } from '../data/constants';
 
@@ -12,20 +12,27 @@ const Path = ({ stack, onClick }) => {
       {stack.map((item, index) => (
         <Stack key={index} direction={'row'}>
           <ChevronRightIcon width={'30px'} height={'30px'} cursor={'pointer'} />
-          <Text bgColor={'gray.100'} p={2} borderRadius={'xl'} key={index} fontSize={'xs'}>
+          <Text
+            noOfLines={0}
+            minW={'150px'}
+            textAlign={'center'}
+            bgColor={'gray.100'}
+            p={2}
+            borderRadius={'xl'}
+            key={index}
+            fontSize={'xs'}
+          >
             {item}
           </Text>
         </Stack>
       ))}
-      <Spacer />
-      <ArrowBackIcon onClick={onClick} width={'30px'} height={'30px'} cursor={'pointer'} />
     </Flex>
   );
 };
 
 const ApiProvider = ({ deployment, setProvider, stack, onClick }) => {
   return deployment === undefined || deployment == null ? null : (
-    <VStack cursor={setProvider === undefined ? 'auto' : 'pointer'}>
+    <Flex cursor={setProvider === undefined ? 'auto' : 'pointer'}>
       <Flex
         p={3}
         gap={3}
@@ -35,6 +42,7 @@ const ApiProvider = ({ deployment, setProvider, stack, onClick }) => {
         boxShadow={CONSTANTS.boxShadowSolid}
         alignItems={'center'}
         overflowX={'scroll'}
+        overflowY={'hidden'}
         onClick={() => (setProvider === undefined ? {} : setProvider(deployment))}
       >
         <Image
@@ -53,7 +61,24 @@ const ApiProvider = ({ deployment, setProvider, stack, onClick }) => {
         </Text>
         <Path stack={stack} onClick={onClick} />
       </Flex>
-    </VStack>
+
+      {stack === undefined || stack == null || stack.length === 0 ? null : (
+        <Flex
+          p={3}
+          gap={3}
+          height={'70px'}
+          width={'70px'}
+          bg={COLORS.table}
+          boxShadow={CONSTANTS.boxShadowSolid}
+          alignItems={'center'}
+          justifyContent={'center'}
+          onClick={onClick}
+          cursor={'pointer'}
+        >
+          <ArrowBackIcon onClick={onClick} width={'30px'} height={'30px'} cursor={'pointer'} />
+        </Flex>
+      )}
+    </Flex>
   );
 };
 
