@@ -19,10 +19,11 @@ export const cut = (object, initialMatch, finalMatch, replaceQuotes = true, json
 
       return filtered;
     });
+    log('debug', ['newObject: ', newObject]);
 
     if (json) {
       const val = jsonify(newObject[0], setError);
-      log('debug', ['json: ', json]);
+      log('debug', ['json: ', val]);
       return val;
     } else {
       if (newObject == null || newObject === undefined) return [];
