@@ -24,6 +24,11 @@ const DeploymentsView = ({ integrations }) => {
         integrations={integrations.candidateDeployment}
         apiData={integrations.apiData}
       />
+      <DeploymentCategory
+        header={'Staging Deployments'}
+        integrations={integrations.stagingDeployment}
+        apiData={integrations.apiData}
+      />
     </VStack>
   );
 };

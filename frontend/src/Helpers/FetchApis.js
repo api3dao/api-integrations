@@ -6,6 +6,7 @@ export const checkFiles = (ctx) => {
 
   let activeDeployment = [];
   let candidateDeployment = [];
+  let stagingDeployment = [];
 
   let apiDatas = [];
 
@@ -39,6 +40,7 @@ export const checkFiles = (ctx) => {
     if (isExist) {
       activeDeployment = isExist.activeDeployment;
       candidateDeployment = isExist.candidateDeployment;
+      stagingDeployment = isExist.stagingDeployment;
 
       if (keys[i].includes('active-deployments')) {
         activeDeployment.push({ filename: filename, config: value, category: 'active', apiProvider: api });
@@ -49,15 +51,25 @@ export const checkFiles = (ctx) => {
           category: 'candidate',
           apiProvider: api
         });
+      } else if (keys[i].includes('staging-deployments')) {
+        stagingDeployment.push({
+          filename: filename,
+          config: value,
+          category: 'staging',
+          apiProvider: api
+        });
       }
     } else {
       let activeDeployment = [];
       let candidateDeployment = [];
+      let stagingDeployment = [];
 
       if (keys[i].includes('active-deployments')) {
         activeDeployment = [{ filename: filename, config: value, category: 'active', apiProvider: api }];
       } else if (keys[i].includes('candidate-deployments')) {
         candidateDeployment = [{ filename: filename, config: value, category: 'candidate', apiProvider: api }];
+      } else if (keys[i].includes('staging-deployments')) {
+        stagingDeployment = [{ filename: filename, config: value, category: 'staging', apiProvider: api }];
       }
 
       const apiData = apiDatas.find((item) => item.apiProvider === api);
@@ -66,6 +78,7 @@ export const checkFiles = (ctx) => {
         name: apiData.config.name,
         activeDeployment: activeDeployment,
         candidateDeployment: candidateDeployment,
+        stagingDeployment: stagingDeployment,
         apiData: apiData
       };
       apis.push(obj);
