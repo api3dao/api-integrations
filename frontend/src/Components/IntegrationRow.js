@@ -61,7 +61,7 @@ const IntegrationsRow = ({ config, apiData }) => {
         <Flex width={'100%'} wrap={'wrap'}>
           <Stack direction={'row'} alignItems={'center'} spacing={5} wrap={'wrap'}>
             <Text minWidth={'400px'} fontSize={'md'} fontWeight={'bold'}>
-              {config.filename}
+              {config.filename[0].replace('.json', '')}
             </Text>
             <DeploymentLocation apiData={apiData} category={config.category} />
           </Stack>

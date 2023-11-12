@@ -54,7 +54,7 @@ const Integrations = ({ integrations, setProvider }) => {
 
     if (config !== null) {
       const category = config.category;
-      const deployment = config.filename[0];
+      const deployment = config.filename[0].replace('.json', '');
       return ['deployments', `${category} deployments`, deployment];
     }
 
