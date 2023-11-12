@@ -1,3 +1,5 @@
+import { sha256 } from 'js-sha256';
+
 export const checkFiles = (ctx) => {
   let keys = ctx.keys();
   let values = keys.map(ctx);
@@ -43,20 +45,28 @@ export const checkFiles = (ctx) => {
       stagingDeployment = isExist.stagingDeployment;
 
       if (keys[i].includes('active-deployments')) {
-        activeDeployment.push({ filename: filename, config: value, category: 'active', apiProvider: api });
+        activeDeployment.push({
+          filename: filename,
+          config: value,
+          category: 'active',
+          apiProvider: api,
+          hash: sha256(JSON.stringify(value))
+        });
       } else if (keys[i].includes('candidate-deployments')) {
         candidateDeployment.push({
           filename: filename,
           config: value,
           category: 'candidate',
-          apiProvider: api
+          apiProvider: api,
+          hash: sha256(JSON.stringify(value))
         });
       } else if (keys[i].includes('staging-deployments')) {
         stagingDeployment.push({
           filename: filename,
           config: value,
           category: 'staging',
-          apiProvider: api
+          apiProvider: api,
+          hash: sha256(JSON.stringify(value))
         });
       }
     } else {
@@ -79,7 +89,8 @@ export const checkFiles = (ctx) => {
         activeDeployment: activeDeployment,
         candidateDeployment: candidateDeployment,
         stagingDeployment: stagingDeployment,
-        apiData: apiData
+        apiData: apiData,
+        hash: sha256(JSON.stringify(value))
       };
       apis.push(obj);
     }
