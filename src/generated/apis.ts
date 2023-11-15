@@ -150,7 +150,9 @@ export const apisData = {
         ['XAU/USD']
       ]
     },
-    deploymentLocations: ['aws']
+    deploymentLocations: ['aws'],
+    officialUrl: 'https://twelvedata.com',
+    verifiedUrl: 'https://twelvedata.com'
   },
   tradermade: {
     alias: 'tradermade',
@@ -184,7 +186,9 @@ export const apisData = {
         ['XAG/USD', 'XAU/USD', 'WTI/USD']
       ]
     },
-    deploymentLocations: ['aws']
+    deploymentLocations: ['aws'],
+    officialUrl: 'https://tradermade.com',
+    verifiedUrl: 'https://tradermade.com'
   },
   ncfx: {
     alias: 'ncfx',
@@ -316,7 +320,9 @@ export const apisData = {
         ]
       ]
     },
-    deploymentLocations: ['aws']
+    deploymentLocations: ['aws'],
+    officialUrl: 'https://www.newchangefx.com',
+    verifiedUrl: 'https://newchangefx.com'
   },
   kaiko: {
     alias: 'kaiko',
@@ -425,7 +431,9 @@ export const apisData = {
         ['KAVA/USD']
       ]
     },
-    deploymentLocations: ['aws']
+    deploymentLocations: ['aws'],
+    officialUrl: 'https://www.kaiko.com',
+    verifiedUrl: 'https://kaiko.io'
   },
   iexcloud: {
     alias: 'iexcloud',
@@ -462,7 +470,9 @@ export const apisData = {
         ['ZAR/USD']
       ]
     },
-    deploymentLocations: ['aws']
+    deploymentLocations: ['aws'],
+    officialUrl: 'https://iexcloud.io',
+    verifiedUrl: 'https://iex.cloud'
   },
   finnhub: {
     alias: 'finnhub',
@@ -507,7 +517,9 @@ export const apisData = {
         ['RUB/USD']
       ]
     },
-    deploymentLocations: ['aws']
+    deploymentLocations: ['aws'],
+    officialUrl: 'https://finnhub.io',
+    verifiedUrl: 'https://finnhub.io'
   },
   finage: {
     alias: 'finage',
@@ -657,7 +669,9 @@ export const apisData = {
         ['XAU/USD']
       ]
     },
-    deploymentLocations: ['aws']
+    deploymentLocations: ['aws'],
+    officialUrl: 'https://finage.co.uk',
+    verifiedUrl: 'https://finage.co.uk'
   },
   dxfeed: {
     alias: 'dxfeed',
@@ -779,7 +793,9 @@ export const apisData = {
         ['XAU/USD']
       ]
     },
-    deploymentLocations: ['aws']
+    deploymentLocations: ['aws'],
+    officialUrl: 'https://dxfeed.com',
+    verifiedUrl: 'https://dxfeed.com'
   },
   coinpaprika: {
     alias: 'coinpaprika',
@@ -900,7 +916,9 @@ export const apisData = {
         ['EURE/USD']
       ]
     },
-    deploymentLocations: ['aws']
+    deploymentLocations: ['aws'],
+    officialUrl: 'https://coinpaprika.com',
+    verifiedUrl: 'https://coinpaprika.com'
   }
 };
 export const airnodeAddressMap = {
