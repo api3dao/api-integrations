@@ -128,5 +128,7 @@
       ]
     ]
   },
-  "deploymentLocations": ["aws"]
+  "deploymentLocations": ["aws"],
+  "officialUrl": "https://www.newchangefx.com",
+  "verifiedUrl": "https://newchangefx.com"
 }

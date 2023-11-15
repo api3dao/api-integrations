@@ -117,5 +117,7 @@
       ["EURE/USD"]
     ]
   },
-  "deploymentLocations": ["aws"]
+  "deploymentLocations": ["aws"],
+  "officialUrl": "https://coinpaprika.com",
+  "verifiedUrl": "https://coinpaprika.com"
 }
