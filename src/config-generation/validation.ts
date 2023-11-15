@@ -12,5 +12,7 @@ export const apiDataSchema = z.object({
   airnode: evmAddressSchema,
   xpub: z.string(),
   supportedFeedsInBatches: z.record(z.string(), z.array(z.array(z.string()))),
-  deploymentLocations: deploymentLocationsSchema
-});
+  deploymentLocations: deploymentLocationsSchema,
+  officialUrl: z.string(),
+  verifiedUrl: z.string(),
+}).strict();
