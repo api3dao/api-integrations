@@ -118,5 +118,7 @@
       ["XAU/USD"]
     ]
   },
-  "deploymentLocations": ["aws"]
+  "deploymentLocations": ["aws"],
+  "officialUrl": "https://dxfeed.com",
+  "verifiedUrl": "https://dxfeed.com"
 }

@@ -30,5 +30,7 @@
       ["XAG/USD", "XAU/USD", "WTI/USD"]
     ]
   },
-  "deploymentLocations": ["aws"]
+  "deploymentLocations": ["aws"],
+  "officialUrl": "https://tradermade.com",
+  "verifiedUrl": "https://tradermade.com"
 }

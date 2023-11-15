@@ -111,5 +111,5 @@
       ["ZRX/USD"]
     ]
   },
-  "deploymentLocations": ["aws", "dev"]
+  "deploymentLocations": ["aws"]
 }

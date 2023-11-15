@@ -146,5 +146,7 @@
       ["XAU/USD"]
     ]
   },
-  "deploymentLocations": ["aws"]
+  "deploymentLocations": ["aws"],
+  "officialUrl": "https://finage.co.uk",
+  "verifiedUrl": "https://finage.co.uk"
 }

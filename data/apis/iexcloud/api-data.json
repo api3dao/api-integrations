@@ -33,5 +33,7 @@
       ["ZAR/USD"]
     ]
   },
-  "deploymentLocations": ["aws"]
+  "deploymentLocations": ["aws"],
+  "officialUrl": "https://iexcloud.io",
+  "verifiedUrl": "https://iex.cloud"
 }
