@@ -311,7 +311,8 @@ export const apisData = {
           'OSMO/USD',
           'SUI/USD',
           'KAVA/USD',
-          'MNT/USD'
+          'MNT/USD',
+          'RDNT/USD'
         ]
       ]
     },
@@ -649,6 +650,8 @@ export const apisData = {
         ['LUSD/USD'],
         ['MNT/USD'],
         ['KAVA/USD'],
+        ['RIF/USD'],
+        ['RDNT/USD'],
         ['WTI/USD'],
         ['XAG/USD'],
         ['XAU/USD']
@@ -891,7 +894,10 @@ export const apisData = {
         ['MATICX/USD'],
         ['GHO/USD'],
         ['MNT/USD'],
-        ['KAVA/USD']
+        ['KAVA/USD'],
+        ['RIF/USD'],
+        ['RDNT/USD'],
+        ['EURE/USD']
       ]
     },
     deploymentLocations: ['aws']
