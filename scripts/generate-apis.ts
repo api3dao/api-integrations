@@ -17,7 +17,7 @@ const GENERATED_FILES_DIR = './src/generated';
 const prettierConfig = readJson('./.prettierrc');
 
 async function generateApiDataJson() {
-  const apiDataPaths = globSync('./data/apis/*/api-data.json');
+  const apiDataPaths = globSync('./data/apis/*/api-data.json').filter((pth) => !pth.includes("/demo/"));
   const apiDataJson = {};
   const airnodeMapping = {};
   apiDataPaths.forEach((path) => {
