@@ -149,7 +149,7 @@ const main = async () => {
   pusherConfig.nodeSettings.stage = '${STAGE}';
 
   // save the deployment
-  const deploymentPath = `./data/apis/${apiName}/deployments/candidate-deployments`;
+  const deploymentPath = `./data/apis/${apiName}/deployments/staging-deployments`;
   saveJson(join(deploymentPath, `${stage}-pusher.json`), pusherConfig);
 
   logger.info(`Generated deployment for ${apiName} with name ${stage}-pusher.json.`);
