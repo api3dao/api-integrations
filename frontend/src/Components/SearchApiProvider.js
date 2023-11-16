@@ -40,7 +40,7 @@ const SearchApiProvider = ({ providers, setProvider }) => {
         p={10}
         bgColor={COLORS.table}
         borderRadius={'sm'}
-        boxShadow="xl"
+        boxShadow="md"
         spacing={5}
         width={'95vw'}
         maxWidth={'1000px'}
