@@ -27,7 +27,7 @@ function App() {
             h="calc(100vh - 90px)"
             backgroundImage={'./bg.svg'}
             spacing={0}
-            p={2}
+            p={5}
             alignItems={'stretch'}
             flexDirection={'row'}
           >
