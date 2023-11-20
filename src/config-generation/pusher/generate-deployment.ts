@@ -28,6 +28,18 @@ const main = async () => {
     })
   });
 
+  // get deploymentType
+  const { deploymentType } = await prompts({
+    type: 'select',
+    name: 'deploymentType',
+    message: 'Select the deployment type:',
+    choices: [
+      { title: 'staging', value: 'staging' },
+      { title: 'candidate', value: 'candidate' }
+    ]
+  });
+  console.log('deploymentType is: ', deploymentType);
+
   // read required files
   const pusherConfig = readJson('./boilerplates/boilerplate-pusher-config.json');
   const apiData = apiDataSchema.parse(readJson(`./data/apis/${apiName}/api-data.json`));
@@ -149,7 +161,7 @@ const main = async () => {
   pusherConfig.nodeSettings.stage = '${STAGE}';
 
   // save the deployment
-  const deploymentPath = `./data/apis/${apiName}/deployments/staging-deployments`;
+  const deploymentPath = `./data/apis/${apiName}/deployments/${deploymentType}-deployments`;
   saveJson(join(deploymentPath, `${stage}-pusher.json`), pusherConfig);
 
   logger.info(`Generated deployment for ${apiName} with name ${stage}-pusher.json.`);
