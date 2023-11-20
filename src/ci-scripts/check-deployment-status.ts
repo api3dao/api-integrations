@@ -30,42 +30,34 @@ async function checkDeployments(deployments: any[], apiName: string, apiData: an
       const configHash = createHash(JSON.stringify(deploymentJson));
       const deploymentStatus: HeartbeatPayload[] = await getDeploymentStatus(apiData.airnode);
 
-      if (deploymentStatus.length > 1) {
-        issues.push(`${apiName}/${deploymentType} - Has more than 1 live ${deploymentType} deployment.`);
+      const targetDeploymentStatus = deploymentStatus.find(
+        (targetDeploymentStatus) => targetDeploymentStatus.configHash === configHash
+      );
+      if (targetDeploymentStatus === undefined) {
+        issues.push(`${apiName}/${deploymentType} - Couldn't find live deployment.`);
       } else {
-        const targetDeploymentStatus = deploymentStatus.find(
-          (targetDeploymentStatus) => targetDeploymentStatus.configHash === configHash
+        const now = Math.floor(Date.now() / 1000);
+
+        // check timestamp
+        if (Math.abs(now - parseInt(targetDeploymentStatus.currentTimestamp)) > ONE_MINUTE_IN_SECONS) {
+          issues.push(`${apiName}/${deploymentType} - Heartbeat is old!`);
+        }
+
+        // check heartbeat signature
+        const unsignedHeartbeatPayload = {
+          airnode: targetDeploymentStatus.airnode,
+          stage: targetDeploymentStatus.stage,
+          nodeVersion: targetDeploymentStatus.nodeVersion,
+          currentTimestamp: targetDeploymentStatus.currentTimestamp,
+          deploymentTimestamp: targetDeploymentStatus.deploymentTimestamp,
+          configHash: targetDeploymentStatus.configHash
+        };
+        const message = ethers.utils.arrayify(
+          createHash(stringifyUnsignedHeartbeatPayload(unsignedHeartbeatPayload))
         );
-        if (targetDeploymentStatus === undefined) {
-          issues.push(`${apiName}/${deploymentType} - Couldn't find live deployment.`);
-        } else {
-          const now = Math.floor(Date.now() / 1000);
-
-          // check airnode address
-          if (targetDeploymentStatus.airnode !== apiData.airnode) {
-            issues.push(`${apiName}/${deploymentType} - Airnode address mismatch!`);
-          }
-          // check timestamp
-          if (Math.abs(now - parseInt(targetDeploymentStatus.currentTimestamp)) > ONE_MINUTE_IN_SECONS) {
-            issues.push(`${apiName}/${deploymentType} - Heartbeat is old!`);
-          }
-
-          // check heartbeat signature
-          const unsignedHeartbeatPayload = {
-            airnode: targetDeploymentStatus.airnode,
-            stage: targetDeploymentStatus.stage,
-            nodeVersion: targetDeploymentStatus.nodeVersion,
-            currentTimestamp: targetDeploymentStatus.currentTimestamp,
-            deploymentTimestamp: targetDeploymentStatus.deploymentTimestamp,
-            configHash: targetDeploymentStatus.configHash
-          };
-          const message = ethers.utils.arrayify(
-            createHash(stringifyUnsignedHeartbeatPayload(unsignedHeartbeatPayload))
-          );
-          const signatureResult = ethers.utils.verifyMessage(message, targetDeploymentStatus.signature);
-          if (apiData.airnode !== signatureResult) {
-            issues.push(`${apiName}/${deploymentType} - Couldn't verify heartbeat signature!`);
-          }
+        const signatureResult = ethers.utils.verifyMessage(message, targetDeploymentStatus.signature);
+        if (apiData.airnode !== signatureResult) {
+          issues.push(`${apiName}/${deploymentType} - Couldn't verify heartbeat signature!`);
         }
       }
     })
