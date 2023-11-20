@@ -111,6 +111,12 @@ const downloadCloudFormation = (CloudFormation, configData) => {
   CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].EntryPoint = entryPoint;
   CloudFormation.Parameters = getParameters(configData.config.apiCredentials);
 
+  if (configData.category === 'staging') {
+    CloudFormation.Resources.CloudWatchLogsGroup.Properties.LogGroupName = 'PusherLogGroupStaging';
+    CloudFormation.Resources.AppCluster.Properties.ClusterName = 'PusherClusterStaging';
+    CloudFormation.Resources.AppService.Properties.Cluster = 'AppClusterStaging';
+  }
+
   const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(JSON.stringify(CloudFormation, null, 2))}`;
 
   const link = document.createElement('a');
