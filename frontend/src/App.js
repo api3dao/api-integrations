@@ -25,7 +25,7 @@ function App() {
           <Header />
           <Flex
             h="calc(100vh - 90px)"
-            bgColor={'transparent'}
+            backgroundImage={'./bg.svg'}
             spacing={0}
             p={2}
             alignItems={'stretch'}
