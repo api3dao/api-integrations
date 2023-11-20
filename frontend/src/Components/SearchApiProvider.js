@@ -8,6 +8,7 @@ import { checkValidEthAddresses } from '../Helpers/Utils';
 import Title from '../Custom/Title';
 import { getDeploymentStatus } from '../Helpers/DeploymentsLog';
 import { ApiIntegrationsContext } from '../Context';
+import InfoRow from '../Custom/InfoRow';
 
 const SearchApiProvider = ({ providers, setProvider }) => {
   const [airnodeAddress, setAirnodeAddress] = useState(null);
@@ -16,18 +17,25 @@ const SearchApiProvider = ({ providers, setProvider }) => {
 
   const { setGrafanaLog } = useContext(ApiIntegrationsContext);
 
+  const getAirnodeAddress = () => {
+    return localStorage.getItem('airnodeAddress');
+  };
+
   useEffect(() => {
     setDeployment(null);
     setError(null);
     try {
       if (airnodeAddress !== null) {
         checkValidEthAddresses(airnodeAddress);
-        const provider = providers.find((provider) => provider.apiData.config.airnode === airnodeAddress);
+        const provider = providers.find(
+          (provider) => provider.apiData.config.airnode.toUpperCase() === airnodeAddress.toUpperCase()
+        );
         if (provider === undefined) {
           throw new Error(`Could not find provider with airnode address ${airnodeAddress}`);
         }
         setDeployment(provider);
         getDeploymentStatus(airnodeAddress, setGrafanaLog);
+        localStorage.setItem('airnodeAddress', airnodeAddress); // add airnodeAddress to local storage
       }
     } catch (error) {
       setError(error);
@@ -56,7 +64,9 @@ const SearchApiProvider = ({ providers, setProvider }) => {
         <Flex p={3} border={'1px'} borderColor={'gray.300'} justifyContent={'left'} direction={'row'}>
           <SearchRow text={airnodeAddress} setText={setAirnodeAddress} margin={0} />
         </Flex>
-        {deployment === null ? null : (
+        {deployment === null ? (
+          <InfoRow text={getAirnodeAddress()} onClick={setAirnodeAddress} />
+        ) : (
           <VStack width={'100%'} align={'left'}>
             <Title header={'Search results'} buttonVisibility={false} isLoading={false} fontWeight="semi-bold" p={0} />
             <ApiProvider deployment={deployment} setProvider={setProvider} />
