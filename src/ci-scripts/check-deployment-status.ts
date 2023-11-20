@@ -52,9 +52,7 @@ async function checkDeployments(deployments: any[], apiName: string, apiData: an
           deploymentTimestamp: targetDeploymentStatus.deploymentTimestamp,
           configHash: targetDeploymentStatus.configHash
         };
-        const message = ethers.utils.arrayify(
-          createHash(stringifyUnsignedHeartbeatPayload(unsignedHeartbeatPayload))
-        );
+        const message = ethers.utils.arrayify(createHash(stringifyUnsignedHeartbeatPayload(unsignedHeartbeatPayload)));
         const signatureResult = ethers.utils.verifyMessage(message, targetDeploymentStatus.signature);
         if (apiData.airnode !== signatureResult) {
           issues.push(`${apiName}/${deploymentType} - Couldn't verify heartbeat signature!`);
