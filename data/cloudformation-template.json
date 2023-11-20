@@ -119,7 +119,7 @@
               "echo -e $SECRETS_ENV >> ./config/secrets.env && wget -O - <PUBLIC_CONFIG_URL> >> ./config/pusher.json && node dist/src/index.js"
             ],
             "LogConfiguration": {
-              "logDriver": "awsfirelens",
+              "LogDriver": "awsfirelens",
               "options": {
                 "Name": "grafana-loki",
                 "Url": {
