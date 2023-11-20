@@ -102,7 +102,7 @@ const downloadCloudFormation = (CloudFormation, configData) => {
   const entryPoint = [
     '/bin/sh',
     '-c',
-    `echo -e $SECRETS_ENV >> ./config/secrets.env && wget -O - https://raw.githubusercontent.com/api3dao/api-integrations/main/data/apis/${configData.apiProvider}/deployments/${configData.category}-deployments/${configData.filename} >> ./config/pusher.json && node --enable-source-maps dist/index.js`
+    `echo -e $SECRETS_ENV >> ./config/secrets.env && wget -O - https://raw.githubusercontent.com/api3dao/api-integrations/main/data/apis/${configData.apiProvider}/deployments/${configData.category}-deployments/${configData.filename} >> ./config/pusher.json && node dist/src/index.js`
   ];
 
   const secrets = getSecrets(configData.config.apiCredentials);
