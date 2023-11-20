@@ -1,12 +1,11 @@
 {
   "homepage": ".",
-  "name": "config-manager",
+  "name": "api-integrations-front-end",
+  "author": "hiletmis <hiletmis@gmail.com>",
+  "license": "MIT",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@api3/airnode-adapter": "^0.12.0",
-    "@api3/airnode-utilities": "^0.12.0",
-    "@api3/ois": "^2.2.1",
     "@chakra-ui/icons": "^2.1.1",
     "@chakra-ui/react": "^2.6.0",
     "@emotion/react": "^11.11.1",
@@ -14,7 +13,6 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.6.0",
     "framer-motion": "^10.16.4",
     "js-sha256": "^0.10.1",
     "jszip": "^3.10.1",
