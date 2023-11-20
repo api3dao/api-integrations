@@ -113,8 +113,16 @@ const downloadCloudFormation = (CloudFormation, configData) => {
 
   if (configData.category === 'staging') {
     CloudFormation.Resources.CloudWatchLogsGroup.Properties.LogGroupName = 'PusherLogGroupStaging';
-    CloudFormation.Resources.AppCluster.Properties.ClusterName = 'PusherClusterStaging';
-    CloudFormation.Resources.AppService.Properties.Cluster = 'AppClusterStaging';
+    CloudFormation.Resources.AppService.Properties.Cluster.Ref = 'AppClusterStaging';
+
+    CloudFormation.Resources.AppClusterStaging = {
+      Type: 'AWS::ECS::Cluster',
+      Properties: {
+        ClusterName: 'PusherClusterStaging'
+      }
+    };
+
+    delete CloudFormation.Resources.AppCluster;
   }
 
   const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(JSON.stringify(CloudFormation, null, 2))}`;
