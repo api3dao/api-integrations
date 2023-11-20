@@ -56,7 +56,7 @@ const Integrations = ({ integrations, setProvider }) => {
 
   return (
     <VStack
-      p={3}
+      p={10}
       bgColor={COLORS.table}
       borderRadius={'sm'}
       boxShadow="md"

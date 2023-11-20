@@ -16,7 +16,8 @@ module.exports = {
     navigator: true,
     alert: true,
     test: true,
-    expect: true
+    expect: true,
+    localStorage: true
   },
   extends: [
     'eslint:recommended',
