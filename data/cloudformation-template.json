@@ -120,7 +120,7 @@
             ],
             "LogConfiguration": {
               "LogDriver": "awsfirelens",
-              "options": {
+              "Options": {
                 "Name": "grafana-loki",
                 "Url": {
                   "Fn::Join": [
