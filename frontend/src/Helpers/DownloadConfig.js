@@ -70,8 +70,11 @@ const getSecrets = (credentials) => {
     });
   });
 
-  const stage = ['\\nSTAGE=aws'];
+  const stage = ['\\n', 'STAGE', '=', 'aws'];
   stage.forEach((item) => secrets['Fn::Join'][1].push(item));
+
+  const logLevel = ['\\n', 'LOG_LEVEL', '=', 'debug'];
+  logLevel.forEach((item) => secrets['Fn::Join'][1].push(item));
 
   return secrets;
 };
