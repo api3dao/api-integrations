@@ -107,7 +107,11 @@
                       "\\n",
                       "STAGE",
                       "=",
-                      "aws"
+                      "aws",
+                      "\\n",
+                      "LOG_LEVEL",
+                      "=",
+                      "debug"
                     ]
                   ]
                 }
