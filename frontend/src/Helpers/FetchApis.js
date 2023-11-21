@@ -1,4 +1,4 @@
-import { sha256 } from 'js-sha256';
+import { keccak256 } from 'js-sha3';
 
 export const checkFiles = (ctx) => {
   let keys = ctx.keys();
@@ -13,7 +13,7 @@ export const checkFiles = (ctx) => {
   let apiDatas = [];
 
   const hashFile = (file) => {
-    return '0x' + sha256(JSON.stringify(file));
+    return '0x' + keccak256(JSON.stringify(file));
   };
 
   for (let i = 0; i < keys.length; i++) {
