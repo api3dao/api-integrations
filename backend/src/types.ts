@@ -9,11 +9,11 @@ export const evmSignatureSchema = z.string().regex(/^0x[\dA-Fa-f]{130}$/);
 
 export const prometheusDurationSchema = z.string().regex(/^[0-9]+[smhdwy]$/);
 
-export const signedMessageSchema = z.object({
-  message: z.string(),
-  timestamp: z.string(),
-  signature: evmSignatureSchema
-});
+export const generateTokenInputSchema = z
+  .object({
+    airnode: evmAddressSchema
+  })
+  .strict();
 
 export const tokenOwnerGroupSchema = z.object({
   airnode: evmAddressSchema,
@@ -35,7 +35,7 @@ export const pusherHeartbeatPayloadSchema = z.object({
 export const appTypeSchema = z.union([z.literal('pusher'), z.literal('airseekerV2')]);
 
 export type PusherHeartbeatPayload = z.infer<typeof pusherHeartbeatPayloadSchema>;
-export type SignedMessage = z.infer<typeof signedMessageSchema>;
+export type GenerateTokenInput = z.infer<typeof generateTokenInputSchema>;
 export type TokenOwnerGroup = z.infer<typeof tokenOwnerGroupSchema>;
 export type AppType = z.infer<typeof appTypeSchema>;
 export interface PromiseError<T> extends Error {

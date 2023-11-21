@@ -2,10 +2,9 @@ import { go, goSync } from '@api3/promise-utils';
 import AWS from 'aws-sdk';
 import _ from 'lodash';
 
-import { COMMON_HEADERS, MIN_IN_MS } from './constants';
-import { recoverSignerAddress } from './evm';
-import { APP_TYPES, TokenOwnerGroup, appTypeSchema, evmAddressSchema, signedMessageSchema } from './types';
-import { generateErrorResponse } from './utils';
+import { COMMON_HEADERS } from './constants';
+import { APP_TYPES, TokenOwnerGroup, appTypeSchema, evmAddressSchema, generateTokenInputSchema } from './types';
+import { generateErrorResponse, isAuthorized } from './utils';
 import { createToken, queryLogs } from './grafana-requests';
 import { extractHeartbeatPayloads } from './process-logs';
 
@@ -26,33 +25,24 @@ if (process.env.LOCAL_DEV) {
 const docClient = new AWS.DynamoDB.DocumentClient();
 const tableName = 'tokenOwnerGroup';
 
-export const getToken = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+export const generateToken = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+  if (!isAuthorized(event.headers)) return generateErrorResponse(401, 'Unauthorized');
+
   if (_.isNil(event.body)) return generateErrorResponse(400, 'Invalid request, http body is missing');
 
   const goJsonParseBody = goSync(() => JSON.parse(event.body as string));
   if (!goJsonParseBody.success) return generateErrorResponse(400, 'Invalid request, body must be in JSON');
 
-  const goValidateSchema = await go(async () => signedMessageSchema.parseAsync(goJsonParseBody.data));
+  const goValidateSchema = await go(async () => generateTokenInputSchema.parseAsync(goJsonParseBody.data));
   if (!goValidateSchema.success)
     return generateErrorResponse(
       400,
-      'Invalid request, body must fit schema for signed message',
+      'Invalid request, body must fit schema for "POST /generateToken" input schema',
       goValidateSchema.error.message
     );
 
-  const signedMessage = goValidateSchema.data;
+  const { airnode } = goValidateSchema.data;
 
-  if (signedMessage.message !== process.env.TOKEN_REQUEST_MESSAGE)
-    return generateErrorResponse(400, `Invalid request, message sent (${signedMessage.message}) is not expected`);
-
-  if (new Date(parseInt(signedMessage.timestamp)) < new Date(Date.now() - 2 * MIN_IN_MS))
-    return generateErrorResponse(400, `Invalid request, timestamp sent (${signedMessage.timestamp}) is not fresh`);
-
-  const goRecoverSigner = goSync(() => recoverSignerAddress(signedMessage));
-  if (!goRecoverSigner.success)
-    return generateErrorResponse(400, 'Unable to recover signer address', goRecoverSigner.error.message);
-
-  const airnode = goRecoverSigner.data;
   // TODO: Check that signer address belongs to a partner provider in the following list:
   // https://github.com/api3dao/api-integrations/blob/f1d39ec3d172c77f6d047c64a45fcbfb7ae8863e/data/oisTitles.json
   // Blocked because repository isn't public
@@ -79,10 +69,10 @@ export const getToken = async (event: APIGatewayProxyEvent): Promise<APIGatewayP
   const lokiToken = goToken.data.data.token;
 
   const newEntry: TokenOwnerGroup = {
-    airnode,
-    lokiEndpoint: process.env.GF_LOKI_ENDPOINT!,
+    lokiUser: process.env.GF_LOKI_USER!,
     lokiToken,
-    lokiUser: process.env.GF_LOKI_USER!
+    lokiEndpoint: process.env.GF_LOKI_ENDPOINT!,
+    airnode
   };
 
   const goWriteDb = await go(() => docClient.put({ TableName: tableName, Item: newEntry }).promise());
