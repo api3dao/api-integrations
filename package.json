@@ -7,7 +7,7 @@
     "dist"
   ],
   "repository": "git@github.com:api3dao/api-integrations.git",
-  "author": "metobom <unutkan2013@yandex.com>",
+  "author": "metobom",
   "license": "MIT",
   "dependencies": {
     "@api3/airnode-abi": "^0.12.0",
