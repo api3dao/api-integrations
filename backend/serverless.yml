@@ -24,7 +24,7 @@ provider:
             - { 'Fn::GetAtt': ['TokenOwnerGroup', 'Arn'] }
 
   environment:
-    TOKEN_REQUEST_MESSAGE: ${env:TOKEN_REQUEST_MESSAGE}
+    API_KEYS: ${env:API_KEYS}
     GF_CLOUD_REGION: ${env:GF_CLOUD_REGION}
     GF_CLOUD_TOKEN: ${env:GF_CLOUD_TOKEN}
     GF_CLOUD_ACCESS_POLICY_ID: ${env:GF_CLOUD_ACCESS_POLICY_ID}
@@ -39,12 +39,12 @@ provider:
 #     - "!test/**"
 
 functions:
-  getToken:
+  generateToken:
     memorySize: 128
-    handler: src/handlers.getToken
+    handler: src/handlers.generateToken
     events:
       - httpApi:
-          path: /getToken
+          path: /generateToken
           method: post
   deploymentStatus:
     memorySize: 128

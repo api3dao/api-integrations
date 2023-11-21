@@ -42,7 +42,7 @@ This service is publicly accessible at the following endpoint:
 
 The API provides the following endpoints:
 
-- `POST /getToken`: Get token to push logs.
+- `POST /generateToken`: Get token to push logs.
 - `GET /deploymentStatus`: Get status for the deployment.
 
 ### Local development
@@ -69,24 +69,12 @@ You can use following valid examples in the next section to test server.
 
 ### Examples
 
-- Create test data to get token:
-
-```bash
-MNEMONIC="YOUR-AIRNODE-MNEMONIC" TOKEN_REQUEST_MESSAGE="API3 log write token" yarn create-test-data
-```
-
-- Get token:
+- Generate token:
 
 ```bash
 
 # Upsert batch of signed data (HTTP POST)
-curl --location 'localhost:8090/getToken' \
---header 'Content-Type: application/json' \
---data '{
-  "signature": "0x4aeab1eec4440cd920a3cda7dd7bcadc9cde30751be03ce63474fadcba30e2fc0a17dd5f340eafe355d42d1bd1b6127559fd0efb84250dad6d9854d29bcde5f91c",
-  "message": "API3 log write token",
-  "timestamp": "1698962113174"
-}'
+curl -L -X POST "https://integration.nodary.io/generateToken" -H "Content-Type: application/json" -H "X-API-KEY: exampleUser:exampleApiKey" -d "{\"airnode\":\"0x6CFec029322bfb6f8f6a5A6662b4A3136eeD83A7\"}"
 
 # Response will be:
 # {
@@ -98,10 +86,10 @@ curl --location 'localhost:8090/getToken' \
 
 ```
 
-- Check deployment status for the `pusher` with airnode address `0xdAD65588187bC1a76C482174e25ACcED1413d2a1`
+- Check deployment status for the `pusher` with airnode address `0x6CFec029322bfb6f8f6a5A6662b4A3136eeD83A7`
 
 ```bash
-curl --location 'localhost:8090/deploymentStatus?airnode=0xdAD65588187bC1a76C482174e25ACcED1413d2a1&app=pusher'
+curl --location 'localhost:8090/deploymentStatus?airnode=0x6CFec029322bfb6f8f6a5A6662b4A3136eeD83A7&app=pusher'
 ```
 
 ## References
