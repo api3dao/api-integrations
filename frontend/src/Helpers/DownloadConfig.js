@@ -105,8 +105,8 @@ const replaceSomeId = (CloudFormation, configData) => {
   const newConfig = JSON.stringify(CloudFormation).replace(
     /-<SOME_ID>/g,
     configData.category === 'staging' ? '-staging' : ''
-  ); //convert to JSON string
-  return JSON.parse(newConfig); //convert back to array
+  );
+  return JSON.parse(newConfig);
 };
 
 const downloadCloudFormation = (CloudFormation, configData) => {
