@@ -37,7 +37,7 @@
     "CloudWatchLogsGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "PusherLogGroup",
+        "LogGroupName": "PusherLogGroup-<SOME_ID>",
         "RetentionInDays": 7
       }
     },
@@ -55,7 +55,7 @@
           {
             "Essential": true,
             "Image": "grafana/fluent-bit-plugin-loki:2.9.1-amd64",
-            "Name": "PusherLogForwarder",
+            "Name": "PusherLogForwarder-<SOME_ID>",
             "FirelensConfiguration": {
               "Type": "fluentbit",
               "Options": {
@@ -107,14 +107,14 @@
                       "\\n",
                       "STAGE",
                       "=",
-                      "aws",
-                      "\\n",
-                      "LOG_LEVEL",
-                      "=",
-                      "debug"
+                      "aws"
                     ]
                   ]
                 }
+              },
+              {
+                "Name": "LOG_LEVEL",
+                "Value": "debug"
               }
             ],
             "EntryPoint": [
@@ -159,7 +159,7 @@
     "AppCluster": {
       "Type": "AWS::ECS::Cluster",
       "Properties": {
-        "ClusterName": "PusherCluster"
+        "ClusterName": "PusherCluster-<SOME_ID>"
       }
     },
     "AppService": {
@@ -168,7 +168,7 @@
         "Cluster": {
           "Ref": "AppCluster"
         },
-        "ServiceName": "PusherService",
+        "ServiceName": "PusherService-<SOME_ID>",
         "DesiredCount": 1,
         "LaunchType": "FARGATE",
         "TaskDefinition": {
