@@ -73,9 +73,6 @@ const getSecrets = (credentials) => {
   const stage = ['\\n', 'STAGE', '=', 'aws'];
   stage.forEach((item) => secrets['Fn::Join'][1].push(item));
 
-  const logLevel = ['\\n', 'LOG_LEVEL', '=', 'debug'];
-  logLevel.forEach((item) => secrets['Fn::Join'][1].push(item));
-
   return secrets;
 };
 
@@ -101,6 +98,14 @@ const getParameters = (credentials) => {
   return parameters;
 };
 
+const replaceSomeId = (CloudFormation, configData) => {
+  const newConfig = JSON.stringify(CloudFormation).replace(
+    /-<SOME_ID>/g,
+    configData.category === 'staging' ? 'Staging' : ''
+  );
+  return JSON.parse(newConfig);
+};
+
 const downloadCloudFormation = (CloudFormation, configData) => {
   const entryPoint = [
     '/bin/sh',
@@ -114,19 +119,7 @@ const downloadCloudFormation = (CloudFormation, configData) => {
   CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].EntryPoint = entryPoint;
   CloudFormation.Parameters = getParameters(configData.config.apiCredentials);
 
-  if (configData.category === 'staging') {
-    CloudFormation.Resources.CloudWatchLogsGroup.Properties.LogGroupName = 'PusherLogGroupStaging';
-    CloudFormation.Resources.AppService.Properties.Cluster.Ref = 'AppClusterStaging';
-
-    CloudFormation.Resources.AppClusterStaging = {
-      Type: 'AWS::ECS::Cluster',
-      Properties: {
-        ClusterName: 'PusherClusterStaging'
-      }
-    };
-
-    delete CloudFormation.Resources.AppCluster;
-  }
+  CloudFormation = replaceSomeId(CloudFormation, configData);
 
   const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(JSON.stringify(CloudFormation, null, 2))}`;
 
