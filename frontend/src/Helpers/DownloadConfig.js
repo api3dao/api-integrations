@@ -101,7 +101,7 @@ const getParameters = (credentials) => {
 const replaceSomeId = (CloudFormation, configData) => {
   const newConfig = JSON.stringify(CloudFormation).replace(
     /-<SOME_ID>/g,
-    configData.category === 'staging' ? '-staging' : ''
+    configData.category === 'staging' ? 'Staging' : ''
   );
   return JSON.parse(newConfig);
 };
