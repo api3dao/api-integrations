@@ -43,7 +43,7 @@ export const combine = (endpoint, setError) => {
   const postProcessingSpecifications = cut(
     endpoint.postProcessingSpecifications,
     /{.+}/g,
-    /[aA-zZ0-9]+\/[a-zA-Z ]+: (?:\(+)(.+?)(?:\)+) => (?:\{ +)(.+?)(?: \}+)/g,
+    /[aA-zZ0-9]+\/[a-zA-Z0-9 ]+: (?:\(+)(.+?)(?:\)+) => (?:\{ +)(.+?)(?: \}+)/g,
     true,
     false,
     setError
@@ -51,7 +51,7 @@ export const combine = (endpoint, setError) => {
   const preProcessingSpecifications = cut(
     endpoint.preProcessingSpecifications,
     /{.+(" |)}(,|) },}/g,
-    /["aA-zZ0-9]+\/[a-zA-Z "]+: (?:\{+)(.+?)(?:(,|}) \}+)/g,
+    /["aA-zZ0-9]+\/[a-zA-Z-9 "]+: (?:\{+)(.+?)(?:(,|}) \}+)/g,
     false,
     true,
     setError
