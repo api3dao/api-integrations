@@ -97,11 +97,20 @@ async function cut(
   }
 }
 
+function checkLogo(alias: string) {
+  const logoPathSVG = `./frontend/public/providers/${alias}.svg`;
+  const logoPathPNG = `./frontend/public/providers/${alias}.png`;
+
+  if (!globSync([logoPathSVG, logoPathPNG]).length) {
+    throw Error(`Logo not found for ${alias}`);
+  }
+}
+
 async function parse() {
   try {
     const apiPaths = globSync('./data/apis/*').filter((item) => !item.includes('mock'));
 
-    const providers = [];
+    const providers = [] as string[];
     const preProcessingSpecifications = [];
     const postProcessingSpecifications = [];
     const apiSpecifications = [];
@@ -114,6 +123,8 @@ async function parse() {
       const oises: OIS[] = globSync(`${path}/oises/*`).map((oisPath) => readJson(oisPath));
       logger.info('Total oises found:', oises.length, 'for', path);
       totalOises += oises.length;
+
+      checkLogo(apiData.alias);
 
       oises.map((ois) => {
         const preProcessingObject = getPreProcessingString(ois);
@@ -128,39 +139,47 @@ async function parse() {
       });
     });
 
-    //all objects will be in the same order as the ois
-    const preProcessingObjects = [];
-    const postProcessingObjects = [];
-
     // splitting the preProcessingSpecifications
-    for (let i = 0; i < preProcessingSpecifications.length; i++) {
+    const processPreProcessing = async (provider: string, spec: any[]) => {
       const preProcessingObject = await cut(
-        providers[i],
-        preProcessingSpecifications[i],
+        provider,
+        spec,
         /{.+(" |)}(,|) },}/g,
         /["A-Z0-9]+\/[A-Z"]+: (?:\{+)(.+?)(?:(,|}) \}+)/g,
         false,
         true
       );
 
-      logger.info(`Parsed ${providers[i]} preProcessingSpecifications`);
-      preProcessingObjects.push(preProcessingObject);
-    }
+      logger.info(`Parsed ${provider} preProcessingSpecifications`);
+      return preProcessingObject;
+    };
+
+    const preProcessingObjects = await Promise.all(
+      preProcessingSpecifications.map(async (spec, i) => {
+        return processPreProcessing(providers[i], spec);
+      })
+    );
 
     // splitting the postProcessingSpecifications
-    for (let i = 0; i < postProcessingSpecifications.length; i++) {
+    const processPostProcessing = async (provider: string, spec: any[]) => {
       const postProcessingObject = await cut(
-        providers[i],
-        postProcessingSpecifications[i],
+        provider,
+        spec,
         /{.+}/g,
         /[A-Z0-9]+\/[A-Z]+: (?:\(+)(.+?)(?:\)+) => (?:\{ +)(.+?)(?: \}+)/g,
         true,
         false
       );
 
-      logger.info(`Parsed ${providers[i]} postProcessingSpecifications`);
-      postProcessingObjects.push(postProcessingObject);
-    }
+      logger.info(`Parsed ${provider} postProcessingSpecifications`);
+      return postProcessingObject;
+    };
+
+    const postProcessingObjects = await Promise.all(
+      postProcessingSpecifications.map(async (spec, i) => {
+        return processPostProcessing(providers[i], spec);
+      })
+    );
 
     // combining the preProcessingSpecifications and postProcessingSpecifications
     const combinedDeployments = postProcessingObjects.map((provider, index) => {
@@ -257,16 +276,14 @@ function getPath(endpointParameters: EndpointParameter[], feed: Feed, apiSpec: A
 }
 
 async function checkPathGeneration(deployments: Deployments[]) {
-  for (let i = 0; i < deployments.length; i++) {
-    logger.info(`Checking ${deployments[i].oisTitle} path generation.`);
-    for (let j = 0; j < deployments[i].pusherConfig.length; j++) {
-      const feed = deployments[i].pusherConfig[j];
-      const endpointParameters = deployments[i].endpointParameters;
-      const apiSpec = deployments[i].apiSpec;
+  deployments.map((deployment) => {
+    logger.info(`Checking ${deployment.oisTitle} path generation.`);
+    deployment.pusherConfig.map((feed) => {
+      const { endpointParameters, apiSpec } = deployment;
       getPath(endpointParameters, feed, apiSpec);
-    }
-    logger.info(`Checked ${deployments[i].oisTitle} path generation.`);
-  }
+    });
+    logger.info(`Checked ${deployment.oisTitle} path generation.`);
+  });
 }
 
 async function main() {
