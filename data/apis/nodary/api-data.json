@@ -19,12 +19,12 @@
       ["SPY/USD"],
       ["TSLA/USD"],
       ["TSM/USD"],
-      ["CBETH/ETH"],
-      ["RETH/ETH"],
-      ["SFRXETH/FRXETH"],
-      ["SWETH/ETH"],
-      ["WSTETH/STETH"],
-      ["METH/ETH"],
+      ["cbETH/ETH Exchange Rate"],
+      ["rETH/ETH Exchange Rate"],
+      ["sfrxETH/frxETH Exchange Rate"],
+      ["swETH/ETH Exchange Rate"],
+      ["wstETH/stETH Exchange Rate"],
+      ["mETH/ETH Exchange Rate"],
       ["AUD/USD"],
       ["BRL/USD"],
       ["CAD/USD"],
@@ -155,7 +155,7 @@
       ["WTI/USD"]
     ]
   },
+  "deploymentLocations": ["aws"],
   "officialUrl": "nodary.io",
-  "verifiedUrl": "nodary.io",
-  "deploymentLocations": ["aws"]
+  "verifiedUrl": "nodary.io"
 }
