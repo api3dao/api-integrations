@@ -5,14 +5,13 @@ import { COLORS, CONSTANTS } from '../data/constants';
 import { SymbolIcon } from 'beta-logos';
 
 const Logos = ({ feed, isFeed }) => {
-  return (
-    !isFeed ? null :
-      <Flex gap={1}>
-        <SymbolIcon id={feed[0]} width={'24px'} height={'24px'} />
-        <SymbolIcon id={feed[1]} width={'24px'} height={'24px'} />
-      </Flex>
+  return !isFeed ? null : (
+    <Flex gap={1}>
+      <SymbolIcon id={feed[0]} width={'24px'} height={'24px'} />
+      <SymbolIcon id={feed[1]} width={'24px'} height={'24px'} />
+    </Flex>
   );
-}
+};
 
 const ExpandableView = ({ view, header, defaultState = false, status = 0, size = 'md' }) => {
   const [isOpen, setIsOpen] = useState(defaultState);
@@ -42,7 +41,7 @@ const ExpandableView = ({ view, header, defaultState = false, status = 0, size =
     <VStack alignItems={'left'} p={2} borderColor={COLORS.main} boxShadow={CONSTANTS.boxShadowLight} width={'100%'}>
       <Box p={2} alignItems={'center'} borderRadius={'sm'} bgColor={getColor()}>
         <Flex gap={3} alignItems={'center'}>
-          <Logos feed={header.split("/")} isFeed={isFeed} />
+          <Logos feed={header.split('/')} isFeed={isFeed} />
           <Text fontWeight={'bold'} fontSize={size}>
             {header}
           </Text>
