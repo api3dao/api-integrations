@@ -65,7 +65,6 @@ async function cut(
   json: boolean = false
 ): Promise<any> {
   try {
-
     let sanitized = object1.value.replaceAll(/(\n)/g, '');
     sanitized = sanitized.replace(/ +(?= )/g, '');
     const object = sanitized.match(initialMatch);

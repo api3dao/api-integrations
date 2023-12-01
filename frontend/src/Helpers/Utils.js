@@ -4,12 +4,11 @@ import _ from 'lodash';
 import { log } from '../Helpers/Logger';
 
 export const cut = (object1, initialMatch, finalMatch, replaceQuotes = true, json = false, setError) => {
-
   try {
     let sanitized = object1.value.replaceAll(/(\n)/g, '');
 
     sanitized = sanitized.replace(/ +(?= )/g, '');
-    console.log("sanitized", sanitized);
+    console.log('sanitized', sanitized);
 
     const object = sanitized.match(initialMatch);
     let filtered = replaceQuotes ? object[0].replaceAll(/(\\n)|(\\)|(")/g, '') : object[0].replaceAll(/(\\n)/g, '');
