@@ -157,7 +157,8 @@ export const apisData = {
     },
     deploymentLocations: ['aws'],
     officialUrl: 'https://twelvedata.com',
-    verifiedUrl: 'https://twelvedata.com'
+    verifiedUrl: 'https://twelvedata.com',
+    signedApiUrl: ''
   },
   tradermade: {
     alias: 'tradermade',
@@ -193,7 +194,8 @@ export const apisData = {
     },
     deploymentLocations: ['aws'],
     officialUrl: 'https://tradermade.com',
-    verifiedUrl: 'https://tradermade.com'
+    verifiedUrl: 'https://tradermade.com',
+    signedApiUrl: ''
   },
   nodary: {
     alias: 'nodary',
@@ -354,7 +356,8 @@ export const apisData = {
     },
     deploymentLocations: ['aws'],
     officialUrl: 'nodary.io',
-    verifiedUrl: 'nodary.io'
+    verifiedUrl: 'nodary.io',
+    signedApiUrl: ''
   },
   ncfx: {
     alias: 'ncfx',
@@ -489,7 +492,8 @@ export const apisData = {
     },
     deploymentLocations: ['aws'],
     officialUrl: 'https://www.newchangefx.com',
-    verifiedUrl: 'https://newchangefx.com'
+    verifiedUrl: 'https://newchangefx.com',
+    signedApiUrl: ''
   },
   kaiko: {
     alias: 'kaiko',
@@ -600,7 +604,8 @@ export const apisData = {
     },
     deploymentLocations: ['aws'],
     officialUrl: 'https://www.kaiko.com',
-    verifiedUrl: 'https://kaiko.io'
+    verifiedUrl: 'https://kaiko.io',
+    signedApiUrl: ''
   },
   iexcloud: {
     alias: 'iexcloud',
@@ -639,7 +644,8 @@ export const apisData = {
     },
     deploymentLocations: ['aws'],
     officialUrl: 'https://iexcloud.io',
-    verifiedUrl: 'https://iex.cloud'
+    verifiedUrl: 'https://iex.cloud',
+    signedApiUrl: ''
   },
   finnhub: {
     alias: 'finnhub',
@@ -686,7 +692,8 @@ export const apisData = {
     },
     deploymentLocations: ['aws'],
     officialUrl: 'https://finnhub.io',
-    verifiedUrl: 'https://finnhub.io'
+    verifiedUrl: 'https://finnhub.io',
+    signedApiUrl: ''
   },
   finage: {
     alias: 'finage',
@@ -841,7 +848,8 @@ export const apisData = {
     },
     deploymentLocations: ['aws'],
     officialUrl: 'https://finage.co.uk',
-    verifiedUrl: 'https://finage.co.uk'
+    verifiedUrl: 'https://finage.co.uk',
+    signedApiUrl: ''
   },
   dxfeed: {
     alias: 'dxfeed',
@@ -965,7 +973,8 @@ export const apisData = {
     },
     deploymentLocations: ['aws'],
     officialUrl: 'https://dxfeed.com',
-    verifiedUrl: 'https://dxfeed.com'
+    verifiedUrl: 'https://dxfeed.com',
+    signedApiUrl: ''
   },
   coinpaprika: {
     alias: 'coinpaprika',
@@ -1088,7 +1097,8 @@ export const apisData = {
     },
     deploymentLocations: ['aws'],
     officialUrl: 'https://coinpaprika.com',
-    verifiedUrl: 'https://coinpaprika.com'
+    verifiedUrl: 'https://coinpaprika.com',
+    signedApiUrl: ''
   }
 };
 export const airnodeAddressMap = {
