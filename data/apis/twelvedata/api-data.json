@@ -149,5 +149,6 @@
   },
   "deploymentLocations": ["aws"],
   "officialUrl": "https://twelvedata.com",
-  "verifiedUrl": "https://twelvedata.com"
+  "verifiedUrl": "https://twelvedata.com",
+  "signedApiUrl": ""
 }
