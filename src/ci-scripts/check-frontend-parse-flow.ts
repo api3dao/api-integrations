@@ -90,15 +90,6 @@ async function cut(
   }
 }
 
-function checkLogo(alias: string) {
-  const logoPathSVG = `./frontend/public/providers/${alias}.svg`;
-  const logoPathPNG = `./frontend/public/providers/${alias}.png`;
-
-  if (!globSync([logoPathSVG, logoPathPNG]).length) {
-    throw Error(`Logo not found for ${alias}`);
-  }
-}
-
 async function parse() {
   try {
     const apiPaths = globSync('./data/apis/*').filter((item) => !item.includes('mock'));
@@ -116,8 +107,6 @@ async function parse() {
       const oises: OIS[] = globSync(`${path}/oises/*`).map((oisPath) => readJson(oisPath));
       logger.info('Total oises found:', oises.length, 'for', path);
       totalOises += oises.length;
-
-      checkLogo(apiData.alias);
 
       oises.map((ois) => {
         const preProcessingObject = getPreProcessingString(ois);
