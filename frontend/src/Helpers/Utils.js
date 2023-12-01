@@ -8,7 +8,6 @@ export const cut = (object1, initialMatch, finalMatch, replaceQuotes = true, jso
     let sanitized = object1.value.replaceAll(/(\n)/g, '');
 
     sanitized = sanitized.replace(/ +(?= )/g, '');
-    console.log('sanitized', sanitized);
 
     const object = sanitized.match(initialMatch);
     let filtered = replaceQuotes ? object[0].replaceAll(/(\\n)|(\\)|(")/g, '') : object[0].replaceAll(/(\\n)/g, '');
@@ -41,7 +40,7 @@ export const combine = (endpoint, setError) => {
   const postProcessingSpecifications = cut(
     endpoint.postProcessingSpecificationV2,
     /{.+}/g,
-    /[aA-zZ0-9]+\/[a-zA-Z0-9 ]+: (?:\(+)(.+?)(?:\)+) => (?:\{ +)(.+?)(?: \}+)/g,
+    /[aA-zZ0-9]+\/[a-zA-Z0-9 ]+: (?:\(+)(.+?)(?:\)+) => (?:\{ +)(.+?)(?: \}+)( else (?:\{ +)(.+?)(?: \}+) }|)/g,
     true,
     false,
     setError
