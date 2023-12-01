@@ -94,3 +94,18 @@ export function deriveEndpointId(input: { oisTitle?: string; airnodeAddress?: st
 
   throw Error("Must set an 'airnodeAddress' or 'oisTitle'!");
 }
+
+export function getSupportedProvidersForDataFeed(dataFeedName: string) {
+  const MAX_POSSIBLE_DEPTH = 10;
+  return Object.values(apisData)
+    .filter((apiData) => {
+      const dataFeeds = Object.values(apiData.supportedFeedsInBatches)
+        .map((feeds) => feeds)
+        .flat(MAX_POSSIBLE_DEPTH);
+      if (dataFeeds.includes(dataFeedName)) {
+        return true;
+      }
+      return false;
+    })
+    .map((apiData) => apiData.alias);
+}
