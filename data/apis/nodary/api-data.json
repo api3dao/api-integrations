@@ -157,5 +157,6 @@
   },
   "deploymentLocations": ["aws"],
   "officialUrl": "nodary.io",
-  "verifiedUrl": "nodary.io"
+  "verifiedUrl": "nodary.io",
+  "signedApiUrl": ""
 }

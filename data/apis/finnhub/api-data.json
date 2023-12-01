@@ -43,5 +43,6 @@
   },
   "deploymentLocations": ["aws"],
   "officialUrl": "https://finnhub.io",
-  "verifiedUrl": "https://finnhub.io"
+  "verifiedUrl": "https://finnhub.io",
+  "signedApiUrl": ""
 }
