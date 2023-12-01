@@ -20,24 +20,29 @@ export function mkdirIfDoesntExists(path: string) {
 // if contents of preProcessing change this function might require changes in .replace (!!!)
 export function extractPreProcessingObject(ois: OIS) {
   const feedEndpoint = ois.endpoints.find((e: Endpoint) => e.name === 'feed');
-  const preProcValue = feedEndpoint!
-    .preProcessingSpecifications![0].value.replace('path: preProcessingObject[endpointParameters.name].path,', '')
-    .replace('...preProcessingObject[endpointParameters.name].parameters,', '');
-  const evaluated = Function(
-    'endpointParameters',
-    'input',
-    'output',
-    preProcValue.replace('output = parser(input)', '') + 'return preProcessingObject;'
-  );
-  return evaluated({ name: '' }, '', '');
+  const preProcValue =
+    'return ' +
+    feedEndpoint.preProcessingSpecificationV2.value
+      .replace('...preProcessingObject[endpointParameters.name].parameters,', '')
+      .replace('path: preProcessingObject[endpointParameters.name].path,', 'preProcessingObject');
+
+  const evaluated = Function('endpointParameters', preProcValue);
+
+  return evaluated()({}).endpointParameters.preProcessingObject;
 }
 
 // if contents of postProcessing change this function might require changes in .replace (!!!)
 export function extractPostProcessingObject(ois: OIS) {
   const feedEndpoint = ois.endpoints.find((e: Endpoint) => e.name === 'feed');
-  const postProcValue = feedEndpoint!.postProcessingSpecifications![0].value.replace('output = parser(input)', '');
+  const postProcValue =
+    'return ' +
+    feedEndpoint!.postProcessingSpecificationV2.value
+      .replace('const parser = eval(postProcessingObject[endpointParameters.name])', '')
+      .replace('return { response: parser(response) }', 'return postProcessingObject;');
+  
   const evaluated = Function('endpointParameters', 'input', 'output', postProcValue + 'return postProcessingObject;');
-  return evaluated({ name: '' }, '', '');
+
+  return evaluated()({}, {});
 }
 
 export function getPreProcessingString(ois: OIS) {
