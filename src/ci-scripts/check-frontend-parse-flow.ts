@@ -27,7 +27,7 @@ export interface Feed {
 export interface Deployments {
   oisTitle: string;
   apiSpec: ApiSpecification;
-  pusherConfig: Feed[];
+  airnodeFeedConfig: Feed[];
   endpointParameters: EndpointParameter[];
 }
 
@@ -186,7 +186,7 @@ async function parse() {
       const oisTitle = providers[index];
       const apiSpec = apiSpecifications[index];
       const endpointParametersValue = endpointParameters[index];
-      const pusherConfig = provider.map((item: string[]) => {
+      const airnodeFeedConfig = provider.map((item: string[]) => {
         const feed = item[0];
         const code = item[1];
         const preProcessingSpecificationsValue = preProcessingObjects[index][feed];
@@ -206,7 +206,7 @@ async function parse() {
       const supportedFeeds = apiDatas[index].supportedFeedsInBatches[oisTitle].flat();
 
       const excludedFeeds = supportedFeeds.filter((feed: string) => {
-        const found = pusherConfig.filter((config: Feed) => config.feed === feed);
+        const found = airnodeFeedConfig.filter((config: Feed) => config.feed === feed);
         return found.length === 0;
       });
 
@@ -219,7 +219,7 @@ async function parse() {
       return {
         oisTitle,
         apiSpec,
-        pusherConfig,
+        airnodeFeedConfig,
         endpointParameters: endpointParametersValue
       };
     });
@@ -278,7 +278,7 @@ function getPath(endpointParameters: EndpointParameter[], feed: Feed, apiSpec: A
 async function checkPathGeneration(deployments: Deployments[]) {
   deployments.map((deployment) => {
     logger.info(`Checking ${deployment.oisTitle} path generation.`);
-    deployment.pusherConfig.map((feed) => {
+    deployment.airnodeFeedConfig.map((feed) => {
       const { endpointParameters, apiSpec } = deployment;
       getPath(endpointParameters, feed, apiSpec);
     });

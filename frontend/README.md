@@ -57,13 +57,13 @@ other details.
 
 Thus deployment page contains the following sections:
 
-- Pusher mnemonic
+- Airnode feed mnemonic
 - OIS details
 - Deployment details
 
-#### Pusher mnemonic
+#### Airnode feed mnemonic
 
-This section contains the mnemonic of the pusher account. This mnemonic is used to sign the transactions.
+This section contains the mnemonic of the Airnode feed account. This mnemonic is used to sign the transactions.
 
 #### OIS details
 
@@ -129,7 +129,7 @@ for Windows:
 ```bash
 docker run -it --rm ^
       -v "%cd%:/app/config" ^
-      api3/pusher:0.1.0-rc2 deploy
+      api3/airnode-feed:0.1.0-rc2 deploy
 ```
 
 for Linux and Mac:
@@ -138,7 +138,7 @@ for Linux and Mac:
 docker run -it --rm \\
       -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \\
       -v "$(pwd):/app/config" \\
-      api3/pusher:0.1.0-rc2 deploy;
+      api3/airnode-feed:0.1.0-rc2 deploy;
 ```
 
 ## Compare deployments

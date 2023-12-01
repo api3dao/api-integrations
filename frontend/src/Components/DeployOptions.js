@@ -121,7 +121,7 @@ const DeployOptions = ({ apiData }) => {
             src={'./download.svg'}
           />
 
-          <NumberedBox title={'Deploy Pusher'} number={3} />
+          <NumberedBox title={'Deploy Airnode feed'} number={3} />
           <Flex>
             <Help mode={selected} />
           </Flex>

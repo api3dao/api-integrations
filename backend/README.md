@@ -86,10 +86,10 @@ curl -L -X POST "https://integration.nodary.io/generateToken" -H "Content-Type: 
 
 ```
 
-- Check deployment status for the `pusher` with airnode address `0x6CFec029322bfb6f8f6a5A6662b4A3136eeD83A7`
+- Check deployment status for the `airnode-feed` with airnode address `0x6CFec029322bfb6f8f6a5A6662b4A3136eeD83A7`
 
 ```bash
-curl --location 'localhost:8090/deploymentStatus?airnode=0x6CFec029322bfb6f8f6a5A6662b4A3136eeD83A7&app=pusher'
+curl --location 'localhost:8090/deploymentStatus?airnode=0x6CFec029322bfb6f8f6a5A6662b4A3136eeD83A7&app=airnode-feed'
 ```
 
 ## References

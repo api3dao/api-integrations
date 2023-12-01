@@ -22,7 +22,7 @@ export const tokenOwnerGroupSchema = z.object({
   lokiUser: z.string()
 });
 
-export const pusherHeartbeatPayloadSchema = z.object({
+export const airnodeFeedHeartbeatPayloadSchema = z.object({
   airnode: evmAddressSchema,
   stage: z.string(),
   nodeVersion: z.string(),
@@ -32,9 +32,9 @@ export const pusherHeartbeatPayloadSchema = z.object({
   signature: evmSignatureSchema
 });
 
-export const appTypeSchema = z.union([z.literal('pusher'), z.literal('airseekerV2')]);
+export const appTypeSchema = z.union([z.literal('airnodeFeed'), z.literal('airseekerV2')]);
 
-export type PusherHeartbeatPayload = z.infer<typeof pusherHeartbeatPayloadSchema>;
+export type AirnodeFeedHeartbeatPayload = z.infer<typeof airnodeFeedHeartbeatPayloadSchema>;
 export type GenerateTokenInput = z.infer<typeof generateTokenInputSchema>;
 export type TokenOwnerGroup = z.infer<typeof tokenOwnerGroupSchema>;
 export type AppType = z.infer<typeof appTypeSchema>;
