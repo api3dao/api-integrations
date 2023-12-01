@@ -58,32 +58,25 @@ async function jsonify(object: string) {
 
 async function cut(
   provider: string,
-  object: any[],
+  object1: any,
   initialMatch: RegExp,
   finalMatch: RegExp,
   replaceQuotes: boolean = true,
   json: boolean = false
 ): Promise<any> {
   try {
-    const newObject = object.map((code) => {
-      const val = code.value as string;
-
-      let sanitized = val.replaceAll(/(\n)/g, '');
-      sanitized = sanitized.replace(/ +(?= )/g, '');
-      const object = sanitized.match(initialMatch);
-      let filtered = replaceQuotes ? object[0].replaceAll(/(\\n)|(\\)|(")/g, '') : object[0].replaceAll(/(\\n)/g, '');
-
-      filtered = filtered.replace(/ +(?= )/g, '');
-      return filtered;
-    });
+    let sanitized = object1.value.replaceAll(/(\n)/g, '');
+    sanitized = sanitized.replace(/ +(?= )/g, '');
+    const object = sanitized.match(initialMatch);
+    const filtered = replaceQuotes ? object[0].replaceAll(/(\\n)|(\\)|(")/g, '') : object[0].replaceAll(/(\\n)/g, '');
+    const newObject = filtered.replace(/ +(?= )/g, '');
 
     if (json) {
-      return await jsonify(newObject[0]);
+      return await jsonify(newObject);
     } else {
       if (newObject == null || newObject === undefined)
         throw Error(`newObject is null or undefined for provider: ${provider}`);
-      const splitParanthesis = newObject[0].match(finalMatch);
-
+      const splitParanthesis = newObject.match(finalMatch);
       const final = [];
 
       for (let i = 0; i < splitParanthesis.length; i++) {
@@ -144,8 +137,8 @@ async function parse() {
       const preProcessingObject = await cut(
         provider,
         spec,
-        /{.+(" |)}(,|) },}/g,
-        /["aA-zZ0-9]+\/[a-zA-Z0-9 "]+: (?:\{+)(.+?)(?:(,|}) \}+)/g,
+        /{.["aA-zZ0-9]+\/[a-zA-Z-9 "]+: (?:\{+)(.+?)(?:(,|}) \}+), }(, }| )/g,
+        /./g,
         false,
         true
       );
@@ -166,7 +159,7 @@ async function parse() {
         provider,
         spec,
         /{.+}/g,
-        /[aA-zZ0-9]+\/[aA-zZ0-9 ]+: (?:\(+)(.+?)(?:\)+) => (?:\{ +)(.+?)(?: \}+)/g,
+        /[aA-zZ0-9]+\/[a-zA-Z0-9 ]+: (?:\(+)(.+?)(?:\)+) => (?:\{ +)(.+?)(?: \}+)( else (?:\{ +)(.+?)(?: \}+) }|)/g,
         true,
         false
       );

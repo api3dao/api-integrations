@@ -3,26 +3,23 @@ import prettier from 'prettier/standalone';
 import _ from 'lodash';
 import { log } from '../Helpers/Logger';
 
-export const cut = (object, initialMatch, finalMatch, replaceQuotes = true, json = false, setError) => {
+export const cut = (object1, initialMatch, finalMatch, replaceQuotes = true, json = false, setError) => {
   try {
-    const newObject = object.map((code) => {
-      let sanitized = code.value.replaceAll(/(\n)/g, '');
+    let sanitized = object1.value.replaceAll(/(\n)/g, '');
 
-      sanitized = sanitized.replace(/ +(?= )/g, '');
-      const object = sanitized.match(initialMatch);
+    sanitized = sanitized.replace(/ +(?= )/g, '');
 
-      let filtered = replaceQuotes ? object[0].replaceAll(/(\\n)|(\\)|(")/g, '') : object[0].replaceAll(/(\\n)/g, '');
-      filtered = filtered.replace(/ +(?= )/g, '');
+    const object = sanitized.match(initialMatch);
+    let filtered = replaceQuotes ? object[0].replaceAll(/(\\n)|(\\)|(")/g, '') : object[0].replaceAll(/(\\n)/g, '');
+    filtered = filtered.replace(/ +(?= )/g, '');
 
-      return filtered;
-    });
-
+    const newObject = filtered;
     if (json) {
-      const val = jsonify(newObject[0], setError);
+      const val = jsonify(newObject, setError);
       return val;
     } else {
       if (newObject == null || newObject === undefined) return [];
-      const splitParanthesis = newObject[0].match(finalMatch);
+      const splitParanthesis = newObject.match(finalMatch);
       let final = [];
 
       for (let i = 0; i < splitParanthesis.length; i++) {
@@ -41,17 +38,17 @@ export const cut = (object, initialMatch, finalMatch, replaceQuotes = true, json
 export const combine = (endpoint, setError) => {
   if (endpoint === null || endpoint === undefined || endpoint.length === 0) return [];
   const postProcessingSpecifications = cut(
-    endpoint.postProcessingSpecifications,
+    endpoint.postProcessingSpecificationV2,
     /{.+}/g,
-    /[aA-zZ0-9]+\/[a-zA-Z0-9 ]+: (?:\(+)(.+?)(?:\)+) => (?:\{ +)(.+?)(?: \}+)/g,
+    /[aA-zZ0-9]+\/[a-zA-Z0-9 ]+: (?:\(+)(.+?)(?:\)+) => (?:\{ +)(.+?)(?: \}+)( else (?:\{ +)(.+?)(?: \}+) }|)/g,
     true,
     false,
     setError
   );
   const preProcessingSpecifications = cut(
-    endpoint.preProcessingSpecifications,
-    /{.+(" |)}(,|) },}/g,
-    /["aA-zZ0-9]+\/[a-zA-Z-9 "]+: (?:\{+)(.+?)(?:(,|}) \}+)/g,
+    endpoint.preProcessingSpecificationV2,
+    /{.["aA-zZ0-9]+\/[a-zA-Z-9 "]+: (?:\{+)(.+?)(?:(,|}) \}+), }(, }| )/g,
+    /./g,
     false,
     true,
     setError
@@ -88,7 +85,7 @@ export const getEndpoints = (ois) => {
 
 export const getFeeds = (endpoints) => {
   let feeds = [];
-  endpoints.endpoints.map((endpoint) => feeds.push(combine(endpoint)));
+  endpoints.endpoints.map((endpoint) => feeds.push(combine(endpoint, (error) => console.log(error))));
   return { oisTitle: endpoints.oisTitles, feeds };
 };
 
@@ -340,7 +337,7 @@ export const checkSupportedFeedsInBatches = (supportedFeedsInBatches, oises) => 
 
     return {
       oisTitle: ois.title,
-      feeds: combine(feedEndpoint[0])
+      feeds: combine(feedEndpoint[0], (error) => console.log(error))
     };
   });
 
