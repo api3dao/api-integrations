@@ -1,9 +1,12 @@
 import { ethers } from 'ethers';
 import { encode } from '@api3/airnode-abi';
+import _ from 'lodash';
 import { apisData } from './generated/apis';
 import oisTitles from '../data/oisTitles.json';
 
 export { apisData } from './generated/apis';
+
+const MAX_POSSIBLE_DEPTH = 10;
 
 export function getDecodedParameters(feedName: string) {
   return [{ name: 'name', type: 'string32', value: feedName }];
@@ -96,7 +99,6 @@ export function deriveEndpointId(input: { oisTitle?: string; airnodeAddress?: st
 }
 
 export function getSupportedProvidersForDataFeed(dataFeedName: string) {
-  const MAX_POSSIBLE_DEPTH = 10;
   return Object.values(apisData)
     .filter((apiData) => {
       const dataFeeds = Object.values(apiData.supportedFeedsInBatches)
@@ -108,4 +110,18 @@ export function getSupportedProvidersForDataFeed(dataFeedName: string) {
       return false;
     })
     .map((apiData) => apiData.alias);
+}
+
+export function getAllDataFeeds() {
+  const allFeeds = Object.values(apisData)
+    .map((apiData) => {
+      const dataFeeds = Object.values(apiData.supportedFeedsInBatches)
+        .map((feeds) => feeds)
+        .flat(MAX_POSSIBLE_DEPTH);
+      return dataFeeds;
+    })
+    .flat(MAX_POSSIBLE_DEPTH);
+
+  const uniqueFeeds = _.uniq(allFeeds);
+  return uniqueFeeds;
 }
