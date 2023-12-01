@@ -356,273 +356,205 @@
     "signedApiUpdates": [
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0xc89fc7102936dffbb78e56cb95c0541024d57ecc0ff2cba8442977d471f09507"
-        ],
+        "templateIds": ["0xc89fc7102936dffbb78e56cb95c0541024d57ecc0ff2cba8442977d471f09507"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0x7e5acc6b9ceaa216b1d10e2f5f01ce899c4a6759d3dbb84b3d8e73faa9374e59"
-        ],
+        "templateIds": ["0x7e5acc6b9ceaa216b1d10e2f5f01ce899c4a6759d3dbb84b3d8e73faa9374e59"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0x41475a48f30a8001055b9ad45e5776d5e5147c955aba313b6656996bddd095b6"
-        ],
+        "templateIds": ["0x41475a48f30a8001055b9ad45e5776d5e5147c955aba313b6656996bddd095b6"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0xd6db36a1b10d32c8f266cc3484c56273d295730f594695199ecf47cbe931e329"
-        ],
+        "templateIds": ["0xd6db36a1b10d32c8f266cc3484c56273d295730f594695199ecf47cbe931e329"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0x41d3b4b00dcb76d6b416e835af5bf4f40aa23cf3e15927b427f819298626aee8"
-        ],
+        "templateIds": ["0x41d3b4b00dcb76d6b416e835af5bf4f40aa23cf3e15927b427f819298626aee8"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0x2e838264734880a74495d7bd952842fbaa3446e5d5cf90dda76480a779e98fa0"
-        ],
+        "templateIds": ["0x2e838264734880a74495d7bd952842fbaa3446e5d5cf90dda76480a779e98fa0"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0xda303b8554096835b9ad37284eff887993a7cfe3601bb3ff486296ab852f1964"
-        ],
+        "templateIds": ["0xda303b8554096835b9ad37284eff887993a7cfe3601bb3ff486296ab852f1964"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0xc203d19dd57a777ee05f4c3ac70dc96c3c5b39e8248a8ddceb3a7d363f7db59b"
-        ],
+        "templateIds": ["0xc203d19dd57a777ee05f4c3ac70dc96c3c5b39e8248a8ddceb3a7d363f7db59b"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0x9599eb0a29f35594ada9880f4f5d40c006b3f004abe6df35ae1a1aec533333cf"
-        ],
+        "templateIds": ["0x9599eb0a29f35594ada9880f4f5d40c006b3f004abe6df35ae1a1aec533333cf"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0xad12c7fbec42bbf0bf22b4e63a18e15ab9c7e48be32f162b19eac4a5a5e83f90"
-        ],
+        "templateIds": ["0xad12c7fbec42bbf0bf22b4e63a18e15ab9c7e48be32f162b19eac4a5a5e83f90"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0x69c9648a87ff01cce5de9f50bc3c0eb5cf00a24d74e91fd90d0fcc407d80121e"
-        ],
+        "templateIds": ["0x69c9648a87ff01cce5de9f50bc3c0eb5cf00a24d74e91fd90d0fcc407d80121e"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0xc1b049511532dc14ee1eb76287f831f4e345a9810a4aedc864323b15aaa978c3"
-        ],
+        "templateIds": ["0xc1b049511532dc14ee1eb76287f831f4e345a9810a4aedc864323b15aaa978c3"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0xd9c40800b02b2e2654fa44b01efaf399f24e01f6aad7f225ecb8ed0c3b1e7207"
-        ],
+        "templateIds": ["0xd9c40800b02b2e2654fa44b01efaf399f24e01f6aad7f225ecb8ed0c3b1e7207"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0x02139d02f5e191e36ff880c87c0d564afb1326a79ed4aaa8748bf2b4e9606c07"
-        ],
+        "templateIds": ["0x02139d02f5e191e36ff880c87c0d564afb1326a79ed4aaa8748bf2b4e9606c07"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0x08537823f6f7a5a5f024adb1bf5c0ad8260dedda148cafd89ce1e627fedc1b51"
-        ],
+        "templateIds": ["0x08537823f6f7a5a5f024adb1bf5c0ad8260dedda148cafd89ce1e627fedc1b51"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0xaf29578685c424bcb7db8538ebf62856e5625e6d80842dce0ab2f9a86dd6202f"
-        ],
+        "templateIds": ["0xaf29578685c424bcb7db8538ebf62856e5625e6d80842dce0ab2f9a86dd6202f"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0x1287b05d8976455eb20215f0c7bf80af0a551ddc79da8203d573041d44a060de"
-        ],
+        "templateIds": ["0x1287b05d8976455eb20215f0c7bf80af0a551ddc79da8203d573041d44a060de"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0x0126bd1e2fbfe137b0c13e1882595869442d54b96172c782a919b74dba19189f"
-        ],
+        "templateIds": ["0x0126bd1e2fbfe137b0c13e1882595869442d54b96172c782a919b74dba19189f"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0xa74ca9578d272cdc17f7033b2c94ffb02621c555a53b044f6f4eb09cc13780ac"
-        ],
+        "templateIds": ["0xa74ca9578d272cdc17f7033b2c94ffb02621c555a53b044f6f4eb09cc13780ac"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0x41554acf1055a90b46a0d111598d6cfa35ed79e7829d9e6dcc122bd7c1fcc125"
-        ],
+        "templateIds": ["0x41554acf1055a90b46a0d111598d6cfa35ed79e7829d9e6dcc122bd7c1fcc125"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0x9ffe73b7d4091c71e90b461d4db3854c81c9cafb7caf3ab82609c48f1940494b"
-        ],
+        "templateIds": ["0x9ffe73b7d4091c71e90b461d4db3854c81c9cafb7caf3ab82609c48f1940494b"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0x49b7612516788e6d789d0d3472ba214cb3f5e99ae24806a7b2045b69becd6800"
-        ],
+        "templateIds": ["0x49b7612516788e6d789d0d3472ba214cb3f5e99ae24806a7b2045b69becd6800"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0xee04fc99fac39ffecb3d5ff17e9d4a062fb852ae833dcc56595555c1103df9b7"
-        ],
+        "templateIds": ["0xee04fc99fac39ffecb3d5ff17e9d4a062fb852ae833dcc56595555c1103df9b7"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0xd48239661c5078443e37fb677f819e07cba2234154cb885fae692187301a2d05"
-        ],
+        "templateIds": ["0xd48239661c5078443e37fb677f819e07cba2234154cb885fae692187301a2d05"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0xc98a5c061bf053ad76cb617b5657b26be7eecc7b0e1771cc9e8165cd3829d7f2"
-        ],
+        "templateIds": ["0xc98a5c061bf053ad76cb617b5657b26be7eecc7b0e1771cc9e8165cd3829d7f2"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0x08a478bfbc5b92971402b682eb412c9fbcee6225c3ae0aa33a8db35092a34a55"
-        ],
+        "templateIds": ["0x08a478bfbc5b92971402b682eb412c9fbcee6225c3ae0aa33a8db35092a34a55"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0x4c5df3a4ce23aa03ae67e8103a4d3f3a8e67cba73ef11346cb7bf3029aa93300"
-        ],
+        "templateIds": ["0x4c5df3a4ce23aa03ae67e8103a4d3f3a8e67cba73ef11346cb7bf3029aa93300"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0x791e3df42a46e6e91c5e54d308e87eeca60e263acf0ba56d42a461168cd2502a"
-        ],
+        "templateIds": ["0x791e3df42a46e6e91c5e54d308e87eeca60e263acf0ba56d42a461168cd2502a"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0xae5e16b222e1cd8281aaee39f7decc93393140cda364dd807e85a0c9824557ba"
-        ],
+        "templateIds": ["0xae5e16b222e1cd8281aaee39f7decc93393140cda364dd807e85a0c9824557ba"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0x714efbe6e54646ee67349286d1aa675367c6f64d30a1a66948133ee456bb0649"
-        ],
+        "templateIds": ["0x714efbe6e54646ee67349286d1aa675367c6f64d30a1a66948133ee456bb0649"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0xc64697dde561ef5cfd3397ef3cfaca2a3acd9bea14c2eb9ca6ef2a17375b9647"
-        ],
+        "templateIds": ["0xc64697dde561ef5cfd3397ef3cfaca2a3acd9bea14c2eb9ca6ef2a17375b9647"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0x417ee0ef570ba0abaccf7342f427d9468c8f03aa4155a00a794a0cf310c64fc9"
-        ],
+        "templateIds": ["0x417ee0ef570ba0abaccf7342f427d9468c8f03aa4155a00a794a0cf310c64fc9"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0x3a1b2778f785c994d48fc5eee3bbd600d34c936cf45e7cca047f78b658c2a990"
-        ],
+        "templateIds": ["0x3a1b2778f785c994d48fc5eee3bbd600d34c936cf45e7cca047f78b658c2a990"],
         "fetchInterval": 30,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
-        "templateIds": [
-          "0x7c43ab7000cdfa1ca05a5ea9d399315702e3bee89b31f4dcf9b64f215c15b519"
-        ],
+        "templateIds": ["0x7c43ab7000cdfa1ca05a5ea9d399315702e3bee89b31f4dcf9b64f215c15b519"],
         "fetchInterval": 30,
         "updateDelay": 0
       }

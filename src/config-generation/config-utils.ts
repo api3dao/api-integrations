@@ -39,7 +39,7 @@ export function extractPostProcessingObject(ois: OIS) {
     feedEndpoint!.postProcessingSpecificationV2.value
       .replace('const parser = eval(postProcessingObject[endpointParameters.name])', '')
       .replace('return { response: parser(response) }', 'return postProcessingObject;');
-  
+
   const evaluated = Function('endpointParameters', 'input', 'output', postProcValue + 'return postProcessingObject;');
 
   return evaluated()({}, {});
