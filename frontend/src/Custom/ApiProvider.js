@@ -1,7 +1,7 @@
 import { Text, Flex, Stack } from '@chakra-ui/react';
 import { ArrowBackIcon, ChevronRightIcon } from '@chakra-ui/icons';
-import { COLORS, CONSTANTS } from '../data/constants';
 import { ApiProviderLogo } from 'beta-logos';
+import { COLORS, CONSTANTS } from '../data/constants';
 
 const Path = ({ stack }) => {
   if (stack === undefined || stack == null) {
