@@ -31,6 +31,7 @@ export interface Deployments {
   endpointParameters: EndpointParameter[];
 }
 
+//
 const logger: Logger<ILogObj> = new Logger();
 
 async function formatCode(code: string, parser: string): Promise<string> {
