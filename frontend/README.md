@@ -57,13 +57,7 @@ other details.
 
 Thus deployment page contains the following sections:
 
-- Airnode feed mnemonic
-- OIS details
 - Deployment details
-
-#### Airnode feed mnemonic
-
-This section contains the mnemonic of the Airnode feed account. This mnemonic is used to sign the transactions.
 
 #### OIS details
 
