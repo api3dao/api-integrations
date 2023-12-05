@@ -3,6 +3,11 @@
   "version": "0.0.1",
   "description": "Repository for API integration related operations.",
   "main": "./dist/src/index.js",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
   "files": [
     "dist"
   ],
