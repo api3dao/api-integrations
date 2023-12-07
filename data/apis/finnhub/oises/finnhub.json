@@ -4770,7 +4770,8 @@
           "operationParameter": {
             "in": "query",
             "name": "base"
-          }
+          },
+          "required": true
         },
         {
           "name": "date",
@@ -4784,7 +4785,8 @@
           "operationParameter": {
             "in": "query",
             "name": "symbol"
-          }
+          },
+          "required": true
         }
       ],
       "reservedParameters": [

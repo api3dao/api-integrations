@@ -223,7 +223,7 @@
             "in": "query",
             "name": "event"
           },
-          "required": false
+          "required": true
         },
         {
           "name": "symbol",
@@ -231,7 +231,7 @@
             "in": "query",
             "name": "symbol"
           },
-          "required": false
+          "required": true
         },
         {
           "name": "source",

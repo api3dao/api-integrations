@@ -19946,7 +19946,7 @@
             "in": "query",
             "name": "symbols"
           },
-          "required": false
+          "required": true
         },
         {
           "name": "next",

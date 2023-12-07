@@ -5429,7 +5429,8 @@
           "operationParameter": {
             "in": "query",
             "name": "symbol"
-          }
+          },
+          "required": true
         },
         {
           "name": "format",
@@ -5464,7 +5465,8 @@
           "operationParameter": {
             "in": "query",
             "name": "dp"
-          }
+          },
+          "required": true
         },
         {
           "name": "type",

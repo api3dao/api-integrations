@@ -60,7 +60,7 @@
             "in": "query",
             "name": "name"
           },
-          "required": false
+          "required": true
         }
       ],
       "reservedParameters": [
