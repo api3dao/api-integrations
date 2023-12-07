@@ -129,7 +129,7 @@ const main = async () => {
       pusherConfig.triggers['signedApiUpdates'].push({
         signedApiName: 'Nodary',
         templateIds: templateIds,
-        fetchInterval: 30,
+        fetchInterval: 5,
         updateDelay: 0
       });
     });
