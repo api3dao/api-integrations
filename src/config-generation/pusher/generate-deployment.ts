@@ -129,7 +129,7 @@ const main = async () => {
       pusherConfig.triggers['signedApiUpdates'].push({
         signedApiName: 'Nodary',
         templateIds: templateIds,
-        fetchInterval: 30,
+        fetchInterval: 5,
         updateDelay: 0
       });
     });
@@ -155,7 +155,7 @@ const main = async () => {
     });
   });
 
-  // derive deployment id
+  // derive deployment id.
   const today = format(new Date(), 'yyyyMMdd');
   const stage = `api3-${today}`;
   pusherConfig.nodeSettings.stage = '${STAGE}';

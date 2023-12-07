@@ -765,7 +765,7 @@
             "in": "query",
             "name": "currency"
           },
-          "required": false
+          "required": true
         }
       ],
       "reservedParameters": [

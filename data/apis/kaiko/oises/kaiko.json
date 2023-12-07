@@ -4032,7 +4032,7 @@
             "in": "query",
             "name": "interval"
           },
-          "required": false
+          "required": true
         },
         {
           "name": "extrapolate_missing_values",
