@@ -1,14 +1,14 @@
 import { Text, Flex, Spacer, VStack, Box } from '@chakra-ui/react';
 import { TriangleDownIcon, TriangleUpIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
-import { SymbolIcon } from 'beta-logos';
+import { SymbolLogo } from 'beta-logos';
 import { COLORS, CONSTANTS } from '../data/constants';
 
 const Logos = ({ feed, isFeed }) => {
   return !isFeed ? null : (
     <Flex gap={1}>
-      <SymbolIcon id={feed[0]} width={'24px'} height={'24px'} />
-      <SymbolIcon id={feed[1]} width={'24px'} height={'24px'} />
+      <SymbolLogo id={feed[0]} width={'24px'} height={'24px'} />
+      <SymbolLogo id={feed[1]} width={'24px'} height={'24px'} />
     </Flex>
   );
 };
