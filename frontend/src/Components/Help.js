@@ -75,10 +75,10 @@ const Help = ({ mode }) => {
       case CONSTANTS.CLOUD_FORMATION_DEPLOY:
         return [
           'Download the CloudFormation template by clicking the button below.',
-          'Enter your mnemonic on specified field before upload your template.',
-          'Go to CloudFormation section in the AWS dashboard, and upload your template',
-          "Wait for AWS to deploy everything and check CloudWatch log group named myAppLogs to see what's up.",
-          'After 1 or 2 minutes, you should see your signed data in https://pool.nodary.io/ after a successful deployment.'
+          'Enter your mnemonic into the specified field before uploading your template.',
+          'Go to the CloudFormation section on the AWS dashboard, and upload your template',
+          'Wait for AWS to deploy everything and check the CloudWatch log group named myAppLogs to see the logs related to the deployment progress.',
+          '1 or 2 minutes after a successful deployment, your signed data should be visible at https://pool.nodary.io/'
         ];
       default:
         return [
@@ -138,8 +138,13 @@ const Help = ({ mode }) => {
         <Image src="./info.svg" width={'24px'} />
         <Text ml={2} fontWeight={'bold'} fontSize={'md'}>
           For more information check out docs{' '}
-          <a href={'https://docs.api3.org/'} target={'_blank'} rel="noreferrer">
-            here
+          <a
+            href={'https://airnodefeed.gitbook.io/airnode-feed/how-to-guides/'}
+            color="red"
+            target={'_blank'}
+            rel="noreferrer"
+          >
+            <u style={{ color: 'blue' }}>here</u>
           </a>
         </Text>
       </Flex>
