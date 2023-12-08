@@ -32,7 +32,7 @@ const NonEditableRow = ({ text, setText }) => {
 const EditableRow = ({ text, setText }) => {
   return (
     <Input
-      value={text}
+      value={text || ''}
       onChange={(e) => setText(e.target.value)}
       color={'black'}
       fontSize={'md'}

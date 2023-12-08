@@ -37,7 +37,7 @@ const EditableRow = ({ text, setText, color = 'black' }) => {
       <Flex alignItems={'center'}>
         <Input
           bgColor={COLORS.info}
-          value={text}
+          value={text || ''}
           onChange={(e) => setText(e.target.value)}
           color={color}
           fontSize={'md'}
