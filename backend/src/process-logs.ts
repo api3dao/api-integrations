@@ -35,7 +35,7 @@ export const extractHeartbeatPayloads = async (app: AppType, airnode: string, lo
     .flat();
 
   switch (app) {
-    case 'airnodeFeed': {
+    case 'airnode-feed': {
       const goParseHeartbeatPayloads = await go(() =>
         Promise.all(payloads.map((payload) => airnodeFeedHeartbeatPayloadSchema.parseAsync(payload)))
       );

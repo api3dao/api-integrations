@@ -32,7 +32,7 @@ export const airnodeFeedHeartbeatPayloadSchema = z.object({
   signature: evmSignatureSchema
 });
 
-export const appTypeSchema = z.union([z.literal('airnodeFeed'), z.literal('airseekerV2')]);
+export const appTypeSchema = z.union([z.literal('airnode-feed'), z.literal('airseeker-v2')]);
 
 export type AirnodeFeedHeartbeatPayload = z.infer<typeof airnodeFeedHeartbeatPayloadSchema>;
 export type GenerateTokenInput = z.infer<typeof generateTokenInputSchema>;
