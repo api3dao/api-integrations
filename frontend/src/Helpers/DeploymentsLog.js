@@ -9,7 +9,8 @@ export async function getDeploymentStatus(airnodeAddress, setGrafanaLog) {
   try {
     const response = await fetch(`${url}deploymentStatus?airnode=${airnodeAddress}&app=pusher`, options);
     const data = await response.json();
-    setGrafanaLog(data);
+
+    setGrafanaLog(response.ok ? data : null);
   } catch (error) {
     setGrafanaLog(null);
   }

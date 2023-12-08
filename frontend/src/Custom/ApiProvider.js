@@ -22,6 +22,7 @@ const Path = ({ stack }) => {
             borderRadius={'xl'}
             key={index}
             fontSize={'xs'}
+            cursor={'pointer'}
           >
             {item}
           </Text>
@@ -50,7 +51,7 @@ const ApiProvider = ({ deployment, setProvider, stack, onClick }) => {
         <Text fontSize={'2xl'} fontWeight={'light'}>
           |
         </Text>
-        <Text fontSize={'md'} fontWeight={'bold'}>
+        <Text fontSize={'md'} fontWeight={'bold'} cursor={'pointer'}>
           {deployment.name}
         </Text>
         <Path stack={stack} onClick={onClick} />
