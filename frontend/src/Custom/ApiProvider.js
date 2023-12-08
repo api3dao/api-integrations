@@ -3,7 +3,7 @@ import { ArrowBackIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { ApiProviderLogo } from 'beta-logos';
 import { COLORS, CONSTANTS } from '../data/constants';
 
-const Path = ({ stack }) => {
+const Path = ({ stack, onClick }) => {
   if (stack === undefined || stack == null) {
     return null;
   }
@@ -23,6 +23,7 @@ const Path = ({ stack }) => {
             key={index}
             fontSize={'xs'}
             cursor={'pointer'}
+            onClick={() => onClick(index)}
           >
             {item}
           </Text>
@@ -47,13 +48,16 @@ const ApiProvider = ({ deployment, setProvider, stack, onClick }) => {
         overflowY={'hidden'}
         onClick={() => (setProvider === undefined ? {} : setProvider(deployment))}
       >
-        <ApiProviderLogo id={deployment.alias} width={'50px'} height={'50px'} />
-        <Text fontSize={'2xl'} fontWeight={'light'}>
-          |
-        </Text>
-        <Text fontSize={'md'} fontWeight={'bold'} cursor={'pointer'}>
-          {deployment.name}
-        </Text>
+        <Flex alignItems={'center'} gap={2} onClick={() => onClick(-1)}>
+          <ApiProviderLogo id={deployment.alias} width={'50px'} height={'50px'} />
+          <Text fontSize={'2xl'} fontWeight={'light'}>
+            |
+          </Text>
+          <Text fontSize={'md'} fontWeight={'bold'} cursor={'pointer'}>
+            {deployment.name}
+          </Text>
+        </Flex>
+
         <Path stack={stack} onClick={onClick} />
       </Flex>
 
@@ -70,7 +74,7 @@ const ApiProvider = ({ deployment, setProvider, stack, onClick }) => {
           onClick={onClick}
           cursor={'pointer'}
         >
-          <ArrowBackIcon onClick={onClick} width={'30px'} height={'30px'} cursor={'pointer'} />
+          <ArrowBackIcon width={'30px'} height={'30px'} cursor={'pointer'} />
         </Flex>
       )}
     </Flex>
