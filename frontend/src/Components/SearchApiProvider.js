@@ -69,7 +69,7 @@ const SearchApiProvider = ({ providers, setProvider }) => {
         ) : (
           <VStack width={'100%'} align={'left'}>
             <Title header={'Search results'} buttonVisibility={false} isLoading={false} fontWeight="semi-bold" p={0} />
-            <ApiProvider deployment={deployment} setProvider={setProvider} />
+            <ApiProvider deployment={deployment} setProvider={setProvider} onClick={() => {}} />
           </VStack>
         )}
         <CodeBlockView title={'An error occured'} response={error} />
