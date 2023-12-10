@@ -31,7 +31,7 @@ function App() {
             alignItems={'stretch'}
             flexDirection={'row'}
           >
-            <VStack overflow={'scroll'} width={'100%'} alignItems={'left'}>
+            <VStack overflow={'scroll'} width={'100%'} alignItems={'left'} className="hide-scrollbar">
               <Routes>
                 <Route path="/" element={<Welcome />} />
               </Routes>
