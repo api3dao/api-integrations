@@ -55,19 +55,19 @@ const IntegrationsRow = ({ config, apiData }) => {
         borderColor={COLORS.main}
         bgColor={COLORS.table}
         width={'100%'}
-        alignItems={'left'}
+        height={'70px'}
+        alignItems={'center'}
         spacing={'10'}
         direction={'row'}
       >
-        <Flex width={'100%'} wrap={'wrap'}>
-          <Stack direction={'row'} alignItems={'center'} spacing={5} wrap={'wrap'}>
+        <Flex gap={10} width={'100%'} overflowX={'scroll'} className="hide-scrollbar">
+          <Stack direction={'row'} alignItems={'center'} spacing={5}>
             <Flex minWidth={'400px'} gap={1} align={'center'}>
               <Text fontSize={'md'} fontWeight={'bold'}>
                 {config.filename[0].replace('.json', '')}
               </Text>
               <Text fontSize={'xs'} fontWeight={'light'}>{` (${config.category})`}</Text>
             </Flex>
-
             <DeploymentLocation apiData={apiData} category={config.category} hash={config.hash} />
           </Stack>
           <Spacer />
