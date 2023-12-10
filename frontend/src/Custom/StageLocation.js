@@ -1,15 +1,20 @@
-import { Flex, Box, Image, Text } from '@chakra-ui/react';
-import { useContext } from 'react';
+import { Flex, Box, Image } from '@chakra-ui/react';
+import { useContext, useState } from 'react';
+import InfoView from './InfoView';
 import { CONSTANTS } from '../data/constants';
 import { ApiIntegrationsContext } from '../Context';
 
 const StageLocation = ({ location, hash }) => {
+  const [info, setInfo] = useState('');
+
   const { grafanaLog } = useContext(ApiIntegrationsContext);
   const getStatus = () => {
     if (grafanaLog === null || grafanaLog === undefined) return './error.svg';
-    const isRunning = grafanaLog.find((log) => log.stage === location && log.configHash === hash);
-    if (isRunning === undefined) return './error.svg';
+    return grafanaLog.find((log) => log.stage === location && log.configHash === hash);
+  };
 
+  const getStatusIcon = () => {
+    if (getStatus() === undefined) return './error.svg';
     return './success.svg';
   };
 
@@ -34,9 +39,11 @@ const StageLocation = ({ location, hash }) => {
         w={'32px'}
         h={'32px'}
         position="relative"
+        cursor={'pointer'}
+        onClick={() => setInfo(location)}
       >
         <Image
-          src={getStatus()}
+          src={getStatusIcon()}
           alt={'check'}
           width={'12px'}
           height={'12px'}
@@ -45,9 +52,7 @@ const StageLocation = ({ location, hash }) => {
           right="0"
         />
       </Box>
-      <Text fontWeight={'bold'} fontSize={'sm'}>
-        {location.toUpperCase()}
-      </Text>
+      {info === '' ? null : <InfoView location={location} status={getStatus()} onExit={() => setInfo('')} />}
     </Flex>
   );
 };
