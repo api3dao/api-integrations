@@ -46,6 +46,7 @@ const ApiProvider = ({ deployment, setProvider, stack, onClick }) => {
         alignItems={'center'}
         overflowX={'scroll'}
         overflowY={'hidden'}
+        className="hide-scrollbar"
         onClick={() => (setProvider === undefined ? {} : setProvider(deployment))}
       >
         <Flex alignItems={'center'} gap={2} onClick={() => onClick(-1)}>
