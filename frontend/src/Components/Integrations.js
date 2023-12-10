@@ -85,7 +85,7 @@ const Integrations = ({ integrations, setProvider }) => {
       <ApiProvider deployment={integrations} stack={getStack()} onClick={detach} />
 
       <Flex spacing={4} overflowY={'scroll'} overflowX={'hidden'} className="hide-scrollbar">
-        <VStack spacing={4} width={'100%'} alignItems={'center'} justifyItems={'stretch'}>
+        <VStack spacing={4} width={'100%'} alignItems={'center'} justifyItems={'center'}>
           <VStack p={1} bgColor={COLORS.canvas} spacing={4} width={'100%'} alignItems={'left'} justifyItems={'center'}>
             {config === null ? (
               <DeploymentsView integrations={integrations} />
