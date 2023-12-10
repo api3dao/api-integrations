@@ -1,4 +1,4 @@
-import { VStack, Box, Image } from '@chakra-ui/react';
+import { Flex, Box, Image, Text } from '@chakra-ui/react';
 import { useContext } from 'react';
 import { CONSTANTS } from '../data/constants';
 import { ApiIntegrationsContext } from '../Context';
@@ -25,7 +25,7 @@ const StageLocation = ({ location, hash }) => {
   };
 
   return (
-    <VStack spacing={0} direction="row" align="left">
+    <Flex gap={1} direction="row" align="left" alignItems={'center'}>
       <Box
         bgImage={getLocation()}
         bgSize="auto"
@@ -45,7 +45,10 @@ const StageLocation = ({ location, hash }) => {
           right="0"
         />
       </Box>
-    </VStack>
+      <Text fontWeight={'bold'} fontSize={'sm'}>
+        {location.toUpperCase()}
+      </Text>
+    </Flex>
   );
 };
 
