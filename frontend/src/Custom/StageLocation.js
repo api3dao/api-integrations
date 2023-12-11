@@ -9,7 +9,7 @@ const StageLocation = ({ location, hash }) => {
 
   const { grafanaLog } = useContext(ApiIntegrationsContext);
   const getStatus = () => {
-    if (grafanaLog === null || grafanaLog === undefined) return './error.svg';
+    if (grafanaLog === null || grafanaLog === undefined) return null;
     return grafanaLog.find((log) => log.stage === location && log.configHash === hash);
   };
 
