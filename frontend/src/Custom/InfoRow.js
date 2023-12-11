@@ -15,7 +15,7 @@ const InfoRow = ({ text, onClick }) => {
       onClick={() => onClick(text)}
     >
       <Image src={'./history.svg'} alt="info" width={4} height={4} />
-      <Text fontWeight={'bold'} fontSize={'sm'}>
+      <Text noOfLines={0} fontWeight={'bold'} fontSize={'sm'}>
         {text}
       </Text>
     </Flex>
