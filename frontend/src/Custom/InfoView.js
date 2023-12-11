@@ -29,23 +29,48 @@ const InfoView = ({ location, status, onExit }) => {
   return (
     <VStack className="backgroundBlur">
       <Flex className="floatingRectangle infoBox">
-        <Flex flexDirection={'row'} width={'100%'} justifyContent={'left'} alignItems={'center'}>
-          <Image src={getLocation()} alt={'check'} width={'32px'} height={'32px'} />
-          <Text fontSize="md" fontWeight="bold" ml={2}>
-            {' '}
-            {getStage()}{' '}
+        <Flex
+          p={3}
+          flexDirection={'row'}
+          width={'100%'}
+          justifyContent={'left'}
+          alignItems={'center'}
+          bgColor={'gray.100'}
+        >
+          <Text fontSize="md" fontWeight="bold">
+            Airnode Feed Deployment Status
           </Text>
           <Spacer />
           <CloseIcon onClick={() => onExit(null)} cursor={'pointer'} />
         </Flex>
-        <Flex flexDirection={'column'} justifyContent={'left'} alignItems={'left'} width={'250px'} height={'150px'}>
-          <Text fontSize="md" fontWeight="bold">
-            {' '}
-            Description{' '}
-          </Text>
-          <Text fontSize="md" fontWeight="light">
-            {status === undefined ? 'Deployment is not running at the moment.' : 'Deployment is running at the moment.'}
-          </Text>
+        <Flex gap={5} flexDirection={'column'} justifyContent={'left'} alignItems={'left'} width={'100%'}>
+          <Flex gap={2} flexDirection={'column'} justifyContent={'left'} alignItems={'left'} width={'100%'}>
+            <Text fontSize="md" fontWeight="bold">
+              Deployment Location
+            </Text>
+            <Flex gap={2} flexDirection={'row'} justifyContent={'left'} alignItems={'center'}>
+              <Image src={getLocation()} alt={'check'} width={'32px'} height={'32px'} />
+              <Text fontSize="md" fontWeight="light">
+                {getStage()}
+              </Text>
+            </Flex>
+          </Flex>
+          <Flex gap={2} flexDirection={'column'} justifyContent={'left'} alignItems={'left'} width={'100%'}>
+            <Text fontSize="md" fontWeight="bold">
+              Status
+            </Text>
+            <Flex gap={2} flexDirection={'row'} justifyContent={'left'} alignItems={'center'}>
+              <Image
+                src={status === undefined ? './error.svg' : './success.svg'}
+                alt={'check'}
+                width={'24px'}
+                height={'24px'}
+              />
+              <Text fontSize="md" fontWeight="light">
+                {status === undefined ? 'Not running' : 'Running'}
+              </Text>
+            </Flex>
+          </Flex>
         </Flex>
       </Flex>
     </VStack>
