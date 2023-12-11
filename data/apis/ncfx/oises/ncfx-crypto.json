@@ -13,16 +13,6 @@
       }
     },
     "paths": {
-      "/live/midrate/v1/rates": {
-        "get": {
-          "parameters": [
-            {
-              "in": "query",
-              "name": "pairs"
-            }
-          ]
-        }
-      },
       "/{path}": {
         "get": {
           "parameters": [
@@ -48,37 +38,6 @@
     }
   },
   "endpoints": [
-    {
-      "fixedOperationParameters": [],
-      "name": "GET_/live/midrate/v1/rates",
-      "operation": {
-        "method": "get",
-        "path": "/live/midrate/v1/rates"
-      },
-      "parameters": [
-        {
-          "name": "pairs",
-          "operationParameter": {
-            "in": "query",
-            "name": "pairs"
-          },
-          "required": false
-        }
-      ],
-      "reservedParameters": [
-        {
-          "name": "_type"
-        },
-        {
-          "name": "_path"
-        },
-        {
-          "name": "_times"
-        }
-      ],
-      "preProcessingSpecifications": [],
-      "postProcessingSpecifications": []
-    },
     {
       "fixedOperationParameters": [],
       "name": "feed",
