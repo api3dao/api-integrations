@@ -41,18 +41,18 @@ const main = async () => {
   console.log('deploymentType is: ', deploymentType);
 
   // read required files
-  const pusherConfig = readJson('./boilerplates/boilerplate-pusher-config.json');
+  const airnodeFeedConfig = readJson('./boilerplates/boilerplate-airnode-feed-config.json');
   const apiData = apiDataSchema.parse(readJson(`./data/apis/${apiName}/api-data.json`));
 
   // read oises
   const oises: OIS[] = globSync(`./data/apis/${apiName}/oises/*`).map((oisPath) => readJson(oisPath));
 
   // init "signedApiUpdates" triggers
-  pusherConfig.triggers['signedApiUpdates'] = [];
+  airnodeFeedConfig.triggers['signedApiUpdates'] = [];
 
   // push OIS objects
   oises.map((ois: OIS) => {
-    pusherConfig.ois.push(ois);
+    airnodeFeedConfig.ois.push(ois);
   });
 
   // validate OIS titles in "apiData.supportedFeedsInBatches"
@@ -109,7 +109,7 @@ const main = async () => {
   Object.keys(apiData.supportedFeedsInBatches).map((oisTitle) => {
     // add endpoints
     const endpointId = deriveEndpointId({ oisTitle: oisTitle }) as string;
-    pusherConfig.endpoints[endpointId] = {
+    airnodeFeedConfig.endpoints[endpointId] = {
       endpointName: 'feed',
       oisTitle: oisTitle
     };
@@ -118,7 +118,7 @@ const main = async () => {
     apiData.supportedFeedsInBatches[oisTitle].map((batch: string[]) => {
       const templateIds: string[] = batch.map((feedName: string) => {
         const templateId = deriveTemplateId({ oisTitle: oisTitle, feedName: feedName }) as string;
-        pusherConfig.templates[templateId] = {
+        airnodeFeedConfig.templates[templateId] = {
           endpointId: endpointId,
           parameters: [{ type: 'string32', name: 'name', value: feedName }]
         };
@@ -126,7 +126,7 @@ const main = async () => {
       });
 
       // add triggers
-      pusherConfig.triggers['signedApiUpdates'].push({
+      airnodeFeedConfig.triggers['signedApiUpdates'].push({
         signedApiName: 'Nodary',
         templateIds: templateIds,
         fetchInterval: 5,
@@ -136,7 +136,7 @@ const main = async () => {
   });
 
   // generate signedApis
-  pusherConfig.signedApis = [
+  airnodeFeedConfig.signedApis = [
     {
       name: 'Nodary',
       url: 'https://pool.nodary.io'
@@ -144,10 +144,10 @@ const main = async () => {
   ];
 
   // generate apiCredentials
-  pusherConfig.apiCredentials = [];
+  airnodeFeedConfig.apiCredentials = [];
   oises.map((ois: OIS) => {
     Object.keys(ois.apiSpecifications.components.securitySchemes).map((schemeName) => {
-      pusherConfig.apiCredentials.push({
+      airnodeFeedConfig.apiCredentials.push({
         oisTitle: ois.title,
         securitySchemeName: schemeName,
         securitySchemeValue: '${' + `${schemeName.toUpperCase()}_VALUE` + '}'
@@ -158,13 +158,13 @@ const main = async () => {
   // derive deployment id.
   const today = format(new Date(), 'yyyyMMdd');
   const stage = `api3-${today}`;
-  pusherConfig.nodeSettings.stage = '${STAGE}';
+  airnodeFeedConfig.nodeSettings.stage = '${STAGE}';
 
   // save the deployment
   const deploymentPath = `./data/apis/${apiName}/deployments/${deploymentType}-deployments`;
-  saveJson(join(deploymentPath, `${stage}-pusher.json`), pusherConfig);
+  saveJson(join(deploymentPath, `${stage}-airnode-feed.json`), airnodeFeedConfig);
 
-  logger.info(`Generated deployment for ${apiName} with name ${stage}-pusher.json.`);
+  logger.info(`Generated deployment for ${apiName} with name ${stage}-airnode-feed.json.`);
 };
 
 main();

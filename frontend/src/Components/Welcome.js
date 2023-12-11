@@ -9,7 +9,7 @@ const Welcome = () => {
 
   const configFiles = ((ctx) => {
     return checkFiles(ctx);
-  })(require.context('../../../data/apis/', true, /([a-z0-9-]+-pusher.json|api-data.json)/));
+  })(require.context('../../../data/apis/', true, /([a-z0-9-]+-airnode-feed.json|api-data.json)/));
 
   return (
     <Flex spacing={4} height={'100vh'} overflow={'scroll'}>

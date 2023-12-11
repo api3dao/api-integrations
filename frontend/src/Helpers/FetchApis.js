@@ -35,7 +35,7 @@ export const checkFiles = (ctx) => {
     const api = keys[i].split('/')[1];
     const value = values[i];
 
-    const filename = keys[i].match(/[a-z0-9-]+-pusher.json/);
+    const filename = keys[i].match(/[a-z0-9-]+-airnode-feed.json/);
 
     if (filename === null) {
       continue;

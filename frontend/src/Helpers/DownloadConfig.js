@@ -110,7 +110,7 @@ const downloadCloudFormation = (CloudFormation, configData) => {
   const entryPoint = [
     '/bin/sh',
     '-c',
-    `echo -e $SECRETS_ENV >> ./config/secrets.env && wget -O - https://raw.githubusercontent.com/api3dao/api-integrations/main/data/apis/${configData.apiProvider}/deployments/${configData.category}-deployments/${configData.filename} >> ./config/pusher.json && node dist/src/index.js`
+    `echo -e $SECRETS_ENV >> ./config/secrets.env && wget -O - https://raw.githubusercontent.com/api3dao/api-integrations/main/data/apis/${configData.apiProvider}/deployments/${configData.category}-deployments/${configData.filename} >> ./config/airnode-feed.json && node dist/src/index.js`
   ];
 
   const secrets = getSecrets(configData.config.apiCredentials);
@@ -132,10 +132,10 @@ const downloadCloudFormation = (CloudFormation, configData) => {
 export const downloadZip = (secrets, config) => {
   var zip = new JSZip();
   zip.file('secrets.env', secrets.replaceAll(/(\\n)/g, '\n'));
-  zip.file('pusher.json', JSON.stringify(config, null, 2));
+  zip.file('airnode-feed.json', JSON.stringify(config, null, 2));
 
   zip.generateAsync({ type: 'blob' }).then(function (content) {
-    saveAs(content, 'pusher-config.zip');
+    saveAs(content, 'airnode-feed-config.zip');
   });
 };
 

@@ -24,11 +24,11 @@ const Help = ({ mode }) => {
   const dockerCmd = `docker run -it --rm \\
       -e USER_ID=$(id -u) -e GROUP_ID=$(id -g) \\
       -v "$(pwd):/app/config" \\
-      api3/pusher:0.1.0-rc2 deploy`;
+      api3/airnode-feed deploy`;
 
   const dockerCmdWindows = `docker run -it --rm ^
       -v "%cd%:/app/config" ^
-      api3/pusher:0.1.0-rc2 deploy`;
+      api3/airnode-feed deploy`;
 
   const getDockerCmd = () => {
     switch (dockerMode) {

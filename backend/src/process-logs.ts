@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { ethers } from 'ethers';
 import { go } from '@api3/promise-utils';
-import { AppType, PusherHeartbeatPayload, pusherHeartbeatPayloadSchema } from './types';
+import { AppType, AirnodeFeedHeartbeatPayload, airnodeFeedHeartbeatPayloadSchema } from './types';
 import { MIN_IN_MS } from './constants';
 
 interface LokiResponse {
@@ -14,13 +14,13 @@ interface LokiResponse {
 const createHash = (value: string) => ethers.utils.keccak256(ethers.utils.toUtf8Bytes(value));
 
 // We need to make sure the object is stringified in the same way every time, so we sort the keys alphabetically.
-const stringifyUnsignedHeartbeatPayload = (unsignedHeartbeatPayload: Omit<PusherHeartbeatPayload, 'signature'>) =>
+const stringifyUnsignedHeartbeatPayload = (unsignedHeartbeatPayload: Omit<AirnodeFeedHeartbeatPayload, 'signature'>) =>
   JSON.stringify(unsignedHeartbeatPayload, Object.keys(unsignedHeartbeatPayload).sort());
 
-const packAndHashHeartbeatPayload = (unsignedHeartbeatPayload: Omit<PusherHeartbeatPayload, 'signature'>) =>
+const packAndHashHeartbeatPayload = (unsignedHeartbeatPayload: Omit<AirnodeFeedHeartbeatPayload, 'signature'>) =>
   ethers.utils.arrayify(createHash(stringifyUnsignedHeartbeatPayload(unsignedHeartbeatPayload)));
 
-const isHeartbeatPayloadValid = (data: PusherHeartbeatPayload, queriedAirnode: string): Boolean => {
+const isHeartbeatPayloadValid = (data: AirnodeFeedHeartbeatPayload, queriedAirnode: string): Boolean => {
   const digest = packAndHashHeartbeatPayload(_.omit(data, 'signature'));
   const calculatedAirnode = ethers.utils.verifyMessage(digest, data.signature);
   return _.isEqual(calculatedAirnode, queriedAirnode);
@@ -35,12 +35,14 @@ export const extractHeartbeatPayloads = async (app: AppType, airnode: string, lo
     .flat();
 
   switch (app) {
-    case 'pusher': {
+    case 'airnode-feed': {
       const goParseHeartbeatPayloads = await go(() =>
-        Promise.all(payloads.map((payload) => pusherHeartbeatPayloadSchema.parseAsync(payload)))
+        Promise.all(payloads.map((payload) => airnodeFeedHeartbeatPayloadSchema.parseAsync(payload)))
       );
       if (!goParseHeartbeatPayloads.success)
-        throw new Error(`Unable to parse heartbeat payload from pusher: ${goParseHeartbeatPayloads.error.message}`);
+        throw new Error(
+          `Unable to parse heartbeat payload from Airnode feed: ${goParseHeartbeatPayloads.error.message}`
+        );
 
       const heartbeatPayloads = goParseHeartbeatPayloads.data;
       const filterPayloads = heartbeatPayloads

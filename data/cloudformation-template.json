@@ -1,6 +1,6 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
-  "Description": "A CloudFormation template for deploying the Pusher on AWS.",
+  "Description": "A CloudFormation template for deploying the Airnode Feed on AWS.",
   "Parameters": {
     "airnodeMnemonic": {
       "Type": "String",
@@ -37,7 +37,7 @@
     "CloudWatchLogsGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "PusherLogGroup-<SOME_ID>",
+        "LogGroupName": "AirnodeFeedLogGroup-<SOME_ID>",
         "RetentionInDays": 7
       }
     },
@@ -55,7 +55,7 @@
           {
             "Essential": true,
             "Image": "grafana/fluent-bit-plugin-loki:2.9.1-amd64",
-            "Name": "PusherLogForwarder-<SOME_ID>",
+            "Name": "AirnodeFeedLogForwarder-<SOME_ID>",
             "FirelensConfiguration": {
               "Type": "fluentbit",
               "Options": {
@@ -78,7 +78,7 @@
             "MemoryReservation": 50
           },
           {
-            "Name": "Pusher",
+            "Name": "AirnodeFeed",
             "Image": "<IMAGE>",
             "Environment": [
               {
@@ -120,7 +120,7 @@
             "EntryPoint": [
               "/bin/sh",
               "-c",
-              "echo -e $SECRETS_ENV >> ./config/secrets.env && wget -O - <PUBLIC_CONFIG_URL> >> ./config/pusher.json && node dist/src/index.js"
+              "echo -e $SECRETS_ENV >> ./config/secrets.env && wget -O - <PUBLIC_CONFIG_URL> >> ./config/airnode-feed.json && node dist/src/index.js"
             ],
             "LogConfiguration": {
               "LogDriver": "awsfirelens",
@@ -146,7 +146,7 @@
                     ]
                   ]
                 },
-                "Labels": "{app=\"pusher\",airnode=\"<AIRNODE_ADDRESS>\"}",
+                "Labels": "{app=\"airnode-feed\",airnode=\"<AIRNODE_ADDRESS>\"}",
                 "RemoveKeys": "container_id,container_name,ecs_task_definition,source,ecs_cluster",
                 "LabelKeys": "ecs_task_arn",
                 "LineFormat": "json"
@@ -159,7 +159,7 @@
     "AppCluster": {
       "Type": "AWS::ECS::Cluster",
       "Properties": {
-        "ClusterName": "PusherCluster-<SOME_ID>"
+        "ClusterName": "AirnodeFeedCluster-<SOME_ID>"
       }
     },
     "AppService": {
@@ -168,7 +168,7 @@
         "Cluster": {
           "Ref": "AppCluster"
         },
-        "ServiceName": "PusherService-<SOME_ID>",
+        "ServiceName": "AirnodeFeedService-<SOME_ID>",
         "DesiredCount": 1,
         "LaunchType": "FARGATE",
         "TaskDefinition": {
