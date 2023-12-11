@@ -32,5 +32,6 @@
   },
   "deploymentLocations": ["aws"],
   "officialUrl": "https://tradermade.com",
-  "verifiedUrl": "https://tradermade.com"
+  "verifiedUrl": "https://tradermade.com",
+  "signedApiUrl": ""
 }

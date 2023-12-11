@@ -1,5 +1,6 @@
-import { Text, Image, Flex, Stack } from '@chakra-ui/react';
+import { Text, Flex, Stack } from '@chakra-ui/react';
 import { ArrowBackIcon, ChevronRightIcon } from '@chakra-ui/icons';
+import { ApiProviderLogo } from 'beta-logos';
 import { COLORS, CONSTANTS } from '../data/constants';
 
 const Path = ({ stack }) => {
@@ -45,14 +46,7 @@ const ApiProvider = ({ deployment, setProvider, stack, onClick }) => {
         overflowY={'hidden'}
         onClick={() => (setProvider === undefined ? {} : setProvider(deployment))}
       >
-        <Image
-          src={`./providers/${deployment.alias}.png`}
-          fallbackSrc={`./providers/${deployment.alias}.svg`}
-          alt={deployment.alias}
-          objectFit={'contain'}
-          width={'50px'}
-          height={'50px'}
-        />
+        <ApiProviderLogo id={deployment.alias} width={'50px'} height={'50px'} />
         <Text fontSize={'2xl'} fontWeight={'light'}>
           |
         </Text>

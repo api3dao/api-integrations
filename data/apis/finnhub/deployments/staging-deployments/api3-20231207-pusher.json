@@ -357,205 +357,205 @@
       {
         "signedApiName": "Nodary",
         "templateIds": ["0xc89fc7102936dffbb78e56cb95c0541024d57ecc0ff2cba8442977d471f09507"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0x7e5acc6b9ceaa216b1d10e2f5f01ce899c4a6759d3dbb84b3d8e73faa9374e59"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0x41475a48f30a8001055b9ad45e5776d5e5147c955aba313b6656996bddd095b6"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0xd6db36a1b10d32c8f266cc3484c56273d295730f594695199ecf47cbe931e329"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0x41d3b4b00dcb76d6b416e835af5bf4f40aa23cf3e15927b427f819298626aee8"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0x2e838264734880a74495d7bd952842fbaa3446e5d5cf90dda76480a779e98fa0"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0xda303b8554096835b9ad37284eff887993a7cfe3601bb3ff486296ab852f1964"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0xc203d19dd57a777ee05f4c3ac70dc96c3c5b39e8248a8ddceb3a7d363f7db59b"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0x9599eb0a29f35594ada9880f4f5d40c006b3f004abe6df35ae1a1aec533333cf"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0xad12c7fbec42bbf0bf22b4e63a18e15ab9c7e48be32f162b19eac4a5a5e83f90"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0x69c9648a87ff01cce5de9f50bc3c0eb5cf00a24d74e91fd90d0fcc407d80121e"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0xc1b049511532dc14ee1eb76287f831f4e345a9810a4aedc864323b15aaa978c3"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0xd9c40800b02b2e2654fa44b01efaf399f24e01f6aad7f225ecb8ed0c3b1e7207"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0x02139d02f5e191e36ff880c87c0d564afb1326a79ed4aaa8748bf2b4e9606c07"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0x08537823f6f7a5a5f024adb1bf5c0ad8260dedda148cafd89ce1e627fedc1b51"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0xaf29578685c424bcb7db8538ebf62856e5625e6d80842dce0ab2f9a86dd6202f"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0x1287b05d8976455eb20215f0c7bf80af0a551ddc79da8203d573041d44a060de"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0x0126bd1e2fbfe137b0c13e1882595869442d54b96172c782a919b74dba19189f"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0xa74ca9578d272cdc17f7033b2c94ffb02621c555a53b044f6f4eb09cc13780ac"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0x41554acf1055a90b46a0d111598d6cfa35ed79e7829d9e6dcc122bd7c1fcc125"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0x9ffe73b7d4091c71e90b461d4db3854c81c9cafb7caf3ab82609c48f1940494b"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0x49b7612516788e6d789d0d3472ba214cb3f5e99ae24806a7b2045b69becd6800"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0xee04fc99fac39ffecb3d5ff17e9d4a062fb852ae833dcc56595555c1103df9b7"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0xd48239661c5078443e37fb677f819e07cba2234154cb885fae692187301a2d05"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0xc98a5c061bf053ad76cb617b5657b26be7eecc7b0e1771cc9e8165cd3829d7f2"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0x08a478bfbc5b92971402b682eb412c9fbcee6225c3ae0aa33a8db35092a34a55"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0x4c5df3a4ce23aa03ae67e8103a4d3f3a8e67cba73ef11346cb7bf3029aa93300"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0x791e3df42a46e6e91c5e54d308e87eeca60e263acf0ba56d42a461168cd2502a"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0xae5e16b222e1cd8281aaee39f7decc93393140cda364dd807e85a0c9824557ba"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0x714efbe6e54646ee67349286d1aa675367c6f64d30a1a66948133ee456bb0649"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0xc64697dde561ef5cfd3397ef3cfaca2a3acd9bea14c2eb9ca6ef2a17375b9647"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0x417ee0ef570ba0abaccf7342f427d9468c8f03aa4155a00a794a0cf310c64fc9"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0x3a1b2778f785c994d48fc5eee3bbd600d34c936cf45e7cca047f78b658c2a990"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       },
       {
         "signedApiName": "Nodary",
         "templateIds": ["0x7c43ab7000cdfa1ca05a5ea9d399315702e3bee89b31f4dcf9b64f215c15b519"],
-        "fetchInterval": 30,
+        "fetchInterval": 5,
         "updateDelay": 0
       }
     ]
@@ -568,7 +568,7 @@
   ],
   "ois": [
     {
-      "oisFormat": "2.2.0",
+      "oisFormat": "2.3.0",
       "title": "Finnhub",
       "version": "0.1.0",
       "apiSpecifications": {
@@ -5339,7 +5339,8 @@
               "operationParameter": {
                 "in": "query",
                 "name": "base"
-              }
+              },
+              "required": true
             },
             {
               "name": "date",
@@ -5353,7 +5354,8 @@
               "operationParameter": {
                 "in": "query",
                 "name": "symbol"
-              }
+              },
+              "required": true
             }
           ],
           "reservedParameters": [
@@ -5366,20 +5368,16 @@
               "fixed": "1000000000000000000"
             }
           ],
-          "preProcessingSpecifications": [
-            {
-              "environment": "Node",
-              "value": "const preProcessingObject = {\n  \"AUD/USD\": { path: \"forex/rates\", parameters: { base: \"AUD\" } },\n  \"BRL/USD\": { path: \"forex/rates\", parameters: { base: \"BRL\" } },\n  \"CAD/USD\": { path: \"forex/rates\", parameters: { base: \"CAD\" } },\n  \"CHF/USD\": { path: \"forex/rates\", parameters: { base: \"CHF\" } },\n  \"CNY/USD\": { path: \"forex/rates\", parameters: { base: \"CNY\" } },\n  \"COP/USD\": { path: \"forex/rates\", parameters: { base: \"COP\" } },\n  \"EUR/USD\": { path: \"forex/rates\", parameters: { base: \"EUR\" } },\n  \"GBP/USD\": { path: \"forex/rates\", parameters: { base: \"GBP\" } },\n  \"INR/USD\": { path: \"forex/rates\", parameters: { base: \"INR\" } },\n  \"JPY/USD\": { path: \"forex/rates\", parameters: { base: \"JPY\" } },\n  \"KRW/USD\": { path: \"forex/rates\", parameters: { base: \"KRW\" } },\n  \"MXN/USD\": { path: \"forex/rates\", parameters: { base: \"MXN\" } },\n  \"NGN/USD\": { path: \"forex/rates\", parameters: { base: \"NGN\" } },\n  \"NZD/USD\": { path: \"forex/rates\", parameters: { base: \"NZD\" } },\n  \"PHP/USD\": { path: \"forex/rates\", parameters: { base: \"PHP\" } },\n  \"RUB/USD\": { path: \"forex/rates\", parameters: { base: \"RUB\" } },\n  \"SEK/USD\": { path: \"forex/rates\", parameters: { base: \"SEK\" } },\n  \"SGD/USD\": { path: \"forex/rates\", parameters: { base: \"SGD\" } },\n  \"TRY/USD\": { path: \"forex/rates\", parameters: { base: \"TRY\" } },\n  \"ZAR/USD\": { path: \"forex/rates\", parameters: { base: \"ZAR\" } },\n  \"AAPL/USD\": { path: \"stock/bidask\", parameters: { symbol: \"AAPL\" } },\n  \"AMZN/USD\": { path: \"stock/bidask\", parameters: { symbol: \"AMZN\" } },\n  \"ARKK/USD\": { path: \"stock/bidask\", parameters: { symbol: \"ARKK\" } },\n  \"COIN/USD\": { path: \"stock/bidask\", parameters: { symbol: \"COIN\" } },\n  \"GME/USD\": { path: \"stock/bidask\", parameters: { symbol: \"GME\" } },\n  \"GOOGL/USD\": { path: \"stock/bidask\", parameters: { symbol: \"GOOGL\" } },\n  \"JPM/USD\": { path: \"stock/bidask\", parameters: { symbol: \"JPM\" } },\n  \"META/USD\": { path: \"stock/bidask\", parameters: { symbol: \"META\" } },\n  \"MSFT/USD\": { path: \"stock/bidask\", parameters: { symbol: \"MSFT\" } },\n  \"NFLX/USD\": { path: \"stock/bidask\", parameters: { symbol: \"NFLX\" } },\n  \"NVDA/USD\": { path: \"stock/bidask\", parameters: { symbol: \"NVDA\" } },\n  \"SPY/USD\": { path: \"stock/bidask\", parameters: { symbol: \"SPY\" } },\n  \"TSLA/USD\": { path: \"stock/bidask\", parameters: { symbol: \"TSLA\" } },\n  \"TSM/USD\": { path: \"stock/bidask\", parameters: { symbol: \"TSM\" } },\n}\noutput = {\n  path: preProcessingObject[endpointParameters.name].path,\n  ...preProcessingObject[endpointParameters.name].parameters,\n}\n",
-              "timeoutMs": 5000
-            }
-          ],
-          "postProcessingSpecifications": [
-            {
-              "environment": "Node",
-              "value": "const postProcessingObject = {\n  \"AUD/USD\":\n    \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n  \"BRL/USD\":\n    \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n  \"CAD/USD\":\n    \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n  \"CHF/USD\":\n    \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n  \"CNY/USD\":\n    \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n  \"COP/USD\":\n    \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n  \"EUR/USD\":\n    \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n  \"GBP/USD\":\n    \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n  \"INR/USD\":\n    \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n  \"JPY/USD\":\n    \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n  \"KRW/USD\":\n    \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n  \"MXN/USD\":\n    \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n  \"NGN/USD\":\n    \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n  \"NZD/USD\":\n    \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n  \"PHP/USD\":\n    \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n  \"RUB/USD\":\n    \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n  \"SEK/USD\":\n    \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n  \"SGD/USD\":\n    \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n  \"TRY/USD\":\n    \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n  \"ZAR/USD\":\n    \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n  \"AAPL/USD\":\n    \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n  \"AMZN/USD\":\n    \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n  \"ARKK/USD\":\n    \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n  \"COIN/USD\":\n    \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n  \"GME/USD\":\n    \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n  \"GOOGL/USD\":\n    \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n  \"JPM/USD\":\n    \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n  \"META/USD\":\n    \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n  \"MSFT/USD\":\n    \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n  \"NFLX/USD\":\n    \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n  \"NVDA/USD\":\n    \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n  \"SPY/USD\":\n    \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n  \"TSLA/USD\":\n    \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n  \"TSM/USD\":\n    \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n}\nconst parser = eval(postProcessingObject[endpointParameters.name])\noutput = parser(input)\n",
-              "timeoutMs": 5000
-            }
-          ]
+          "preProcessingSpecificationV2": {
+            "environment": "Node",
+            "value": "({ endpointParameters }) => {\n  const preProcessingObject = {\n    \"AUD/USD\": { path: \"forex/rates\", parameters: { base: \"AUD\" } },\n    \"BRL/USD\": { path: \"forex/rates\", parameters: { base: \"BRL\" } },\n    \"CAD/USD\": { path: \"forex/rates\", parameters: { base: \"CAD\" } },\n    \"CHF/USD\": { path: \"forex/rates\", parameters: { base: \"CHF\" } },\n    \"CNY/USD\": { path: \"forex/rates\", parameters: { base: \"CNY\" } },\n    \"COP/USD\": { path: \"forex/rates\", parameters: { base: \"COP\" } },\n    \"EUR/USD\": { path: \"forex/rates\", parameters: { base: \"EUR\" } },\n    \"GBP/USD\": { path: \"forex/rates\", parameters: { base: \"GBP\" } },\n    \"INR/USD\": { path: \"forex/rates\", parameters: { base: \"INR\" } },\n    \"JPY/USD\": { path: \"forex/rates\", parameters: { base: \"JPY\" } },\n    \"KRW/USD\": { path: \"forex/rates\", parameters: { base: \"KRW\" } },\n    \"MXN/USD\": { path: \"forex/rates\", parameters: { base: \"MXN\" } },\n    \"NGN/USD\": { path: \"forex/rates\", parameters: { base: \"NGN\" } },\n    \"NZD/USD\": { path: \"forex/rates\", parameters: { base: \"NZD\" } },\n    \"PHP/USD\": { path: \"forex/rates\", parameters: { base: \"PHP\" } },\n    \"RUB/USD\": { path: \"forex/rates\", parameters: { base: \"RUB\" } },\n    \"SEK/USD\": { path: \"forex/rates\", parameters: { base: \"SEK\" } },\n    \"SGD/USD\": { path: \"forex/rates\", parameters: { base: \"SGD\" } },\n    \"TRY/USD\": { path: \"forex/rates\", parameters: { base: \"TRY\" } },\n    \"ZAR/USD\": { path: \"forex/rates\", parameters: { base: \"ZAR\" } },\n    \"AAPL/USD\": { path: \"stock/bidask\", parameters: { symbol: \"AAPL\" } },\n    \"AMZN/USD\": { path: \"stock/bidask\", parameters: { symbol: \"AMZN\" } },\n    \"ARKK/USD\": { path: \"stock/bidask\", parameters: { symbol: \"ARKK\" } },\n    \"COIN/USD\": { path: \"stock/bidask\", parameters: { symbol: \"COIN\" } },\n    \"GME/USD\": { path: \"stock/bidask\", parameters: { symbol: \"GME\" } },\n    \"GOOGL/USD\": { path: \"stock/bidask\", parameters: { symbol: \"GOOGL\" } },\n    \"JPM/USD\": { path: \"stock/bidask\", parameters: { symbol: \"JPM\" } },\n    \"META/USD\": { path: \"stock/bidask\", parameters: { symbol: \"META\" } },\n    \"MSFT/USD\": { path: \"stock/bidask\", parameters: { symbol: \"MSFT\" } },\n    \"NFLX/USD\": { path: \"stock/bidask\", parameters: { symbol: \"NFLX\" } },\n    \"NVDA/USD\": { path: \"stock/bidask\", parameters: { symbol: \"NVDA\" } },\n    \"SPY/USD\": { path: \"stock/bidask\", parameters: { symbol: \"SPY\" } },\n    \"TSLA/USD\": { path: \"stock/bidask\", parameters: { symbol: \"TSLA\" } },\n    \"TSM/USD\": { path: \"stock/bidask\", parameters: { symbol: \"TSM\" } },\n  }\n  return {\n    endpointParameters: {\n      path: preProcessingObject[endpointParameters.name].path,\n      ...preProcessingObject[endpointParameters.name].parameters,\n    },\n  }\n}\n",
+            "timeoutMs": 5000
+          },
+          "postProcessingSpecificationV2": {
+            "environment": "Node",
+            "value": "({ response, endpointParameters }) => {\n  const postProcessingObject = {\n    \"AUD/USD\":\n      \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n    \"BRL/USD\":\n      \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n    \"CAD/USD\":\n      \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n    \"CHF/USD\":\n      \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n    \"CNY/USD\":\n      \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n    \"COP/USD\":\n      \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n    \"EUR/USD\":\n      \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n    \"GBP/USD\":\n      \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n    \"INR/USD\":\n      \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n    \"JPY/USD\":\n      \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n    \"KRW/USD\":\n      \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n    \"MXN/USD\":\n      \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n    \"NGN/USD\":\n      \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n    \"NZD/USD\":\n      \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n    \"PHP/USD\":\n      \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n    \"RUB/USD\":\n      \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n    \"SEK/USD\":\n      \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n    \"SGD/USD\":\n      \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n    \"TRY/USD\":\n      \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n    \"ZAR/USD\":\n      \"(response) => {\\n                return response.quote.USD\\n              }\\n              \",\n    \"AAPL/USD\":\n      \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n    \"AMZN/USD\":\n      \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n    \"ARKK/USD\":\n      \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n    \"COIN/USD\":\n      \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n    \"GME/USD\":\n      \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n    \"GOOGL/USD\":\n      \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n    \"JPM/USD\":\n      \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n    \"META/USD\":\n      \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n    \"MSFT/USD\":\n      \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n    \"NFLX/USD\":\n      \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n    \"NVDA/USD\":\n      \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n    \"SPY/USD\":\n      \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n    \"TSLA/USD\":\n      \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n    \"TSM/USD\":\n      \"(response) => {\\n                return (response.a + response.b) / 2\\n              }\\n              \",\n  }\n  const parser = eval(postProcessingObject[endpointParameters.name])\n  return { response: parser(response) }\n}\n",
+            "timeoutMs": 5000
+          }
         }
       ]
     }

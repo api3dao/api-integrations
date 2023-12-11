@@ -15,6 +15,7 @@ export const apiDataSchema = z
     supportedFeedsInBatches: z.record(z.string(), z.array(z.array(z.string()))),
     deploymentLocations: deploymentLocationsSchema,
     officialUrl: z.string(),
-    verifiedUrl: z.string()
+    verifiedUrl: z.string(),
+    signedApiUrl: z.string()
   })
   .strict();

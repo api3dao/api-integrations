@@ -120,5 +120,6 @@
   },
   "deploymentLocations": ["aws"],
   "officialUrl": "https://dxfeed.com",
-  "verifiedUrl": "https://dxfeed.com"
+  "verifiedUrl": "https://dxfeed.com",
+  "signedApiUrl": ""
 }
