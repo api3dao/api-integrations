@@ -14,7 +14,8 @@ const StageLocation = ({ location, hash }) => {
   };
 
   const getStatusIcon = () => {
-    if (getStatus() === undefined) return './error.svg';
+    const status = getStatus();
+    if (status === undefined || status == null) return './error.svg';
     return './success.svg';
   };
 
