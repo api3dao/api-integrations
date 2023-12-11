@@ -1,7 +1,21 @@
-import { Text, Flex, Stack } from '@chakra-ui/react';
+import { Text, Flex, Stack, Image } from '@chakra-ui/react';
 import { ArrowBackIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { ApiProviderLogo } from 'beta-logos';
 import { COLORS, CONSTANTS } from '../data/constants';
+
+const Logo = ({ deployment, onClick }) => {
+  return (
+    <Flex alignItems={'center'} gap={2} onClick={() => onClick(-1)} p={5}>
+      <Image src={ApiProviderLogo(deployment.alias)} width={'50px'} height={'50px'} />
+      <Text fontSize={'2xl'} fontWeight={'light'}>
+        |
+      </Text>
+      <Text fontSize={'md'} fontWeight={'bold'} cursor={'pointer'}>
+        {deployment.name}
+      </Text>
+    </Flex>
+  );
+};
 
 const Path = ({ stack, onClick }) => {
   if (stack === undefined || stack == null) {
@@ -14,8 +28,7 @@ const Path = ({ stack, onClick }) => {
         <Stack key={index} direction={'row'}>
           <ChevronRightIcon width={'30px'} height={'30px'} cursor={'pointer'} />
           <Text
-            noOfLines={0}
-            minW={'150px'}
+            noOfLines={1}
             textAlign={'center'}
             bgColor={'gray.100'}
             p={2}
@@ -38,7 +51,7 @@ const ApiProvider = ({ deployment, setProvider, stack, onClick }) => {
     <Flex cursor={setProvider === undefined ? 'auto' : 'pointer'}>
       <Flex
         p={3}
-        gap={3}
+        gap={5}
         width={'100%'}
         height={'70px'}
         bg={COLORS.header}
@@ -49,16 +62,7 @@ const ApiProvider = ({ deployment, setProvider, stack, onClick }) => {
         className="hide-scrollbar"
         onClick={() => (setProvider === undefined ? {} : setProvider(deployment))}
       >
-        <Flex alignItems={'center'} gap={2} onClick={() => onClick(-1)}>
-          <ApiProviderLogo id={deployment.alias} width={'50px'} height={'50px'} />
-          <Text fontSize={'2xl'} fontWeight={'light'}>
-            |
-          </Text>
-          <Text fontSize={'md'} fontWeight={'bold'} cursor={'pointer'}>
-            {deployment.name}
-          </Text>
-        </Flex>
-
+        <Logo deployment={deployment} onClick={onClick} />
         <Path stack={stack} onClick={onClick} />
       </Flex>
 
