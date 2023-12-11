@@ -32,3 +32,24 @@ code {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.backgroundBlur {
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+}
+
+.infoBox {
+  padding: 1em;
+  background-color: white;
+  box-shadow: md;
+  gap: 1em;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
