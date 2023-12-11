@@ -1442,28 +1442,6 @@
           }
         },
         "paths": {
-          "/live/midrate/v1/rates/{pair}/{tenor}/{type}/{route}": {
-            "get": {
-              "parameters": [
-                {
-                  "in": "path",
-                  "name": "pair"
-                },
-                {
-                  "in": "path",
-                  "name": "tenor"
-                },
-                {
-                  "in": "path",
-                  "name": "type"
-                },
-                {
-                  "in": "path",
-                  "name": "route"
-                }
-              ]
-            }
-          },
           "/{path}": {
             "get": {
               "parameters": [
@@ -1485,61 +1463,6 @@
         }
       },
       "endpoints": [
-        {
-          "fixedOperationParameters": [],
-          "name": "GET_/live/midrate/v1/rates/{pair}/{tenor}/{type}/{route}",
-          "operation": {
-            "method": "get",
-            "path": "/live/midrate/v1/rates/{pair}/{tenor}/{type}/{route}"
-          },
-          "parameters": [
-            {
-              "name": "pair",
-              "operationParameter": {
-                "in": "path",
-                "name": "pair"
-              },
-              "required": false
-            },
-            {
-              "name": "tenor",
-              "operationParameter": {
-                "in": "path",
-                "name": "tenor"
-              },
-              "required": false
-            },
-            {
-              "name": "type",
-              "operationParameter": {
-                "in": "path",
-                "name": "type"
-              },
-              "required": false
-            },
-            {
-              "name": "route",
-              "operationParameter": {
-                "in": "path",
-                "name": "route"
-              },
-              "required": false
-            }
-          ],
-          "reservedParameters": [
-            {
-              "name": "_type"
-            },
-            {
-              "name": "_path"
-            },
-            {
-              "name": "_times"
-            }
-          ],
-          "preProcessingSpecifications": [],
-          "postProcessingSpecifications": []
-        },
         {
           "fixedOperationParameters": [],
           "name": "feed",
@@ -1599,16 +1522,6 @@
           }
         },
         "paths": {
-          "/live/midrate/v1/rates": {
-            "get": {
-              "parameters": [
-                {
-                  "in": "query",
-                  "name": "pairs"
-                }
-              ]
-            }
-          },
           "/{path}": {
             "get": {
               "parameters": [
@@ -1634,37 +1547,6 @@
         }
       },
       "endpoints": [
-        {
-          "fixedOperationParameters": [],
-          "name": "GET_/live/midrate/v1/rates",
-          "operation": {
-            "method": "get",
-            "path": "/live/midrate/v1/rates"
-          },
-          "parameters": [
-            {
-              "name": "pairs",
-              "operationParameter": {
-                "in": "query",
-                "name": "pairs"
-              },
-              "required": false
-            }
-          ],
-          "reservedParameters": [
-            {
-              "name": "_type"
-            },
-            {
-              "name": "_path"
-            },
-            {
-              "name": "_times"
-            }
-          ],
-          "preProcessingSpecifications": [],
-          "postProcessingSpecifications": []
-        },
         {
           "fixedOperationParameters": [],
           "name": "feed",
