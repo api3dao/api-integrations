@@ -55,13 +55,12 @@ const IntegrationsRow = ({ config, apiData }) => {
         borderColor={COLORS.main}
         bgColor={COLORS.table}
         width={'100%'}
-        height={'70px'}
         alignItems={'center'}
         spacing={'10'}
         direction={'row'}
       >
-        <Flex gap={10} width={'100%'} overflowX={'scroll'} className="hide-scrollbar">
-          <Stack direction={'row'} alignItems={'center'} spacing={5}>
+        <Flex gap={10} width={'100%'} wrap={'wrap'}>
+          <Stack direction={'row'} justifyContent={'center'} alignItems={'center'} spacing={5} wrap={'wrap'}>
             <Flex minWidth={'400px'} gap={1} align={'center'}>
               <Text fontSize={'md'} fontWeight={'bold'}>
                 {config.filename[0].replace('.json', '')}
