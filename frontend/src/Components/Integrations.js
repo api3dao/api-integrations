@@ -24,7 +24,23 @@ const DeploymentsView = ({ integrations }) => {
 const Integrations = ({ integrations, setProvider }) => {
   const { config, setConfig, comparePair, setComparePair, setGrafanaLog } = useContext(ApiIntegrationsContext);
 
-  const detach = () => {
+  const detach = (depth) => {
+    switch (depth) {
+      case -1:
+        setComparePair({ left: null, right: null });
+        setConfig(null);
+        setProvider(null);
+        return;
+      case 0:
+        setComparePair({ left: null, right: null });
+        setConfig(null);
+        return;
+      case 1:
+        return;
+      default:
+        break;
+    }
+
     if (comparePair.left !== null) {
       setComparePair({ left: null, right: null });
       return;
@@ -66,10 +82,10 @@ const Integrations = ({ integrations, setProvider }) => {
       alignItems={'left'}
       justifyItems={'center'}
     >
-      <ApiProvider deployment={integrations} stack={getStack()} onClick={() => detach()} />
+      <ApiProvider deployment={integrations} stack={getStack()} onClick={detach} />
 
-      <Flex spacing={4} overflow={'scroll'}>
-        <VStack spacing={4} width={'100%'} alignItems={'center'} justifyItems={'stretch'}>
+      <Flex spacing={4} overflowY={'scroll'} overflowX={'hidden'} className="hide-scrollbar">
+        <VStack spacing={4} width={'100%'} alignItems={'center'} justifyItems={'center'}>
           <VStack p={1} bgColor={COLORS.canvas} spacing={4} width={'100%'} alignItems={'left'} justifyItems={'center'}>
             {config === null ? (
               <DeploymentsView integrations={integrations} />

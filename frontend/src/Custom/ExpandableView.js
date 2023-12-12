@@ -1,14 +1,14 @@
-import { Text, Flex, Spacer, VStack, Box } from '@chakra-ui/react';
+import { Text, Flex, Spacer, VStack, Box, Image } from '@chakra-ui/react';
 import { TriangleDownIcon, TriangleUpIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
-import { SymbolIcon } from 'beta-logos';
+import { SymbolLogo } from 'beta-logos';
 import { COLORS, CONSTANTS } from '../data/constants';
 
 const Logos = ({ feed, isFeed }) => {
   return !isFeed ? null : (
     <Flex gap={1}>
-      <SymbolIcon id={feed[0]} width={'24px'} height={'24px'} />
-      <SymbolIcon id={feed[1]} width={'24px'} height={'24px'} />
+      <Image src={SymbolLogo(feed[0])} width={'24px'} height={'24px'} />
+      <Image src={SymbolLogo(feed[1])} width={'24px'} height={'24px'} />
     </Flex>
   );
 };
@@ -38,7 +38,15 @@ const ExpandableView = ({ view, header, defaultState = false, status = 0, size =
   const isFeed = header.includes('/');
 
   return (
-    <VStack alignItems={'left'} p={2} borderColor={COLORS.main} boxShadow={CONSTANTS.boxShadowLight} width={'100%'}>
+    <VStack
+      alignItems={'left'}
+      p={2}
+      borderColor={COLORS.main}
+      boxShadow={CONSTANTS.boxShadowLight}
+      width={'100%'}
+      onClick={() => setIsOpen(!isOpen)}
+      cursor={'pointer'}
+    >
       <Box p={2} alignItems={'center'} borderRadius={'sm'} bgColor={getColor()}>
         <Flex gap={3} alignItems={'center'}>
           <Logos feed={header.split('/')} isFeed={isFeed} />
@@ -47,9 +55,9 @@ const ExpandableView = ({ view, header, defaultState = false, status = 0, size =
           </Text>
           <Spacer />
           {isOpen ? (
-            <TriangleUpIcon width={'24px'} height={'24px'} cursor={'pointer'} onClick={() => setIsOpen(!isOpen)} />
+            <TriangleUpIcon width={'24px'} height={'24px'} cursor={'pointer'} />
           ) : (
-            <TriangleDownIcon width={'24px'} height={'24px'} cursor={'pointer'} onClick={() => setIsOpen(!isOpen)} />
+            <TriangleDownIcon width={'24px'} height={'24px'} cursor={'pointer'} />
           )}
         </Flex>
       </Box>
