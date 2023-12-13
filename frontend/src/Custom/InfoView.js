@@ -18,11 +18,11 @@ const InfoView = ({ location, status, onExit }) => {
   const getStage = () => {
     switch (location) {
       case CONSTANTS.CLOUD_FORMATION_DEPLOY:
-        return 'AWS Cloud Formation';
+        return 'AWS CloudFormation';
       case CONSTANTS.DOCKER_DEPLOY:
         return 'Docker';
       default:
-        return 'AWS Cloud Formation';
+        return 'AWS CloudFormation';
     }
   };
 
