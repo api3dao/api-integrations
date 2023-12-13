@@ -71,6 +71,17 @@ const DeployOptions = ({ apiData }) => {
     }
   };
 
+  const getDeploymentCaptions = (mode) => {
+    switch (mode) {
+      case CONSTANTS.DOCKER_DEPLOY:
+        return 'Docker';
+      case CONSTANTS.CLOUD_FORMATION_DEPLOY:
+        return 'AWS Cloud Formation';
+      default:
+        return 'AWS Cloud Formation';
+    }
+  };
+
   const getDeploymentLocations = () => {
     if (apiData === undefined) return [];
     return apiData.config.deploymentLocations;
@@ -86,15 +97,20 @@ const DeployOptions = ({ apiData }) => {
 
           <Stack direction={'row'} spacing={'2'} justifyContent={'left'}>
             {getDeploymentLocations().map((location, index) => (
-              <ImageButton
-                key={index}
-                inW={'50px'}
-                outW={'100px'}
-                onClick={() => setMode(location)}
-                isSelected={selected === location}
-                description={null}
-                src={getIcon(location)}
-              />
+              <Flex gap={2} alignItems={'center'}>
+                <ImageButton
+                  key={index}
+                  inW={'50px'}
+                  outW={'100px'}
+                  onClick={() => setMode(location)}
+                  isSelected={selected === location}
+                  description={null}
+                  src={getIcon(location)}
+                />
+                <Text fontSize={'lg'} fontWeight={'bold'}>
+                  {getDeploymentCaptions(location)}
+                </Text>
+              </Flex>
             ))}
           </Stack>
         </>
