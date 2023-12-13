@@ -59,7 +59,7 @@ const Help = ({ mode }) => {
       case CONSTANTS.DOCKER_DEPLOY:
         return 'Run as a docker container';
       case CONSTANTS.CLOUD_FORMATION_DEPLOY:
-        return 'Upload to AWS Cloud Formation';
+        return 'Upload to AWS CloudFormation';
       default:
         return 'Deployment options';
     }

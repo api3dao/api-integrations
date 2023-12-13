@@ -76,9 +76,9 @@ const DeployOptions = ({ apiData }) => {
       case CONSTANTS.DOCKER_DEPLOY:
         return 'Docker';
       case CONSTANTS.CLOUD_FORMATION_DEPLOY:
-        return 'AWS Cloud Formation';
+        return 'AWS CloudFormation';
       default:
-        return 'AWS Cloud Formation';
+        return 'AWS CloudFormation';
     }
   };
 
