@@ -1,4 +1,4 @@
-import { Flex, Box, Image } from '@chakra-ui/react';
+import { Flex, Box, Image, Text } from '@chakra-ui/react';
 import { useContext, useState } from 'react';
 import InfoView from './InfoView';
 import { CONSTANTS } from '../data/constants';
@@ -31,7 +31,7 @@ const StageLocation = ({ location, hash }) => {
   };
 
   return (
-    <Flex gap={1} direction="row" align="left" alignItems={'center'}>
+    <Flex gap={1} direction="row" align="left" alignItems={'center'} cursor={'pointer'}>
       <Box
         bgImage={getLocation()}
         bgSize="auto"
@@ -40,7 +40,6 @@ const StageLocation = ({ location, hash }) => {
         w={'32px'}
         h={'32px'}
         position="relative"
-        cursor={'pointer'}
         onClick={() => setInfo(location)}
       >
         <Image
@@ -53,6 +52,16 @@ const StageLocation = ({ location, hash }) => {
           right="0"
         />
       </Box>
+      <Text
+        bgColor={'gray.100'}
+        p={1}
+        borderRadius={10}
+        fontSize="xs"
+        fontWeight="light"
+        onClick={() => setInfo(location)}
+      >
+        Click to view details
+      </Text>
       {info === '' ? null : <InfoView location={location} status={getStatus()} onExit={() => setInfo('')} />}
     </Flex>
   );
