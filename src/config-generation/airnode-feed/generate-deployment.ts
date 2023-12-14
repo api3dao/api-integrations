@@ -1,7 +1,8 @@
 import { join } from 'path';
 import * as fs from 'fs';
+import { execSync } from 'child_process';
 import { globSync } from 'glob';
-import { ethers, logger } from 'ethers';
+import { ethers } from 'ethers';
 import { format } from 'date-fns';
 import { difference } from 'lodash';
 import { Logger, ILogObj } from 'tslog';
@@ -9,7 +10,6 @@ import { OIS } from '@api3/ois';
 import { readJson, saveJson, extractPreProcessingObject, extractPostProcessingObject } from '../config-utils';
 import { apiDataSchema } from '../validation';
 import { deriveEndpointId, deriveTemplateId } from '../../index';
-import { execSync } from 'child_process';
 
 const prompts = require('prompts');
 
