@@ -42,7 +42,6 @@
         "BNB/USD",
         "BTC/USD",
         "BTT/USD",
-        "BUSD/USD",
         "CAKE/USD",
         "CELO/USD",
         "CHZ/USD",
@@ -94,7 +93,7 @@
         "SHIB/USD",
         "SNX/USD",
         "SOL/USD",
-        "STETH/USD",
+        "stETH/USD",
         "STG/USD",
         "STX/USD",
         "SUSHI/USD",
@@ -125,7 +124,9 @@
         "KAVA/USD",
         "MNT/USD",
         "RDNT/USD",
-        "RIF/USD"
+        "RIF/USD",
+        "WOO/USD",
+        "PYTH/USD"
       ]
     ]
   },
