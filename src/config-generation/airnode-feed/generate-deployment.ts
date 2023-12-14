@@ -1,5 +1,6 @@
 import { join } from 'path';
 import * as fs from 'fs';
+import { execSync } from 'child_process';
 import { globSync } from 'glob';
 import { ethers } from 'ethers';
 import { format } from 'date-fns';
@@ -167,4 +168,6 @@ const main = async () => {
   logger.info(`Generated deployment for ${apiName} with name ${stage}-airnode-feed.json.`);
 };
 
-main();
+main()
+  .then(() => execSync('yarn prettier:write'))
+  .catch((err) => console.error(err));
