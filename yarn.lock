@@ -5780,10 +5780,10 @@ bech32@1.1.4:
   resolved "https://registry.yarnpkg.com/bech32/-/bech32-1.1.4.tgz#e38c9f37bf179b8eb16ae3a772b40c356d4832e9"
   integrity sha512-s0IrSOzLlbvX7yp4WBfPITzpAU8sqQcpsmwXDiKwrG4r491vwCO/XpejasRNl0piBMe/DvP4Tz0mIS/X1DPJBQ==
 
-beta-logos@^0.0.12:
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/beta-logos/-/beta-logos-0.0.12.tgz#5018c924bc3825fcd6700d94c33baeade4987d8e"
-  integrity sha512-Um5UOUyReRBy7qcIChT0iN7s1MsbFu2kpjOjA75r1BWZsuJ3hEJ6gYcHTdNdJEjq5eFjbF5YXMxkmnramAV8Bg==
+beta-logos@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/beta-logos/-/beta-logos-0.0.10.tgz#7f1b24a1acf1b5b4e32666b2b12d680080b1d2b1"
+  integrity sha512-jmDjKmS/c2o65ZthnIASglBApFbnDvBcMBYuVbrbrJbx4PhUkdK0adDtrbm6bOcHr+ytb4TJuGXZgCBnGX6dmA==
   dependencies:
     "@api3/api-integrations" "^0.0.1"
     "@api3/chains" "^4.1.0"

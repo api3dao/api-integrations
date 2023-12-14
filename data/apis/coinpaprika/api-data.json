@@ -20,6 +20,7 @@
       ["BNB/USD"],
       ["BTC/USD"],
       ["BTT/USD"],
+      ["BUSD/USD"],
       ["CAKE/USD"],
       ["CELO/USD"],
       ["CHZ/USD"],
@@ -71,7 +72,7 @@
       ["SHIB/USD"],
       ["SNX/USD"],
       ["SOL/USD"],
-      ["stETH/USD"],
+      ["STETH/USD"],
       ["STG/USD"],
       ["STX/USD"],
       ["SUSHI/USD"],
@@ -113,9 +114,7 @@
       ["KAVA/USD"],
       ["RIF/USD"],
       ["RDNT/USD"],
-      ["EURE/USD"],
-      ["WOO/USD"],
-      ["PYTH/USD"]
+      ["EURE/USD"]
     ]
   },
   "deploymentLocations": ["aws"],
