@@ -73,13 +73,7 @@ const Help = ({ mode }) => {
           'Complete one deployment at at time.'
         ];
       case CONSTANTS.CLOUD_FORMATION_DEPLOY:
-        return [
-          'Download the CloudFormation template by clicking the button below.',
-          'Enter your mnemonic into the specified field before uploading your template.',
-          'Go to the CloudFormation section on the AWS dashboard, and upload your template',
-          'Wait for AWS to deploy everything and check the CloudWatch log group named myAppLogs to see the logs related to the deployment progress.',
-          '1 or 2 minutes after a successful deployment, your signed data should be visible at https://pool.nodary.io/'
-        ];
+        return ['Go to the relevant deployment guide from How-to-Guides', 'Finish your deployment'];
       default:
         return [
           'Fill in the form and select a deployment method',
@@ -137,14 +131,14 @@ const Help = ({ mode }) => {
       <Flex p={3} width={'100%'} align={'center'}>
         <Image src="./info.svg" width={'24px'} />
         <Text ml={2} fontWeight={'bold'} fontSize={'md'}>
-          For more information check out docs{' '}
+          Please contact us via Slack if you are not sure about which guide to follow in{' '}
           <a
             href={'https://airnodefeed.gitbook.io/airnode-feed/how-to-guides/'}
             color="red"
             target={'_blank'}
             rel="noreferrer"
           >
-            <u style={{ color: 'blue' }}>here</u>
+            <u style={{ color: 'blue' }}>How-to Guides</u>
           </a>
         </Text>
       </Flex>
