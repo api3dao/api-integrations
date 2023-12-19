@@ -96,52 +96,52 @@ const ContentView = ({ viewMode, oldOis, newOis }) => {
   return oldOis == null || newOis === null
     ? null
     : comparison === null || viewMode === null
-    ? null
-    : newOis.map((oi, j) => (
-        <VStack key={j} alignItems={'left'}>
-          {viewMode === 'added' ? (
-            <FeedGroup
-              title={oi.title}
-              group={comparison.compareFeeds.added}
-              endpoints={comparison.endpointsNew}
-              oises={newOis}
-              j={j}
-              status={1}
-            />
-          ) : null}
-          {viewMode === 'removed' ? (
-            <FeedGroup
-              title={oi.title}
-              group={comparison.compareFeeds.removed}
-              endpoints={comparison.endpointsOld}
-              oises={oldOis}
-              j={j}
-              status={2}
-            />
-          ) : null}
-          {viewMode === 'updated' ? (
-            <CompareGroup
-              title={oi.title}
-              group={comparison.compareFeeds.updated}
-              comparison={comparison}
-              oldOis={oldOis}
-              newOis={newOis}
-              j={j}
-              status={3}
-            />
-          ) : null}
-          {viewMode === 'unchanged' ? (
-            <FeedGroup
-              title={oi.title}
-              group={comparison.compareFeeds.unchanged}
-              endpoints={comparison.endpointsNew}
-              oises={newOis}
-              j={j}
-              status={0}
-            />
-          ) : null}
-        </VStack>
-      ));
+      ? null
+      : newOis.map((oi, j) => (
+          <VStack key={j} alignItems={'left'}>
+            {viewMode === 'added' ? (
+              <FeedGroup
+                title={oi.title}
+                group={comparison.compareFeeds.added}
+                endpoints={comparison.endpointsNew}
+                oises={newOis}
+                j={j}
+                status={1}
+              />
+            ) : null}
+            {viewMode === 'removed' ? (
+              <FeedGroup
+                title={oi.title}
+                group={comparison.compareFeeds.removed}
+                endpoints={comparison.endpointsOld}
+                oises={oldOis}
+                j={j}
+                status={2}
+              />
+            ) : null}
+            {viewMode === 'updated' ? (
+              <CompareGroup
+                title={oi.title}
+                group={comparison.compareFeeds.updated}
+                comparison={comparison}
+                oldOis={oldOis}
+                newOis={newOis}
+                j={j}
+                status={3}
+              />
+            ) : null}
+            {viewMode === 'unchanged' ? (
+              <FeedGroup
+                title={oi.title}
+                group={comparison.compareFeeds.unchanged}
+                endpoints={comparison.endpointsNew}
+                oises={newOis}
+                j={j}
+                status={0}
+              />
+            ) : null}
+          </VStack>
+        ));
 };
 
 const CompareEndpoints = ({ oldOis, newOis }) => {
