@@ -1,9 +1,9 @@
 import { readdirSync } from 'fs';
-import * as apis from '../../src/generated/apis';
 import { difference } from 'lodash';
 import { preProcessEndpointParametersV2, postProcessResponseV2 } from '@api3/commons';
-import { readJson } from '../../src/config-generation/config-utils';
 import { globSync } from 'glob';
+import { readJson } from '../../src/config-generation/config-utils';
+import * as apis from '../../src/generated/apis';
 
 describe('Test preProcessing', () => {
   it('Check if generated apis.ts and ./data/apis folder has same APIs', () => {
