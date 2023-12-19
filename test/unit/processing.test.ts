@@ -1,6 +1,6 @@
 import { readdirSync } from 'fs';
 import { difference } from 'lodash';
-import { preProcessEndpointParametersV2, postProcessResponseV2 } from '@api3/commons';
+import { preProcessEndpointParametersV2 } from '@api3/commons'; // postProcessResponseV2
 import { globSync } from 'glob';
 import { readJson } from '../../src/config-generation/config-utils';
 import * as apis from '../../src/generated/apis';
@@ -23,7 +23,7 @@ describe('Test preProcessing', () => {
       const dataFeeds = allDataFeeds.find((obj) => Object.keys(obj).includes(ois.title));
       for (const dataFeedName of dataFeeds[ois.title].flat(10)) {
         const endpointParameters = { name: dataFeedName };
-        const result = await preProcessEndpointParametersV2(preProcessingSpecificationV2, endpointParameters);
+        await preProcessEndpointParametersV2(preProcessingSpecificationV2, endpointParameters);
       }
     }
   });
