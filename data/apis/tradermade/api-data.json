@@ -33,5 +33,7 @@
   "deploymentLocations": ["aws"],
   "officialUrl": "https://tradermade.com",
   "verifiedUrl": "https://tradermade.com",
-  "signedApiUrl": ""
+  "signedApiUrl": "",
+  "productionSignedApiUrl": "",
+  "stagingSignedApiUrl": ""
 }

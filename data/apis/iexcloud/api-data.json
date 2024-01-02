@@ -39,5 +39,7 @@
   "deploymentLocations": ["aws"],
   "officialUrl": "https://iexcloud.io",
   "verifiedUrl": "https://iex.cloud",
-  "signedApiUrl": ""
+  "signedApiUrl": "",
+  "productionSignedApiUrl": "",
+  "stagingSignedApiUrl": ""
 }

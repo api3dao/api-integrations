@@ -16,6 +16,8 @@ export const apiDataSchema = z
     deploymentLocations: deploymentLocationsSchema,
     officialUrl: z.string(),
     verifiedUrl: z.string(),
-    signedApiUrl: z.string()
+    signedApiUrl: z.string(),
+    productionSignedApiUrl: z.string(),
+    stagingSignedApiUrl: z.string(),
   })
   .strict();

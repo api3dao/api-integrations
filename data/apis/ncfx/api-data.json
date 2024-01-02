@@ -132,5 +132,7 @@
   "deploymentLocations": ["aws"],
   "officialUrl": "https://www.newchangefx.com",
   "verifiedUrl": "https://newchangefx.com",
-  "signedApiUrl": ""
+  "signedApiUrl": "",
+  "productionSignedApiUrl": "",
+  "stagingSignedApiUrl": ""
 }
