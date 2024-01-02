@@ -1,24 +1,20 @@
 name: Trigger on Release
 
 on:
+  registry_package:
+    types: [published]
   pull_request:
     branches: [ main ]
 
 jobs:
-  build:
-
+  Trigger:
+    if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'manual trigger')
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 1
 
-    - name: call the other repo
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        EVENT: release
-        ORG: api3dao
-        REPO: logos
+    - name: Call logos workflow
       run: |
-        curl -d "{\"event_type\": \"${EVENT}\"}" -H "Content-Type: application/json" -H "Authorization: token ${GITHUB_TOKEN}" -H "Accept: application/vnd.github.everest-preview+json" "https://api.github.com/repos/${ORG}/${REPO}/dispatches"
+        curl -d "{\"event_type\": \"release\"}" -H "Content-Type: application/json" -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github.everest-preview+json" "https://api.github.com/repos/api3dao/logos/dispatches"
