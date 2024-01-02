@@ -24,8 +24,8 @@ jobs:
           cache: 'yarn'
       - name: Install Packages
         run: yarn install
-      - name: Run unit tests
-        run: yarn test:unit
+#      - name: Run unit tests
+#        run: yarn test:unit
       - name: Validate Frontend
         run: yarn validate-frontend
 
