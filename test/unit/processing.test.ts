@@ -53,7 +53,7 @@ describe('Check if postProcessing snippets can successfully parse every data fee
           const results = [];
           // Same OIS file includes data feeds of different category, which also has different response types.
           // "getApiResponseFixture" returns all response types, we iterate over them and try to parse and record the results.
-          // "results" array must include the "EXPECTE_PRICE".
+          // "results" array must include the "EXPECTED_PRICE".
           // try catch blocks are required in order to suppress the expected errors.
           // errors are expected since we are trying to parse different types of respones with the same postProcessing
           for (const apiResponse of apiResponses) {
