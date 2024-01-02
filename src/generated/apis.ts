@@ -153,6 +153,7 @@ export const apisData = {
         ['CRVUSD/USD'],
         ['EURE/USD'],
         ['WOO/USD'],
+        ['PYTH/USD'],
         ['WTI/USD'],
         ['XAG/USD'],
         ['XAU/USD']
@@ -161,7 +162,9 @@ export const apisData = {
     deploymentLocations: ['aws'],
     officialUrl: 'https://twelvedata.com',
     verifiedUrl: 'https://twelvedata.com',
-    signedApiUrl: ''
+    signedApiUrl: '',
+    productionSignedApiUrl: '',
+    stagingSignedApiUrl: ''
   },
   tradermade: {
     alias: 'tradermade',
@@ -198,7 +201,9 @@ export const apisData = {
     deploymentLocations: ['aws'],
     officialUrl: 'https://tradermade.com',
     verifiedUrl: 'https://tradermade.com',
-    signedApiUrl: ''
+    signedApiUrl: '',
+    productionSignedApiUrl: '',
+    stagingSignedApiUrl: ''
   },
   nodary: {
     alias: 'nodary',
@@ -366,9 +371,11 @@ export const apisData = {
       ]
     },
     deploymentLocations: ['aws'],
-    officialUrl: 'nodary.io',
-    verifiedUrl: 'nodary.io',
-    signedApiUrl: ''
+    officialUrl: 'https://nodary.io',
+    verifiedUrl: 'https://nodary.io',
+    signedApiUrl: '',
+    productionSignedApiUrl: '',
+    stagingSignedApiUrl: ''
   },
   ncfx: {
     alias: 'ncfx',
@@ -456,7 +463,6 @@ export const apisData = {
           'OKB/USD',
           'OP/USD',
           'PAXG/USD',
-          'QUICK/USD',
           'ROSE/USD',
           'RPL/USD',
           'RSR/USD',
@@ -505,7 +511,9 @@ export const apisData = {
     deploymentLocations: ['aws'],
     officialUrl: 'https://www.newchangefx.com',
     verifiedUrl: 'https://newchangefx.com',
-    signedApiUrl: ''
+    signedApiUrl: '',
+    productionSignedApiUrl: '',
+    stagingSignedApiUrl: ''
   },
   kaiko: {
     alias: 'kaiko',
@@ -600,7 +608,6 @@ export const apisData = {
         ['ENS/USD'],
         ['BLUR/USD'],
         ['BAND/USD'],
-        ['RBN/USD'],
         ['UMA/USD'],
         ['APT/USD'],
         ['PEPE/USD'],
@@ -618,7 +625,9 @@ export const apisData = {
     deploymentLocations: ['aws'],
     officialUrl: 'https://www.kaiko.com',
     verifiedUrl: 'https://kaiko.io',
-    signedApiUrl: ''
+    signedApiUrl: '',
+    productionSignedApiUrl: '',
+    stagingSignedApiUrl: ''
   },
   iexcloud: {
     alias: 'iexcloud',
@@ -661,7 +670,9 @@ export const apisData = {
     deploymentLocations: ['aws'],
     officialUrl: 'https://iexcloud.io',
     verifiedUrl: 'https://iex.cloud',
-    signedApiUrl: ''
+    signedApiUrl: '',
+    productionSignedApiUrl: '',
+    stagingSignedApiUrl: ''
   },
   finnhub: {
     alias: 'finnhub',
@@ -712,7 +723,9 @@ export const apisData = {
     deploymentLocations: ['aws'],
     officialUrl: 'https://finnhub.io',
     verifiedUrl: 'https://finnhub.io',
-    signedApiUrl: ''
+    signedApiUrl: '',
+    productionSignedApiUrl: '',
+    stagingSignedApiUrl: ''
   },
   finage: {
     alias: 'finage',
@@ -872,7 +885,9 @@ export const apisData = {
     deploymentLocations: ['aws'],
     officialUrl: 'https://finage.co.uk',
     verifiedUrl: 'https://finage.co.uk',
-    signedApiUrl: ''
+    signedApiUrl: '',
+    productionSignedApiUrl: '',
+    stagingSignedApiUrl: ''
   },
   dxfeed: {
     alias: 'dxfeed',
@@ -997,7 +1012,9 @@ export const apisData = {
     deploymentLocations: ['aws'],
     officialUrl: 'https://dxfeed.com',
     verifiedUrl: 'https://dxfeed.com',
-    signedApiUrl: ''
+    signedApiUrl: '',
+    productionSignedApiUrl: '',
+    stagingSignedApiUrl: ''
   },
   coinpaprika: {
     alias: 'coinpaprika',
@@ -1122,7 +1139,9 @@ export const apisData = {
     deploymentLocations: ['aws'],
     officialUrl: 'https://coinpaprika.com',
     verifiedUrl: 'https://coinpaprika.com',
-    signedApiUrl: ''
+    signedApiUrl: '',
+    productionSignedApiUrl: '',
+    stagingSignedApiUrl: ''
   }
 };
 export const airnodeAddressMap = {

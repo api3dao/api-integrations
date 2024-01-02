@@ -41,6 +41,12 @@ const main = async () => {
   });
   console.log('deploymentType is: ', deploymentType);
 
+  const signedApiName = `${apiName}-api3`;
+  const deploymentTypeMap: Record<string, string> = {
+    staging: 'stagingSignedApiUrl',
+    candidate: 'productionSignedApiUrl'
+  };
+
   // read required files
   const airnodeFeedConfig = readJson('./boilerplates/boilerplate-airnode-feed-config.json');
   const apiData = apiDataSchema.parse(readJson(`./data/apis/${apiName}/api-data.json`));
@@ -128,7 +134,7 @@ const main = async () => {
 
       // add triggers
       airnodeFeedConfig.triggers['signedApiUpdates'].push({
-        signedApiName: 'Nodary',
+        signedApiName: signedApiName,
         templateIds: templateIds,
         fetchInterval: 5,
         updateDelay: 0
@@ -139,8 +145,8 @@ const main = async () => {
   // generate signedApis
   airnodeFeedConfig.signedApis = [
     {
-      name: 'Nodary',
-      url: 'https://pool.nodary.io'
+      name: signedApiName,
+      url: apiData[deploymentTypeMap[deploymentType]]
     }
   ];
 

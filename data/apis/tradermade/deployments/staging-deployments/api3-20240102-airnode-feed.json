@@ -1,7 +1,7 @@
 {
   "nodeSettings": {
     "airnodeWalletMnemonic": "${WALLET_MNEMONIC}",
-    "nodeVersion": "0.1.0",
+    "nodeVersion": "0.2.0",
     "stage": "${STAGE}"
   },
   "templates": {
@@ -245,7 +245,7 @@
   "triggers": {
     "signedApiUpdates": [
       {
-        "signedApiName": "Nodary",
+        "signedApiName": "tradermade-api3",
         "templateIds": [
           "0x9b8c129f62484aef617622caba20a58f51fdad30c39a32b1ee416b3be4a3f028",
           "0xd389a4e2ce2f31510a2134f3b455d44b696bc3158d5b562d27c509b2d3e63fb7",
@@ -272,7 +272,7 @@
         "updateDelay": 0
       },
       {
-        "signedApiName": "Nodary",
+        "signedApiName": "tradermade-api3",
         "templateIds": [
           "0xe77e5111aec36ddb29f0b149ada0e1ae6363a2fa1bc8f270673a381e98f4aa1c",
           "0x881445ff4b7fc9569fd77a12451a96ecc81c13abba26c8c5c5642f72f692ce36",
@@ -285,8 +285,8 @@
   },
   "signedApis": [
     {
-      "name": "Nodary",
-      "url": "https://pool.nodary.io"
+      "name": "tradermade-api3",
+      "url": ""
     }
   ],
   "ois": [
