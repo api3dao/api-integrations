@@ -3,16 +3,19 @@ name: Trigger on Registry Package Publish
 on:
   registry_package:
     types: [published]
-  pull_request:
+  push:
     branches: [ main ]
-permissions: write-all
+permissions:
+  contents: write
 jobs:
   Trigger:
-    if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'manual trigger')
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
 
-    - name: Call logos workflow
-      run: |
-        curl -d "{\"event_type\": \"registry_package\"}" -H "Content-Type: application/json" -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github.v3+json" "https://api.github.com/repos/api3dao/logos/dispatches"
+    - name: Repository Dispatch
+      uses: peter-evans/repository-dispatch@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        repository: api3dao/logos
+        event-type: registry_package
