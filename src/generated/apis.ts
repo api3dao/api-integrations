@@ -153,6 +153,7 @@ export const apisData = {
         ['CRVUSD/USD'],
         ['EURE/USD'],
         ['WOO/USD'],
+        ['PYTH/USD'],
         ['WTI/USD'],
         ['XAG/USD'],
         ['XAU/USD']
@@ -366,8 +367,8 @@ export const apisData = {
       ]
     },
     deploymentLocations: ['aws'],
-    officialUrl: 'nodary.io',
-    verifiedUrl: 'nodary.io',
+    officialUrl: 'https://nodary.io',
+    verifiedUrl: 'https://nodary.io',
     signedApiUrl: ''
   },
   ncfx: {
@@ -456,7 +457,6 @@ export const apisData = {
           'OKB/USD',
           'OP/USD',
           'PAXG/USD',
-          'QUICK/USD',
           'ROSE/USD',
           'RPL/USD',
           'RSR/USD',
@@ -600,7 +600,6 @@ export const apisData = {
         ['ENS/USD'],
         ['BLUR/USD'],
         ['BAND/USD'],
-        ['RBN/USD'],
         ['UMA/USD'],
         ['APT/USD'],
         ['PEPE/USD'],
