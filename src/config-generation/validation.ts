@@ -18,6 +18,6 @@ export const apiDataSchema = z
     verifiedUrl: z.string(),
     signedApiUrl: z.string(),
     productionSignedApiUrl: z.string(),
-    stagingSignedApiUrl: z.string(),
+    stagingSignedApiUrl: z.string()
   })
   .strict();
