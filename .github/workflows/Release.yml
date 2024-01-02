@@ -1,4 +1,4 @@
-name: Trigger on Release
+name: Trigger on Registry Package Publish
 
 on:
   registry_package:
