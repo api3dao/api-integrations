@@ -4,3 +4,7 @@
 echo "Checking code format..."
 yarn run format:check
 echo "Done."
+
+echo "Runing unit tests..."
+yarn run test:unit
+echo "Done."
