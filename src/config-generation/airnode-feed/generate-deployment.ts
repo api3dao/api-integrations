@@ -175,5 +175,5 @@ const main = async () => {
 };
 
 main()
-  .then(() => execSync('yarn prettier:write'))
+  .then(() => execSync('pnpm prettier:write'))
   .catch((err) => console.error(err));

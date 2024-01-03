@@ -3,11 +3,6 @@
   "version": "0.0.1",
   "description": "Repository for API integration related operations.",
   "main": "./dist/src/index.js",
-  "private": true,
-  "workspaces": [
-    "backend",
-    "frontend"
-  ],
   "files": [
     "dist"
   ],
@@ -22,6 +17,7 @@
   },
   "devDependencies": {
     "@api3/commons": "^0.6.0",
+    "@types/jest": "^29.5.11",
     "@types/lodash": "^4.14.200",
     "@types/node": "^20.8.7",
     "@typescript-eslint/eslint-plugin": "^6.8.0",
@@ -45,13 +41,14 @@
     "typescript": "^5.2.2"
   },
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "build": "rm -rf ./dist && ts-node ./scripts/generate-apis.ts && tsc -p tsconfig.build.json",
     "prettier:check": "prettier --check \"./**/*.{js,ts,md,json,json.example}\"",
     "prettier:write": "prettier --write \"./**/*.{js,ts,md,json,json.example}\"",
     "eslint:check": "eslint . --ext .js,.ts",
     "eslint:write": "eslint . --ext .js,.ts --fix",
-    "format:check": "yarn prettier:check && yarn eslint:check",
-    "format:write": "yarn prettier:write && yarn eslint:write",
+    "format:check": "pnpm prettier:check && pnpm eslint:check",
+    "format:write": "pnpm prettier:write && pnpm eslint:write",
     "validate-processings": "ts-node src/ci-scripts/check-pre-post-processing.ts",
     "validate-frontend": "ts-node src/ci-scripts/check-frontend-parse-flow.ts",
     "validate-apis-folder": "ts-node src/ci-scripts/check-api-files-integrity.ts",

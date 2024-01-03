@@ -21,13 +21,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
-          cache: 'yarn'
+          cache: 'pnpm'
       - name: Install Packages
-        run: yarn install
+        run: pnpm install
 #      - name: Run unit tests
-#        run: yarn test:unit
+#        run: pnpm test:unit
       - name: Validate Frontend
-        run: yarn validate-frontend
+        run: pnpm validate-frontend
 
   deploy-frontend:
     needs: validate
@@ -41,11 +41,11 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 18.x
-        cache: 'yarn'
+        cache: 'pnpm'
     - name: Install Packages
-      run: yarn install
+      run: pnpm install
     - name: Build Page
-      run: yarn build
+      run: pnpm build
     - name: Deploy to Github Pages
       if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'deploy')
       uses: JamesIves/github-pages-deploy-action@v4

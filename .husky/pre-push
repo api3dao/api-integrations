@@ -2,5 +2,5 @@
 . "$(dirname "$0")/_/husky.sh"
 
 echo "Checking code format..."
-yarn run format:check
+pnpm run format:check
 echo "Done."

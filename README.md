@@ -13,7 +13,7 @@ See `frontend`'s [README](/frontend/README.md).
 1. Run the script.
 
 ```shell
-yarn generate-airnode-feed-deployment
+pnpm generate-airnode-feed-deployment
 ```
 
 2. Select the API.
