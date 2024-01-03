@@ -23,13 +23,13 @@ running smoothly. To get started, see the "Getting Started" section below.
 To deploy infrastructure to AWS:
 
 ```bash
-yarn deploy --region us-east-2 --stage dev
+pnpm deploy --region us-east-2 --stage dev
 ```
 
 To remove deployment:
 
 ```bash
-yarn removeDeployment --region us-east-2 --stage dev
+pnpm removeDeployment --region us-east-2 --stage dev
 ```
 
 ## Public Endpoint
@@ -50,19 +50,19 @@ The API provides the following endpoints:
 Start local dynamodb server:
 
 ```bash
-yarn dynamodb-local-up
+pnpm dynamodb-local-up
 ```
 
 Initialize tables:
 
 ```bash
-yarn init-tables
+pnpm init-tables
 ```
 
 Spin up local `express` server to mimic AWS API gateway:
 
 ```bash
-yarn start-local
+pnpm start-local
 ```
 
 You can use following valid examples in the next section to test server.

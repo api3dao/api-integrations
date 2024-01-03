@@ -16,8 +16,8 @@
     "prettier:write": "prettier --write \"./**/*.{js,ts,md,json,json.example}\"",
     "eslint:check": "eslint . --ext .js,.ts",
     "eslint:write": "eslint . --ext .js,.ts --fix",
-    "format:check": "yarn prettier:check && yarn eslint:check",
-    "format:write": "yarn prettier:write && yarn eslint:write"
+    "format:check": "pnpm prettier:check && pnpm eslint:check",
+    "format:write": "pnpm prettier:write && pnpm eslint:write"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.125",

@@ -2,7 +2,7 @@
 . "$(dirname "$0")/_/husky.sh"
 
 echo "Validating pre-post processing objects..."
-yarn run validate-processings
-yarn run validate-frontend
-yarn run validate-apis-folder
+pnpm validate-processings
+pnpm validate-frontend
+pnpm validate-apis-folder
 echo "Done."
