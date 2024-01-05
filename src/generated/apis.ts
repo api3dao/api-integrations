@@ -30,6 +30,8 @@ export const apisData = {
         ['QQQ/USD'],
         ['BABA/USD'],
         ['PYPL/USD'],
+        ['DIS/USD'],
+        ['INTC/USD'],
         ['AUD/USD'],
         ['BRL/USD'],
         ['CAD/USD'],
@@ -154,6 +156,7 @@ export const apisData = {
         ['EURE/USD'],
         ['WOO/USD'],
         ['PYTH/USD'],
+        ['ASTR/USD'],
         ['WTI/USD'],
         ['XAG/USD'],
         ['XAU/USD']
@@ -229,6 +232,8 @@ export const apisData = {
         ['PYPL/USD'],
         ['BABA/USD'],
         ['QQQ/USD'],
+        ['DIS/USD'],
+        ['INTC/USD'],
         ['cbETH/ETH Exchange Rate'],
         ['rETH/ETH Exchange Rate'],
         ['sfrxETH/frxETH Exchange Rate'],
@@ -364,10 +369,13 @@ export const apisData = {
         ['LUSD/USD'],
         ['WOO/USD'],
         ['PYTH/USD'],
+        ['USDe/USD'],
+        ['ASTR/USD'],
         ['XAG/USD'],
         ['XAU/USD'],
         ['WTI/USD'],
-        ['NG/USD']
+        ['NG/USD'],
+        ['HG/USD']
       ]
     },
     deploymentLocations: ['aws'],
@@ -619,7 +627,8 @@ export const apisData = {
         ['RIF/USD'],
         ['RDNT/USD'],
         ['WOO/USD'],
-        ['PYTH/USD']
+        ['PYTH/USD'],
+        ['ASTR/USD']
       ]
     },
     deploymentLocations: ['aws'],
@@ -653,6 +662,8 @@ export const apisData = {
         ['QQQ/USD'],
         ['PYPL/USD'],
         ['BABA/USD'],
+        ['DIS/USD'],
+        ['INTC/USD'],
         ['AUD/USD'],
         ['CAD/USD'],
         ['CHF/USD'],
@@ -698,6 +709,8 @@ export const apisData = {
         ['QQQ/USD'],
         ['PYPL/USD'],
         ['BABA/USD'],
+        ['DIS/USD'],
+        ['INTC/USD'],
         ['AUD/USD'],
         ['BRL/USD'],
         ['CAD/USD'],
@@ -751,6 +764,8 @@ export const apisData = {
         ['QQQ/USD'],
         ['PYPL/USD'],
         ['BABA/USD'],
+        ['DIS/USD'],
+        ['INTC/USD'],
         ['AUD/USD'],
         ['BRL/USD'],
         ['CAD/USD'],
@@ -877,6 +892,8 @@ export const apisData = {
         ['EURE/USD'],
         ['WOO/USD'],
         ['PYTH/USD'],
+        ['USDe/USD'],
+        ['ASTR/USD'],
         ['WTI/USD'],
         ['XAG/USD'],
         ['XAU/USD']
@@ -1133,7 +1150,9 @@ export const apisData = {
         ['RDNT/USD'],
         ['EURE/USD'],
         ['WOO/USD'],
-        ['PYTH/USD']
+        ['PYTH/USD'],
+        ['USDe/USD'],
+        ['ASTR/USD']
       ]
     },
     deploymentLocations: ['aws'],
