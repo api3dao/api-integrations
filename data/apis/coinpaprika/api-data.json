@@ -115,7 +115,9 @@
       ["RDNT/USD"],
       ["EURE/USD"],
       ["WOO/USD"],
-      ["PYTH/USD"]
+      ["PYTH/USD"],
+      ["USDe/USD"],
+      ["ASTR/USD"]
     ]
   },
   "deploymentLocations": ["aws"],

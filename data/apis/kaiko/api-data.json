@@ -102,7 +102,8 @@
       ["RIF/USD"],
       ["RDNT/USD"],
       ["WOO/USD"],
-      ["PYTH/USD"]
+      ["PYTH/USD"],
+      ["ASTR/USD"]
     ]
   },
   "deploymentLocations": ["aws"],

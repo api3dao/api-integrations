@@ -22,6 +22,8 @@
       ["PYPL/USD"],
       ["BABA/USD"],
       ["QQQ/USD"],
+      ["DIS/USD"],
+      ["INTC/USD"],
       ["cbETH/ETH Exchange Rate"],
       ["rETH/ETH Exchange Rate"],
       ["sfrxETH/frxETH Exchange Rate"],
@@ -157,10 +159,13 @@
       ["LUSD/USD"],
       ["WOO/USD"],
       ["PYTH/USD"],
+      ["USDe/USD"],
+      ["ASTR/USD"],
       ["XAG/USD"],
       ["XAU/USD"],
       ["WTI/USD"],
-      ["NG/USD"]
+      ["NG/USD"],
+      ["HG/USD"]
     ]
   },
   "deploymentLocations": ["aws"],
