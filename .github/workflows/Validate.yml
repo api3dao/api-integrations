@@ -28,8 +28,6 @@ jobs:
           cache: 'pnpm'
       - name: Install Packages
         run: pnpm install
-#      - name: Run unit tests
-#        run: pnpm test:unit
       - name: Validate Processings
         run: pnpm validate-processings
       - name: Validate Frontend
@@ -38,6 +36,8 @@ jobs:
         run: pnpm validate-apis-folder
       - name: Validate Generated Files
         run: pnpm validate-generated-files
+      - name: Run unit tests
+        run: pnpm test:unit
 
   deploy-frontend:
     needs: validate
