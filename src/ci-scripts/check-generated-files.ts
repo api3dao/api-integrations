@@ -1,8 +1,8 @@
 import { globSync } from 'glob';
+import { isEqual } from 'lodash';
 import { readJson } from '../config-generation/config-utils';
 import { apisData } from '../generated/apis';
 import { apiDataSchema } from '../types';
-import { isEqual } from 'lodash';
 
 function main() {
   const apiDataPaths = globSync('./data/apis/*/api-data.json').filter((pth) => !pth.includes('/demo/'));
