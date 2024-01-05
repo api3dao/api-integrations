@@ -22,6 +22,8 @@
       ["QQQ/USD"],
       ["PYPL/USD"],
       ["BABA/USD"],
+      ["DIS/USD"],
+      ["INTC/USD"],
       ["AUD/USD"],
       ["BRL/USD"],
       ["CAD/USD"],
@@ -148,6 +150,8 @@
       ["EURE/USD"],
       ["WOO/USD"],
       ["PYTH/USD"],
+      ["USDe/USD"],
+      ["ASTR/USD"],
       ["WTI/USD"],
       ["XAG/USD"],
       ["XAU/USD"]
