@@ -14,6 +14,12 @@ export const createToken = (airnode: string) =>
     }
   );
 
+export const deleteToken = (tokenId: string) =>
+  axios.delete('https://www.grafana.com/api/v1/tokens', {
+    params: { region: process.env.GF_CLOUD_REGION, tokenId },
+    headers: { Authorization: `Bearer ${process.env.GF_CLOUD_TOKEN}` }
+  });
+
 export const queryLogs = (app: string, airnode: string, textToFind: string, limit: string, since: string) =>
   axios.get(`https://${process.env.GF_LOKI_ENDPOINT}/loki/api/v1/query_range`, {
     params: { limit, since, query: `{airnode="${airnode}",app="${app}"} |= \`${textToFind}\`` },

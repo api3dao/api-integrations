@@ -9,7 +9,7 @@ import {
   evaluateDeploymentStatusRequestSchema
 } from './types';
 import { generateErrorResponse, isAuthorized } from './utils';
-import { createToken } from './grafana-requests';
+import { createToken, deleteToken } from './grafana-requests';
 import { extractUniqueAirnodeFeedHeartbeatPayloads } from './process-logs';
 
 import type { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
@@ -63,15 +63,15 @@ export const connectOrCreateGrafanaLokiAccess = async (event: APIGatewayProxyEve
       body: JSON.stringify(goReadDb.data.Item)
     };
 
-  const goToken = await go(() => createToken(airnode));
-  if (!goToken.success)
+  const goCreateToken = await go(() => createToken(airnode));
+  if (!goCreateToken.success)
     return generateErrorResponse(
       500,
       'Unable to create token for Grafana Cloud API',
-      (goToken.error as any).response.data.message
+      (goCreateToken.error as any).response.data.message
     );
 
-  const lokiToken = goToken.data.data.token;
+  const lokiToken = goCreateToken.data.data.token;
 
   const newRecord: GrafanaLokiAccessRecord = {
     lokiUser: process.env.GF_LOKI_USER!,
@@ -83,9 +83,18 @@ export const connectOrCreateGrafanaLokiAccess = async (event: APIGatewayProxyEve
   const goWriteDb = await go(() =>
     docClient.put({ TableName: 'grafanaLokiAccessRegistry', Item: newRecord }).promise()
   );
-  if (!goWriteDb.success)
+  if (!goWriteDb.success) {
+    const goDeleteToken = await go(() => deleteToken(lokiToken));
+    if (!goDeleteToken.success)
+      return generateErrorResponse(
+        500,
+        'Unable to send created token to the database besides \
+        failed to delete created token from Grafana Cloud API, \
+        please delete it manually on Grafana Dashboard',
+        JSON.stringify([goWriteDb.error.message, goDeleteToken.error.message])
+      );
     return generateErrorResponse(500, 'Unable to send created token to the database', goWriteDb.error.message);
-
+  }
   return { statusCode: 200, headers: COMMON_HEADERS, body: JSON.stringify(newRecord) };
 };
 
