@@ -1,5 +1,9 @@
 import { z } from 'zod';
 
+export interface PromiseError<T> extends Error {
+  reason: T;
+}
+
 /**
  * Common EVM Data Schema
  */
@@ -9,13 +13,10 @@ export const evmSignatureSchema = z.string().regex(/^0x[\dA-Fa-f]{130}$/);
 
 export const prometheusDurationSchema = z.string().regex(/^[0-9]+[smhdwy]$/);
 
-export const generateTokenInputSchema = z
-  .object({
-    airnode: evmAddressSchema
-  })
-  .strict();
+export const connectOrCreateGrafanaLokiAccessRequestSchema = z.object({ airnode: evmAddressSchema });
+export const evaluateDeploymentStatusRequestSchema = z.object({ airnode: evmAddressSchema, app: z.string() });
 
-export const tokenOwnerGroupSchema = z.object({
+export const grafanaLokiAccessRecordSchema = z.object({
   airnode: evmAddressSchema,
   lokiEndpoint: z.string(),
   lokiToken: z.string(),
@@ -32,14 +33,8 @@ export const airnodeFeedHeartbeatPayloadSchema = z.object({
   signature: evmSignatureSchema
 });
 
-export const appTypeSchema = z.union([z.literal('airnode-feed'), z.literal('airseeker-v2')]);
+export const appTypeSchema = z.union([z.literal('signed-api'), z.literal('airnode-feed'), z.literal('airseeker-v2')]);
 
+export type GrafanaLokiAccessRecord = z.infer<typeof grafanaLokiAccessRecordSchema>;
 export type AirnodeFeedHeartbeatPayload = z.infer<typeof airnodeFeedHeartbeatPayloadSchema>;
-export type GenerateTokenInput = z.infer<typeof generateTokenInputSchema>;
-export type TokenOwnerGroup = z.infer<typeof tokenOwnerGroupSchema>;
 export type AppType = z.infer<typeof appTypeSchema>;
-export interface PromiseError<T> extends Error {
-  reason: T;
-}
-
-export const APP_TYPES = appTypeSchema.options.map((option) => option.value);

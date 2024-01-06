@@ -14,8 +14,8 @@ AWS.config.update(localAWSConfig);
 
 const ddbClient = new AWS.DynamoDB();
 
-export const POOL_TABLE_SCHEMA = {
-  TableName: 'tokenOwnerGroup',
+export const GRAFANA_LOKI_ACCESS_REGISTRY_TABLE_SCHEMA = {
+  TableName: 'grafanaLokiAccessRegistry',
   KeySchema: [{ AttributeName: 'airnode', KeyType: 'HASH' }],
   AttributeDefinitions: [{ AttributeName: 'airnode', AttributeType: 'S' }],
   ProvisionedThroughput: {
@@ -34,7 +34,11 @@ export async function createTable(params: CreateTableInput) {
   }
 }
 
-createTable(POOL_TABLE_SCHEMA)
+const main = async () => {
+  await createTable(GRAFANA_LOKI_ACCESS_REGISTRY_TABLE_SCHEMA);
+};
+
+main()
   .then(() => {
     process.exit(0);
   })

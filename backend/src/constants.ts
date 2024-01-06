@@ -1,3 +1,7 @@
+import { appTypeSchema } from './types';
+
+export const APP_TYPES = appTypeSchema.options.map((option) => option.value);
+
 export const SEC_IN_MS = 1000;
 export const MIN_IN_MS = 60 * SEC_IN_MS;
 

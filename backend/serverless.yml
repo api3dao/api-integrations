@@ -39,16 +39,16 @@ provider:
 #     - "!test/**"
 
 functions:
-  generateToken:
+  POST_/grafanaLokiAccess:
     memorySize: 128
-    handler: src/handlers.generateToken
+    handler: src/handlers.connectOrCreateGrafanaLokiAccess
     events:
       - httpApi:
-          path: /generateToken
+          path: /grafanaLokiAccess
           method: post
-  deploymentStatus:
+  GET_/deploymentStatus:
     memorySize: 128
-    handler: src/handlers.deploymentStatus
+    handler: src/handlers.evaluateDeploymentStatus
     events:
       - httpApi:
           path: /deploymentStatus
@@ -59,10 +59,10 @@ plugins:
 
 resources:
   Resources:
-    TokenOwnerGroup:
+    GrafanaLokiAccessRegistry:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: tokenOwnerGroup
+        TableName: grafanaLokiAccessRegistry
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
