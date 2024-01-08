@@ -7,6 +7,7 @@ import Title from '../Custom/Title';
 import UnsupportedFeedsView from '../Custom/UnsupportedFeedsView';
 import RadioButton from '../Custom/RadioButton';
 import { ApiIntegrationsContext } from '../Context';
+import BatchedOisInfo from '../Custom/BatchedOisInfo';
 
 const FeedsView = ({ ois }) => {
   return ois.endpoints
@@ -25,6 +26,7 @@ const OisView = ({ apiData }) => {
     <VStack key={index} alignItems={'left'} width={'100%'}>
       <Title header={ois.title} buttonVisibility={false} isLoading={false} />
       <VStack bgColor={COLORS.table} spacing={4} alignItems={'left'}>
+        <BatchedOisInfo apiData={apiData} oisTitle={ois.title} />
         <UnsupportedFeedsView apiData={apiData} ois={ois} />
         <FeedsView ois={ois} />
       </VStack>
