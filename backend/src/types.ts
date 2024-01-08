@@ -38,7 +38,10 @@ export const grafanaLokiAccessRecordSchema = z
 export const signedApiAccessRecordSchema = z
   .object({
     airnode: evmAddressSchema,
-    bearerToken: z.string().length(BEARER_TOKEN_LENGTH),
+    bearerToken: z.object({
+      api3: z.string().length(BEARER_TOKEN_LENGTH),
+      nodary: z.string().length(BEARER_TOKEN_LENGTH)
+    }),
     generatedBy: z.string()
   })
   .strict();
