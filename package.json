@@ -57,6 +57,7 @@
     "validate-generated-files": "ts-node src/ci-scripts/check-generated-files.ts",
     "generate-airnode-feed-deployment": "ts-node src/config-generation/airnode-feed/generate-deployment.ts",
     "prepare": "husky install",
-    "test:unit": "jest ./test/unit --silent=false"
+    "test:unit": "jest ./test/unit --silent=false",
+    "release": "pnpm changeset publish"
   }
 }
