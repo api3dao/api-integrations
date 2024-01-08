@@ -1,6 +1,6 @@
 {
   "name": "api-integrations",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Repository for API integration related operations.",
   "main": "./dist/src/index.js",
   "files": [
