@@ -4,3 +4,7 @@
 echo "Checking code format..."
 pnpm run format:check
 echo "Done."
+
+echo "Checking generated files..."
+pnpm validate-generated-files
+echo "Done."
