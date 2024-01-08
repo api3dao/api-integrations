@@ -1,4 +1,5 @@
 import { randomBytes } from 'crypto';
+import { pick } from 'lodash';
 
 import { BEARER_TOKEN_LENGTH, COMMON_HEADERS } from './constants';
 
@@ -53,3 +54,6 @@ const generateSecureRandomToken = (length: number): string => {
 };
 
 export const generateRandomBearerToken = (): string => generateSecureRandomToken(BEARER_TOKEN_LENGTH);
+
+// Sort attributes of object based on keys alphabetically
+export const normalizeObject = (obj: {}): {} => pick(obj, Object.keys(obj).sort());

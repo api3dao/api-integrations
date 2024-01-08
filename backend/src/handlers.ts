@@ -12,7 +12,9 @@ import {
   deleteSignedApiAccessRequestSchema,
   evaluateDeploymentStatusRequestSchema
 } from './types';
-import { generateErrorResponse, generateRandomBearerToken, isAuthorized } from './utils';
+import {
+  normalizeObject
+} from './utils';
 import { createToken, deleteToken } from './grafana-requests';
 import { extractUniqueAirnodeFeedHeartbeatPayloads } from './process-logs';
 
@@ -64,7 +66,7 @@ export const connectOrCreateGrafanaLokiAccess = async (event: APIGatewayProxyEve
     return {
       statusCode: 200,
       headers: COMMON_HEADERS,
-      body: JSON.stringify(goReadDb.data.Item)
+      body: JSON.stringify(normalizeObject(goReadDb.data.Item))
     };
 
   const goCreateToken = await go(() => createToken(airnode));
@@ -100,7 +102,7 @@ export const connectOrCreateGrafanaLokiAccess = async (event: APIGatewayProxyEve
       );
     return generateErrorResponse(500, 'Unable to send created token to the database', goWriteDb.error.message);
   }
-  return { statusCode: 200, headers: COMMON_HEADERS, body: JSON.stringify(newRecord) };
+  return { statusCode: 200, headers: COMMON_HEADERS, body: JSON.stringify(normalizeObject(newRecord)) };
 };
 
 export const deleteGrafanaLokiAccess = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
@@ -189,7 +191,7 @@ export const connectOrCreateSignedApiAccess = async (event: APIGatewayProxyEvent
     return {
       statusCode: 200,
       headers: COMMON_HEADERS,
-      body: JSON.stringify(goReadDb.data.Item)
+      body: JSON.stringify(normalizeObject(goReadDb.data.Item))
     };
 
   const newRecord: SignedApiAccessRecord = {
@@ -201,7 +203,7 @@ export const connectOrCreateSignedApiAccess = async (event: APIGatewayProxyEvent
   if (!goWriteDb.success)
     return generateErrorResponse(500, 'Unable to send created token to the database', goWriteDb.error.message);
 
-  return { statusCode: 200, headers: COMMON_HEADERS, body: JSON.stringify(newRecord) };
+  return { statusCode: 200, headers: COMMON_HEADERS, body: JSON.stringify(normalizeObject(newRecord)) };
 };
 
 export const deleteSignedApiAccess = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
@@ -273,7 +275,7 @@ export const evaluateDeploymentStatus = async (event: APIGatewayProxyEvent): Pro
       return {
         statusCode: 200,
         headers: { ...COMMON_HEADERS },
-        body: JSON.stringify(goUniquePayloads.data)
+        body: JSON.stringify(normalizeObject(goUniquePayloads.data))
       };
     }
     default: {
