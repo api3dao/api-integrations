@@ -53,6 +53,20 @@ functions:
       - httpApi:
           path: /grafanaLokiAccess
           method: delete
+  POST_/signedApiAccess:
+    memorySize: 128
+    handler: src/handlers.connectOrCreateSignedApiAccess
+    events:
+      - httpApi:
+          path: /signedApiAccess
+          method: post
+  DELETE_/signedApiAccess:
+    memorySize: 128
+    handler: src/handlers.deleteSignedApiAccess
+    events:
+      - httpApi:
+          path: /signedApiAccess
+          method: delete
   GET_/deploymentStatus:
     memorySize: 128
     handler: src/handlers.evaluateDeploymentStatus
@@ -70,6 +84,19 @@ resources:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: grafanaLokiAccessRegistry
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        AttributeDefinitions:
+          - AttributeName: airnode
+            AttributeType: S
+        KeySchema:
+          - AttributeName: airnode
+            KeyType: HASH
+    SignedApiAccessRegistry:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: signedApiAccessRegistry
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1

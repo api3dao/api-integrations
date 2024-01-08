@@ -24,6 +24,16 @@ export const GRAFANA_LOKI_ACCESS_REGISTRY_TABLE_SCHEMA = {
   }
 };
 
+export const SIGNED_API_ACCESS_REGISTRY_TABLE_SCHEMA = {
+  TableName: 'signedApiAccessRegistry',
+  KeySchema: [{ AttributeName: 'airnode', KeyType: 'HASH' }],
+  AttributeDefinitions: [{ AttributeName: 'airnode', AttributeType: 'S' }],
+  ProvisionedThroughput: {
+    ReadCapacityUnits: 1,
+    WriteCapacityUnits: 1
+  }
+};
+
 export async function createTable(params: CreateTableInput) {
   console.log('Creating table with params:', params);
   try {
@@ -36,6 +46,7 @@ export async function createTable(params: CreateTableInput) {
 
 const main = async () => {
   await createTable(GRAFANA_LOKI_ACCESS_REGISTRY_TABLE_SCHEMA);
+  await createTable(SIGNED_API_ACCESS_REGISTRY_TABLE_SCHEMA);
 };
 
 main()

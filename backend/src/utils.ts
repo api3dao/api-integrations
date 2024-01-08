@@ -1,4 +1,6 @@
-import { COMMON_HEADERS } from './constants';
+import { randomBytes } from 'crypto';
+
+import { BEARER_TOKEN_LENGTH, COMMON_HEADERS } from './constants';
 
 import type { APIGatewayProxyEventHeaders, APIGatewayProxyResult } from 'aws-lambda';
 
@@ -44,3 +46,10 @@ export const isAuthorized = (headers: APIGatewayProxyEventHeaders): boolean => {
   const validApiKeys: string[] = process.env.API_KEYS.split(',');
   return validApiKeys.includes(apiKey);
 };
+
+const generateSecureRandomToken = (length: number): string => {
+  const buffer = randomBytes(length);
+  return buffer.toString('hex');
+};
+
+export const generateRandomBearerToken = (): string => generateSecureRandomToken(BEARER_TOKEN_LENGTH);

@@ -5,11 +5,14 @@ import { go } from '@api3/promise-utils';
 import { COMMON_HEADERS } from './constants';
 import {
   GrafanaLokiAccessRecord,
+  SignedApiAccessRecord,
   connectOrCreateGrafanaLokiAccessRequestSchema,
+  connectOrCreateSignedApiAccessRequestSchema,
   deleteGrafanaLokiAccessRequestSchema,
+  deleteSignedApiAccessRequestSchema,
   evaluateDeploymentStatusRequestSchema
 } from './types';
-import { generateErrorResponse, isAuthorized } from './utils';
+import { generateErrorResponse, generateRandomBearerToken, isAuthorized } from './utils';
 import { createToken, deleteToken } from './grafana-requests';
 import { extractUniqueAirnodeFeedHeartbeatPayloads } from './process-logs';
 
@@ -153,6 +156,94 @@ export const deleteGrafanaLokiAccess = async (event: APIGatewayProxyEvent): Prom
     statusCode: 200,
     headers: COMMON_HEADERS,
     body: JSON.stringify({ message: `Grafana Loki access record for ${airnode} is deleted` })
+  };
+};
+
+export const connectOrCreateSignedApiAccess = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+  if (!isAuthorized(event.headers)) return generateErrorResponse(401, 'Unauthorized');
+
+  const goParseRequestParams = await go(() =>
+    connectOrCreateSignedApiAccessRequestSchema.parseAsync(event.queryStringParameters)
+  );
+  if (!goParseRequestParams.success)
+    return generateErrorResponse(
+      400,
+      `Invalid request, query parameter 'airnode' needs to be populated properly`,
+      goParseRequestParams.error.message
+    );
+
+  const { airnode } = goParseRequestParams.data;
+  // TODO: Check that signer address belongs to a partner provider in the following list:
+  // https://github.com/api3dao/api-integrations/blob/f1d39ec3d172c77f6d047c64a45fcbfb7ae8863e/data/oisTitles.json
+  // Blocked because repository isn't public
+
+  const goReadDb = await go(() => docClient.get({ TableName: 'signedApiAccessRegistry', Key: { airnode } }).promise());
+  if (!goReadDb.success)
+    return generateErrorResponse(
+      500,
+      'Unable to read the database for signed api access record',
+      goReadDb.error.message
+    );
+
+  if (!isNil(goReadDb.data.Item))
+    return {
+      statusCode: 200,
+      headers: COMMON_HEADERS,
+      body: JSON.stringify(goReadDb.data.Item)
+    };
+
+  const newRecord: SignedApiAccessRecord = {
+    bearerToken: generateRandomBearerToken(),
+    airnode
+  };
+
+  const goWriteDb = await go(() => docClient.put({ TableName: 'signedApiAccessRegistry', Item: newRecord }).promise());
+  if (!goWriteDb.success)
+    return generateErrorResponse(500, 'Unable to send created token to the database', goWriteDb.error.message);
+
+  return { statusCode: 200, headers: COMMON_HEADERS, body: JSON.stringify(newRecord) };
+};
+
+export const deleteSignedApiAccess = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+  if (!isAuthorized(event.headers)) return generateErrorResponse(401, 'Unauthorized');
+
+  const goParseRequestParams = await go(() =>
+    deleteSignedApiAccessRequestSchema.parseAsync(event.queryStringParameters)
+  );
+  if (!goParseRequestParams.success)
+    return generateErrorResponse(
+      400,
+      `Invalid request, query parameter 'airnode' needs to be populated properly`,
+      goParseRequestParams.error.message
+    );
+
+  const { airnode } = goParseRequestParams.data;
+  // TODO: Check that signer address belongs to a partner provider in the following list:
+  // https://github.com/api3dao/api-integrations/blob/f1d39ec3d172c77f6d047c64a45fcbfb7ae8863e/data/oisTitles.json
+  // Blocked because repository isn't public
+
+  const goReadDb = await go(() => docClient.get({ TableName: 'signedApiAccessRegistry', Key: { airnode } }).promise());
+  if (!goReadDb.success)
+    return generateErrorResponse(
+      500,
+      'Unable to read the database for signed api access record',
+      goReadDb.error.message
+    );
+
+  if (isNil(goReadDb.data.Item))
+    return generateErrorResponse(404, `No signed api access record found to delete for ${airnode} in the database`);
+
+  const goDeleteDb = await go(() =>
+    docClient.delete({ TableName: 'signedApiAccessRegistry', Key: { airnode } }).promise()
+  );
+  if (!goDeleteDb.success) {
+    return generateErrorResponse(500, 'Unable to delete token from the database', goDeleteDb.error.message);
+  }
+
+  return {
+    statusCode: 200,
+    headers: COMMON_HEADERS,
+    body: JSON.stringify({ message: `Signed API access record for ${airnode} is deleted` })
   };
 };
 

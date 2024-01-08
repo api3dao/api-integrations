@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { BEARER_TOKEN_LENGTH } from './constants';
 
 export interface PromiseError<T> extends Error {
   reason: T;
@@ -15,6 +16,9 @@ export const prometheusDurationSchema = z.string().regex(/^[0-9]+[smhdwy]$/);
 
 export const connectOrCreateGrafanaLokiAccessRequestSchema = z.object({ airnode: evmAddressSchema });
 export const deleteGrafanaLokiAccessRequestSchema = z.object({ airnode: evmAddressSchema });
+export const connectOrCreateSignedApiAccessRequestSchema = z.object({ airnode: evmAddressSchema });
+export const deleteSignedApiAccessRequestSchema = z.object({ airnode: evmAddressSchema });
+
 export const evaluateDeploymentStatusRequestSchema = z.object({ airnode: evmAddressSchema, app: z.string() });
 
 export const grafanaLokiAccessRecordSchema = z
@@ -24,6 +28,13 @@ export const grafanaLokiAccessRecordSchema = z
     lokiToken: z.string(),
     lokiTokenId: z.string().uuid(),
     lokiUser: z.string()
+  })
+  .strict();
+
+export const signedApiAccessRecordSchema = z
+  .object({
+    airnode: evmAddressSchema,
+    bearerToken: z.string().length(BEARER_TOKEN_LENGTH)
   })
   .strict();
 
@@ -40,5 +51,6 @@ export const airnodeFeedHeartbeatPayloadSchema = z.object({
 export const appTypeSchema = z.union([z.literal('signed-api'), z.literal('airnode-feed'), z.literal('airseeker-v2')]);
 
 export type GrafanaLokiAccessRecord = z.infer<typeof grafanaLokiAccessRecordSchema>;
+export type SignedApiAccessRecord = z.infer<typeof signedApiAccessRecordSchema>;
 export type AirnodeFeedHeartbeatPayload = z.infer<typeof airnodeFeedHeartbeatPayloadSchema>;
 export type AppType = z.infer<typeof appTypeSchema>;
