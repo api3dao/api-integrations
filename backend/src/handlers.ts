@@ -6,6 +6,7 @@ import { COMMON_HEADERS } from './constants';
 import {
   GrafanaLokiAccessRecord,
   connectOrCreateGrafanaLokiAccessRequestSchema,
+  deleteGrafanaLokiAccessRequestSchema,
   evaluateDeploymentStatusRequestSchema
 } from './types';
 import { generateErrorResponse, isAuthorized } from './utils';
@@ -97,6 +98,62 @@ export const connectOrCreateGrafanaLokiAccess = async (event: APIGatewayProxyEve
     return generateErrorResponse(500, 'Unable to send created token to the database', goWriteDb.error.message);
   }
   return { statusCode: 200, headers: COMMON_HEADERS, body: JSON.stringify(newRecord) };
+};
+
+export const deleteGrafanaLokiAccess = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+  if (!isAuthorized(event.headers)) return generateErrorResponse(401, 'Unauthorized');
+
+  const goParseRequestParams = await go(() =>
+    deleteGrafanaLokiAccessRequestSchema.parseAsync(event.queryStringParameters)
+  );
+  if (!goParseRequestParams.success)
+    return generateErrorResponse(
+      400,
+      `Invalid request, query parameter 'airnode' needs to be populated properly`,
+      goParseRequestParams.error.message
+    );
+
+  const { airnode } = goParseRequestParams.data;
+  // TODO: Check that signer address belongs to a partner provider in the following list:
+  // https://github.com/api3dao/api-integrations/blob/f1d39ec3d172c77f6d047c64a45fcbfb7ae8863e/data/oisTitles.json
+  // Blocked because repository isn't public
+
+  const goReadDb = await go(() =>
+    docClient.get({ TableName: 'grafanaLokiAccessRegistry', Key: { airnode } }).promise()
+  );
+  if (!goReadDb.success)
+    return generateErrorResponse(
+      500,
+      'Unable to read the database for grafana loki access record',
+      goReadDb.error.message
+    );
+
+  if (isNil(goReadDb.data.Item))
+    return generateErrorResponse(404, `No grafana loki access record found to delete for ${airnode} in the database`);
+
+  const { lokiTokenId } = goReadDb.data.Item;
+
+  const goDeleteDb = await go(() =>
+    docClient.delete({ TableName: 'grafanaLokiAccessRegistry', Key: { airnode } }).promise()
+  );
+  if (!goDeleteDb.success) {
+    return generateErrorResponse(500, 'Unable to delete token from the database', goDeleteDb.error.message);
+  }
+
+  const goDeleteToken = await go(() => deleteToken(lokiTokenId));
+  if (!goDeleteToken.success)
+    return generateErrorResponse(
+      500,
+      `Failed to delete token with ID ${lokiTokenId} from Grafana Cloud API. ` +
+        'Please delete it manually by using Grafana Cloud dashboard',
+      JSON.stringify((goDeleteToken.error as any).response.data.message)
+    );
+
+  return {
+    statusCode: 200,
+    headers: COMMON_HEADERS,
+    body: JSON.stringify({ message: `Grafana Loki access record for ${airnode} is deleted` })
+  };
 };
 
 export const evaluateDeploymentStatus = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {

@@ -1,7 +1,7 @@
 import * as dotenv from 'dotenv'; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 dotenv.config();
 import express from 'express';
-import { evaluateDeploymentStatus, connectOrCreateGrafanaLokiAccess } from './handlers';
+import { evaluateDeploymentStatus, connectOrCreateGrafanaLokiAccess, deleteGrafanaLokiAccess } from './handlers';
 import type { APIGatewayProxyEvent } from 'aws-lambda';
 
 const { PORT } = process.env;
@@ -11,6 +11,14 @@ const app = express();
 
 app.post('/grafanaLokiAccess', express.json(), async (req, res) => {
   const result = await connectOrCreateGrafanaLokiAccess({
+    queryStringParameters: req.query,
+    headers: req.headers
+  } as APIGatewayProxyEvent);
+  res.status(result.statusCode).header(result.headers).send(result.body);
+});
+
+app.delete('/grafanaLokiAccess', express.json(), async (req, res) => {
+  const result = await deleteGrafanaLokiAccess({
     queryStringParameters: req.query,
     headers: req.headers
   } as APIGatewayProxyEvent);

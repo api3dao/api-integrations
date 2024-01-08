@@ -14,6 +14,7 @@ export const evmSignatureSchema = z.string().regex(/^0x[\dA-Fa-f]{130}$/);
 export const prometheusDurationSchema = z.string().regex(/^[0-9]+[smhdwy]$/);
 
 export const connectOrCreateGrafanaLokiAccessRequestSchema = z.object({ airnode: evmAddressSchema });
+export const deleteGrafanaLokiAccessRequestSchema = z.object({ airnode: evmAddressSchema });
 export const evaluateDeploymentStatusRequestSchema = z.object({ airnode: evmAddressSchema, app: z.string() });
 
 export const grafanaLokiAccessRecordSchema = z
