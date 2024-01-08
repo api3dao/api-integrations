@@ -15,8 +15,8 @@ export const createToken = (airnode: string) =>
   );
 
 export const deleteToken = (tokenId: string) =>
-  axios.delete('https://www.grafana.com/api/v1/tokens', {
-    params: { region: process.env.GF_CLOUD_REGION, tokenId },
+  axios.delete(`https://www.grafana.com/api/v1/tokens/${tokenId}`, {
+    params: { region: process.env.GF_CLOUD_REGION },
     headers: { Authorization: `Bearer ${process.env.GF_CLOUD_TOKEN}` }
   });
 

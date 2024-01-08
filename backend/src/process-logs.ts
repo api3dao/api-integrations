@@ -5,7 +5,7 @@ import { AirnodeFeedHeartbeatPayload, airnodeFeedHeartbeatPayloadSchema } from '
 import { MIN_IN_MS } from './constants';
 import { queryLogs } from './grafana-requests';
 
-type ObjectWithoutSignatureAttribute = { [k in string] } & { ['signature']?: void };
+type ObjectWithoutSignatureAttribute = { [k in string]: string } & { ['signature']?: void };
 
 interface GrafanaLokiResponse {
   status: string;

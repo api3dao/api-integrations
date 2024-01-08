@@ -71,11 +71,12 @@ export const connectOrCreateGrafanaLokiAccess = async (event: APIGatewayProxyEve
       (goCreateToken.error as any).response.data.message
     );
 
-  const lokiToken = goCreateToken.data.data.token;
+  const { token: lokiToken, id: lokiTokenId } = goCreateToken.data.data;
 
   const newRecord: GrafanaLokiAccessRecord = {
     lokiUser: process.env.GF_LOKI_USER!,
     lokiToken,
+    lokiTokenId,
     lokiEndpoint: process.env.GF_LOKI_ENDPOINT!,
     airnode
   };
@@ -84,14 +85,14 @@ export const connectOrCreateGrafanaLokiAccess = async (event: APIGatewayProxyEve
     docClient.put({ TableName: 'grafanaLokiAccessRegistry', Item: newRecord }).promise()
   );
   if (!goWriteDb.success) {
-    const goDeleteToken = await go(() => deleteToken(lokiToken));
+    const goDeleteToken = await go(() => deleteToken(lokiTokenId));
     if (!goDeleteToken.success)
       return generateErrorResponse(
         500,
-        'Unable to send created token to the database besides \
-        failed to delete created token from Grafana Cloud API, \
-        please delete it manually on Grafana Dashboard',
-        JSON.stringify([goWriteDb.error.message, goDeleteToken.error.message])
+        'Unable to send created token to the database, ' +
+          'besides while reverting changes it was failed to delete created token from Grafana Cloud API. ' +
+          'Please delete it manually by using Grafana Cloud dashboard',
+        JSON.stringify([goWriteDb.error.message, (goDeleteToken.error as any).response.data.message])
       );
     return generateErrorResponse(500, 'Unable to send created token to the database', goWriteDb.error.message);
   }

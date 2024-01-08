@@ -16,12 +16,15 @@ export const prometheusDurationSchema = z.string().regex(/^[0-9]+[smhdwy]$/);
 export const connectOrCreateGrafanaLokiAccessRequestSchema = z.object({ airnode: evmAddressSchema });
 export const evaluateDeploymentStatusRequestSchema = z.object({ airnode: evmAddressSchema, app: z.string() });
 
-export const grafanaLokiAccessRecordSchema = z.object({
-  airnode: evmAddressSchema,
-  lokiEndpoint: z.string(),
-  lokiToken: z.string(),
-  lokiUser: z.string()
-});
+export const grafanaLokiAccessRecordSchema = z
+  .object({
+    airnode: evmAddressSchema,
+    lokiEndpoint: z.string(),
+    lokiToken: z.string(),
+    lokiTokenId: z.string().uuid(),
+    lokiUser: z.string()
+  })
+  .strict();
 
 export const airnodeFeedHeartbeatPayloadSchema = z.object({
   airnode: evmAddressSchema,

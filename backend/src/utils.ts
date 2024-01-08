@@ -4,7 +4,8 @@ import type { APIGatewayProxyEventHeaders, APIGatewayProxyResult } from 'aws-lam
 
 // This function helps to not JSON.stringify twice if the input is already stringified JSON
 // Otherwise the output would be a string with escaped quotes
-const jsonParseIfCan = (str: string): unknown => {
+const jsonParseIfCan = (str: string | undefined): unknown => {
+  if (!str) return str;
   try {
     return JSON.parse(str);
   } catch (e) {
@@ -33,8 +34,13 @@ export const generateErrorResponse = (
   };
 };
 
-export const isAuthorized = (headers: APIGatewayProxyEventHeaders) => {
+export const isAuthorized = (headers: APIGatewayProxyEventHeaders): boolean => {
+  // If API_KEYS is not set or empty string, then all requests are authorized
+  if (!process.env.API_KEYS) return true;
+
   const apiKey = headers['x-api-key'] ?? headers['X-Api-Key'] ?? headers['X-API-KEY'];
-  const validApiKeys: string[] = process.env.API_KEYS?.split(',') || [];
+  if (!apiKey) return false;
+
+  const validApiKeys: string[] = process.env.API_KEYS.split(',');
   return validApiKeys.includes(apiKey);
 };
