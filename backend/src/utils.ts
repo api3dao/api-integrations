@@ -2,6 +2,7 @@ import { randomBytes } from 'crypto';
 import { pick } from 'lodash';
 
 import { BEARER_TOKEN_LENGTH, COMMON_HEADERS } from './constants';
+import { apiKeyListSchema } from './types';
 
 import type { APIGatewayProxyEventHeaders, APIGatewayProxyResult } from 'aws-lambda';
 
@@ -37,15 +38,23 @@ export const generateErrorResponse = (
   };
 };
 
-export const isAuthorized = (headers: APIGatewayProxyEventHeaders): boolean => {
-  // If API_KEYS is not set or empty string, then all requests are authorized
-  if (!process.env.API_KEYS) return true;
+export const extractApiKey = (headers: APIGatewayProxyEventHeaders): string | undefined =>
+  headers['x-api-key'] ?? headers['X-Api-Key'] ?? headers['X-API-KEY'];
 
-  const apiKey = headers['x-api-key'] ?? headers['X-Api-Key'] ?? headers['X-API-KEY'];
+export const extractUserFromApiKey = (apiKey: string): string => apiKey.split(':')[0];
+
+export const isAuthorized = (headers: APIGatewayProxyEventHeaders): boolean => {
+  if (!process.env.API_KEY_LIST) throw new Error('Environment variable API_KEY_LIST is not set');
+
+  // API_KEY_LIST is a comma-separated list of API keys, e.g. "user1:pass1,user2:pass2,user3:pass3"
+  if (!apiKeyListSchema.safeParse(process.env.API_KEY_LIST).success)
+    throw new Error('Environment variable API_KEY_LIST is not in the correct format');
+
+  const apiKey = extractApiKey(headers);
   if (!apiKey) return false;
 
-  const validApiKeys: string[] = process.env.API_KEYS.split(',');
-  return validApiKeys.includes(apiKey);
+  const validApiKeyList: string[] = process.env.API_KEY_LIST.split(',');
+  return validApiKeyList.includes(apiKey);
 };
 
 const generateSecureRandomToken = (length: number): string => {

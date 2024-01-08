@@ -24,7 +24,7 @@ provider:
             - { 'Fn::GetAtt': ['TokenOwnerGroup', 'Arn'] }
 
   environment:
-    API_KEYS: ${env:API_KEYS}
+    API_KEY_LIST: ${env:API_KEY_LIST}
     GF_CLOUD_REGION: ${env:GF_CLOUD_REGION}
     GF_CLOUD_TOKEN: ${env:GF_CLOUD_TOKEN}
     GF_CLOUD_ACCESS_POLICY_ID: ${env:GF_CLOUD_ACCESS_POLICY_ID}

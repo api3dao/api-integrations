@@ -5,6 +5,9 @@ export interface PromiseError<T> extends Error {
   reason: T;
 }
 
+// For comma-separated list of API keys defined in environment variable API_KEY_LIST
+export const apiKeyListSchema = z.string().regex(/^[a-zA-Z]+:[a-zA-Z0-9]+(?:,[a-zA-Z]+:[a-zA-Z0-9]+)*$/);
+
 /**
  * Common EVM Data Schema
  */
@@ -24,6 +27,7 @@ export const evaluateDeploymentStatusRequestSchema = z.object({ airnode: evmAddr
 export const grafanaLokiAccessRecordSchema = z
   .object({
     airnode: evmAddressSchema,
+    generatedBy: z.string(),
     lokiEndpoint: z.string(),
     lokiToken: z.string(),
     lokiTokenId: z.string().uuid(),
@@ -34,7 +38,8 @@ export const grafanaLokiAccessRecordSchema = z
 export const signedApiAccessRecordSchema = z
   .object({
     airnode: evmAddressSchema,
-    bearerToken: z.string().length(BEARER_TOKEN_LENGTH)
+    bearerToken: z.string().length(BEARER_TOKEN_LENGTH),
+    generatedBy: z.string()
   })
   .strict();
 

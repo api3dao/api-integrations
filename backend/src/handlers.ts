@@ -1,6 +1,6 @@
 import AWS from 'aws-sdk';
 import { isNil } from 'lodash';
-import { go } from '@api3/promise-utils';
+import { go, goSync } from '@api3/promise-utils';
 
 import { COMMON_HEADERS } from './constants';
 import {
@@ -13,6 +13,11 @@ import {
   evaluateDeploymentStatusRequestSchema
 } from './types';
 import {
+  extractApiKey,
+  extractUserFromApiKey,
+  generateErrorResponse,
+  generateRandomBearerToken,
+  isAuthorized,
   normalizeObject
 } from './utils';
 import { createToken, deleteToken } from './grafana-requests';
@@ -35,7 +40,10 @@ if (process.env.LOCAL_DEV) {
 const docClient = new AWS.DynamoDB.DocumentClient();
 
 export const connectOrCreateGrafanaLokiAccess = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
-  if (!isAuthorized(event.headers)) return generateErrorResponse(401, 'Unauthorized');
+  const goIsAuthorized = goSync(() => isAuthorized(event.headers));
+  if (!goIsAuthorized.success)
+    return generateErrorResponse(500, 'Unable to authorize API key', goIsAuthorized.error.message);
+  if (!goIsAuthorized.data) return generateErrorResponse(401, 'Unauthorized');
 
   const goParseRequestParams = await go(() =>
     connectOrCreateGrafanaLokiAccessRequestSchema.parseAsync(event.queryStringParameters)
@@ -80,11 +88,12 @@ export const connectOrCreateGrafanaLokiAccess = async (event: APIGatewayProxyEve
   const { token: lokiToken, id: lokiTokenId } = goCreateToken.data.data;
 
   const newRecord: GrafanaLokiAccessRecord = {
+    airnode,
+    generatedBy: extractUserFromApiKey(extractApiKey(event.headers)!),
     lokiUser: process.env.GF_LOKI_USER!,
     lokiToken,
     lokiTokenId,
-    lokiEndpoint: process.env.GF_LOKI_ENDPOINT!,
-    airnode
+    lokiEndpoint: process.env.GF_LOKI_ENDPOINT!
   };
 
   const goWriteDb = await go(() =>
@@ -106,7 +115,10 @@ export const connectOrCreateGrafanaLokiAccess = async (event: APIGatewayProxyEve
 };
 
 export const deleteGrafanaLokiAccess = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
-  if (!isAuthorized(event.headers)) return generateErrorResponse(401, 'Unauthorized');
+  const goIsAuthorized = goSync(() => isAuthorized(event.headers));
+  if (!goIsAuthorized.success)
+    return generateErrorResponse(500, 'Unable to authorize API key', goIsAuthorized.error.message);
+  if (!goIsAuthorized.data) return generateErrorResponse(401, 'Unauthorized');
 
   const goParseRequestParams = await go(() =>
     deleteGrafanaLokiAccessRequestSchema.parseAsync(event.queryStringParameters)
@@ -162,7 +174,10 @@ export const deleteGrafanaLokiAccess = async (event: APIGatewayProxyEvent): Prom
 };
 
 export const connectOrCreateSignedApiAccess = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
-  if (!isAuthorized(event.headers)) return generateErrorResponse(401, 'Unauthorized');
+  const goIsAuthorized = goSync(() => isAuthorized(event.headers));
+  if (!goIsAuthorized.success)
+    return generateErrorResponse(500, 'Unable to authorize API key', goIsAuthorized.error.message);
+  if (!goIsAuthorized.data) return generateErrorResponse(401, 'Unauthorized');
 
   const goParseRequestParams = await go(() =>
     connectOrCreateSignedApiAccessRequestSchema.parseAsync(event.queryStringParameters)
@@ -195,8 +210,9 @@ export const connectOrCreateSignedApiAccess = async (event: APIGatewayProxyEvent
     };
 
   const newRecord: SignedApiAccessRecord = {
+    airnode,
     bearerToken: generateRandomBearerToken(),
-    airnode
+    generatedBy: extractUserFromApiKey(extractApiKey(event.headers)!)
   };
 
   const goWriteDb = await go(() => docClient.put({ TableName: 'signedApiAccessRegistry', Item: newRecord }).promise());
@@ -207,7 +223,10 @@ export const connectOrCreateSignedApiAccess = async (event: APIGatewayProxyEvent
 };
 
 export const deleteSignedApiAccess = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
-  if (!isAuthorized(event.headers)) return generateErrorResponse(401, 'Unauthorized');
+  const goIsAuthorized = goSync(() => isAuthorized(event.headers));
+  if (!goIsAuthorized.success)
+    return generateErrorResponse(500, 'Unable to authorize API key', goIsAuthorized.error.message);
+  if (!goIsAuthorized.data) return generateErrorResponse(401, 'Unauthorized');
 
   const goParseRequestParams = await go(() =>
     deleteSignedApiAccessRequestSchema.parseAsync(event.queryStringParameters)
