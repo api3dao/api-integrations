@@ -3,9 +3,11 @@ dotenv.config();
 import express from 'express';
 import {
   evaluateDeploymentStatus,
-  connectOrCreateGrafanaLokiAccess,
+  connectGrafanaLokiAccess,
+  createGrafanaLokiAccess,
   deleteGrafanaLokiAccess,
-  connectOrCreateSignedApiAccess,
+  connectSignedApiAccess,
+  createSignedApiAccess,
   deleteSignedApiAccess
 } from './handlers';
 import type { APIGatewayProxyEvent } from 'aws-lambda';
@@ -15,8 +17,16 @@ const { PORT } = process.env;
 const port = PORT || 8090;
 const app = express();
 
+app.get('/grafanaLokiAccess', express.json(), async (req, res) => {
+  const result = await connectGrafanaLokiAccess({
+    queryStringParameters: req.query,
+    headers: req.headers
+  } as APIGatewayProxyEvent);
+  res.status(result.statusCode).header(result.headers).send(result.body);
+});
+
 app.post('/grafanaLokiAccess', express.json(), async (req, res) => {
-  const result = await connectOrCreateGrafanaLokiAccess({
+  const result = await createGrafanaLokiAccess({
     queryStringParameters: req.query,
     headers: req.headers
   } as APIGatewayProxyEvent);
@@ -31,8 +41,16 @@ app.delete('/grafanaLokiAccess', express.json(), async (req, res) => {
   res.status(result.statusCode).header(result.headers).send(result.body);
 });
 
+app.get('/signedApiAccess', express.json(), async (req, res) => {
+  const result = await connectSignedApiAccess({
+    queryStringParameters: req.query,
+    headers: req.headers
+  } as APIGatewayProxyEvent);
+  res.status(result.statusCode).header(result.headers).send(result.body);
+});
+
 app.post('/signedApiAccess', express.json(), async (req, res) => {
-  const result = await connectOrCreateSignedApiAccess({
+  const result = await createSignedApiAccess({
     queryStringParameters: req.query,
     headers: req.headers
   } as APIGatewayProxyEvent);

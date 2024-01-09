@@ -6,11 +6,9 @@ import { COMMON_HEADERS } from './constants';
 import {
   GrafanaLokiAccessRecord,
   SignedApiAccessRecord,
-  connectOrCreateGrafanaLokiAccessRequestSchema,
-  connectOrCreateSignedApiAccessRequestSchema,
-  deleteGrafanaLokiAccessRequestSchema,
-  deleteSignedApiAccessRequestSchema,
-  evaluateDeploymentStatusRequestSchema
+  grafanaLokiAccessRequestSchema,
+  signedApiAccessRequestSchema,
+  deploymentStatusRequestSchema
 } from './types';
 import {
   extractApiKey,
@@ -39,15 +37,13 @@ if (process.env.LOCAL_DEV) {
 
 const docClient = new AWS.DynamoDB.DocumentClient();
 
-export const connectOrCreateGrafanaLokiAccess = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+export const connectGrafanaLokiAccess = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
   const goIsAuthorized = goSync(() => isAuthorized(event.headers));
   if (!goIsAuthorized.success)
     return generateErrorResponse(500, 'Unable to authorize API key', goIsAuthorized.error.message);
   if (!goIsAuthorized.data) return generateErrorResponse(401, 'Unauthorized');
 
-  const goParseRequestParams = await go(() =>
-    connectOrCreateGrafanaLokiAccessRequestSchema.parseAsync(event.queryStringParameters)
-  );
+  const goParseRequestParams = await go(() => grafanaLokiAccessRequestSchema.parseAsync(event.queryStringParameters));
   if (!goParseRequestParams.success)
     return generateErrorResponse(
       400,
@@ -56,9 +52,6 @@ export const connectOrCreateGrafanaLokiAccess = async (event: APIGatewayProxyEve
     );
 
   const { airnode } = goParseRequestParams.data;
-  // TODO: Check that signer address belongs to a partner provider in the following list:
-  // https://github.com/api3dao/api-integrations/blob/f1d39ec3d172c77f6d047c64a45fcbfb7ae8863e/data/oisTitles.json
-  // Blocked because repository isn't public
 
   const goReadDb = await go(() =>
     docClient.get({ TableName: 'grafanaLokiAccessRegistry', Key: { airnode } }).promise()
@@ -66,16 +59,48 @@ export const connectOrCreateGrafanaLokiAccess = async (event: APIGatewayProxyEve
   if (!goReadDb.success)
     return generateErrorResponse(
       500,
-      'Unable to read the database for grafana loki access record',
+      'Unable to read the database for Grafana Loki access record',
+      goReadDb.error.message
+    );
+
+  if (isNil(goReadDb.data.Item))
+    return generateErrorResponse(404, `No Grafana Loki access record found for ${airnode}`);
+
+  return {
+    statusCode: 200,
+    headers: COMMON_HEADERS,
+    body: JSON.stringify(normalizeObject(goReadDb.data.Item))
+  };
+};
+
+export const createGrafanaLokiAccess = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+  const goIsAuthorized = goSync(() => isAuthorized(event.headers));
+  if (!goIsAuthorized.success)
+    return generateErrorResponse(500, 'Unable to authorize API key', goIsAuthorized.error.message);
+  if (!goIsAuthorized.data) return generateErrorResponse(401, 'Unauthorized');
+
+  const goParseRequestParams = await go(() => grafanaLokiAccessRequestSchema.parseAsync(event.queryStringParameters));
+  if (!goParseRequestParams.success)
+    return generateErrorResponse(
+      400,
+      `Invalid request, query parameter 'airnode' needs to be populated properly`,
+      goParseRequestParams.error.message
+    );
+
+  const { airnode } = goParseRequestParams.data;
+
+  const goReadDb = await go(() =>
+    docClient.get({ TableName: 'grafanaLokiAccessRegistry', Key: { airnode } }).promise()
+  );
+  if (!goReadDb.success)
+    return generateErrorResponse(
+      500,
+      'Unable to read the database for Grafana Loki access record',
       goReadDb.error.message
     );
 
   if (!isNil(goReadDb.data.Item))
-    return {
-      statusCode: 200,
-      headers: COMMON_HEADERS,
-      body: JSON.stringify(normalizeObject(goReadDb.data.Item))
-    };
+    return generateErrorResponse(409, `Grafana Loki access record for ${airnode} already exists`);
 
   const goCreateToken = await go(() => createToken(airnode));
   if (!goCreateToken.success)
@@ -120,9 +145,7 @@ export const deleteGrafanaLokiAccess = async (event: APIGatewayProxyEvent): Prom
     return generateErrorResponse(500, 'Unable to authorize API key', goIsAuthorized.error.message);
   if (!goIsAuthorized.data) return generateErrorResponse(401, 'Unauthorized');
 
-  const goParseRequestParams = await go(() =>
-    deleteGrafanaLokiAccessRequestSchema.parseAsync(event.queryStringParameters)
-  );
+  const goParseRequestParams = await go(() => grafanaLokiAccessRequestSchema.parseAsync(event.queryStringParameters));
   if (!goParseRequestParams.success)
     return generateErrorResponse(
       400,
@@ -131,9 +154,6 @@ export const deleteGrafanaLokiAccess = async (event: APIGatewayProxyEvent): Prom
     );
 
   const { airnode } = goParseRequestParams.data;
-  // TODO: Check that signer address belongs to a partner provider in the following list:
-  // https://github.com/api3dao/api-integrations/blob/f1d39ec3d172c77f6d047c64a45fcbfb7ae8863e/data/oisTitles.json
-  // Blocked because repository isn't public
 
   const goReadDb = await go(() =>
     docClient.get({ TableName: 'grafanaLokiAccessRegistry', Key: { airnode } }).promise()
@@ -141,12 +161,12 @@ export const deleteGrafanaLokiAccess = async (event: APIGatewayProxyEvent): Prom
   if (!goReadDb.success)
     return generateErrorResponse(
       500,
-      'Unable to read the database for grafana loki access record',
+      'Unable to read the database for Grafana Loki access record',
       goReadDb.error.message
     );
 
   if (isNil(goReadDb.data.Item))
-    return generateErrorResponse(404, `No grafana loki access record found to delete for ${airnode} in the database`);
+    return generateErrorResponse(404, `No Grafana Loki access record for ${airnode} found to delete`);
 
   const { lokiTokenId } = goReadDb.data.Item;
 
@@ -169,19 +189,17 @@ export const deleteGrafanaLokiAccess = async (event: APIGatewayProxyEvent): Prom
   return {
     statusCode: 200,
     headers: COMMON_HEADERS,
-    body: JSON.stringify({ message: `Grafana Loki access record for ${airnode} is deleted` })
+    body: JSON.stringify({ message: `Grafana Loki access record for ${airnode} has been deleted` })
   };
 };
 
-export const connectOrCreateSignedApiAccess = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+export const connectSignedApiAccess = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
   const goIsAuthorized = goSync(() => isAuthorized(event.headers));
   if (!goIsAuthorized.success)
     return generateErrorResponse(500, 'Unable to authorize API key', goIsAuthorized.error.message);
   if (!goIsAuthorized.data) return generateErrorResponse(401, 'Unauthorized');
 
-  const goParseRequestParams = await go(() =>
-    connectOrCreateSignedApiAccessRequestSchema.parseAsync(event.queryStringParameters)
-  );
+  const goParseRequestParams = await go(() => signedApiAccessRequestSchema.parseAsync(event.queryStringParameters));
   if (!goParseRequestParams.success)
     return generateErrorResponse(
       400,
@@ -190,24 +208,50 @@ export const connectOrCreateSignedApiAccess = async (event: APIGatewayProxyEvent
     );
 
   const { airnode } = goParseRequestParams.data;
-  // TODO: Check that signer address belongs to a partner provider in the following list:
-  // https://github.com/api3dao/api-integrations/blob/f1d39ec3d172c77f6d047c64a45fcbfb7ae8863e/data/oisTitles.json
-  // Blocked because repository isn't public
 
   const goReadDb = await go(() => docClient.get({ TableName: 'signedApiAccessRegistry', Key: { airnode } }).promise());
   if (!goReadDb.success)
     return generateErrorResponse(
       500,
-      'Unable to read the database for signed api access record',
+      'Unable to read the database for signed API access record',
+      goReadDb.error.message
+    );
+
+  if (isNil(goReadDb.data.Item)) return generateErrorResponse(404, `No signed API access record found for ${airnode}`);
+
+  return {
+    statusCode: 200,
+    headers: COMMON_HEADERS,
+    body: JSON.stringify(normalizeObject(goReadDb.data.Item))
+  };
+};
+
+export const createSignedApiAccess = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+  const goIsAuthorized = goSync(() => isAuthorized(event.headers));
+  if (!goIsAuthorized.success)
+    return generateErrorResponse(500, 'Unable to authorize API key', goIsAuthorized.error.message);
+  if (!goIsAuthorized.data) return generateErrorResponse(401, 'Unauthorized');
+
+  const goParseRequestParams = await go(() => signedApiAccessRequestSchema.parseAsync(event.queryStringParameters));
+  if (!goParseRequestParams.success)
+    return generateErrorResponse(
+      400,
+      `Invalid request, query parameter 'airnode' needs to be populated properly`,
+      goParseRequestParams.error.message
+    );
+
+  const { airnode } = goParseRequestParams.data;
+
+  const goReadDb = await go(() => docClient.get({ TableName: 'signedApiAccessRegistry', Key: { airnode } }).promise());
+  if (!goReadDb.success)
+    return generateErrorResponse(
+      500,
+      'Unable to read the database for signed API access record',
       goReadDb.error.message
     );
 
   if (!isNil(goReadDb.data.Item))
-    return {
-      statusCode: 200,
-      headers: COMMON_HEADERS,
-      body: JSON.stringify(normalizeObject(goReadDb.data.Item))
-    };
+    return generateErrorResponse(409, `Signed API access record for ${airnode} already exists`);
 
   const newRecord: SignedApiAccessRecord = {
     airnode,
@@ -231,9 +275,7 @@ export const deleteSignedApiAccess = async (event: APIGatewayProxyEvent): Promis
     return generateErrorResponse(500, 'Unable to authorize API key', goIsAuthorized.error.message);
   if (!goIsAuthorized.data) return generateErrorResponse(401, 'Unauthorized');
 
-  const goParseRequestParams = await go(() =>
-    deleteSignedApiAccessRequestSchema.parseAsync(event.queryStringParameters)
-  );
+  const goParseRequestParams = await go(() => signedApiAccessRequestSchema.parseAsync(event.queryStringParameters));
   if (!goParseRequestParams.success)
     return generateErrorResponse(
       400,
@@ -242,20 +284,17 @@ export const deleteSignedApiAccess = async (event: APIGatewayProxyEvent): Promis
     );
 
   const { airnode } = goParseRequestParams.data;
-  // TODO: Check that signer address belongs to a partner provider in the following list:
-  // https://github.com/api3dao/api-integrations/blob/f1d39ec3d172c77f6d047c64a45fcbfb7ae8863e/data/oisTitles.json
-  // Blocked because repository isn't public
 
   const goReadDb = await go(() => docClient.get({ TableName: 'signedApiAccessRegistry', Key: { airnode } }).promise());
   if (!goReadDb.success)
     return generateErrorResponse(
       500,
-      'Unable to read the database for signed api access record',
+      'Unable to read the database for signed API access record',
       goReadDb.error.message
     );
 
   if (isNil(goReadDb.data.Item))
-    return generateErrorResponse(404, `No signed api access record found to delete for ${airnode} in the database`);
+    return generateErrorResponse(404, `No signed API access record for ${airnode} found to delete`);
 
   const goDeleteDb = await go(() =>
     docClient.delete({ TableName: 'signedApiAccessRegistry', Key: { airnode } }).promise()
@@ -267,14 +306,12 @@ export const deleteSignedApiAccess = async (event: APIGatewayProxyEvent): Promis
   return {
     statusCode: 200,
     headers: COMMON_HEADERS,
-    body: JSON.stringify({ message: `Signed API access record for ${airnode} is deleted` })
+    body: JSON.stringify({ message: `Signed API access record for ${airnode} has been deleted` })
   };
 };
 
 export const evaluateDeploymentStatus = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
-  const goParseRequestParams = await go(() =>
-    evaluateDeploymentStatusRequestSchema.parseAsync(event.queryStringParameters)
-  );
+  const goParseRequestParams = await go(() => deploymentStatusRequestSchema.parseAsync(event.queryStringParameters));
   if (!goParseRequestParams.success)
     return generateErrorResponse(
       400,

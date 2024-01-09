@@ -35,9 +35,16 @@ provider:
     GF_LOKI_ENDPOINT: ${env:GF_LOKI_ENDPOINT}
 
 functions:
-  connectOrCreateGrafanaLokiAccess:
+  connectGrafanaLokiAccess:
     memorySize: 128
-    handler: src/handlers.connectOrCreateGrafanaLokiAccess
+    handler: src/handlers.connectGrafanaLokiAccess
+    events:
+      - httpApi:
+          path: /grafanaLokiAccess
+          method: get
+  createGrafanaLokiAccess:
+    memorySize: 128
+    handler: src/handlers.createGrafanaLokiAccess
     events:
       - httpApi:
           path: /grafanaLokiAccess
@@ -49,9 +56,16 @@ functions:
       - httpApi:
           path: /grafanaLokiAccess
           method: delete
-  connectOrCreateSignedApiAccess:
+  connectSignedApiAccess:
     memorySize: 128
-    handler: src/handlers.connectOrCreateSignedApiAccess
+    handler: src/handlers.connectSignedApiAccess
+    events:
+      - httpApi:
+          path: /signedApiAccess
+          method: get
+  createSignedApiAccess:
+    memorySize: 128
+    handler: src/handlers.createSignedApiAccess
     events:
       - httpApi:
           path: /signedApiAccess
