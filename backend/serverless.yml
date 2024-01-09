@@ -1,9 +1,10 @@
-service: api-integrations-logging
+service: api-integrations-backend
 useDotenv: true
 frameworkVersion: '3'
 
 provider:
   name: aws
+
   runtime: nodejs16.x
 
   httpApi:
@@ -19,36 +20,52 @@ provider:
             - 'dynamodb:GetItem'
             - 'dynamodb:Scan'
             - 'dynamodb:Query'
+            - 'dynamodb:DeleteItem'
 
           Resource:
-            - { 'Fn::GetAtt': ['TokenOwnerGroup', 'Arn'] }
+            - { 'Fn::GetAtt': ['GrafanaLokiAccessRegistry', 'Arn'] }
+            - { 'Fn::GetAtt': ['SignedApiAccessRegistry', 'Arn'] }
 
   environment:
-    API_KEYS: ${env:API_KEYS}
+    API_KEY_LIST: ${env:API_KEY_LIST}
     GF_CLOUD_REGION: ${env:GF_CLOUD_REGION}
     GF_CLOUD_TOKEN: ${env:GF_CLOUD_TOKEN}
     GF_CLOUD_ACCESS_POLICY_ID: ${env:GF_CLOUD_ACCESS_POLICY_ID}
     GF_LOKI_USER: ${env:GF_LOKI_USER}
     GF_LOKI_ENDPOINT: ${env:GF_LOKI_ENDPOINT}
 
-# package:
-#   patterns:
-#     - "!.build/**"
-#     - "!.vscode/**"
-#     - "!node_modules/**"
-#     - "!test/**"
-
 functions:
-  generateToken:
+  connectOrCreateGrafanaLokiAccess:
     memorySize: 128
-    handler: src/handlers.generateToken
+    handler: src/handlers.connectOrCreateGrafanaLokiAccess
     events:
       - httpApi:
-          path: /generateToken
+          path: /grafanaLokiAccess
           method: post
-  deploymentStatus:
+  deleteGrafanaLokiAccess:
     memorySize: 128
-    handler: src/handlers.deploymentStatus
+    handler: src/handlers.deleteGrafanaLokiAccess
+    events:
+      - httpApi:
+          path: /grafanaLokiAccess
+          method: delete
+  connectOrCreateSignedApiAccess:
+    memorySize: 128
+    handler: src/handlers.connectOrCreateSignedApiAccess
+    events:
+      - httpApi:
+          path: /signedApiAccess
+          method: post
+  deleteSignedApiAccess:
+    memorySize: 128
+    handler: src/handlers.deleteSignedApiAccess
+    events:
+      - httpApi:
+          path: /signedApiAccess
+          method: delete
+  evaluateDeploymentStatus:
+    memorySize: 128
+    handler: src/handlers.evaluateDeploymentStatus
     events:
       - httpApi:
           path: /deploymentStatus
@@ -59,10 +76,23 @@ plugins:
 
 resources:
   Resources:
-    TokenOwnerGroup:
+    GrafanaLokiAccessRegistry:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: tokenOwnerGroup
+        TableName: grafanaLokiAccessRegistry
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        AttributeDefinitions:
+          - AttributeName: airnode
+            AttributeType: S
+        KeySchema:
+          - AttributeName: airnode
+            KeyType: HASH
+    SignedApiAccessRegistry:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: signedApiAccessRegistry
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
