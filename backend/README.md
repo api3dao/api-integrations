@@ -112,13 +112,19 @@ curl --location --request POST 'https://api-integrations.nodary.io/signedApiAcce
 
 # Response will be:
 # {
-#    "airnode": "0x27f093777962Bb743E6cAC44cd724B84B7254aad",
-#    "bearerToken": {
-#        "api3": "EXAMPLE85c9f06944BEARER57dbe0e993TOKEN",
-#        "nodary": "EXAMPLEb2d863deBEARERcdcaf2a77fTOKEN"
-#    },
-#    "generatedBy": "user1"
-# }
+#   "airnode": "0x27f093777962Bb743E6cAC44cd724B84B7254aad",
+#   "bearerToken": {
+#       "api3": {
+#           "airnodeFeed": "EXAMPLETOKEN926461c16ce994846f9decc827f42e",
+#           "oev": "926461c16ce994846f9decc827f42eEXAMPLETOKEN"
+#       },
+#       "nodary": {
+#           "airnodeFeed": "926461c16ce994846f9decc827fEXAMPLETOKEN42e",
+#           "oev": "926461c16cEXAMPLETOKENe994846f9decc827f42e"
+#       }
+#   },
+#   "generatedBy": "user1"
+# }
 
 # DELETE_/signedApiAccess
 curl --location --request DELETE 'https://api-integrations.nodary.io/signedApiAccess?airnode=0x27f093777962Bb743E6cAC44cd724B84B7254aad' \
