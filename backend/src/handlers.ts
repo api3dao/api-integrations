@@ -211,7 +211,10 @@ export const connectOrCreateSignedApiAccess = async (event: APIGatewayProxyEvent
 
   const newRecord: SignedApiAccessRecord = {
     airnode,
-    bearerToken: { api3: generateRandomBearerToken(), nodary: generateRandomBearerToken() },
+    bearerToken: {
+      api3: { airnodeFeed: generateRandomBearerToken(), oev: generateRandomBearerToken() },
+      nodary: { airnodeFeed: generateRandomBearerToken(), oev: generateRandomBearerToken() }
+    },
     generatedBy: extractUserFromApiKey(extractApiKey(event.headers)!)
   };
 

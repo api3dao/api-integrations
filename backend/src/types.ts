@@ -39,8 +39,14 @@ export const signedApiAccessRecordSchema = z
   .object({
     airnode: evmAddressSchema,
     bearerToken: z.object({
-      api3: z.string().length(BEARER_TOKEN_LENGTH),
-      nodary: z.string().length(BEARER_TOKEN_LENGTH)
+      api3: z.object({
+        airnodeFeed: z.string().length(BEARER_TOKEN_LENGTH),
+        oev: z.string().length(BEARER_TOKEN_LENGTH)
+      }),
+      nodary: z.object({
+        airnodeFeed: z.string().length(BEARER_TOKEN_LENGTH),
+        oev: z.string().length(BEARER_TOKEN_LENGTH)
+      })
     }),
     generatedBy: z.string()
   })
