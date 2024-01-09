@@ -19,4 +19,4 @@ jobs:
       with:
         token: ${{ secrets.PAT }}
         repository: api3dao/logos
-        event-type: registry_package
+        event-type: release
