@@ -27,13 +27,13 @@ deployments.
 To deploy infrastructure to AWS:
 
 ```bash
-pnpm run serverless:deploy --region us-east-2 --stage dev
+pnpm run serverless:deploy --region us-east-2 --stage prod
 ```
 
 To remove deployment:
 
 ```bash
-pnpm run serverless:remove --region us-east-2 --stage dev
+pnpm run serverless:remove --region us-east-2 --stage prod
 ```
 
 ## Public endpoint
@@ -46,10 +46,11 @@ This service is publicly accessible at the following endpoint:
 
 The API provides the following endpoints:
 
-- `POST /grafanaLokiAccess`: Generate and store token that will be used to authorize partner providers to send Airnode
-  feed logs
+- `POST /grafanaLokiAccess`: Generate token that will be used to authorize partner providers to send Airnode feed logs
+- `GET /grafanaLokiAccess`: Get Grafana Loki access token for the given Airnode address
 - `DELETE /grafanaLokiAccess`: Delete Grafana Loki access token
-- `POST /signedApiAccess`: Generate and store token that will be used to authorize partner providers to send signed data
+- `POST /signedApiAccess`: Generate token that will be used to authorize partner providers to send signed data
+- `GET /signedApiAccess`: Get signed API access token for the given Airnode address
 - `DELETE /signedApiAccess`: Delete signed API access token
 - `GET /deploymentStatus`: Get status for the deployment
 
@@ -94,7 +95,28 @@ curl --location --request POST 'https://api-integrations.nodary.io/grafanaLokiAc
 #    "lokiTokenId": "EXAMPLE-ca5a-TOKEN-bfd0-ID",
 #    "lokiUser": "34567"
 # }
+# or
+# {
+#   "message": "Grafana Loki access record for 0x27f093777962Bb743E6cAC44cd724B84B7254aad already exists"
+# }
 
+# GET_/grafanaLokiAccess
+curl --location 'https://api-integrations.nodary.io/grafanaLokiAccess?airnode=0x27f093777962Bb743E6cAC44cd724B84B7254aad' \
+--header 'x-api-key: user1:pass1'
+
+# Response will be:
+# {
+#    "airnode": "0x27f093777962Bb743E6cAC44cd724B84B7254aad",
+#    "generatedBy": "user1",
+#    "lokiEndpoint": "logs-prod-012.grafana.net",
+#    "lokiToken": "EXAMPLE_eyJIjoW5nV2FzVl_TOKEN"
+#    "lokiTokenId": "EXAMPLE-ca5a-TOKEN-bfd0-ID",
+#    "lokiUser": "34567"
+# }
+# or
+# {
+#   "message": "No Grafana Loki access record found for 0x27f093777962Bb743E6cAC44cd724B84B7254aad"
+# }
 
 # DELETE_/grafanaLokiAccess
 curl --location --request DELETE 'https://api-integrations.nodary.io/grafanaLokiAccess?airnode=0x27f093777962Bb743E6cAC44cd724B84B7254aad' \
@@ -102,9 +124,12 @@ curl --location --request DELETE 'https://api-integrations.nodary.io/grafanaLoki
 
 # Response will be:
 # {
-#   "message": "Grafana Loki access record for 0x27f093777962Bb743E6cAC44cd724B84B7254aad is deleted"
+#   "message": "Grafana Loki access record for 0x27f093777962Bb743E6cAC44cd724B84B7254aad has been deleted"
 # }
-
+# or
+# {
+#   "message": "No Grafana Loki access record for 0x27f093777962Bb743E6cAC44cd724B84B7254aad found to delete"
+# }
 
 # POST_/signedApiAccess
 curl --location --request POST 'https://api-integrations.nodary.io/signedApiAccess?airnode=0x27f093777962Bb743E6cAC44cd724B84B7254aad' \
@@ -125,6 +150,34 @@ curl --location --request POST 'https://api-integrations.nodary.io/signedApiAcce
 #   },
 #   "generatedBy": "user1"
 # }
+# or
+# {
+#   "message": "Signed API access record for 0x27f093777962Bb743E6cAC44cd724B84B7254aad already exists"
+# }
+
+# GET_/signedApiAccess
+curl --location 'https://api-integrations.nodary.io/signedApiAccess?airnode=0x27f093777962Bb743E6cAC44cd724B84B7254aad' \
+--header 'x-api-key: user1:pass1'
+
+# Response will be:
+# {
+#   "airnode": "0x27f093777962Bb743E6cAC44cd724B84B7254aad",
+#   "bearerToken": {
+#       "api3": {
+#           "airnodeFeed": "EXAMPLETOKEN926461c16ce994846f9decc827f42e",
+#           "oev": "926461c16ce994846f9decc827f42eEXAMPLETOKEN"
+#       },
+#       "nodary": {
+#           "airnodeFeed": "926461c16ce994846f9decc827fEXAMPLETOKEN42e",
+#           "oev": "926461c16cEXAMPLETOKENe994846f9decc827f42e"
+#       }
+#   },
+#   "generatedBy": "user1"
+# }
+# or
+# {
+#   "message": "No signed API access record found for 0x27f093777962Bb743E6cAC44cd724B84B7254aad"
+# }
 
 # DELETE_/signedApiAccess
 curl --location --request DELETE 'https://api-integrations.nodary.io/signedApiAccess?airnode=0x27f093777962Bb743E6cAC44cd724B84B7254aad' \
@@ -132,7 +185,11 @@ curl --location --request DELETE 'https://api-integrations.nodary.io/signedApiAc
 
 # Response will be:
 # {
-#   "message": "Signed API access record for 0x27f093777962Bb743E6cAC44cd724B84B7254aad is deleted"
+#     "message": "Signed API access record for 0x27f093777962Bb743E6cAC44cd724B84B7254aad has been deleted"
+# }
+# or
+# {
+#   "message": "No signed API access record for 0x27f093777962Bb743E6cAC44cd724B84B7254aad found to delete"
 # }
 ```
 
