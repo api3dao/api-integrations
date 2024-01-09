@@ -10,7 +10,13 @@ const StageLocation = ({ location, hash }) => {
   const { grafanaLog } = useContext(ApiIntegrationsContext);
   const getStatus = () => {
     if (grafanaLog === null || grafanaLog === undefined) return null;
-    return grafanaLog.find((log) => log.stage === location && log.configHash === hash);
+    try {
+      const log = grafanaLog.find((log) => log.stage === location && log.configHash === hash);
+      return log;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
   };
 
   const getStatusIcon = () => {
