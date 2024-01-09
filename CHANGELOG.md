@@ -1,5 +1,12 @@
 # api-integrations
 
+## 1.0.0
+
+### Major Changes
+
+- cc018e9: - Package has been moved to @phase21 organization
+  - `logos` package replaced with `@phase21/logos`
+
 ## 0.1.0
 
 ### Minor Changes
