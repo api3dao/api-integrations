@@ -3,13 +3,10 @@ name: Trigger on Registry Package Publish
 on:
   registry_package:
     types: [published]
-  pull_request:
-    branches: [ main ]
 permissions:
     contents: write
 jobs:
   Trigger:
-    if : github.ref == 'refs/heads/main' || contains(github.event.pull_request.labels.*.name, 'manual trigger')
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
