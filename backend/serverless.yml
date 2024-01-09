@@ -1,9 +1,10 @@
-service: api-integrations-logging
+service: api-integrations-backend
 useDotenv: true
 frameworkVersion: '3'
 
 provider:
   name: aws
+
   runtime: nodejs16.x
 
   httpApi:
@@ -19,9 +20,11 @@ provider:
             - 'dynamodb:GetItem'
             - 'dynamodb:Scan'
             - 'dynamodb:Query'
+            - 'dynamodb:DeleteItem'
 
           Resource:
-            - { 'Fn::GetAtt': ['TokenOwnerGroup', 'Arn'] }
+            - { 'Fn::GetAtt': ['GrafanaLokiAccessRegistry', 'Arn'] }
+            - { 'Fn::GetAtt': ['SignedApiAccessRegistry', 'Arn'] }
 
   environment:
     API_KEY_LIST: ${env:API_KEY_LIST}
@@ -31,43 +34,36 @@ provider:
     GF_LOKI_USER: ${env:GF_LOKI_USER}
     GF_LOKI_ENDPOINT: ${env:GF_LOKI_ENDPOINT}
 
-# package:
-#   patterns:
-#     - "!.build/**"
-#     - "!.vscode/**"
-#     - "!node_modules/**"
-#     - "!test/**"
-
 functions:
-  POST_/grafanaLokiAccess:
+  connectOrCreateGrafanaLokiAccess:
     memorySize: 128
     handler: src/handlers.connectOrCreateGrafanaLokiAccess
     events:
       - httpApi:
           path: /grafanaLokiAccess
           method: post
-  DELETE_/grafanaLokiAccess:
+  deleteGrafanaLokiAccess:
     memorySize: 128
     handler: src/handlers.deleteGrafanaLokiAccess
     events:
       - httpApi:
           path: /grafanaLokiAccess
           method: delete
-  POST_/signedApiAccess:
+  connectOrCreateSignedApiAccess:
     memorySize: 128
     handler: src/handlers.connectOrCreateSignedApiAccess
     events:
       - httpApi:
           path: /signedApiAccess
           method: post
-  DELETE_/signedApiAccess:
+  deleteSignedApiAccess:
     memorySize: 128
     handler: src/handlers.deleteSignedApiAccess
     events:
       - httpApi:
           path: /signedApiAccess
           method: delete
-  GET_/deploymentStatus:
+  evaluateDeploymentStatus:
     memorySize: 128
     handler: src/handlers.evaluateDeploymentStatus
     events:
