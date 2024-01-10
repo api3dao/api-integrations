@@ -31,6 +31,21 @@
       "Type": "String",
       "MinLength": 10,
       "Description": "API secret 2."
+    },
+    "NodarySignedApiToken": {
+      "Type": "String",
+      "MinLength": "10",
+      "Description": "Token to POST data to Nodary Signed API."
+    },
+    "Api3SignedApiToken": {
+      "Type": "String",
+      "MinLength": "10",
+      "Description": "Token to POST data to API3 Signed API."
+    },
+    "StagingSignedApiToken": {
+      "Type": "String",
+      "MinLength": 10,
+      "Descriptipn": "Token to POST data to Staging Signed API"
     }
   },
   "Resources": {
@@ -103,6 +118,24 @@
                       "=",
                       {
                         "Ref": "apiKey2"
+                      },
+                      "\\n",
+                      "AUTH_TOKEN_NODARY",
+                      "=",
+                      {
+                        "Ref": "NodarySignedApiToken"
+                      },
+                      "\\n",
+                      "AUTH_TOKEN_API3",
+                      "=",
+                      {
+                        "Ref": "Api3SignedApiToken"
+                      },
+                      "\\n",
+                      "AUTH_TOKEN_STAGING",
+                      "=",
+                      {
+                        "Ref": "StagingSignedApiToken"
                       },
                       "\\n",
                       "STAGE",
