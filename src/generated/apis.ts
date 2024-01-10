@@ -166,8 +166,11 @@ export const apisData = {
     officialUrl: 'https://twelvedata.com',
     verifiedUrl: 'https://twelvedata.com',
     signedApiUrl: '',
-    productionSignedApiUrl: '',
-    stagingSignedApiUrl: ''
+    productionSignedApiUrls: [
+      { url: 'https://signed-api.nodary.io', name: 'Nodary' },
+      { url: 'https://placeholder.api3.org', name: 'API3' }
+    ],
+    stagingSignedApiUrl: { url: 'https://signed-api.stage.nodary.io', name: 'Staging' }
   },
   tradermade: {
     alias: 'tradermade',
@@ -205,8 +208,11 @@ export const apisData = {
     officialUrl: 'https://tradermade.com',
     verifiedUrl: 'https://tradermade.com',
     signedApiUrl: '',
-    productionSignedApiUrl: '',
-    stagingSignedApiUrl: ''
+    productionSignedApiUrls: [
+      { url: 'https://signed-api.nodary.io', name: 'Nodary' },
+      { url: 'https://placeholder.api3.org', name: 'API3' }
+    ],
+    stagingSignedApiUrl: { url: 'https://signed-api.stage.nodary.io', name: 'Staging' }
   },
   nodary: {
     alias: 'nodary',
@@ -382,8 +388,11 @@ export const apisData = {
     officialUrl: 'https://nodary.io',
     verifiedUrl: 'https://nodary.io',
     signedApiUrl: '',
-    productionSignedApiUrl: '',
-    stagingSignedApiUrl: ''
+    productionSignedApiUrls: [
+      { url: 'https://signed-api.nodary.io', name: 'Nodary' },
+      { url: 'https://placeholder.api3.org', name: 'API3' }
+    ],
+    stagingSignedApiUrl: { url: 'https://signed-api.stage.nodary.io', name: 'Staging' }
   },
   ncfx: {
     alias: 'ncfx',
@@ -520,8 +529,11 @@ export const apisData = {
     officialUrl: 'https://www.newchangefx.com',
     verifiedUrl: 'https://newchangefx.com',
     signedApiUrl: '',
-    productionSignedApiUrl: '',
-    stagingSignedApiUrl: ''
+    productionSignedApiUrls: [
+      { url: 'https://signed-api.nodary.io', name: 'Nodary' },
+      { url: 'https://placeholder.api3.org', name: 'API3' }
+    ],
+    stagingSignedApiUrl: { url: 'https://signed-api.stage.nodary.io', name: 'Staging' }
   },
   kaiko: {
     alias: 'kaiko',
@@ -635,8 +647,11 @@ export const apisData = {
     officialUrl: 'https://www.kaiko.com',
     verifiedUrl: 'https://kaiko.io',
     signedApiUrl: '',
-    productionSignedApiUrl: '',
-    stagingSignedApiUrl: ''
+    productionSignedApiUrls: [
+      { url: 'https://signed-api.nodary.io', name: 'Nodary' },
+      { url: 'https://placeholder.api3.org', name: 'API3' }
+    ],
+    stagingSignedApiUrl: { url: 'https://signed-api.stage.nodary.io', name: 'Staging' }
   },
   iexcloud: {
     alias: 'iexcloud',
@@ -682,8 +697,11 @@ export const apisData = {
     officialUrl: 'https://iexcloud.io',
     verifiedUrl: 'https://iex.cloud',
     signedApiUrl: '',
-    productionSignedApiUrl: '',
-    stagingSignedApiUrl: ''
+    productionSignedApiUrls: [
+      { url: 'https://signed-api.nodary.io', name: 'Nodary' },
+      { url: 'https://placeholder.api3.org', name: 'API3' }
+    ],
+    stagingSignedApiUrl: { url: 'https://signed-api.stage.nodary.io', name: 'Staging' }
   },
   finnhub: {
     alias: 'finnhub',
@@ -737,8 +755,11 @@ export const apisData = {
     officialUrl: 'https://finnhub.io',
     verifiedUrl: 'https://finnhub.io',
     signedApiUrl: '',
-    productionSignedApiUrl: '',
-    stagingSignedApiUrl: ''
+    productionSignedApiUrls: [
+      { url: 'https://signed-api.nodary.io', name: 'Nodary' },
+      { url: 'https://placeholder.api3.org', name: 'API3' }
+    ],
+    stagingSignedApiUrl: { url: 'https://signed-api.stage.nodary.io', name: 'Staging' }
   },
   finage: {
     alias: 'finage',
@@ -903,8 +924,11 @@ export const apisData = {
     officialUrl: 'https://finage.co.uk',
     verifiedUrl: 'https://finage.co.uk',
     signedApiUrl: '',
-    productionSignedApiUrl: '',
-    stagingSignedApiUrl: ''
+    productionSignedApiUrls: [
+      { url: 'https://signed-api.nodary.io', name: 'Nodary' },
+      { url: 'https://placeholder.api3.org', name: 'API3' }
+    ],
+    stagingSignedApiUrl: { url: 'https://signed-api.stage.nodary.io', name: 'Staging' }
   },
   dxfeed: {
     alias: 'dxfeed',
@@ -1030,8 +1054,11 @@ export const apisData = {
     officialUrl: 'https://dxfeed.com',
     verifiedUrl: 'https://dxfeed.com',
     signedApiUrl: '',
-    productionSignedApiUrl: '',
-    stagingSignedApiUrl: ''
+    productionSignedApiUrls: [
+      { url: 'https://signed-api.nodary.io', name: 'Nodary' },
+      { url: 'https://placeholder.api3.org', name: 'API3' }
+    ],
+    stagingSignedApiUrl: { url: 'https://signed-api.stage.nodary.io', name: 'Staging' }
   },
   coinpaprika: {
     alias: 'coinpaprika',
@@ -1159,8 +1186,11 @@ export const apisData = {
     officialUrl: 'https://coinpaprika.com',
     verifiedUrl: 'https://coinpaprika.com',
     signedApiUrl: '',
-    productionSignedApiUrl: '',
-    stagingSignedApiUrl: ''
+    productionSignedApiUrls: [
+      { url: 'https://signed-api.nodary.io', name: 'Nodary' },
+      { url: 'https://placeholder.api3.org', name: 'API3' }
+    ],
+    stagingSignedApiUrl: { url: 'https://signed-api.stage.nodary.io', name: 'Staging' }
   }
 };
 export const airnodeAddressMap = {
