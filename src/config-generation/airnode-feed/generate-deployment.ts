@@ -146,7 +146,8 @@ const main = async () => {
   airnodeFeedConfig.signedApis = [
     {
       name: signedApiName,
-      url: apiData[deploymentTypeMap[deploymentType]]
+      url: apiData[deploymentTypeMap[deploymentType]],
+      authToken: "${AUTH_TOKEN}"
     }
   ];
 
