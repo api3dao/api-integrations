@@ -1,4 +1,4 @@
-const DEPLOYMENT_STATUS_API_URL = 'https://integration.nodary.io/';
+const DEPLOYMENT_STATUS_API_URL = 'https://api-integrations.nodary.io/';
 
 export async function getDeploymentStatus(airnodeAddress, setGrafanaLog) {
   let url = DEPLOYMENT_STATUS_API_URL;
