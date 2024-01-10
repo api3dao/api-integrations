@@ -42,10 +42,9 @@ const main = async () => {
   });
   console.log('deploymentType is: ', deploymentType);
 
-  const signedApiName = `${apiName}-api3`;
   const deploymentTypeMap: Record<string, string> = {
     staging: 'stagingSignedApiUrl',
-    candidate: 'productionSignedApiUrl'
+    candidate: 'productionSignedApiUrls'
   };
 
   // read required files
@@ -134,23 +133,60 @@ const main = async () => {
       });
 
       // add triggers
-      airnodeFeedConfig.triggers['signedApiUpdates'].push({
-        signedApiName: signedApiName,
-        templateIds: templateIds,
-        fetchInterval: 5,
-        updateDelay: 0
-      });
+      switch (deploymentType) {
+        case 'staging': {
+          airnodeFeedConfig.triggers['signedApiUpdates'].push({
+            signedApiName: apiData[deploymentTypeMap[deploymentType]].name,
+            templateIds: templateIds,
+            fetchInterval: 5,
+            updateDelay: 0
+          });
+          break;
+        }
+        case 'candidate': {
+          apiData[deploymentTypeMap[deploymentType]].forEach((urlObject) => {
+            airnodeFeedConfig.triggers['signedApiUpdates'].push({
+              signedApiName: urlObject.name,
+              templateIds: templateIds,
+              fetchInterval: 5,
+              updateDelay: 0
+            });
+          });
+          break;
+        }
+        default: {
+          throw Error('Deployment type can be staging or candidate!');
+        }
+      }
     });
   });
 
   // generate signedApis
-  airnodeFeedConfig.signedApis = [
-    {
-      name: signedApiName,
-      url: apiData[deploymentTypeMap[deploymentType]],
-      authToken: '${AUTH_TOKEN}'
+  switch (deploymentType) {
+    case 'staging': {
+      airnodeFeedConfig.signedApis = [
+        {
+          name: apiData[deploymentTypeMap[deploymentType]].name,
+          url: apiData[deploymentTypeMap[deploymentType]].url,
+          authToken: '${AUTH_TOKEN' + `_${apiData[deploymentTypeMap[deploymentType]].name.toUpperCase()}}`
+        }
+      ];
+      break;
     }
-  ];
+    case 'candidate': {
+      airnodeFeedConfig.signedApis = apiData[deploymentTypeMap[deploymentType]].map((urlObject) => {
+        return {
+          name: urlObject.name,
+          url: urlObject.url,
+          authToken: '${AUTH_TOKEN' + `_${urlObject.name.toUpperCase()}}`
+        };
+      });
+      break;
+    }
+    default: {
+      throw Error('Deployment type can be staging or candidate!');
+    }
+  }
 
   // generate apiCredentials
   airnodeFeedConfig.apiCredentials = [];
