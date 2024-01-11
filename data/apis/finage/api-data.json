@@ -161,6 +161,18 @@
   "officialUrl": "https://finage.co.uk",
   "verifiedUrl": "https://finage.co.uk",
   "signedApiUrl": "",
-  "productionSignedApiUrl": "",
-  "stagingSignedApiUrl": ""
+  "productionSignedApiUrls": [
+    {
+      "url": "https://signed-api.nodary.io",
+      "name": "Nodary"
+    },
+    {
+      "url": "https://placeholder.api3.org",
+      "name": "API3"
+    }
+  ],
+  "stagingSignedApiUrl": {
+    "url": "https://signed-api.stage.nodary.io",
+    "name": "Staging"
+  }
 }

@@ -42,6 +42,18 @@
   "officialUrl": "https://iexcloud.io",
   "verifiedUrl": "https://iex.cloud",
   "signedApiUrl": "",
-  "productionSignedApiUrl": "",
-  "stagingSignedApiUrl": ""
+  "productionSignedApiUrls": [
+    {
+      "url": "https://signed-api.nodary.io",
+      "name": "Nodary"
+    },
+    {
+      "url": "https://placeholder.api3.org",
+      "name": "API3"
+    }
+  ],
+  "stagingSignedApiUrl": {
+    "url": "https://signed-api.stage.nodary.io",
+    "name": "Staging"
+  }
 }

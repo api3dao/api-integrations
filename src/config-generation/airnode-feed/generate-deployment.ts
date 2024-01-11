@@ -7,6 +7,7 @@ import { format } from 'date-fns';
 import { difference } from 'lodash';
 import { Logger, ILogObj } from 'tslog';
 import { OIS } from '@api3/ois';
+import { configSchema } from '@api3/airnode-feed';
 import { readJson, saveJson, extractPreProcessingObject, extractPostProcessingObject } from '../config-utils';
 import { apiDataSchema } from '../validation';
 import { deriveEndpointId, deriveTemplateId } from '../../index';
@@ -41,10 +42,9 @@ const main = async () => {
   });
   console.log('deploymentType is: ', deploymentType);
 
-  const signedApiName = `${apiName}-api3`;
   const deploymentTypeMap: Record<string, string> = {
     staging: 'stagingSignedApiUrl',
-    candidate: 'productionSignedApiUrl'
+    candidate: 'productionSignedApiUrls'
   };
 
   // read required files
@@ -133,22 +133,60 @@ const main = async () => {
       });
 
       // add triggers
-      airnodeFeedConfig.triggers['signedApiUpdates'].push({
-        signedApiName: signedApiName,
-        templateIds: templateIds,
-        fetchInterval: 5,
-        updateDelay: 0
-      });
+      switch (deploymentType) {
+        case 'staging': {
+          airnodeFeedConfig.triggers['signedApiUpdates'].push({
+            signedApiName: apiData[deploymentTypeMap[deploymentType]].name,
+            templateIds: templateIds,
+            fetchInterval: 5,
+            updateDelay: 0
+          });
+          break;
+        }
+        case 'candidate': {
+          apiData[deploymentTypeMap[deploymentType]].forEach((urlObject) => {
+            airnodeFeedConfig.triggers['signedApiUpdates'].push({
+              signedApiName: urlObject.name,
+              templateIds: templateIds,
+              fetchInterval: 5,
+              updateDelay: 0
+            });
+          });
+          break;
+        }
+        default: {
+          throw Error('Deployment type can be staging or candidate!');
+        }
+      }
     });
   });
 
   // generate signedApis
-  airnodeFeedConfig.signedApis = [
-    {
-      name: signedApiName,
-      url: apiData[deploymentTypeMap[deploymentType]]
+  switch (deploymentType) {
+    case 'staging': {
+      airnodeFeedConfig.signedApis = [
+        {
+          name: apiData[deploymentTypeMap[deploymentType]].name,
+          url: apiData[deploymentTypeMap[deploymentType]].url,
+          authToken: '${AUTH_TOKEN' + `_${apiData[deploymentTypeMap[deploymentType]].name.toUpperCase()}}`
+        }
+      ];
+      break;
     }
-  ];
+    case 'candidate': {
+      airnodeFeedConfig.signedApis = apiData[deploymentTypeMap[deploymentType]].map((urlObject) => {
+        return {
+          name: urlObject.name,
+          url: urlObject.url,
+          authToken: '${AUTH_TOKEN' + `_${urlObject.name.toUpperCase()}}`
+        };
+      });
+      break;
+    }
+    default: {
+      throw Error('Deployment type can be staging or candidate!');
+    }
+  }
 
   // generate apiCredentials
   airnodeFeedConfig.apiCredentials = [];
@@ -166,6 +204,20 @@ const main = async () => {
   const today = format(new Date(), 'yyyyMMdd');
   const stage = `api3-${today}`;
   airnodeFeedConfig.nodeSettings.stage = '${STAGE}';
+
+  // validate the Airnode feed config
+  const DUMMY_MNEMONIC = 'online success junior focus title gauge timber old silk cereal kidney drip';
+  const DUMMY_STAGE = 'aws';
+  const DUMMY_URL = 'https://my-signed-api.com';
+  const copyAirnodeFeedConfig = JSON.parse(JSON.stringify(airnodeFeedConfig));
+  // fill copied config with dummy values to parse config
+  copyAirnodeFeedConfig.nodeSettings.airnodeWalletMnemonic = DUMMY_MNEMONIC;
+  copyAirnodeFeedConfig.nodeSettings.stage = DUMMY_STAGE;
+  copyAirnodeFeedConfig.signedApis.forEach((_, signedApiIndex) => {
+    copyAirnodeFeedConfig.signedApis[signedApiIndex].url = DUMMY_URL;
+  });
+
+  await configSchema.parseAsync(copyAirnodeFeedConfig);
 
   // save the deployment
   const deploymentPath = `./data/apis/${apiName}/deployments/${deploymentType}-deployments`;
