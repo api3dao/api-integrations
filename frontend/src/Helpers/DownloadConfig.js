@@ -107,17 +107,16 @@ const replaceSomeId = (CloudFormation, configData) => {
 };
 
 const downloadCloudFormation = (CloudFormation, configData) => {
-  const entryPoint = [
-    '/bin/sh',
-    '-c',
-    `echo -e $SECRETS_ENV >> ./config/secrets.env && wget -O - https://raw.githubusercontent.com/api3dao/api-integrations/main/data/apis/${configData.apiProvider}/deployments/${configData.category}-deployments/${configData.filename} >> ./config/airnode-feed.json && node dist/src/index.js`
-  ];
-
-  const secrets = getSecrets(configData.config.apiCredentials);
+  // Interpolate "EntryPoint"
+  const interpolationKeys = ["<API_ALIAS>", "<DEPLOYMENT_TYPE>", "<FILE_NAME>"];
+  const interpolationValues = [configData.apiProvider, configData.category, configData.filename];
+  let entryPointBashCmd = CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].EntryPoint[2];
+  interpolationKeys.forEach((k, index) => {
+    entryPointBashCmd = entryPointBashCmd.replace(k, interpolationValues[index]);
+  });
 
   CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].Environment[0].Value = secrets;
-  CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].EntryPoint = entryPoint;
-  CloudFormation.Parameters = getParameters(configData.config.apiCredentials);
+  CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].EntryPoint[2] = entryPointBashCmd;
 
   CloudFormation = replaceSomeId(CloudFormation, configData);
 
