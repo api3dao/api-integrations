@@ -45,7 +45,7 @@
     "StagingSignedApiToken": {
       "Type": "String",
       "MinLength": 10,
-      "Descriptipn": "Token to POST data to Staging Signed API (This should be handed to you)."
+      "Description": "Token to POST data to Staging Signed API (This should be handed to you)."
     }
   },
   "Resources": {

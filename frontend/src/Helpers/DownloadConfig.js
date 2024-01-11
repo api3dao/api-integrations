@@ -142,14 +142,14 @@ const downloadCloudFormation = (CloudFormation, configData) => {
     case 'staging': {
       const keysToAdd = ['AUTH_TOKEN_STAGING'];
       keysToAdd.forEach((k) => {
-        secrets['Fn::Join'][1].push([
+        [
           '\\n',
           k,
           '=',
           {
             Ref: signedApiSecretsMap[k]
           }
-        ]);
+        ].forEach((v) => secrets['Fn::Join'][1].push(v));
       });
       break;
     }
