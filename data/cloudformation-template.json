@@ -35,17 +35,17 @@
     "NodarySignedApiToken": {
       "Type": "String",
       "MinLength": "10",
-      "Description": "Token to POST data to Nodary Signed API."
+      "Description": "Token to POST data to Nodary Signed API (This should be handed to you)."
     },
     "Api3SignedApiToken": {
       "Type": "String",
       "MinLength": "10",
-      "Description": "Token to POST data to API3 Signed API."
+      "Description": "Token to POST data to API3 Signed API (This should be handed to you)."
     },
     "StagingSignedApiToken": {
       "Type": "String",
       "MinLength": 10,
-      "Descriptipn": "Token to POST data to Staging Signed API"
+      "Descriptipn": "Token to POST data to Staging Signed API (This should be handed to you)."
     }
   },
   "Resources": {
@@ -153,7 +153,7 @@
             "EntryPoint": [
               "/bin/sh",
               "-c",
-              "mkdir config && echo -e $SECRETS_ENV >> ./config/secrets.env && wget -O - <PUBLIC_CONFIG_URL> >> ./config/airnode-feed.json && node dist/src/index.js"
+              "mkdir config && echo -e $SECRETS_ENV >> ./config/secrets.env && wget -O - https://raw.githubusercontent.com/api3dao/api-integrations/main/data/apis/<API_ALIAS>/deployments/<DEPLOYMENT_TYPE>-deployments/<FILE_NAME> >> ./config/airnode-feed.json && node dist/src/index.js"
             ],
             "LogConfiguration": {
               "LogDriver": "awsfirelens",
