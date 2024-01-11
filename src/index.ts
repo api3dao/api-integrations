@@ -125,3 +125,17 @@ export function getAllDataFeeds() {
   const uniqueFeeds = _.uniq(allFeeds);
   return uniqueFeeds;
 }
+
+export function getApiUrls(airnodeAddress: string) {
+  const targetApiData = Object.values(apisData).find((apiData) => apiData.airnode === airnodeAddress);
+  if (!targetApiData) {
+    throw `Couldn't find the Airnode address ${airnodeAddress}!`;
+  }
+
+  return {
+    name: targetApiData.name,
+    alias: targetApiData.alias,
+    officialUrl: targetApiData.officialUrl,
+    verifiedUrl: targetApiData.verifiedUrl
+  };
+}
