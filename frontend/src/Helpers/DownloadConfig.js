@@ -2,15 +2,24 @@ import JSZip from 'jszip';
 import _ from 'lodash';
 import { CONSTANTS } from '../data/constants';
 
-export const populateOis = (configData, mode = CONSTANTS.CLOUD_FORMATION_DEPLOY, callback) => {
-  const checkCloudFormationFile = (ctx) => {
-    let values = ctx.keys().map(ctx);
-    return values[0];
-  };
+const checkCloudFormationFile = (ctx) => {
+  let values = ctx.keys().map(ctx);
+  return values[0];
+};
 
+const getCfFile = () => {
   const cloudFormation = ((ctx) => {
     return checkCloudFormationFile(ctx);
   })(require.context('../../../data/', true, /cloudformation-template.json/));
+
+  if (localStorage.getItem('cloudFormation') === null) {
+    localStorage.setItem('cloudFormation', JSON.stringify(cloudFormation, null, 2));
+  }
+  return JSON.parse(localStorage.getItem('cloudFormation'));
+};
+
+export const populateOis = (configData, mode = CONSTANTS.CLOUD_FORMATION_DEPLOY, callback) => {
+  const cloudFormation = getCfFile();
 
   if (cloudFormation == null) return;
   if (configData == null) return;
@@ -187,6 +196,8 @@ const downloadCloudFormation = (CloudFormation, configData) => {
   CloudFormation = replaceSomeId(CloudFormation, configData);
 
   const jsonString = `data:text/json;chatset=utf-8,${encodeURIComponent(JSON.stringify(CloudFormation, null, 2))}`;
+
+  localStorage.removeItem('cloudFormation');
 
   const link = document.createElement('a');
   link.href = jsonString;
