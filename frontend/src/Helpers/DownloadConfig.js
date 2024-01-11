@@ -1,5 +1,5 @@
 import JSZip from 'jszip';
-import _ from "lodash";
+import _ from 'lodash';
 import { CONSTANTS } from '../data/constants';
 
 export const populateOis = (configData, mode = CONSTANTS.CLOUD_FORMATION_DEPLOY, callback) => {
@@ -111,21 +111,21 @@ const replaceSomeId = (CloudFormation, configData) => {
 const downloadCloudFormation = (CloudFormation, configData) => {
   let secrets = getSecrets(configData.config.apiCredentials);
   // Remove placeholder parameters
-  const placeholderParameters = ["apiKey1", "apiKey2"];
+  const placeholderParameters = ['apiKey1', 'apiKey2'];
   placeholderParameters.forEach((p) => {
     CloudFormation.Parameters = _.omit(CloudFormation.Parameters, p);
   });
   // Remove Signed API Token parameters based on the deployment category
-  switch(configData.category) {
-    case "staging": {
-      const parametersToDelete = ["NodarySignedApiToken", "Api3SignedApiToken"];
+  switch (configData.category) {
+    case 'staging': {
+      const parametersToDelete = ['NodarySignedApiToken', 'Api3SignedApiToken'];
       parametersToDelete.forEach((p) => {
         CloudFormation.Parameters = _.omit(CloudFormation.Parameters, p);
       });
       break;
     }
-    case "candidate": {
-      const parametersToDelete = ["StagingSignedApiToken"];
+    case 'candidate': {
+      const parametersToDelete = ['StagingSignedApiToken'];
       parametersToDelete.forEach((p) => {
         CloudFormation.Parameters = _.omit(CloudFormation.Parameters, p);
       });
@@ -134,61 +134,55 @@ const downloadCloudFormation = (CloudFormation, configData) => {
   }
   // add Signed API tokens to contents of SECRETS_ENV
   const signedApiSecretsMap = {
-    "AUTH_TOKEN_STAGING": "StagingSignedApiToken",
-    "AUTH_TOKEN_NODARY": "NodarySignedApiToken",
-    "AUTH_TOKEN_API3": "Api3SignedApiToken"
+    AUTH_TOKEN_STAGING: 'StagingSignedApiToken',
+    AUTH_TOKEN_NODARY: 'NodarySignedApiToken',
+    AUTH_TOKEN_API3: 'Api3SignedApiToken'
   };
-  switch(configData.category) {
-    case "staging": {
-      const keysToAdd = ["AUTH_TOKEN_STAGING"];
+  switch (configData.category) {
+    case 'staging': {
+      const keysToAdd = ['AUTH_TOKEN_STAGING'];
       keysToAdd.forEach((k) => {
-        secrets["Fn::Join"][1].push(
-          [
-            '\\n',
-            k,
-            '=',
-            {
-              Ref: signedApiSecretsMap[k]
-            } 
-          ]
-        );
+        secrets['Fn::Join'][1].push([
+          '\\n',
+          k,
+          '=',
+          {
+            Ref: signedApiSecretsMap[k]
+          }
+        ]);
       });
       break;
     }
-    case "candidate": {
-      const keysToAdd = ["AUTH_TOKEN_NODARY", "AUTH_TOKEN_API3"];
+    case 'candidate': {
+      const keysToAdd = ['AUTH_TOKEN_NODARY', 'AUTH_TOKEN_API3'];
       keysToAdd.forEach((k) => {
-        secrets["Fn::Join"][1].push(
-          [
-            '\\n',
-            k,
-            '=',
-            {
-              Ref: signedApiSecretsMap[k]
-            } 
-          ]
-        );
+        secrets['Fn::Join'][1].push([
+          '\\n',
+          k,
+          '=',
+          {
+            Ref: signedApiSecretsMap[k]
+          }
+        ]);
       });
       break;
     }
   }
-  
+
   // Interpolate "EntryPoint"
-  const interpolationKeys = ["<API_ALIAS>", "<DEPLOYMENT_TYPE>", "<FILE_NAME>"];
+  const interpolationKeys = ['<API_ALIAS>', '<DEPLOYMENT_TYPE>', '<FILE_NAME>'];
   const interpolationValues = [configData.apiProvider, configData.category, configData.filename];
   let entryPointBashCmd = CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].EntryPoint[2];
   interpolationKeys.forEach((k, index) => {
     entryPointBashCmd = entryPointBashCmd.replace(k, interpolationValues[index]);
   });
-  
+
   CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].Environment[0].Value = secrets;
   CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].EntryPoint[2] = entryPointBashCmd;
   CloudFormation.Parameters = {
     ...getParameters(configData.config.apiCredentials),
     ...CloudFormation.Parameters
   };
-
-  
 
   CloudFormation = replaceSomeId(CloudFormation, configData);
 
