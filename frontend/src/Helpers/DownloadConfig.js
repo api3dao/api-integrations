@@ -18,7 +18,7 @@ const getCfFile = () => {
   return JSON.parse(localStorage.getItem('cloudFormation'));
 };
 
-export const populateOis = (configData, mode = CONSTANTS.CLOUD_FORMATION_DEPLOY, callback) => {
+export const populateOis = (configData, airnodeAddress, mode = CONSTANTS.CLOUD_FORMATION_DEPLOY, callback) => {
   const cloudFormation = getCfFile();
 
   if (cloudFormation == null) return;
@@ -35,7 +35,7 @@ export const populateOis = (configData, mode = CONSTANTS.CLOUD_FORMATION_DEPLOY,
   const secrets = `WALLET_MNEMONIC=<ENTER_MNEMONIC>${API_KEY}${stage}`;
   switch (mode) {
     case CONSTANTS.CLOUD_FORMATION_DEPLOY:
-      downloadCloudFormation(cloudFormation, configData);
+      downloadCloudFormation(cloudFormation, configData, airnodeAddress);
       break;
     case CONSTANTS.DOCKER_DEPLOY:
       downloadZip(secrets, configData);
@@ -117,7 +117,7 @@ const replaceSomeId = (CloudFormation, configData) => {
   return JSON.parse(newConfig);
 };
 
-const downloadCloudFormation = (CloudFormation, configData) => {
+const downloadCloudFormation = (CloudFormation, configData, airnodeAddress) => {
   let secrets = getSecrets(configData.config.apiCredentials);
   // Remove placeholder parameters
   const placeholderParameters = ['apiKey1', 'apiKey2'];
@@ -186,8 +186,18 @@ const downloadCloudFormation = (CloudFormation, configData) => {
     entryPointBashCmd = entryPointBashCmd.replace(k, interpolationValues[index]);
   });
 
+  // Interpolate "LogConfiguration"
+  const interpolationAirnodeAddress = '<AIRNODE_ADDRESS>';
+
+  let logConfiguration =
+    CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].LogConfiguration.Options.Labels;
+  logConfiguration = logConfiguration.replace(interpolationAirnodeAddress, airnodeAddress);
+  console.log(logConfiguration);
+
   CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].Environment[0].Value = secrets;
   CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].EntryPoint[2] = entryPointBashCmd;
+  CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].LogConfiguration.Options.Labels =
+    logConfiguration;
   CloudFormation.Parameters = {
     ...getParameters(configData.config.apiCredentials),
     ...CloudFormation.Parameters

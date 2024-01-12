@@ -11,11 +11,10 @@ import { ApiIntegrationsContext } from '../Context';
 import InfoRow from '../Custom/InfoRow';
 
 const SearchApiProvider = ({ providers, setProvider }) => {
-  const [airnodeAddress, setAirnodeAddress] = useState(null);
   const [deployment, setDeployment] = useState(null);
   const [error, setError] = useState(null);
 
-  const { setGrafanaLog } = useContext(ApiIntegrationsContext);
+  const { setGrafanaLog, airnodeAddress, setAirnodeAddress } = useContext(ApiIntegrationsContext);
 
   const getAirnodeAddress = () => {
     return localStorage.getItem('airnodeAddress');
