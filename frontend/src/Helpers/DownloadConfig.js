@@ -192,7 +192,6 @@ const downloadCloudFormation = (CloudFormation, configData, airnodeAddress) => {
   let logConfiguration =
     CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].LogConfiguration.Options.Labels;
   logConfiguration = logConfiguration.replace(interpolationAirnodeAddress, airnodeAddress);
-  console.log(logConfiguration);
 
   CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].Environment[0].Value = secrets;
   CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].EntryPoint[2] = entryPointBashCmd;
