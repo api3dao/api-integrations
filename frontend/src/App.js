@@ -14,11 +14,23 @@ function App() {
   const [stage, setStage] = useState(null);
   const [comparePair, setComparePair] = useState({ left: null, right: null });
   const [grafanaLog, setGrafanaLog] = useState(null);
+  const [airnodeAddress, setAirnodeAddress] = useState(null);
 
   return (
     <ChakraProvider theme={theme}>
       <ApiIntegrationsContext.Provider
-        value={{ config, setConfig, stage, setStage, comparePair, setComparePair, grafanaLog, setGrafanaLog }}
+        value={{
+          config,
+          setConfig,
+          stage,
+          setStage,
+          comparePair,
+          setComparePair,
+          grafanaLog,
+          setGrafanaLog,
+          airnodeAddress,
+          setAirnodeAddress
+        }}
       >
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <HashRouter>

@@ -15,7 +15,7 @@ const DeployOptions = ({ apiData }) => {
   const [step, setStep] = useState(0);
   const [remarks, setRemarks] = useState(null);
 
-  const { config } = useContext(ApiIntegrationsContext);
+  const { config, airnodeAddress } = useContext(ApiIntegrationsContext);
 
   const isSuccessful = (res) => {
     if (res.status === false) {
@@ -57,7 +57,7 @@ const DeployOptions = ({ apiData }) => {
 
   const selectDownloadMode = () => {
     setRemarks(null);
-    populateOis(config, selected, isSuccessful);
+    populateOis(config, airnodeAddress, selected, isSuccessful);
   };
 
   const getIcon = (mode) => {
@@ -97,7 +97,7 @@ const DeployOptions = ({ apiData }) => {
 
           <Stack direction={'row'} spacing={'2'} justifyContent={'left'}>
             {getDeploymentLocations().map((location, index) => (
-              <Flex gap={2} alignItems={'center'}>
+              <Flex key={index} gap={2} alignItems={'center'}>
                 <ImageButton
                   key={index}
                   inW={'50px'}
