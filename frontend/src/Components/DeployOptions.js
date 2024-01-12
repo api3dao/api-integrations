@@ -97,7 +97,7 @@ const DeployOptions = ({ apiData }) => {
 
           <Stack direction={'row'} spacing={'2'} justifyContent={'left'}>
             {getDeploymentLocations().map((location, index) => (
-              <Flex gap={2} alignItems={'center'}>
+              <Flex key={index} gap={2} alignItems={'center'}>
                 <ImageButton
                   key={index}
                   inW={'50px'}
