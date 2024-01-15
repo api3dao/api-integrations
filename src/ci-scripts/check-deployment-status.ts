@@ -66,7 +66,7 @@ async function checkDeployments(deployments: any[], apiName: string, apiData: an
 
 async function getDeploymentStatus(airnodeAddress: string) {
   const response = await axios.get(
-    `https://integration.nodary.io/deploymentStatus?airnode=${airnodeAddress}&app=airnode-feed`
+    `https://api-integrations.nodary.io/deploymentStatus?airnode=${airnodeAddress}&app=airnode-feed`
   );
   return response.data;
 }
