@@ -39,7 +39,7 @@ export const extractUniqueAirnodeFeedHeartbeatPayloads = async (airnode: string)
     throw new Error(`Unexpected result type '${logs.data.resultType}', expected 'streams'`);
 
   const payloads = logs.data.result
-    .map((result) => result.values.map(([_lokiTimestamp, payload]) => JSON.parse(payload).context))
+    .map((result) => result.values.map(([_lokiTimestamp, payload]) => JSON.parse(payload)))
     .flat();
 
   const goParseHeartbeatPayloads = await go(() =>

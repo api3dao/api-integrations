@@ -334,7 +334,7 @@ export const evaluateDeploymentStatus = async (event: APIGatewayProxyEvent): Pro
       return {
         statusCode: 200,
         headers: { ...COMMON_HEADERS },
-        body: JSON.stringify(normalizeObject(goUniquePayloads.data))
+        body: JSON.stringify(goUniquePayloads.data)
       };
     }
     default: {
