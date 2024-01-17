@@ -56,6 +56,7 @@
     "validate-frontend": "ts-node src/ci-scripts/check-frontend-parse-flow.ts",
     "validate-apis-folder": "ts-node src/ci-scripts/check-api-files-integrity.ts",
     "validate-generated-files": "ts-node src/ci-scripts/check-generated-files.ts",
+    "check-deployment-status": "ts-node src/ci-scripts/check-deployment-status.ts",
     "generate-airnode-feed-deployment": "ts-node src/config-generation/airnode-feed/generate-deployment.ts",
     "prepare": "husky install",
     "test:unit": "jest ./test/unit --silent=false",
