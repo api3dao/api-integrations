@@ -34,13 +34,13 @@ async function checkDeployments(deployments: any[], apiName: string, apiData: an
         (targetDeploymentStatus) => targetDeploymentStatus.configHash === configHash
       );
       if (targetDeploymentStatus === undefined) {
-        issues.push(`${apiName}/${deploymentType} - Couldn't find live deployment.`);
+        issues.push(`🔴 ${apiName}/${deploymentType} - Couldn't find live deployment.`);
       } else {
         const now = Math.floor(Date.now() / 1000);
 
         // check timestamp
         if (Math.abs(now - parseInt(targetDeploymentStatus.currentTimestamp)) > ONE_MINUTE_IN_SECONS) {
-          issues.push(`${apiName}/${deploymentType} - Heartbeat is old!`);
+          issues.push(`🔴 ${apiName}/${deploymentType} - Heartbeat is old!`);
         }
 
         // check heartbeat signature
@@ -55,8 +55,16 @@ async function checkDeployments(deployments: any[], apiName: string, apiData: an
         const message = ethers.utils.arrayify(createHash(stringifyUnsignedHeartbeatPayload(unsignedHeartbeatPayload)));
         const signatureResult = ethers.utils.verifyMessage(message, targetDeploymentStatus.signature);
         if (apiData.airnode !== signatureResult) {
-          issues.push(`${apiName}/${deploymentType} - Couldn't verify heartbeat signature!`);
+          issues.push(`🔴 ${apiName}/${deploymentType} - Couldn't verify heartbeat signature!`);
         }
+
+        console.log(
+          `🟢 ${apiName} - Have an active deployment with the below heartbeat:\n${JSON.stringify(
+            targetDeploymentStatus,
+            null,
+            2
+          )}`
+        );
       }
     })
   );
@@ -88,28 +96,17 @@ async function main() {
     const apiData = apiDataSchema.parse(readJson(`./data/apis/${apiName}/api-data.json`));
 
     // ----- Read deployment files -----
-    const stagingDeployments = globSync(`./data/apis/${apiName}/deployments/staging-deployments/*.json`).map((pth) =>
-      readJson(pth)
-    );
-    const candidateDeployments = globSync(`./data/apis/${apiName}/deployments/candidate-deployments/*.json`).map(
-      (pth) => readJson(pth)
-    );
     const activeDeployments = globSync(`./data/apis/${apiName}/deployments/active-deployments/*.json`).map((pth) =>
       readJson(pth)
     );
 
     // ----- Check deployment status -----
-    const stagingIssues = await checkDeployments(stagingDeployments, apiName, apiData, 'staging');
-    const candidateIssues = await checkDeployments(candidateDeployments, apiName, apiData, 'candidate');
     const activeIssues = await checkDeployments(activeDeployments, apiName, apiData, 'active');
-
-    const _issues = {};
-    _issues[apiName] = [...stagingIssues, ...candidateIssues, ...activeIssues];
-    issues.push(_issues);
+    issues.push([activeIssues]);
   }
 
-  if (issues.length > 0) {
-    throw Error(`Issues found:\n${JSON.stringify(issues, null, 2)}`);
+  if (issues.flat(99).length > 0) {
+    throw Error(`Issues found:\n${JSON.stringify(issues.flat(99), null, 2)}`);
   }
 }
 
