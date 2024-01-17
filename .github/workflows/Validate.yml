@@ -38,6 +38,8 @@ jobs:
         run: pnpm validate-generated-files
       - name: Run unit tests
         run: pnpm test:unit
+      - name: Check Deployment Status
+        run: pnpm check-deployment-status
 
   deploy-frontend:
     needs: validate

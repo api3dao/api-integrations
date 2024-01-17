@@ -7,4 +7,5 @@ echo "Done."
 
 echo "Checking generated files..."
 pnpm validate-generated-files
+pnpm check-deployment-status
 echo "Done."
