@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@api3/airnode-abi':
-        specifier: ^0.12.0
-        version: 0.12.0
+        specifier: ^0.13.0
+        version: 0.13.0
       '@api3/airnode-feed':
         specifier: ^0.3.0
         version: 0.3.0(eslint@8.56.0)(jest@29.7.0)(typescript@5.3.3)
@@ -188,8 +188,8 @@ importers:
         specifier: ^11.11.0
         version: 11.11.0(@emotion/react@11.11.3)(react@18.2.0)
       '@phase21/logos':
-        specifier: ^2.0.0
-        version: 2.0.0
+        specifier: ^2.5.0
+        version: 2.5.0
       '@testing-library/jest-dom':
         specifier: ^5.17.0
         version: 5.17.0
@@ -280,16 +280,6 @@ packages:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.20
-
-  /@api3/airnode-abi@0.12.0:
-    resolution: {integrity: sha512-UCFYZMxSZU/12fEK8SFdn+C6Vh+SBuB08PpD8QEEvOe8Rfzof541GphES46XHDpwQRd673OfgJRO9iySOSpB+Q==}
-    dependencies:
-      ethers: 5.7.2
-      lodash: 4.17.21
-    transitivePeerDependencies:
-      - bufferutil
-      - utf-8-validate
-    dev: false
 
   /@api3/airnode-abi@0.13.0:
     resolution: {integrity: sha512-qWe3w3cGvpwUhONlLOkx8uMJ17m1qbC6b4g7xf9Jo0GZ6/AObcrBnsmPL7/JAlAtbvsTg25wS4o/TZaEA+gpYg==}
@@ -5306,8 +5296,8 @@ packages:
     resolution: {integrity: sha512-kEUOgPQszC0fSYWpbh2kT94ltOJwj1qfT2DWo+zVttmGmf97JZ99LspePNaeeaLhCImaHVeBbjaQFZQn7+Zc5g==}
     dev: false
 
-  /@phase21/logos@2.0.0:
-    resolution: {integrity: sha512-pzQJnqpwKSy0eTa4JQeGRno1NBRReuxPh6UDwYa9fF9/wNw0KNkPokbVKGsrQCM9KQyRc/JkxW3hj08fltsVRA==}
+  /@phase21/logos@2.5.0:
+    resolution: {integrity: sha512-fW07S2OHILuxjF1/Z0rygB02YedUreb65lUelzC6XilXlIpZrlMNZypcljUOI7wIT0OgBMVMhlbmn02uhEGizQ==}
     dependencies:
       camelcase: 6.3.0
     dev: false
