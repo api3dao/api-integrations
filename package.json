@@ -10,7 +10,7 @@
   "author": "metobom",
   "license": "MIT",
   "dependencies": {
-    "@api3/airnode-abi": "^0.12.0",
+    "@api3/airnode-abi": "^0.13.0",
     "@api3/airnode-feed": "^0.3.0",
     "@api3/ois": "^2.3.1",
     "ethers": "^5.4.2",
