@@ -3,7 +3,7 @@
   "extends": ["config:recommended"],
   "packageRules": [
     {
-      "matchPackageNames": ["ethers", "node"],
+      "matchPackageNames": ["ethers", "node", "prettier"],
       "matchUpdateTypes": ["major"],
       "enabled": false
     },
