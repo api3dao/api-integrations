@@ -3,6 +3,11 @@
   "extends": ["config:recommended"],
   "packageRules": [
     {
+      "matchPackageNames": ["ethers", "node"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    },
+    {
       "matchUpdateTypes": ["patch", "minor"],
       "schedule": ["after 3pm on Friday"],
       "groupName": "other minor updates"
