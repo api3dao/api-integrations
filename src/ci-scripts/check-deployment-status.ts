@@ -39,7 +39,7 @@ async function checkDeployments(deployments: any[], apiName: string, apiData: an
         const now = Math.floor(Date.now() / 1000);
 
         // check timestamp
-        if (Math.abs(now - parseInt(targetDeploymentStatus.currentTimestamp)) > ONE_MINUTE_IN_SECONS) {
+        if (Math.abs(now - parseInt(targetDeploymentStatus.currentTimestamp)) > ONE_MINUTE_IN_SECONS + SLACK) {
           issues.push(`🔴 ${apiName}/${deploymentType} - Heartbeat is old!`);
         }
 
@@ -85,6 +85,7 @@ export const stringifyUnsignedHeartbeatPayload = (unsignedHeartbeatPayload: Omit
 const createHash = (value: string) => ethers.utils.keccak256(ethers.utils.toUtf8Bytes(value));
 
 const ONE_MINUTE_IN_SECONS = 60;
+const SLACK = 1;
 
 async function main() {
   const issues: any[] = [];
