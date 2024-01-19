@@ -20,6 +20,7 @@
       ["TSLA/USD"],
       ["TSM/USD"],
       ["QQQ/USD"],
+      ["DIS/USD"],
       ["AUD/USD"],
       ["BRL/USD"],
       ["CNY/USD"],
@@ -113,6 +114,7 @@
       ["XRP/USD"],
       ["DOGE/USD"],
       ["USDC/USD"],
+      ["ASTR/USD"],
       ["WTI/USD"],
       ["XAG/USD"],
       ["XAU/USD"]
