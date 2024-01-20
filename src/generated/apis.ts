@@ -163,8 +163,8 @@ export const apisData = {
       ]
     },
     deploymentLocations: ['aws'],
-    officialUrl: 'https://twelvedata.com',
-    verifiedUrl: 'https://twelvedata.com',
+    homepageUrl: 'https://twelvedata.com',
+    verifiedBaseUrl: 'https://twelvedata.com',
     signedApiUrl: '',
     productionSignedApiUrls: [
       { url: 'https://signed-api.nodary.io', name: 'Nodary' },
@@ -205,8 +205,8 @@ export const apisData = {
       ]
     },
     deploymentLocations: ['aws'],
-    officialUrl: 'https://tradermade.com',
-    verifiedUrl: 'https://tradermade.com',
+    homepageUrl: 'https://tradermade.com',
+    verifiedBaseUrl: 'https://tradermade.com',
     signedApiUrl: '',
     productionSignedApiUrls: [
       { url: 'https://signed-api.nodary.io', name: 'Nodary' },
@@ -388,8 +388,8 @@ export const apisData = {
       ]
     },
     deploymentLocations: ['aws'],
-    officialUrl: 'https://nodary.io',
-    verifiedUrl: 'https://nodary.io',
+    homepageUrl: 'https://nodary.io',
+    verifiedBaseUrl: 'https://nodary.io',
     signedApiUrl: '',
     productionSignedApiUrls: [
       { url: 'https://signed-api.nodary.io', name: 'Nodary' },
@@ -530,12 +530,12 @@ export const apisData = {
       ]
     },
     deploymentLocations: ['aws'],
-    officialUrl: 'https://www.newchangefx.com',
-    verifiedUrl: 'https://newchangefx.com',
+    homepageUrl: 'https://www.newchangefx.com',
+    verifiedBaseUrl: 'https://newchangefx.com',
     signedApiUrl: '',
     productionSignedApiUrls: [
       { url: 'https://signed-api.nodary.io', name: 'Nodary' },
-      { url: 'https://placeholder.api3.org', name: 'API3' }
+      { url: 'https://signed-api.api3.org', name: 'API3' }
     ],
     stagingSignedApiUrl: { url: 'https://signed-api.stage.nodary.io', name: 'Staging' }
   },
@@ -647,8 +647,8 @@ export const apisData = {
       ]
     },
     deploymentLocations: ['aws'],
-    officialUrl: 'https://www.kaiko.com',
-    verifiedUrl: 'https://kaiko.io',
+    homepageUrl: 'https://www.kaiko.com',
+    verifiedBaseUrl: 'https://kaiko.io',
     signedApiUrl: '',
     productionSignedApiUrls: [
       { url: 'https://signed-api.nodary.io', name: 'Nodary' },
@@ -697,8 +697,8 @@ export const apisData = {
       ]
     },
     deploymentLocations: ['aws'],
-    officialUrl: 'https://iexcloud.io',
-    verifiedUrl: 'https://iex.cloud',
+    homepageUrl: 'https://iexcloud.io',
+    verifiedBaseUrl: 'https://iex.cloud',
     signedApiUrl: '',
     productionSignedApiUrls: [
       { url: 'https://signed-api.nodary.io', name: 'Nodary' },
@@ -755,8 +755,8 @@ export const apisData = {
       ]
     },
     deploymentLocations: ['aws'],
-    officialUrl: 'https://finnhub.io',
-    verifiedUrl: 'https://finnhub.io',
+    homepageUrl: 'https://finnhub.io',
+    verifiedBaseUrl: 'https://finnhub.io',
     signedApiUrl: '',
     productionSignedApiUrls: [
       { url: 'https://signed-api.nodary.io', name: 'Nodary' },
@@ -924,8 +924,8 @@ export const apisData = {
       ]
     },
     deploymentLocations: ['aws'],
-    officialUrl: 'https://finage.co.uk',
-    verifiedUrl: 'https://finage.co.uk',
+    homepageUrl: 'https://finage.co.uk',
+    verifiedBaseUrl: 'https://finage.co.uk',
     signedApiUrl: '',
     productionSignedApiUrls: [
       { url: 'https://signed-api.nodary.io', name: 'Nodary' },
@@ -1056,8 +1056,8 @@ export const apisData = {
       ]
     },
     deploymentLocations: ['aws'],
-    officialUrl: 'https://dxfeed.com',
-    verifiedUrl: 'https://dxfeed.com',
+    homepageUrl: 'https://dxfeed.com',
+    verifiedBaseUrl: 'https://dxfeed.com',
     signedApiUrl: '',
     productionSignedApiUrls: [
       { url: 'https://signed-api.nodary.io', name: 'Nodary' },
@@ -1188,8 +1188,8 @@ export const apisData = {
       ]
     },
     deploymentLocations: ['aws'],
-    officialUrl: 'https://coinpaprika.com',
-    verifiedUrl: 'https://coinpaprika.com',
+    homepageUrl: 'https://coinpaprika.com',
+    verifiedBaseUrl: 'https://coinpaprika.com',
     signedApiUrl: '',
     productionSignedApiUrls: [
       { url: 'https://signed-api.nodary.io', name: 'Nodary' },
