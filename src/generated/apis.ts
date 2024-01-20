@@ -168,7 +168,7 @@ export const apisData = {
     signedApiUrl: '',
     productionSignedApiUrls: [
       { url: 'https://signed-api.nodary.io', name: 'Nodary' },
-      { url: 'https://placeholder.api3.org', name: 'API3' }
+      { url: 'https://signed-api.api3.org', name: 'API3' }
     ],
     stagingSignedApiUrl: { url: 'https://signed-api.stage.nodary.io', name: 'Staging' }
   },
@@ -210,7 +210,7 @@ export const apisData = {
     signedApiUrl: '',
     productionSignedApiUrls: [
       { url: 'https://signed-api.nodary.io', name: 'Nodary' },
-      { url: 'https://placeholder.api3.org', name: 'API3' }
+      { url: 'https://signed-api.api3.org', name: 'API3' }
     ],
     stagingSignedApiUrl: { url: 'https://signed-api.stage.nodary.io', name: 'Staging' }
   },
@@ -393,7 +393,7 @@ export const apisData = {
     signedApiUrl: '',
     productionSignedApiUrls: [
       { url: 'https://signed-api.nodary.io', name: 'Nodary' },
-      { url: 'https://placeholder.api3.org', name: 'API3' }
+      { url: 'https://signed-api.api3.org', name: 'API3' }
     ],
     stagingSignedApiUrl: { url: 'https://signed-api.stage.nodary.io', name: 'Staging' }
   },
@@ -652,7 +652,7 @@ export const apisData = {
     signedApiUrl: '',
     productionSignedApiUrls: [
       { url: 'https://signed-api.nodary.io', name: 'Nodary' },
-      { url: 'https://placeholder.api3.org', name: 'API3' }
+      { url: 'https://signed-api.api3.org', name: 'API3' }
     ],
     stagingSignedApiUrl: { url: 'https://signed-api.stage.nodary.io', name: 'Staging' }
   },
@@ -702,7 +702,7 @@ export const apisData = {
     signedApiUrl: '',
     productionSignedApiUrls: [
       { url: 'https://signed-api.nodary.io', name: 'Nodary' },
-      { url: 'https://placeholder.api3.org', name: 'API3' }
+      { url: 'https://signed-api.api3.org', name: 'API3' }
     ],
     stagingSignedApiUrl: { url: 'https://signed-api.stage.nodary.io', name: 'Staging' }
   },
@@ -760,7 +760,7 @@ export const apisData = {
     signedApiUrl: '',
     productionSignedApiUrls: [
       { url: 'https://signed-api.nodary.io', name: 'Nodary' },
-      { url: 'https://placeholder.api3.org', name: 'API3' }
+      { url: 'https://signed-api.api3.org', name: 'API3' }
     ],
     stagingSignedApiUrl: { url: 'https://signed-api.stage.nodary.io', name: 'Staging' }
   },
@@ -929,7 +929,7 @@ export const apisData = {
     signedApiUrl: '',
     productionSignedApiUrls: [
       { url: 'https://signed-api.nodary.io', name: 'Nodary' },
-      { url: 'https://placeholder.api3.org', name: 'API3' }
+      { url: 'https://signed-api.api3.org', name: 'API3' }
     ],
     stagingSignedApiUrl: { url: 'https://signed-api.stage.nodary.io', name: 'Staging' }
   },
@@ -1061,7 +1061,7 @@ export const apisData = {
     signedApiUrl: '',
     productionSignedApiUrls: [
       { url: 'https://signed-api.nodary.io', name: 'Nodary' },
-      { url: 'https://placeholder.api3.org', name: 'API3' }
+      { url: 'https://signed-api.api3.org', name: 'API3' }
     ],
     stagingSignedApiUrl: { url: 'https://signed-api.stage.nodary.io', name: 'Staging' }
   },
@@ -1193,7 +1193,7 @@ export const apisData = {
     signedApiUrl: '',
     productionSignedApiUrls: [
       { url: 'https://signed-api.nodary.io', name: 'Nodary' },
-      { url: 'https://placeholder.api3.org', name: 'API3' }
+      { url: 'https://signed-api.api3.org', name: 'API3' }
     ],
     stagingSignedApiUrl: { url: 'https://signed-api.stage.nodary.io', name: 'Staging' }
   }
