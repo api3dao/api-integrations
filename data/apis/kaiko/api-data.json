@@ -106,8 +106,8 @@
     ]
   },
   "deploymentLocations": ["aws"],
-  "officialUrl": "https://www.kaiko.com",
-  "verifiedUrl": "https://kaiko.io",
+  "homepageUrl": "https://www.kaiko.com",
+  "verifiedBaseUrl": "https://kaiko.io",
   "signedApiUrl": "",
   "productionSignedApiUrls": [
     {

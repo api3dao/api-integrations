@@ -18,8 +18,8 @@ export const apiDataSchema = z
     xpub: z.string(),
     supportedFeedsInBatches: z.record(z.string(), z.array(z.array(z.string()))),
     deploymentLocations: deploymentLocationsSchema,
-    officialUrl: z.string(),
-    verifiedUrl: z.string(),
+    homepageUrl: z.string(),
+    verifiedBaseUrl: z.string(),
     signedApiUrl: z.string(),
     productionSignedApiUrls: signedApiUrlSchema.array(),
     stagingSignedApiUrl: signedApiUrlSchema
