@@ -252,6 +252,7 @@ export const apisData = {
         ['uniETH/ETH Exchange Rate'],
         ['osETH/ETH Exchange Rate'],
         ['weETH/ETH Exchange Rate'],
+        ['STONE/ETH Exchange Rate'],
         ['AUD/USD'],
         ['BRL/USD'],
         ['CAD/USD'],
