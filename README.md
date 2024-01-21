@@ -27,7 +27,15 @@ $ ts-node src/config-generation/airnode-feed/generate-deployment.ts
     ...
 ```
 
-3. Deployment will be created under `./data/apis/<api-name>/deployments/candidate-deployments`.
+4. Select the deployment type.
+
+```
+? Select the deployment type: › - Use arrow-keys. Return to submit.
+❯   staging
+    candidate
+```
+
+4. Deployment will be created under `./data/apis/<api-name>/deployments/<deployment_type>-deployments`.
 
 ### Managing deployments
 
