@@ -7,5 +7,5 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["api-integrations-logging", "api-integrations-front-end"]
+  "ignore": ["api-integrations-backend", "api-integrations-front-end"]
 }
