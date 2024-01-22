@@ -40,7 +40,7 @@ jobs:
         uses: changesets/action@master
         with:
           publish: pnpm release
-          commit: "ci: release packages"
-          title: "ci: release packages"
+          commit: "ci: release api-integrations package"
+          title: "ci: release api-integrations package"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT }}
