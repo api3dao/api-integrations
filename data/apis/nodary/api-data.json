@@ -36,6 +36,7 @@
       ["uniETH/ETH Exchange Rate"],
       ["osETH/ETH Exchange Rate"],
       ["weETH/ETH Exchange Rate"],
+      ["STONE/ETH Exchange Rate"],
       ["AUD/USD"],
       ["BRL/USD"],
       ["CAD/USD"],
@@ -172,8 +173,8 @@
     ]
   },
   "deploymentLocations": ["aws"],
-  "officialUrl": "https://nodary.io",
-  "verifiedUrl": "https://nodary.io",
+  "homepageUrl": "https://nodary.io",
+  "verifiedBaseUrl": "https://nodary.io",
   "signedApiUrl": "",
   "productionSignedApiUrls": [
     {

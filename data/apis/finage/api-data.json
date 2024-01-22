@@ -158,8 +158,8 @@
     ]
   },
   "deploymentLocations": ["aws"],
-  "officialUrl": "https://finage.co.uk",
-  "verifiedUrl": "https://finage.co.uk",
+  "homepageUrl": "https://finage.co.uk",
+  "verifiedBaseUrl": "https://finage.co.uk",
   "signedApiUrl": "",
   "productionSignedApiUrls": [
     {

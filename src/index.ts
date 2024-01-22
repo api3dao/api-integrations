@@ -135,7 +135,7 @@ export function getApiUrls(airnodeAddress: string) {
   return {
     name: targetApiData.name,
     alias: targetApiData.alias,
-    officialUrl: targetApiData.officialUrl,
-    verifiedUrl: targetApiData.verifiedUrl
+    homepageUrl: targetApiData.homepageUrl,
+    verifiedBaseUrl: targetApiData.verifiedBaseUrl
   };
 }

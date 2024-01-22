@@ -121,8 +121,8 @@
     ]
   },
   "deploymentLocations": ["aws"],
-  "officialUrl": "https://coinpaprika.com",
-  "verifiedUrl": "https://coinpaprika.com",
+  "homepageUrl": "https://coinpaprika.com",
+  "verifiedBaseUrl": "https://coinpaprika.com",
   "signedApiUrl": "",
   "productionSignedApiUrls": [
     {
