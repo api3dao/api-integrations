@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@api3/airnode-abi':
-        specifier: ^0.13.0
-        version: 0.13.0
+        specifier: ^0.14.0
+        version: 0.14.0
       '@api3/airnode-feed':
         specifier: ^0.4.0
         version: 0.4.0(eslint@8.56.0)(jest@29.7.0)(typescript@5.3.3)
@@ -283,6 +283,16 @@ packages:
 
   /@api3/airnode-abi@0.13.0:
     resolution: {integrity: sha512-qWe3w3cGvpwUhONlLOkx8uMJ17m1qbC6b4g7xf9Jo0GZ6/AObcrBnsmPL7/JAlAtbvsTg25wS4o/TZaEA+gpYg==}
+    dependencies:
+      ethers: 5.7.2
+      lodash: 4.17.21
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+    dev: false
+
+  /@api3/airnode-abi@0.14.0:
+    resolution: {integrity: sha512-hoIdFMqe0ENITj145INdHitLbLHK2Q3M5rsPGmTrmCz1QrhuIqdswJM9T60ieqTx6v2taCrddD67Vez7OvKJyA==}
     dependencies:
       ethers: 5.7.2
       lodash: 4.17.21
