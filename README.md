@@ -16,7 +16,7 @@ See `frontend`'s [README](/frontend/README.md).
 pnpm generate-airnode-feed-deployment
 ```
 
-2. Select the API.
+2. Select the API
 
 ```
 $ ts-node src/config-generation/airnode-feed/generate-deployment.ts
