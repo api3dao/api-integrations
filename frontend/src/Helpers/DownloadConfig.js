@@ -165,14 +165,14 @@ const downloadCloudFormation = (CloudFormation, configData, airnodeAddress) => {
     case 'candidate': {
       const keysToAdd = ['AUTH_TOKEN_NODARY', 'AUTH_TOKEN_API3'];
       keysToAdd.forEach((k) => {
-        secrets['Fn::Join'][1].push([
+        [
           '\\n',
           k,
           '=',
           {
             Ref: signedApiSecretsMap[k]
           }
-        ]);
+        ].forEach((i) => secrets['Fn::Join'][1].push(i));
       });
       break;
     }
