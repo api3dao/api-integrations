@@ -25,8 +25,8 @@ importers:
         version: 3.22.4
     devDependencies:
       '@api3/commons':
-        specifier: ^0.6.0
-        version: 0.6.0(eslint@8.56.0)(jest@29.7.0)(typescript@5.3.3)
+        specifier: ^0.6.1
+        version: 0.6.1(eslint@8.56.0)(jest@29.7.0)(typescript@5.3.3)
       '@changesets/changelog-github':
         specifier: ^0.5.0
         version: 0.5.0
@@ -324,7 +324,7 @@ packages:
       '@api3/airnode-adapter': 0.13.0
       '@api3/airnode-node': 0.13.0(eslint@8.56.0)(jest@29.7.0)(typescript@5.3.3)
       '@api3/airnode-validator': 0.13.0
-      '@api3/commons': 0.6.0(eslint@8.56.0)(jest@29.7.0)(typescript@5.3.3)
+      '@api3/commons': 0.6.1(eslint@8.56.0)(jest@29.7.0)(typescript@5.3.3)
       '@api3/ois': 2.3.1
       '@api3/promise-utils': 0.4.0
       axios: 1.6.5
@@ -464,8 +464,8 @@ packages:
       - typescript
     dev: false
 
-  /@api3/commons@0.6.0(eslint@8.56.0)(jest@29.7.0)(typescript@5.3.3):
-    resolution: {integrity: sha512-6NyWoUVxYQLxLNuSHGWHRvex+AziutFu3Me+ncJmz3JiLIuJCdEfKvu1kFHmBOtUQksN6rUbdr4I4tOot4LXbQ==}
+  /@api3/commons@0.6.1(eslint@8.56.0)(jest@29.7.0)(typescript@5.3.3):
+    resolution: {integrity: sha512-ey/TVZFVJIYDQa8YMENXnw0tZGTwFx0Jl17ONXTU4sxwkyM5x43P5bgOLrdnvLpWYh1V5tSv29iJ7UGaV6qZ4Q==}
     engines: {node: ^18.14.0 || ^20.10.0, pnpm: ^8.8.0}
     peerDependencies:
       eslint: ^8.50.0
