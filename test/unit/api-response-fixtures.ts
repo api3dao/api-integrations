@@ -611,7 +611,7 @@ export function getApiResponseFixture(
       // CoinGecko responses includes asset names so fixture response must be modified
       const [id, vs_currency] = nameMap[endpointParameters.name].split('.');
 
-      let response: any = {};
+      const response: any = {};
 
       response[id] = {};
       response[id][vs_currency] = EXPECTED_PRICE;
