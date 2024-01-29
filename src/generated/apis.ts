@@ -1201,8 +1201,8 @@ export const apisData = {
   coingecko: {
     alias: 'coingecko',
     name: 'CoinGecko',
-    airnode: '0x10Dca17668fb6251378b2959AD04004E42b3627C',
-    xpub: '<TODO>',
+    airnode: '0x6b56E47DccFbC82D63Df3da417d26e8B1B877f0f',
+    xpub: 'xpub6Bp9GNsZu8Um4du9r6usXvs9eB2Fp8ftCbri114gSJKroJNnZjBFCCvo73XxnBS8WPcEufH2K7w3JsPahjzB1yUPi9P4JoSyyBGC1FLFTZy',
     supportedFeedsInBatches: {
       CoinGecko: [
         [
@@ -1337,5 +1337,5 @@ export const airnodeAddressMap = {
   finage: '0xa924847354c551C79BAE7E75529364bA0449e51A',
   dxfeed: '0x11030d4f8eB06F958E763C6f8b165D7CDd98DB6C',
   coinpaprika: '0xC9B494D3c6eA3fD42779Df9A136Db10374c98D80',
-  coingecko: '0x10Dca17668fb6251378b2959AD04004E42b3627C'
+  coingecko: '0x6b56E47DccFbC82D63Df3da417d26e8B1B877f0f'
 };
