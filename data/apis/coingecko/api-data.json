@@ -1,8 +1,8 @@
 {
   "alias": "coingecko",
   "name": "CoinGecko",
-  "airnode": "0x10Dca17668fb6251378b2959AD04004E42b3627C",
-  "xpub": "<TODO>",
+  "airnode": "0x6b56E47DccFbC82D63Df3da417d26e8B1B877f0f",
+  "xpub": "xpub6Bp9GNsZu8Um4du9r6usXvs9eB2Fp8ftCbri114gSJKroJNnZjBFCCvo73XxnBS8WPcEufH2K7w3JsPahjzB1yUPi9P4JoSyyBGC1FLFTZy",
   "supportedFeedsInBatches": {
     "CoinGecko": [
       [
