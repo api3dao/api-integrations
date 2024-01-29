@@ -18,7 +18,7 @@ pnpm generate-airnode-feed-deployment
 
 2. Select the API.
 
-```
+```bash
 $ ts-node src/config-generation/airnode-feed/generate-deployment.ts
 ? Select an API to create deployment: › - Use arrow-keys. Return to submit.
 ❯   api-1
