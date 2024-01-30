@@ -10,16 +10,22 @@
     "grafanaLokiUser": {
       "Type": "String",
       "MinLength": 2,
+      "AllowedPattern": "^[^\\s]+$",
+      "ConstraintDescription": "The string must not contain any whitespaces.",
       "Description": "Username for authenticating Loki API (This should be handed to you)."
     },
     "grafanaLokiToken": {
       "Type": "String",
       "MinLength": 10,
+      "AllowedPattern": "^[^\\s]+$",
+      "ConstraintDescription": "The string must not contain any whitespaces.",
       "Description": "Token for authenticating Loki API (This should be handed to you)."
     },
     "grafanaLokiEndpoint": {
       "Type": "String",
       "MinLength": 10,
+      "AllowedPattern": "^[^\\s]+$",
+      "ConstraintDescription": "The string must not contain any whitespaces.",
       "Description": "Loki endpoint (This should be handed to you)."
     },
     "apiKey1": {
@@ -35,16 +41,22 @@
     "NodarySignedApiToken": {
       "Type": "String",
       "MinLength": "10",
+      "AllowedPattern": "^[^\\s]+$",
+      "ConstraintDescription": "The string must not contain any whitespaces.",
       "Description": "Token to POST data to Nodary Signed API (This should be handed to you)."
     },
     "Api3SignedApiToken": {
       "Type": "String",
       "MinLength": "10",
+      "AllowedPattern": "^[^\\s]+$",
+      "ConstraintDescription": "The string must not contain any whitespaces.",
       "Description": "Token to POST data to API3 Signed API (This should be handed to you)."
     },
     "StagingSignedApiToken": {
       "Type": "String",
       "MinLength": 10,
+      "AllowedPattern": "^[^\\s]+$",
+      "ConstraintDescription": "The string must not contain any whitespaces.",
       "Description": "Token to POST data to Staging Signed API (This should be handed to you)."
     }
   },
