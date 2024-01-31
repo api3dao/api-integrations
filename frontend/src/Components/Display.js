@@ -34,11 +34,11 @@ const OisView = ({ apiData }) => {
   ));
 };
 
-const NavigationView = ({ viewMode, setViewMode }) => {
+const NavigationView = ({ viewMode, setViewMode, category }) => {
   const getColor = (mode) => {
     return viewMode === mode ? COLORS.select : COLORS.table;
   };
-  return (
+  return category === 'active' ? null : (
     <Flex width={'100%'} gap={3} alignItems={'center'}>
       <RadioButton
         onClick={() => setViewMode('feeds')}
@@ -77,11 +77,11 @@ const ContentView = ({ viewMode, apiData }) => {
 
 const Display = ({ apiData }) => {
   const { config } = useContext(ApiIntegrationsContext);
-  const [viewMode, setViewMode] = useState(null);
+  const [viewMode, setViewMode] = useState(config.category === 'active' ? CONSTANTS.FEEDS_VIEW : null);
 
   return config === null ? null : (
     <VStack p={1} spacing={4} alignItems={'left'} width={'100%'}>
-      <NavigationView viewMode={viewMode} setViewMode={setViewMode} />
+      <NavigationView viewMode={viewMode} setViewMode={setViewMode} category={config.category} />
       <ContentView viewMode={viewMode} apiData={apiData} />
     </VStack>
   );
