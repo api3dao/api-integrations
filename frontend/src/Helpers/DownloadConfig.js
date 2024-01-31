@@ -183,7 +183,7 @@ const downloadCloudFormation = (CloudFormation, configData, airnodeAddress) => {
   const interpolationValues = [configData.apiProvider, configData.category, configData.filename];
   let entryPointBashCmd = CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].EntryPoint[2];
   interpolationKeys.forEach((k, index) => {
-    entryPointBashCmd = entryPointBashCmd.replace(k, interpolationValues[index]);
+    entryPointBashCmd = entryPointBashCmd.replaceAll(k, interpolationValues[index]);
   });
 
   // Interpolate "LogConfiguration"
