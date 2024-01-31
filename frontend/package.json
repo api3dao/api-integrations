@@ -14,7 +14,7 @@
     "@testing-library/jest-dom": "^6.2.0",
     "@testing-library/react": "^14.1.2",
     "@testing-library/user-event": "^14.5.2",
-    "framer-motion": "^10.18.0",
+    "framer-motion": "^11.0.3",
     "js-sha3": "^0.9.3",
     "jszip": "^3.10.1",
     "lodash": "^4.17.21",
