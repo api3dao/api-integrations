@@ -9,24 +9,26 @@
     },
     {
       "matchUpdateTypes": ["patch", "minor"],
-      "schedule": ["after 3pm on Friday"],
-      "groupName": "other minor updates"
+      "schedule": ["before 10am on the first day of the month"],
+      "groupName": "other minor updates",
+      "minimumReleaseAge": "30 days"
     },
     {
       "matchUpdateTypes": ["major"],
-      "schedule": ["after 1pm on Friday"],
-      "groupName": "other major updates"
+      "schedule": ["before 10am on the first day of the month"],
+      "groupName": "other major updates",
+      "minimumReleaseAge": "30 days"
     },
     {
       "matchPackagePatterns": ["@api3/.*", "@phase21/.*"],
       "matchUpdateTypes": ["major"],
-      "schedule": ["before 4pm"],
+      "schedule": ["before 1pm"],
       "groupName": "api3 major updates"
     },
     {
       "matchPackagePatterns": ["@api3/.*", "@phase21/.*"],
       "matchUpdateTypes": ["patch", "minor"],
-      "schedule": ["before 3pm"],
+      "schedule": ["before 1pm"],
       "groupName": "api3"
     }
   ],
