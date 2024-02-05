@@ -162,11 +162,8 @@
                 "Value": "info"
               }
             ],
-            "EntryPoint": [
-              "/bin/sh",
-              "-c",
-              "mkdir config && echo -e $SECRETS_ENV >> ./config/secrets.env && wget -O - https://raw.githubusercontent.com/api3dao/api-integrations/main/data/apis/<API_ALIAS>/deployments/<DEPLOYMENT_TYPE>-deployments/<FILE_NAME> >> ./config/airnode-feed.json && node dist/src/index.js"
-            ],
+            "EntryPoint": ["/bin/sh", "-c"],
+            "Command": ["echo '<RUNNER_SCRIPT_BASE64>' | base64 -d > run.sh; sh run.sh"],
             "LogConfiguration": {
               "LogDriver": "awsfirelens",
               "Options": {
