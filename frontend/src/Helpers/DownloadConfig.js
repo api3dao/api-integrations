@@ -35,9 +35,20 @@ export const populateOis = (configData, airnodeAddress, mode = CONSTANTS.CLOUD_F
 
   const stage = `\\nSTAGE=${mode}`;
   const secrets = `WALLET_MNEMONIC=<ENTER_MNEMONIC>${API_KEY}${stage}`;
+  const airnodeFeedConfigUrl =
+    'https://raw.githubusercontent.com/api3dao/api-integrations/main/data/apis/<API_ALIAS>/deployments/<DEPLOYMENT_TYPE>-deployments/<FILE_NAME>'
+      .replace('<API_ALIAS>', configData.apiProvider)
+      .replace('<DEPLOYMENT_TYPE>', configData.category)
+      .replace('<FILE_NAME>', configData.filename);
+
   switch (mode) {
     case CONSTANTS.CLOUD_FORMATION_DEPLOY:
-      downloadCloudFormation(cloudFormation, configData, airnodeAddress);
+      fetch(airnodeFeedConfigUrl).then((response) => {
+        response.text().then((responseAsText) => {
+          const configMd5Hash = CryptoJS.MD5(responseAsText);
+          downloadCloudFormation(cloudFormation, configData, airnodeAddress, airnodeFeedConfigUrl, configMd5Hash);
+        });
+      });
       break;
     case CONSTANTS.DOCKER_DEPLOY:
       downloadZip(secrets, configData);
@@ -119,7 +130,7 @@ const replaceSomeId = (CloudFormation, configData) => {
   return JSON.parse(newConfig);
 };
 
-const downloadCloudFormation = (CloudFormation, configData, airnodeAddress) => {
+const downloadCloudFormation = (CloudFormation, configData, airnodeAddress, airnodeFeedConfigUrl, configMd5Hash) => {
   let secrets = getSecrets(configData.config.apiCredentials);
   // Remove placeholder parameters
   const placeholderParameters = ['apiKey1', 'apiKey2'];
@@ -180,22 +191,15 @@ const downloadCloudFormation = (CloudFormation, configData, airnodeAddress) => {
     }
   }
 
-  // Add init script to Command field of CF template
-  const airnodeFeedConfig = JSON.stringify(configData.config) + '\n'; // \n is required because of the "echo" in the runnerBashScript, "cat" command adds an extra \n to end of text
-  const configMd5Hash = CryptoJS.MD5(airnodeFeedConfig);
-
-  const airnodeFeedConfigUrl =
-    'https://raw.githubusercontent.com/api3dao/api-integrations/main/data/apis/<API_ALIAS>/deployments/<DEPLOYMENT_TYPE>-deployments/<FILE_NAME>'
-      .replace('<API_ALIAS>', configData.apiProvider)
-      .replace('<DEPLOYMENT_TYPE>', configData.category)
-      .replace('<FILE_NAME>', configData.filename);
-
   const runnerBashScript = `
   mkdir config;
-  echo $SECRETS_ENV > ./config/secrets.env;
+  echo -e $SECRETS_ENV > ./config/secrets.env;
+  echo "----"
+  cat ./config/secrets.env
+  echo "----"
   wget -O - ${airnodeFeedConfigUrl} > ./config/airnode-feed.json;
   EXPECTED_HASH="${configMd5Hash}";
-  CONFIG_HASH="$(cat ./config/airnode-feed.json | jq -c | md5sum | awk '{ print $1 }')";
+  CONFIG_HASH="$(md5sum ./config/airnode-feed.json | awk '{ print $1 }')";
 
   echo "Config's hash: $CONFIG_HASH, Expected hash: $EXPECTED_HASH";
 
