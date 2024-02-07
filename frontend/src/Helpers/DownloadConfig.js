@@ -194,9 +194,6 @@ const downloadCloudFormation = (CloudFormation, configData, airnodeAddress, airn
   const runnerBashScript = `
   mkdir config;
   echo -e $SECRETS_ENV > ./config/secrets.env;
-  echo "----"
-  cat ./config/secrets.env
-  echo "----"
   wget -O - ${airnodeFeedConfigUrl} > ./config/airnode-feed.json;
   EXPECTED_HASH="${configMd5Hash}";
   CONFIG_HASH="$(md5sum ./config/airnode-feed.json | awk '{ print $1 }')";
