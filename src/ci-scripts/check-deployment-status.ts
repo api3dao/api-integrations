@@ -85,7 +85,7 @@ export const stringifyUnsignedHeartbeatPayload = (unsignedHeartbeatPayload: Omit
 const createHash = (value: string) => ethers.utils.keccak256(ethers.utils.toUtf8Bytes(value));
 
 const ONE_MINUTE_IN_SECONS = 60;
-const SLACK = 1;
+const SLACK = 5;
 
 async function main() {
   const issues: any[] = [];
