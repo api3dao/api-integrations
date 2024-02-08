@@ -25,39 +25,43 @@ async function getRawPermalink(filePath) {
 
   try {
     const response = await fetch(apiUrl);
-    if (response.ok) {
-      const commits = await response.json();
-      if (commits.length === 0) {
-        return [false, `Given filePath has no commits! API call URL: ${apiUrl}`];
-      }
-      const commitHash = commits[0].sha;
-      const rawUrl = `https://raw.githubusercontent.com/api3dao/api-integrations/${commitHash}/${filePath}`;
-      return [true, rawUrl];
-    } else if (response.status === 404) {
-      console.log(`URL not found (404): ${apiUrl}`);
-    } else {
+
+    if (!response.ok) {
       console.log(`URL returned status code ${response.status}: ${apiUrl}`);
+      return null;
     }
+
+    const commits = await response.json();
+
+    if (commits.length === 0) {
+      alert(`Given filePath has no commits! API call URL: ${apiUrl}`);
+      return null;
+    }
+    return `https://raw.githubusercontent.com/api3dao/api-integrations/${commits[0].sha}/${filePath}`;
   } catch (error) {
-    console.error('Error fetching commit data:', error);
+    alert(`Error fetching raw permalink: ${error}`);
+    return null;
   }
 }
 
-async function fetchConfigAndCalculateMd5Hash(rawUrl) {
+async function confirmHashAndDownload(rawUrl, cloudFormation, configData, airnodeAddress) {
+  if (rawUrl == null) return null;
+
   try {
     const response = await fetch(rawUrl);
-    if (response.ok) {
-      const configAsText = await response.text();
-      const configMd5Hash = CryptoJS.MD5(configAsText);
-      return [true, configMd5Hash];
-    } else if (response.status === 404) {
-      const errorMessage = `URL not found (404): ${rawUrl}`;
-      return [false, errorMessage];
-    } else {
-      console.log(`URL returned status code ${response.status}: ${rawUrl}`);
+
+    if (!response.ok) {
+      alert(`URL returned status code ${response.status}: ${rawUrl}`);
+      return null;
     }
+
+    const configAsText = await response.text();
+    const configMd5Hash = CryptoJS.MD5(configAsText);
+
+    downloadCloudFormation(cloudFormation, configData, airnodeAddress, rawUrl, configMd5Hash);
   } catch (error) {
-    console.error('Error fetching raw config data:', error);
+    alert(`Error fetching raw config: ${error}`);
+    return null;
   }
 }
 
@@ -84,29 +88,9 @@ export const populateOis = (configData, airnodeAddress, mode = CONSTANTS.CLOUD_F
   switch (mode) {
     case CONSTANTS.CLOUD_FORMATION_DEPLOY:
       // fetch commit
-      getRawPermalink(filePath).then(([success, airnodeFeedConfigRawCommitUrl]) => {
-        if (!success) {
-          const errorMessage = airnodeFeedConfigRawCommitUrl;
-          alert(errorMessage);
-        } else {
-          // fetch raw config
-          fetchConfigAndCalculateMd5Hash(airnodeFeedConfigRawCommitUrl).then(([success, configMd5Hash]) => {
-            if (success) {
-              downloadCloudFormation(
-                cloudFormation,
-                configData,
-                airnodeAddress,
-                airnodeFeedConfigRawCommitUrl,
-                configMd5Hash
-              );
-            } else {
-              const errorMessage = configMd5Hash;
-              alert(errorMessage);
-            }
-          });
-        }
-      });
-
+      getRawPermalink(filePath).then((airnodeFeedConfigRawCommitUrl) =>
+        confirmHashAndDownload(airnodeFeedConfigRawCommitUrl, cloudFormation, configData, airnodeAddress)
+      );
       break;
     case CONSTANTS.DOCKER_DEPLOY:
       downloadZip(secrets, configData);
