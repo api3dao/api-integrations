@@ -398,7 +398,7 @@ export function getApiResponseFixture(
     case 'NewChangeFX-Crypto': {
       // NewChangeFX Crypto API responses includes asset names so fixture response must be modified
       // NewChangeFX Crypto API symbols are formatted like this: ASSET1-ASSET2. Tests will error if this convention is not valid anymore
-      const symbol = endpointParameters.name.replace('/', '-');
+      const symbol = endpointParameters.name.replace('/', '-').toUpperCase();
 
       const response = JSON.stringify({
         rates: {
