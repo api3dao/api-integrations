@@ -10,7 +10,7 @@
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
-    "@phase21/logos": "^2.8.4",
+    "@phase21/logos": "^2.8.5",
     "@testing-library/jest-dom": "^6.4.1",
     "@testing-library/react": "^14.2.0",
     "@testing-library/user-event": "^14.5.2",
