@@ -154,7 +154,7 @@
       "reservedParameters": [
         {
           "name": "_type",
-          "fixed": "int224"
+          "fixed": "int256"
         },
         {
           "name": "_times",
