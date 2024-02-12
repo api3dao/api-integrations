@@ -476,14 +476,13 @@ export function getApiResponseFixture(
     }
 
     case 'Nodary': {
-      return [
-        {
-          name: 'stETH/USD',
-          value: EXPECTED_PRICE,
-          timestamp: 1703074731136,
-          category: 'crypto'
-        }
-      ];
+      const response: any = {};
+      response[endpointParameters.name] = {
+        value: EXPECTED_PRICE,
+        timestamp: 1703074731136,
+        category: 'crypto'
+      };
+      return [response];
     }
     case 'CoinGecko': {
       const nameMap = {
