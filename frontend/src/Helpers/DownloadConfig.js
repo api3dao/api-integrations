@@ -1,5 +1,7 @@
 import JSZip from 'jszip';
 import _ from 'lodash';
+import CryptoJS from 'crypto-js';
+import { Base64 } from 'js-base64';
 import { CONSTANTS } from '../data/constants';
 
 const checkCloudFormationFile = (ctx) => {
@@ -18,6 +20,51 @@ const getCfFile = () => {
   return JSON.parse(localStorage.getItem('cloudFormation'));
 };
 
+async function getRawPermalink(filePath) {
+  const apiUrl = `https://api.github.com/repos/api3dao/api-integrations/commits?path=${filePath}&page=1&per_page=1`;
+
+  try {
+    const response = await fetch(apiUrl);
+
+    if (!response.ok) {
+      console.log(`URL returned status code ${response.status}: ${apiUrl}`);
+      return null;
+    }
+
+    const commits = await response.json();
+
+    if (commits.length === 0) {
+      alert(`Given filePath has no commits! API call URL: ${apiUrl}`);
+      return null;
+    }
+    return `https://raw.githubusercontent.com/api3dao/api-integrations/${commits[0].sha}/${filePath}`;
+  } catch (error) {
+    alert(`Error fetching raw permalink: ${error}`);
+    return null;
+  }
+}
+
+async function confirmHashAndDownload(rawUrl, cloudFormation, configData, airnodeAddress) {
+  if (rawUrl == null) return null;
+
+  try {
+    const response = await fetch(rawUrl);
+
+    if (!response.ok) {
+      alert(`URL returned status code ${response.status}: ${rawUrl}`);
+      return null;
+    }
+
+    const configAsText = await response.text();
+    const configMd5Hash = CryptoJS.MD5(configAsText);
+
+    downloadCloudFormation(cloudFormation, configData, airnodeAddress, rawUrl, configMd5Hash);
+  } catch (error) {
+    alert(`Error fetching raw config: ${error}`);
+    return null;
+  }
+}
+
 export const populateOis = (configData, airnodeAddress, mode = CONSTANTS.CLOUD_FORMATION_DEPLOY, callback) => {
   const cloudFormation = getCfFile();
 
@@ -33,9 +80,17 @@ export const populateOis = (configData, airnodeAddress, mode = CONSTANTS.CLOUD_F
 
   const stage = `\\nSTAGE=${mode}`;
   const secrets = `WALLET_MNEMONIC=<ENTER_MNEMONIC>${API_KEY}${stage}`;
+  const filePath = 'data/apis/<API_ALIAS>/deployments/<DEPLOYMENT_TYPE>-deployments/<FILE_NAME>'
+    .replace('<API_ALIAS>', configData.apiProvider)
+    .replace('<DEPLOYMENT_TYPE>', configData.category)
+    .replace('<FILE_NAME>', configData.filename);
+
   switch (mode) {
     case CONSTANTS.CLOUD_FORMATION_DEPLOY:
-      downloadCloudFormation(cloudFormation, configData, airnodeAddress);
+      // fetch commit
+      getRawPermalink(filePath).then((airnodeFeedConfigRawCommitUrl) =>
+        confirmHashAndDownload(airnodeFeedConfigRawCommitUrl, cloudFormation, configData, airnodeAddress)
+      );
       break;
     case CONSTANTS.DOCKER_DEPLOY:
       downloadZip(secrets, configData);
@@ -117,7 +172,7 @@ const replaceSomeId = (CloudFormation, configData) => {
   return JSON.parse(newConfig);
 };
 
-const downloadCloudFormation = (CloudFormation, configData, airnodeAddress) => {
+const downloadCloudFormation = (CloudFormation, configData, airnodeAddress, airnodeFeedConfigUrl, configMd5Hash) => {
   let secrets = getSecrets(configData.config.apiCredentials);
   // Remove placeholder parameters
   const placeholderParameters = ['apiKey1', 'apiKey2'];
@@ -178,13 +233,28 @@ const downloadCloudFormation = (CloudFormation, configData, airnodeAddress) => {
     }
   }
 
-  // Interpolate "EntryPoint"
-  const interpolationKeys = ['<API_ALIAS>', '<DEPLOYMENT_TYPE>', '<FILE_NAME>'];
-  const interpolationValues = [configData.apiProvider, configData.category, configData.filename];
-  let entryPointBashCmd = CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].EntryPoint[2];
-  interpolationKeys.forEach((k, index) => {
-    entryPointBashCmd = entryPointBashCmd.replace(k, interpolationValues[index]);
-  });
+  const runnerBashScript = `
+  mkdir config;
+  echo -e $SECRETS_ENV > ./config/secrets.env;
+  wget -O - ${airnodeFeedConfigUrl} > ./config/airnode-feed.json;
+  EXPECTED_HASH="${configMd5Hash}";
+  CONFIG_HASH="$(md5sum ./config/airnode-feed.json | awk '{ print $1 }')";
+
+  echo "Config's hash: $CONFIG_HASH, Expected hash: $EXPECTED_HASH";
+
+  if [ "$CONFIG_HASH" = "$EXPECTED_HASH" ]; then
+      echo "Hash confirmed, running the app...";
+      node dist/src/index.js;
+  else
+      echo "The Airnode feed config's hash does not match the initial hash";
+  fi
+  `;
+  const runnerBashScriptInBase64 = Base64.encode(runnerBashScript);
+  const containerCommands =
+    CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].Command[0].replace(
+      '<RUNNER_SCRIPT_BASE64>',
+      runnerBashScriptInBase64
+    );
 
   // Interpolate "LogConfiguration"
   const interpolationAirnodeAddress = '<AIRNODE_ADDRESS>';
@@ -193,8 +263,8 @@ const downloadCloudFormation = (CloudFormation, configData, airnodeAddress) => {
     CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].LogConfiguration.Options.Labels;
   logConfiguration = logConfiguration.replace(interpolationAirnodeAddress, airnodeAddress);
 
+  CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].Command = [containerCommands];
   CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].Environment[0].Value = secrets;
-  CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].EntryPoint[2] = entryPointBashCmd;
   CloudFormation.Resources.AppDefinition.Properties.ContainerDefinitions[1].LogConfiguration.Options.Labels =
     logConfiguration;
   CloudFormation.Parameters = {

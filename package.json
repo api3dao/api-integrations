@@ -11,8 +11,8 @@
   "license": "MIT",
   "dependencies": {
     "@api3/airnode-abi": "^0.14.0",
-    "@api3/airnode-feed": "^0.4.0",
-    "@api3/ois": "^2.3.1",
+    "@api3/airnode-feed": "0.5.0",
+    "@api3/ois": "^2.3.2",
     "ethers": "^5.7.2",
     "zod": "^3.22.4"
   },
@@ -57,6 +57,7 @@
     "validate-apis-folder": "ts-node src/ci-scripts/check-api-files-integrity.ts",
     "validate-generated-files": "ts-node src/ci-scripts/check-generated-files.ts",
     "check-deployment-status": "ts-node src/ci-scripts/check-deployment-status.ts",
+    "check-airnode-feed-version": "ts-node src/ci-scripts/check-airnode-feed-version.ts",
     "generate-airnode-feed-deployment": "ts-node src/config-generation/airnode-feed/generate-deployment.ts",
     "prepare": "husky install",
     "test:unit": "jest ./test/unit --silent=false",

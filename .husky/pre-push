@@ -8,4 +8,5 @@ echo "Done."
 echo "Checking generated files..."
 pnpm validate-generated-files
 pnpm check-deployment-status
+pnpm check-airnode-feed-version
 echo "Done."
