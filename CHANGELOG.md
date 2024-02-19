@@ -1,5 +1,11 @@
 # api-integrations
 
+## 1.2.0
+
+### Minor Changes
+
+- 6f1ea89: Add api-provider: coingecko
+
 ## 1.1.0
 
 ### Minor Changes
