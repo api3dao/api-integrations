@@ -4,7 +4,11 @@
 
 ### Minor Changes
 
-- 6f1ea89: Add api-provider: coingecko
+- Add api-provider: coingecko
+- Fix a bug in ncfx-crypto OIS
+- Bump Airnode feed version to 0.5.0
+- Add hash confirmation to CF template
+- Add a script to validate Airnode feed version
 
 ## 1.1.0
 
