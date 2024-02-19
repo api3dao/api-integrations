@@ -12,8 +12,8 @@ importers:
         specifier: ^0.14.0
         version: 0.14.0
       '@api3/airnode-feed':
-        specifier: ^0.5.0
-        version: 0.5.0(eslint@8.56.0)(jest@29.7.0)(typescript@5.3.3)
+        specifier: ^0.4.0
+        version: 0.4.0(eslint@8.56.0)(jest@29.7.0)(typescript@5.3.3)
       '@api3/ois':
         specifier: ^2.3.2
         version: 2.3.2
@@ -275,10 +275,6 @@ packages:
     resolution: {integrity: sha512-DA5a1C0gD/pLOvhv33YMrbf2FK3oUzwNl9oOJqE4XVjuEtt6XIakRcsd7eLiOSPkp1kTRQGICTA8cKra/vFbjw==}
     dev: false
 
-  /@adraffy/ens-normalize@1.10.0:
-    resolution: {integrity: sha512-nA9XHtlAkYfJxY7bce8DcN7eKxWWCWkU+1GR9d+U6MbNpfwQp8TI7vqOsBsMcHoT4mBu2kypKoSKnghEzOOq5Q==}
-    dev: false
-
   /@alloc/quick-lru@5.2.0:
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
     engines: {node: '>=10'}
@@ -291,6 +287,16 @@ packages:
       '@jridgewell/gen-mapping': 0.3.3
       '@jridgewell/trace-mapping': 0.3.20
 
+  /@api3/airnode-abi@0.13.0:
+    resolution: {integrity: sha512-qWe3w3cGvpwUhONlLOkx8uMJ17m1qbC6b4g7xf9Jo0GZ6/AObcrBnsmPL7/JAlAtbvsTg25wS4o/TZaEA+gpYg==}
+    dependencies:
+      ethers: 5.7.2
+      lodash: 4.17.21
+    transitivePeerDependencies:
+      - bufferutil
+      - utf-8-validate
+    dev: false
+
   /@api3/airnode-abi@0.14.0:
     resolution: {integrity: sha512-hoIdFMqe0ENITj145INdHitLbLHK2Q3M5rsPGmTrmCz1QrhuIqdswJM9T60ieqTx6v2taCrddD67Vez7OvKJyA==}
     dependencies:
@@ -301,10 +307,10 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@api3/airnode-adapter@0.14.0:
-    resolution: {integrity: sha512-gZojDtwxWClmNzhMFkC9ahTKZ17VZ8gP+Js6VVM9sb65+dUgNlom3YH7v9MtPKwKKl66rNN0M0Kb9eTqO07OwA==}
+  /@api3/airnode-adapter@0.13.0:
+    resolution: {integrity: sha512-Lletix7nsfIcj9HQ/bF1zuFr9/cc/IUfltjHB0nYrKKXr0Ox/ggxST7u2yEPhL7s88D0wJAOSiVnvNhllITG7A==}
     dependencies:
-      '@api3/ois': 2.3.1
+      '@api3/ois': 2.2.1
       '@api3/promise-utils': 0.4.0
       axios: 1.6.7
       bignumber.js: 9.1.2
@@ -316,14 +322,14 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@api3/airnode-feed@0.5.0(eslint@8.56.0)(jest@29.7.0)(typescript@5.3.3):
-    resolution: {integrity: sha512-NYNALs95tv/qyFOFphNRbgK11XtloPMt9ci9/cOd36RSdnu2aClrnLwC7J2zxAJm6s5TOtffG2OutRsbjgeUqg==}
-    engines: {node: '>=18.19.0'}
+  /@api3/airnode-feed@0.4.0(eslint@8.56.0)(jest@29.7.0)(typescript@5.3.3):
+    resolution: {integrity: sha512-xvl2x+fqvq8PS7n30+0xaQmm+Bc+9jsOmmUtHBw08hwrVuS3n7ff51OXBRueAsb9Qn0NTzd4srJNh3pDDmRwDw==}
+    engines: {node: '>=18.19.0', pnpm: ^8.14.1}
     dependencies:
-      '@api3/airnode-abi': 0.14.0
-      '@api3/airnode-adapter': 0.14.0
-      '@api3/airnode-node': 0.14.0(eslint@8.56.0)(jest@29.7.0)(typescript@5.3.3)
-      '@api3/airnode-validator': 0.14.0
+      '@api3/airnode-abi': 0.13.0
+      '@api3/airnode-adapter': 0.13.0
+      '@api3/airnode-node': 0.13.0(eslint@8.56.0)(jest@29.7.0)(typescript@5.3.3)
+      '@api3/airnode-validator': 0.13.0
       '@api3/commons': 0.6.2(eslint@8.56.0)(jest@29.7.0)(typescript@5.3.3)
       '@api3/ois': 2.3.2
       '@api3/promise-utils': 0.4.0
@@ -347,17 +353,16 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@api3/airnode-node@0.14.0(eslint@8.56.0)(jest@29.7.0)(typescript@5.3.3):
-    resolution: {integrity: sha512-fSh0NwM6GDVFOCcltATrQUU1RCZbgYMy2iliwHhF5BfDZYuHs4W5RWP9PXFc863yUDJyY/NSSWUTjRD3Flpeqg==}
+  /@api3/airnode-node@0.13.0(eslint@8.56.0)(jest@29.7.0)(typescript@5.3.3):
+    resolution: {integrity: sha512-RY4Q+SaVZc9X/DSoX215HLg8c1wSlms8kJUx///n4MKiuXEEkG+Dc3dZDqtUCqWtLfOWNXoCcNYv8L9Fomk+LQ==}
     dependencies:
-      '@api3/airnode-abi': 0.14.0
-      '@api3/airnode-adapter': 0.14.0
-      '@api3/airnode-protocol': 0.14.0
-      '@api3/airnode-utilities': 0.14.0
-      '@api3/airnode-validator': 0.14.0
-      '@api3/chains': 4.7.0(typescript@5.3.3)
-      '@api3/commons': 0.5.0(eslint@8.56.0)(jest@29.7.0)(typescript@5.3.3)
-      '@api3/ois': 2.3.1
+      '@api3/airnode-abi': 0.13.0
+      '@api3/airnode-adapter': 0.13.0
+      '@api3/airnode-protocol': 0.13.0
+      '@api3/airnode-utilities': 0.13.0
+      '@api3/airnode-validator': 0.13.0
+      '@api3/commons': 0.3.0(eslint@8.56.0)(jest@29.7.0)(typescript@5.3.3)
+      '@api3/ois': 2.2.1
       '@api3/promise-utils': 0.4.0
       '@aws-sdk/client-lambda': 3.485.0
       date-fns: 2.30.0
@@ -382,16 +387,16 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@api3/airnode-protocol-v1@3.2.0:
-    resolution: {integrity: sha512-l0zej3d04ySea7NzVW4tNL155u3sFq3scxPrK1Bk5kXbtODxKa2xpLhczZ/Rr8HYGIvFiSsNSU+OgYNIhgiCYQ==}
+  /@api3/airnode-protocol-v1@2.10.0:
+    resolution: {integrity: sha512-5pXI9OUXeyM2IbVYrkW48Eymt7qGT5nfBU8GR2XZsRE8dCRZTIIfp+xdAMH+OFm62GGnUDz9e1uTiAHkRWrtKA==}
     dependencies:
       '@openzeppelin/contracts': 4.8.2
     dev: false
 
-  /@api3/airnode-protocol@0.14.0:
-    resolution: {integrity: sha512-0SJWETw7vUELQ+r0kC+SKiHHZfeRI+kUqE7r1CVhmfop0rpYX7ZV2jAMrUNYzPyZ4oQ4+uGvNPFqsy6GkoG9dw==}
+  /@api3/airnode-protocol@0.13.0:
+    resolution: {integrity: sha512-mbmVmQAQN7Wge/hWuxpqocEV95ofjcseOM08ruJwK8bEGyOUhhPshLsTOLNL/apqeZoe/DsfWp0Y/LIJ7DF83A==}
     dependencies:
-      '@api3/airnode-protocol-v1': 3.2.0
+      '@api3/airnode-protocol-v1': 2.10.0
       '@openzeppelin/contracts': 4.4.2
       ethers: 5.7.2
     transitivePeerDependencies:
@@ -399,10 +404,10 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@api3/airnode-utilities@0.14.0:
-    resolution: {integrity: sha512-aElERCDoP2C7Tx8vzqFkRONi6WCFRuDHTEpFZKQeilLdgPNqSKwj0FZI0CVgAFkvLpeELTTpV1s0c7GOrUVLOA==}
+  /@api3/airnode-utilities@0.13.0:
+    resolution: {integrity: sha512-lcWFw7gGxj5OGNNtLgSpYw/iKBR7oOC+Pfwp7bTt1FoBsHoDizGenAq710gtIxQXVEEkzdPSeOZf9Hxqqix8KQ==}
     dependencies:
-      '@api3/airnode-validator': 0.14.0
+      '@api3/airnode-validator': 0.13.0
       '@api3/promise-utils': 0.4.0
       date-fns: 2.30.0
       ethers: 5.7.2
@@ -411,12 +416,12 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@api3/airnode-validator@0.14.0:
-    resolution: {integrity: sha512-gpjUCrobf+tCn4NqzM/O02OHu597KDELivnyf/PvB9Wm9zdf6zttX/djdE29L+QFV4aHwwYi1aP8zC1Ez7i0wg==}
+  /@api3/airnode-validator@0.13.0:
+    resolution: {integrity: sha512-Yt4g00NKug0CfE0Y3ytoH7Myjhcu1gaUV42X67LJHl2y+vtiGvVbqJq4cqjDATfL8KANgdJ/RdVh4lgs5BKamA==}
     hasBin: true
     dependencies:
-      '@api3/airnode-protocol': 0.14.0
-      '@api3/ois': 2.3.1
+      '@api3/airnode-protocol': 0.13.0
+      '@api3/ois': 2.2.1
       '@api3/promise-utils': 0.4.0
       dotenv: 16.4.1
       ethers: 5.7.2
@@ -429,19 +434,8 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@api3/chains@4.7.0(typescript@5.3.3):
-    resolution: {integrity: sha512-H40HUw7TKYC+PFGKFRpzrBnMhOz1vjK3g4oDzM1J6hMEOX2L8wlbhvP3LbDf0OUoMuLfwq7FdTPSJNDAXAOPfA==}
-    dependencies:
-      viem: 2.7.8(typescript@5.3.3)(zod@3.22.4)
-      zod: 3.22.4
-    transitivePeerDependencies:
-      - bufferutil
-      - typescript
-      - utf-8-validate
-    dev: false
-
-  /@api3/commons@0.5.0(eslint@8.56.0)(jest@29.7.0)(typescript@5.3.3):
-    resolution: {integrity: sha512-PqSukqnAGQORuGTSLaQiVuxUtU5RBNOhm5GEnX0fhROhoKyX11E5EJuuQqYwIG4LsBkhVGNJuR7PhnUs6VmwrA==}
+  /@api3/commons@0.3.0(eslint@8.56.0)(jest@29.7.0)(typescript@5.3.3):
+    resolution: {integrity: sha512-27+UkW0qCWvQCJuO8vbyBhJ94IXELKhqCKjFxC5ZUQrJHRHWT4zz2wmdbsvgUHBZhuAuFPaz/78yjMCjzJ6S8Q==}
     engines: {node: ^18.14.0, pnpm: ^8.8.0}
     peerDependencies:
       eslint: ^8.50.0
@@ -465,19 +459,15 @@ packages:
       eslint-plugin-react: 7.33.2(eslint@8.56.0)
       eslint-plugin-react-hooks: 4.6.0(eslint@8.56.0)
       eslint-plugin-unicorn: 48.0.1(eslint@8.56.0)
-      ethers: 5.7.2
       lodash: 4.17.21
       winston: 3.11.0
       winston-console-format: 1.0.8
-      zod: 3.22.4
     transitivePeerDependencies:
-      - bufferutil
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
       - jest
       - supports-color
       - typescript
-      - utf-8-validate
     dev: false
 
   /@api3/commons@0.6.2(eslint@8.56.0)(jest@29.7.0)(typescript@5.3.3):
@@ -519,8 +509,8 @@ packages:
       - typescript
       - utf-8-validate
 
-  /@api3/ois@2.3.1:
-    resolution: {integrity: sha512-7TmgEiJn3TrqV2BZGh4fKTF4qX7Q/dyGdQh9L6gj4dHBmoKzfK0eDbwjWR+RokYrd9k4E4whGNxEnzdZr3ubSA==}
+  /@api3/ois@2.2.1:
+    resolution: {integrity: sha512-C4tSMBccDlD8NkZMVATQXOKctI46fSOlzpbZmZoFknsIdYfQvGNU49StGRJZ6fJJkwXEX1TlkRC7rY2yHEJjqw==}
     dependencies:
       lodash: 4.17.21
       zod: 3.22.4
@@ -5260,17 +5250,6 @@ packages:
       eslint-scope: 5.1.1
     dev: true
 
-  /@noble/curves@1.2.0:
-    resolution: {integrity: sha512-oYclrNgRaM9SsBUBVbb8M6DTV7ZHRTKugureoYEncY5c65HOmRzvSiTE3y5CYaPYJA/GVkrhXEoF0M3Ya9PMnw==}
-    dependencies:
-      '@noble/hashes': 1.3.2
-    dev: false
-
-  /@noble/hashes@1.3.2:
-    resolution: {integrity: sha512-MVC8EAQp7MvEcm30KWENFjgR+Mkmf+D189XJTkFIlwohU5hcBbn1ZkKq7KVTi2Hme3PMGF390DaL52beVrIihQ==}
-    engines: {node: '>= 16'}
-    dev: false
-
   /@nodelib/fs.scandir@2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
     engines: {node: '>= 8'}
@@ -5415,25 +5394,6 @@ packages:
 
   /@rushstack/eslint-patch@1.6.1:
     resolution: {integrity: sha512-UY+FGM/2jjMkzQLn8pxcHGMaVLh9aEitG3zY2CiY7XHdLiz3bZOwa6oDxNqEMv7zZkV+cj5DOdz0cQ1BP5Hjgw==}
-
-  /@scure/base@1.1.5:
-    resolution: {integrity: sha512-Brj9FiG2W1MRQSTB212YVPRrcbjkv48FoZi/u4l/zds/ieRrqsh7aUf6CLwkAq61oKXr/ZlTzlY66gLIj3TFTQ==}
-    dev: false
-
-  /@scure/bip32@1.3.2:
-    resolution: {integrity: sha512-N1ZhksgwD3OBlwTv3R6KFEcPojl/W4ElJOeCZdi+vuI5QmTFwLq3OFf2zd2ROpKvxFdgZ6hUpb0dx9bVNEwYCA==}
-    dependencies:
-      '@noble/curves': 1.2.0
-      '@noble/hashes': 1.3.2
-      '@scure/base': 1.1.5
-    dev: false
-
-  /@scure/bip39@1.2.1:
-    resolution: {integrity: sha512-Z3/Fsz1yr904dduJD0NpiyRHhRYHdcnyh73FZWiV+/qhWi83wNJ3NWolYqCEN+ZWsUz2TWwajJggcRE9r1zUYg==}
-    dependencies:
-      '@noble/hashes': 1.3.2
-      '@scure/base': 1.1.5
-    dev: false
 
   /@serverless/dashboard-plugin@7.2.0(supports-color@8.1.1):
     resolution: {integrity: sha512-Gqzgef+KmrX1OxJW9aubrIN6AvPrtDARMv+NegMNEe+pfkZA/IMuZiSyYUaHgARokdw2/IALOysTLgdFJIrXvA==}
@@ -7042,21 +7002,6 @@ packages:
   /abab@2.0.6:
     resolution: {integrity: sha512-j2afSsaIENvHZN2B8GOpF566vZ5WVk5opAiMTvWgaQT8DkbOqsTfvNAvHoRGU2zzP8cPoqys+xHTRDWW8L+/BA==}
     deprecated: Use your platform's native atob() and btoa() methods instead
-
-  /abitype@1.0.0(typescript@5.3.3)(zod@3.22.4):
-    resolution: {integrity: sha512-NMeMah//6bJ56H5XRj8QCV4AwuW6hB6zqz2LnhhLdcWVQOsXki6/Pn3APeqxCma62nXIcmZWdu1DlHWS74umVQ==}
-    peerDependencies:
-      typescript: '>=5.0.4'
-      zod: ^3 >=3.22.0
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-      zod:
-        optional: true
-    dependencies:
-      typescript: 5.3.3
-      zod: 3.22.4
-    dev: false
 
   /abort-controller@3.0.0:
     resolution: {integrity: sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==}
@@ -11853,14 +11798,6 @@ packages:
     dependencies:
       ws: 7.5.9
     dev: true
-
-  /isows@1.0.3(ws@8.13.0):
-    resolution: {integrity: sha512-2cKei4vlmg2cxEjm3wVSqn8pcoRF/LX/wpifuuNquFO4SQmPwarClT+SUCA2lt+l581tTeZIPIZuIDo2jWN1fg==}
-    peerDependencies:
-      ws: '*'
-    dependencies:
-      ws: 8.13.0
-    dev: false
 
   /istanbul-lib-coverage@3.2.2:
     resolution: {integrity: sha512-O8dpsF+r0WV/8MNRKfnmrtCWhuKjxrq2w+jpzBL5UZKTi2LeVWnWOmWRxFlesJONmc+wLAGvKQZEOanko0LFTg==}
@@ -17578,29 +17515,6 @@ packages:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
 
-  /viem@2.7.8(typescript@5.3.3)(zod@3.22.4):
-    resolution: {integrity: sha512-5r5pkBDBmihCvMx4b3MqtP0FoZCRWE2ML1DssU80+vhJQur0PKd4yHdLbbvoiGGVD6bYiA394juhfdSvXIGgFA==}
-    peerDependencies:
-      typescript: '>=5.0.4'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      '@adraffy/ens-normalize': 1.10.0
-      '@noble/curves': 1.2.0
-      '@noble/hashes': 1.3.2
-      '@scure/bip32': 1.3.2
-      '@scure/bip39': 1.2.1
-      abitype: 1.0.0(typescript@5.3.3)(zod@3.22.4)
-      isows: 1.0.3(ws@8.13.0)
-      typescript: 5.3.3
-      ws: 8.13.0
-    transitivePeerDependencies:
-      - bufferutil
-      - utf-8-validate
-      - zod
-    dev: false
-
   /w3c-hr-time@1.0.2:
     resolution: {integrity: sha512-z8P5DvDNjKDoFIHK7q8r8lackT6l+jo/Ye3HOle7l9nICP9lf1Ci25fy9vHd0JOWewkIFzXIEig3TdKT7JQ5fQ==}
     deprecated: Use your platform's native performance.now() and performance.timeOrigin.
@@ -18200,19 +18114,6 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
-
-  /ws@8.13.0:
-    resolution: {integrity: sha512-x9vcZYTrFPC7aSIbj7sRCYo7L/Xb8Iy+pW0ng0wt2vCJv7M9HOMy0UoN3rr+IFC7hb7vXoqS+P9ktyLLLhO+LA==}
-    engines: {node: '>=10.0.0'}
-    peerDependencies:
-      bufferutil: ^4.0.1
-      utf-8-validate: '>=5.0.2'
-    peerDependenciesMeta:
-      bufferutil:
-        optional: true
-      utf-8-validate:
-        optional: true
-    dev: false
 
   /ws@8.16.0:
     resolution: {integrity: sha512-HS0c//TP7Ina87TfiPUz1rQzMhHrl/SG2guqRcTOIUYD2q8uhUdNHZYJUaQ8aTGPzCh+c6oawMKW35nFl1dxyQ==}
