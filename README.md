@@ -66,19 +66,20 @@ ${airnodeAddress} - ${stage} - ${airnodeFeedVersion} - ${currentTimestamp} - ${d
 
 Through the `airnodeFeedConfigHash` it will be possible to check if the correct deployment is deployed.
 
-
 #### api-data.json
 
-There is `api-data.json` file for each API provider in `data/apis/<api-name>/api-data.json` path. This file includes the below information.
+There is `api-data.json` file for each API provider in `data/apis/<api-name>/api-data.json` path. This file includes the
+below information.
 
-* `alias`: Unique alias used for API.
-* `name`: Name of the API for public use.
-* `airnode`: Airnode address of the API.
-* `xpub`: Extended public key.
-* `supportedFeedsInBatches`: Name of the data feeds in batches supported by API, seperated by OIS titles.
-* `deploymentLocations`: Deployment locations where API provider deployed their Airnode feed to.
-* `homepageUrl`: API provider's website's homepage URL.
-* `verifiedBaseUrl`: URL where includes API provider's Airnode address in it's TXT records for people to be able to be confirm the Airnode address.
-* `signedApiUrl`: URL for the Signed API deployed by the API provider.
-* `productionSignedApiUrls`: URLs of the Signed APIs where Airnode feeds deployed by the API provider push data to.
-* `stagingSignedApiUrl`: URL of the Signed API where staging Airnode feed deployed by the API provider push data to.
+- `alias`: Unique alias used for API.
+- `name`: Name of the API for public use.
+- `airnode`: Airnode address of the API.
+- `xpub`: Extended public key.
+- `supportedFeedsInBatches`: Name of the data feeds in batches supported by API, seperated by OIS titles.
+- `deploymentLocations`: Deployment locations where API provider deployed their Airnode feed to.
+- `homepageUrl`: API provider's website's homepage URL.
+- `verifiedBaseUrl`: URL where includes API provider's Airnode address in it's TXT records for people to be able to be
+  confirm the Airnode address.
+- `signedApiUrl`: URL for the Signed API deployed by the API provider.
+- `productionSignedApiUrls`: URLs of the Signed APIs where Airnode feeds deployed by the API provider push data to.
+- `stagingSignedApiUrl`: URL of the Signed API where staging Airnode feed deployed by the API provider push data to.
