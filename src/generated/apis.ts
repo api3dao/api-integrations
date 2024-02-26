@@ -152,7 +152,7 @@ export const apisData = {
         ['RIF/USD'],
         ['RDNT/USD'],
         ['GHO/USD'],
-        ['CRVUSD/USD'],
+        ['crvUSD/USD'],
         ['EURe/USD'],
         ['WOO/USD'],
         ['PYTH/USD'],
@@ -253,6 +253,10 @@ export const apisData = {
         ['osETH/ETH Exchange Rate'],
         ['weETH/ETH Exchange Rate'],
         ['STONE/ETH Exchange Rate'],
+        ['USDY/USD Exchange Rate'],
+        ['rsETH/ETH Exchange Rate'],
+        ['rswETH/ETH Exchange Rate'],
+        ['apxETH/pxETH Exchange Rate'],
         ['AUD/USD'],
         ['BRL/USD'],
         ['CAD/USD'],
@@ -373,7 +377,7 @@ export const apisData = {
         ['RDNT/USD'],
         ['RIF/USD'],
         ['GHO/USD'],
-        ['CRVUSD/USD'],
+        ['crvUSD/USD'],
         ['EURe/USD'],
         ['FRAX/USD'],
         ['LUSD/USD'],
@@ -381,6 +385,8 @@ export const apisData = {
         ['PYTH/USD'],
         ['USDe/USD'],
         ['ASTR/USD'],
+        ['TIA/USD'],
+        ['DYM/USD'],
         ['XAG/USD'],
         ['XAU/USD'],
         ['WTI/USD'],
@@ -526,7 +532,9 @@ export const apisData = {
           'RIF/USD',
           'WOO/USD',
           'PYTH/USD',
-          'ASTR/USD'
+          'ASTR/USD',
+          'TIA/USD',
+          'DYM/USD'
         ]
       ]
     },
@@ -644,7 +652,9 @@ export const apisData = {
         ['RDNT/USD'],
         ['WOO/USD'],
         ['PYTH/USD'],
-        ['ASTR/USD']
+        ['ASTR/USD'],
+        ['DYM/USD'],
+        ['TIA/USD']
       ]
     },
     deploymentLocations: ['aws'],
@@ -913,12 +923,14 @@ export const apisData = {
         ['RIF/USD'],
         ['RDNT/USD'],
         ['GHO/USD'],
-        ['CRVUSD/USD'],
+        ['crvUSD/USD'],
         ['EURe/USD'],
         ['WOO/USD'],
         ['PYTH/USD'],
         ['USDe/USD'],
         ['ASTR/USD'],
+        ['DYM/USD'],
+        ['TIA/USD'],
         ['WTI/USD'],
         ['XAG/USD'],
         ['XAU/USD']
@@ -1171,7 +1183,7 @@ export const apisData = {
         ['RETH/USD'],
         ['FRAX/USD'],
         ['FRXETH/USD'],
-        ['CRVUSD/USD'],
+        ['crvUSD/USD'],
         ['CBETH/USD'],
         ['LUSD/USD'],
         ['WSTETH/USD'],
@@ -1185,7 +1197,9 @@ export const apisData = {
         ['WOO/USD'],
         ['PYTH/USD'],
         ['USDe/USD'],
-        ['ASTR/USD']
+        ['ASTR/USD'],
+        ['TIA/USD'],
+        ['DYM/USD']
       ]
     },
     deploymentLocations: ['aws'],
@@ -1302,7 +1316,7 @@ export const apisData = {
           'SUI/USD',
           'GNS/USD',
           'FRAX/USD',
-          'CRVUSD/USD',
+          'crvUSD/USD',
           'LUSD/USD',
           'GHO/USD',
           'MNT/USD',
@@ -1311,7 +1325,11 @@ export const apisData = {
           'PYTH/USD',
           'RDNT/USD',
           'RIF/USD',
-          'WOO/USD'
+          'WOO/USD',
+          'TIA/USD',
+          'DYM/USD',
+          'USDe/USD',
+          'EURe/USD'
         ]
       ]
     },

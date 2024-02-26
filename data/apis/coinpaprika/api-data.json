@@ -103,7 +103,7 @@
       ["RETH/USD"],
       ["FRAX/USD"],
       ["FRXETH/USD"],
-      ["CRVUSD/USD"],
+      ["crvUSD/USD"],
       ["CBETH/USD"],
       ["LUSD/USD"],
       ["WSTETH/USD"],
@@ -117,7 +117,9 @@
       ["WOO/USD"],
       ["PYTH/USD"],
       ["USDe/USD"],
-      ["ASTR/USD"]
+      ["ASTR/USD"],
+      ["TIA/USD"],
+      ["DYM/USD"]
     ]
   },
   "deploymentLocations": ["aws"],

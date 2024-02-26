@@ -102,7 +102,7 @@
         "SUI/USD",
         "GNS/USD",
         "FRAX/USD",
-        "CRVUSD/USD",
+        "crvUSD/USD",
         "LUSD/USD",
         "GHO/USD",
         "MNT/USD",
@@ -111,7 +111,11 @@
         "PYTH/USD",
         "RDNT/USD",
         "RIF/USD",
-        "WOO/USD"
+        "WOO/USD",
+        "TIA/USD",
+        "DYM/USD",
+        "USDe/USD",
+        "EURe/USD"
       ]
     ]
   },
