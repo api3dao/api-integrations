@@ -157,6 +157,8 @@ export const apisData = {
         ['WOO/USD'],
         ['PYTH/USD'],
         ['ASTR/USD'],
+        ['TIA/USD'],
+        ['DYM/USD'],
         ['WTI/USD'],
         ['XAG/USD'],
         ['XAU/USD']
