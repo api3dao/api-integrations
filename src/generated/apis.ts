@@ -582,7 +582,6 @@ export const apisData = {
         ['DAI/USD'],
         ['DOGE/USD'],
         ['DOT/USD'],
-        ['DYDX/USD'],
         ['ETH/USD'],
         ['EUL/USD'],
         ['FIL/USD'],
