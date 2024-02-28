@@ -126,7 +126,9 @@
         "RIF/USD",
         "WOO/USD",
         "PYTH/USD",
-        "ASTR/USD"
+        "ASTR/USD",
+        "TIA/USD",
+        "DYM/USD"
       ]
     ]
   },

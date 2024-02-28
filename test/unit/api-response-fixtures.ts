@@ -595,7 +595,6 @@ export function getApiResponseFixture(
         'RIF/USD': 'rif-token.usd',
         'GHO/USD': 'gho.usd',
         'EURE/USD': 'monerium-eur-money.usd',
-        'CRVUSD/USD': 'crvusd.usd',
         'WOO/USD': 'woo-network.usd',
         'PYTH/USD': 'pyth-network.usd',
         'USDe/USD': 'ethena-usde.usd',
@@ -606,7 +605,9 @@ export function getApiResponseFixture(
         'crvUSD/USD': 'crvusd.usd',
         'sUSD/USD': 'nusd.usd',
         'stMATIC/USD': 'lido-staked-matic.usd',
-        'miMATIC/USD': 'mimatic.usd'
+        'miMATIC/USD': 'mimatic.usd',
+        'DYM/USD': 'dymension.usd',
+        'TIA/USD': 'celestia.usd'
       };
       // CoinGecko responses includes asset names so fixture response must be modified
       const [id, vs_currency] = nameMap[endpointParameters.name].split('.');
