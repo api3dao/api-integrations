@@ -11,9 +11,10 @@ interface GrafanaLokiResponse {
   status: string;
   data: {
     resultType: string;
-    result: { values: [string, string][] }[];
+    result: { stream: { airnode: string; app: string; ecs_task_arn: string }; values: [string, string][] }[];
   };
 }
+
 const createHash = (value: string) => ethers.utils.keccak256(ethers.utils.toUtf8Bytes(value));
 
 // We need to make sure the object is stringified in the same way every time, so we sort the keys alphabetically.
@@ -38,25 +39,37 @@ export const extractUniqueAirnodeFeedHeartbeatPayloads = async (airnode: string)
   if (logs.data.resultType !== 'streams')
     throw new Error(`Unexpected result type '${logs.data.resultType}', expected 'streams'`);
 
-  const payloads = logs.data.result
-    .map((result) => result.values.map(([_lokiTimestamp, payload]) => JSON.parse(payload)))
+  const flattenLogs = logs.data.result
+    .map(({ stream, values }) => values.map(([_lokiTimestamp, payload]) => ({ payload, stream })))
     .flat();
 
-  const goParseHeartbeatPayloads = await go(() =>
-    Promise.all(payloads.map((payload) => airnodeFeedHeartbeatPayloadSchema.parseAsync(payload)))
+  const goParseLogs = await go(() =>
+    Promise.all(
+      flattenLogs.map(async ({ payload, stream }) => {
+        const heartbeatPayload = await airnodeFeedHeartbeatPayloadSchema.parseAsync(JSON.parse(payload));
+        return {
+          payload: heartbeatPayload,
+          stream
+        };
+      })
+    )
   );
-  if (!goParseHeartbeatPayloads.success)
-    throw new Error(`Unable to parse heartbeat payload from Airnode feed: ${goParseHeartbeatPayloads.error.message}`);
+  if (!goParseLogs.success)
+    throw new Error(`Unable to parse heartbeat payload from Airnode feed: ${goParseLogs.error.message}`);
 
-  const heartbeatPayloads = goParseHeartbeatPayloads.data;
-  const filterPayloads = heartbeatPayloads
-    .filter((payload) => new Date(parseInt(payload.currentTimestamp) * 1_000) >= new Date(Date.now() - 5 * MIN_IN_MS)) // We need to check timestamp to prevent replay attacks
-    .filter((payload) => isAirnodeFeedHeartbeatPayloadValid(payload, airnode));
+  const parsedLogs = goParseLogs.data;
+  const filterLogs = parsedLogs
+    .filter(
+      ({ payload }) => new Date(parseInt(payload.currentTimestamp) * 1_000) >= new Date(Date.now() - 5 * MIN_IN_MS)
+    ) // We need to check timestamp to prevent replay attacks
+    .filter(({ payload }) => isAirnodeFeedHeartbeatPayloadValid(payload, airnode));
 
   //  Sort by timestamp in descending order to get latest logs
-  const sortPayloads = _.reverse(_.sortBy(filterPayloads, 'currentTimestamp'));
-  // Remove duplicate logs by configHash
-  const uniqPayloads = _.uniqBy(sortPayloads, 'configHash');
+  const sortLogs = _.reverse(_.sortBy(filterLogs, ({ payload }) => payload.currentTimestamp));
+  // Remove duplicate logs by configHash and deploymentTimestamp
+  const uniqLogs = _.uniqBy(sortLogs, ({ payload }) => `${payload.configHash}-${payload.deploymentTimestamp}`);
 
-  return uniqPayloads;
+  const uniqHeartbeatPayloadsWithRegion = uniqLogs.map(({ payload }) => payload);
+
+  return uniqHeartbeatPayloadsWithRegion;
 };
