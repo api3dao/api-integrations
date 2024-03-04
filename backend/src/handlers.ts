@@ -2,7 +2,7 @@ import AWS from 'aws-sdk';
 import { isNil } from 'lodash';
 import { go, goSync } from '@api3/promise-utils';
 
-import { COMMON_HEADERS } from './constants';
+import { CACHE_HEADERS, COMMON_HEADERS } from './constants';
 import {
   GrafanaLokiAccessRecord,
   SignedApiAccessRecord,
@@ -68,7 +68,7 @@ export const connectGrafanaLokiAccess = async (event: APIGatewayProxyEvent): Pro
 
   return {
     statusCode: 200,
-    headers: COMMON_HEADERS,
+    headers: { ...COMMON_HEADERS, ...CACHE_HEADERS },
     body: JSON.stringify(normalizeObject(goReadDb.data.Item))
   };
 };
@@ -136,7 +136,11 @@ export const createGrafanaLokiAccess = async (event: APIGatewayProxyEvent): Prom
       );
     return generateErrorResponse(500, 'Unable to send created token to the database', goWriteDb.error.message);
   }
-  return { statusCode: 200, headers: COMMON_HEADERS, body: JSON.stringify(normalizeObject(newRecord)) };
+  return {
+    statusCode: 200,
+    headers: { ...COMMON_HEADERS, ...CACHE_HEADERS },
+    body: JSON.stringify(normalizeObject(newRecord))
+  };
 };
 
 export const deleteGrafanaLokiAccess = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
@@ -188,7 +192,7 @@ export const deleteGrafanaLokiAccess = async (event: APIGatewayProxyEvent): Prom
 
   return {
     statusCode: 200,
-    headers: COMMON_HEADERS,
+    headers: { ...COMMON_HEADERS, ...CACHE_HEADERS },
     body: JSON.stringify({ message: `Grafana Loki access record for ${airnode} has been deleted` })
   };
 };
@@ -221,7 +225,7 @@ export const connectSignedApiAccess = async (event: APIGatewayProxyEvent): Promi
 
   return {
     statusCode: 200,
-    headers: COMMON_HEADERS,
+    headers: { ...COMMON_HEADERS, ...CACHE_HEADERS },
     body: JSON.stringify(normalizeObject(goReadDb.data.Item))
   };
 };
@@ -266,7 +270,11 @@ export const createSignedApiAccess = async (event: APIGatewayProxyEvent): Promis
   if (!goWriteDb.success)
     return generateErrorResponse(500, 'Unable to send created token to the database', goWriteDb.error.message);
 
-  return { statusCode: 200, headers: COMMON_HEADERS, body: JSON.stringify(normalizeObject(newRecord)) };
+  return {
+    statusCode: 200,
+    headers: { ...COMMON_HEADERS, ...CACHE_HEADERS },
+    body: JSON.stringify(normalizeObject(newRecord))
+  };
 };
 
 export const deleteSignedApiAccess = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
@@ -305,7 +313,7 @@ export const deleteSignedApiAccess = async (event: APIGatewayProxyEvent): Promis
 
   return {
     statusCode: 200,
-    headers: COMMON_HEADERS,
+    headers: { ...COMMON_HEADERS, ...CACHE_HEADERS },
     body: JSON.stringify({ message: `Signed API access record for ${airnode} has been deleted` })
   };
 };
@@ -333,7 +341,7 @@ export const evaluateDeploymentStatus = async (event: APIGatewayProxyEvent): Pro
 
       return {
         statusCode: 200,
-        headers: { ...COMMON_HEADERS },
+        headers: { ...COMMON_HEADERS, ...CACHE_HEADERS },
         body: JSON.stringify(goUniquePayloads.data)
       };
     }

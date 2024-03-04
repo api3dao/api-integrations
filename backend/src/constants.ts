@@ -10,5 +10,5 @@ export const COMMON_HEADERS = {
 
 export const CACHE_HEADERS = {
   'cache-control': 'no-store', // Disable browser-caching
-  'cdn-cache-control': 'max-age=10' // Enable CDN caching and set to 10
+  'cdn-cache-control': 'max-age=20' // Enable CDN caching and set to 20 seconds
 };
