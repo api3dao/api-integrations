@@ -78,7 +78,8 @@ functions:
           path: /signedApiAccess
           method: delete
   evaluateDeploymentStatus:
-    memorySize: 128
+    timeout: 10
+    memorySize: 192
     handler: src/handlers.evaluateDeploymentStatus
     events:
       - httpApi:
