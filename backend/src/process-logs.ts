@@ -15,6 +15,15 @@ interface GrafanaLokiResponse {
   };
 }
 
+const parseAWSRegionFromARN = (arn: string): string => {
+  const arnParts = arn.split(':');
+  if (arnParts.length >= 4 && arnParts[0] === 'arn' && arnParts[1] === 'aws') {
+    return arnParts[3];
+  } else {
+    return '';
+  }
+};
+
 const createHash = (value: string) => ethers.utils.keccak256(ethers.utils.toUtf8Bytes(value));
 
 // We need to make sure the object is stringified in the same way every time, so we sort the keys alphabetically.
@@ -69,7 +78,10 @@ export const extractUniqueAirnodeFeedHeartbeatPayloads = async (airnode: string)
   // Remove duplicate logs by configHash and deploymentTimestamp
   const uniqLogs = _.uniqBy(sortLogs, ({ payload }) => `${payload.configHash}-${payload.deploymentTimestamp}`);
 
-  const uniqHeartbeatPayloadsWithRegion = uniqLogs.map(({ payload }) => payload);
+  const uniqHeartbeatPayloadsWithRegion = uniqLogs.map(({ payload, stream }) => ({
+    ...payload,
+    region: parseAWSRegionFromARN(stream.ecs_task_arn)
+  }));
 
   return uniqHeartbeatPayloadsWithRegion;
 };
