@@ -10,7 +10,7 @@ See `frontend`'s [README](/frontend/README.md).
 
 ### Generating a `airnode-feed` deployment
 
-1. Run the script
+1. Run the script.
 
 ```shell
 pnpm generate-airnode-feed-deployment
