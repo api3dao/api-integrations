@@ -5,7 +5,6 @@
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "ncc:build": "ncc build -m -o ncc -s --target es2023 src/handlers.ts",
     "serverless:deploy": "serverless deploy",
     "serverless:remove": "serverless remove",
     "local:db:up": "docker compose -f docker-compose.dynamodb-local.yml up -d ",

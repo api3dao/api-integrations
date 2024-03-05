@@ -1,7 +1,3 @@
-import { appTypeSchema } from './types';
-
-export const APP_TYPES = appTypeSchema.options.map((option) => option.value);
-
 export const SEC_IN_MS = 1000;
 export const MIN_IN_MS = 60 * SEC_IN_MS;
 export const BEARER_TOKEN_LENGTH = 32;
@@ -14,5 +10,5 @@ export const COMMON_HEADERS = {
 
 export const CACHE_HEADERS = {
   'cache-control': 'no-store', // Disable browser-caching
-  'cdn-cache-control': 'max-age=10' // Enable CDN caching and set to 10
+  'cdn-cache-control': 'max-age=20' // Enable CDN caching and set to 20 seconds
 };
