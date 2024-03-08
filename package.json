@@ -11,12 +11,12 @@
   "license": "MIT",
   "dependencies": {
     "@api3/airnode-abi": "^0.14.0",
-    "@api3/airnode-feed": "0.5.1",
     "@api3/ois": "^2.3.2",
     "ethers": "^5.7.2",
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@api3/airnode-feed": "0.5.1",
     "@api3/commons": "^0.6.2",
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.27.1",
