@@ -27,44 +27,46 @@ async function checkDeployments(deployments: any[], apiName: string, apiData: an
   const issues = [];
   await Promise.all(
     deployments.map(async (deploymentJson) => {
+      let nDeployment = 0;
       const configHash = createHash(JSON.stringify(deploymentJson));
       const deploymentStatus: HeartbeatPayload[] = await getDeploymentStatus(apiData.airnode);
 
-      const targetDeploymentStatus = deploymentStatus.find(
+      const targetDeploymentStatuses = deploymentStatus.filter(
         (targetDeploymentStatus) => targetDeploymentStatus.configHash === configHash
       );
-      if (targetDeploymentStatus === undefined) {
+      if (targetDeploymentStatuses.length === 0) {
         issues.push(`🔴 ${apiName}/${deploymentType} - Couldn't find live deployment.`);
       } else {
         const now = Math.floor(Date.now() / 1000);
+        targetDeploymentStatuses.map((targetDeploymentStatus) => {
+          // check timestamp
+          if (Math.abs(now - parseInt(targetDeploymentStatus.currentTimestamp)) > ONE_MINUTE_IN_SECONS + SLACK) {
+            issues.push(`🔴 ${apiName}/${deploymentType} - Heartbeat is old!`);
+          }
+          // check heartbeat signature
+          const unsignedHeartbeatPayload = {
+            airnode: targetDeploymentStatus.airnode,
+            stage: targetDeploymentStatus.stage,
+            nodeVersion: targetDeploymentStatus.nodeVersion,
+            currentTimestamp: targetDeploymentStatus.currentTimestamp,
+            deploymentTimestamp: targetDeploymentStatus.deploymentTimestamp,
+            configHash: targetDeploymentStatus.configHash
+          };
+          const message = ethers.utils.arrayify(
+            createHash(stringifyUnsignedHeartbeatPayload(unsignedHeartbeatPayload))
+          );
+          const signatureResult = ethers.utils.verifyMessage(message, targetDeploymentStatus.signature);
+          if (apiData.airnode !== signatureResult) {
+            issues.push(`🔴 ${apiName}/${deploymentType} - Couldn't verify heartbeat signature!`);
+          }
+          nDeployment++;
+        });
+      }
 
-        // check timestamp
-        if (Math.abs(now - parseInt(targetDeploymentStatus.currentTimestamp)) > ONE_MINUTE_IN_SECONS + SLACK) {
-          issues.push(`🔴 ${apiName}/${deploymentType} - Heartbeat is old!`);
-        }
-
-        // check heartbeat signature
-        const unsignedHeartbeatPayload = {
-          airnode: targetDeploymentStatus.airnode,
-          stage: targetDeploymentStatus.stage,
-          nodeVersion: targetDeploymentStatus.nodeVersion,
-          currentTimestamp: targetDeploymentStatus.currentTimestamp,
-          deploymentTimestamp: targetDeploymentStatus.deploymentTimestamp,
-          configHash: targetDeploymentStatus.configHash
-        };
-        const message = ethers.utils.arrayify(createHash(stringifyUnsignedHeartbeatPayload(unsignedHeartbeatPayload)));
-        const signatureResult = ethers.utils.verifyMessage(message, targetDeploymentStatus.signature);
-        if (apiData.airnode !== signatureResult) {
-          issues.push(`🔴 ${apiName}/${deploymentType} - Couldn't verify heartbeat signature!`);
-        }
-
-        console.log(
-          `🟢 ${apiName} - Have an active deployment with the below heartbeat:\n${JSON.stringify(
-            targetDeploymentStatus,
-            null,
-            2
-          )}`
-        );
+      if (nDeployment === 2) {
+        console.log(`🟢 ${apiName} - Has 2 active deployments.`);
+      } else if (nDeployment === 1) {
+        console.log(`🟠 ${apiName} - Has only 1 active deployment!`);
       }
     })
   );
