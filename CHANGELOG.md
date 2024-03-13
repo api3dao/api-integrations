@@ -1,5 +1,25 @@
 # api-integrations
 
+## 1.3.0
+
+### Minor Changes
+
+- 8f12b92: # Data feed changes
+
+  - Removes Kaiko DYDX/USD.
+  - Renames CRVUSD/USD to crvUSD/USD.
+  - Adds twelvedata TIA/USD, DYM/USD
+
+## 1.2.0
+
+### Minor Changes
+
+- Add api-provider: coingecko
+- Fix a bug in ncfx-crypto OIS
+- Bump Airnode feed version to 0.5.0
+- Add hash confirmation to CF template
+- Add a script to validate Airnode feed version
+
 ## 1.1.0
 
 ### Minor Changes
