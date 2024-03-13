@@ -1,5 +1,11 @@
 # api-integrations
 
+## 1.4.1
+
+### Patch Changes
+
+- 7222888: Update nodary-mock API
+
 ## 1.4.0
 
 ### Minor Changes
