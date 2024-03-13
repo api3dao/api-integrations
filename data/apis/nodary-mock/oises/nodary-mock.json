@@ -1,0 +1,92 @@
+{
+  "oisFormat": "2.3.0",
+  "title": "Nodary",
+  "version": "0.1.0",
+  "apiSpecifications": {
+    "components": {
+      "securitySchemes": {
+        "NodarySecurityScheme1ApiKey": {
+          "in": "header",
+          "name": "x-nodary-api-key",
+          "type": "apiKey"
+        }
+      }
+    },
+    "paths": {
+      "/{path}": {
+        "get": {
+          "parameters": [
+            {
+              "in": "path",
+              "name": "path"
+            },
+            {
+              "in": "query",
+              "name": "names"
+            }
+          ]
+        }
+      }
+    },
+    "servers": [
+      {
+        "url": "https://api.nodary.io"
+      }
+    ],
+    "security": {
+      "NodarySecurityScheme1ApiKey": []
+    }
+  },
+  "endpoints": [
+    {
+      "fixedOperationParameters": [],
+      "name": "feed",
+      "operation": {
+        "method": "get",
+        "path": "/{path}"
+      },
+      "parameters": [
+        {
+          "name": "path",
+          "operationParameter": {
+            "in": "path",
+            "name": "path"
+          },
+          "required": true
+        },
+        {
+          "name": "names",
+          "operationParameter": {
+            "in": "query",
+            "name": "names"
+          },
+          "required": true
+        },
+        {
+          "name": "name",
+          "required": true
+        }
+      ],
+      "reservedParameters": [
+        {
+          "name": "_type",
+          "fixed": "int256"
+        },
+        {
+          "name": "_times",
+          "fixed": "1000000000000000000"
+        }
+      ],
+      "preProcessingSpecificationV2": {
+        "environment": "Node",
+        "value": "({ endpointParameters }) => {\n  const preProcessingObject = {\n    \"MOCK/USD\": { path: \"feed/latestV2\", parameters: { names: \"HG/USD\" } },\n  }\n  return {\n    endpointParameters: {\n      path: preProcessingObject[endpointParameters.name].path,\n      ...preProcessingObject[endpointParameters.name].parameters,\n    },\n  }\n}\n",
+        "timeoutMs": 5000
+      },
+      "postProcessingSpecificationV2": {
+        "environment": "Node",
+        "value": "({ response, endpointParameters }) => {\n  const postProcessingObject = {\n    \"MOCK/USD\":\n      \"(response) => {\\n          return response['HG/USD'].value;\\n        }\\n        \",\n  }\n  const parser = eval(postProcessingObject[endpointParameters.name])\n  return { response: parser(response) }\n}\n",
+        "timeoutMs": 5000
+      }
+    }
+  ]
+}

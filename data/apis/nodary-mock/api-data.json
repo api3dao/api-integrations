@@ -1,0 +1,27 @@
+{
+  "alias": "nodary-mock",
+  "name": "Nodary",
+  "airnode": "0xc52EeA00154B4fF1EbbF8Ba39FDe37F1AC3B9Fd4",
+  "xpub": "xpub6Cd14fbNsTqhi7Urd3cyXHD1nfpDyFf2b5jLcNcwtcEiGzJpQ9UNDwNinYCEmoXgCEZyMZYmAPCaGCFBuCqMD8Pkz8zXWt4rgre8kQLFUMA",
+  "supportedFeedsInBatches": {
+    "Nodary": [["MOCK/USD"]]
+  },
+  "deploymentLocations": ["aws"],
+  "homepageUrl": "https://nodary.io",
+  "verifiedBaseUrl": "https://nodary.io",
+  "signedApiUrl": "",
+  "productionSignedApiUrls": [
+    {
+      "url": "https://signed-api.nodary.io",
+      "name": "Nodary"
+    },
+    {
+      "url": "https://signed-api.api3.org",
+      "name": "API3"
+    }
+  ],
+  "stagingSignedApiUrl": {
+    "url": "https://signed-api.stage.nodary.io",
+    "name": "Staging"
+  }
+}
