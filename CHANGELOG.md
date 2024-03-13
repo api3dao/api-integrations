@@ -1,5 +1,15 @@
 # api-integrations
 
+## 1.3.0
+
+### Minor Changes
+
+- 8f12b92: # Data feed changes
+
+  - Removes Kaiko DYDX/USD.
+  - Renames CRVUSD/USD to crvUSD/USD.
+  - Adds twelvedata TIA/USD, DYM/USD
+
 ## 1.2.0
 
 ### Minor Changes
