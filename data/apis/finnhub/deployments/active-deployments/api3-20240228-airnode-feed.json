@@ -1,7 +1,7 @@
 {
   "nodeSettings": {
     "airnodeWalletMnemonic": "${WALLET_MNEMONIC}",
-    "nodeVersion": "0.4.0",
+    "nodeVersion": "0.5.1",
     "stage": "${STAGE}"
   },
   "templates": {

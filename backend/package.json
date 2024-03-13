@@ -5,7 +5,6 @@
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "ncc:build": "ncc build -m -o ncc -s --target es2023 src/handlers.ts",
     "serverless:deploy": "serverless deploy",
     "serverless:remove": "serverless remove",
     "local:db:up": "docker compose -f docker-compose.dynamodb-local.yml up -d ",
@@ -20,14 +19,14 @@
     "format:write": "pnpm prettier:write && pnpm eslint:write"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.133",
+    "@types/aws-lambda": "^8.10.136",
     "@types/express": "^4.17.21",
     "@types/lodash": "^4.14.202",
-    "@types/node": "^20.11.15",
-    "@typescript-eslint/eslint-plugin": "^6.20.0",
-    "@typescript-eslint/parser": "^6.20.0",
-    "eslint": "^8.56.0",
-    "eslint-plugin-functional": "^6.0.0",
+    "@types/node": "^20.11.24",
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/parser": "^7.1.1",
+    "eslint": "^8.57.0",
+    "eslint-plugin-functional": "^6.0.1",
     "eslint-plugin-import": "^2.29.1",
     "prettier": "^2.8.8",
     "serverless": "^3.38.0",
@@ -38,11 +37,11 @@
   "dependencies": {
     "@api3/promise-utils": "^0.4.0",
     "aws-lambda": "^1.0.7",
-    "aws-sdk": "^2.1548.0",
+    "aws-sdk": "^2.1571.0",
     "axios": "^1.6.7",
-    "dotenv": "^16.4.1",
+    "dotenv": "^16.4.5",
     "ethers": "5.*",
-    "express": "^4.18.2",
+    "express": "^4.18.3",
     "lodash": "^4.17.21",
     "zod": "^3.22.4"
   },
