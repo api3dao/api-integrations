@@ -1,5 +1,11 @@
 # api-integrations
 
+## 1.4.0
+
+### Minor Changes
+
+- cd5a64e: Added nodary-mock API
+
 ## 1.3.0
 
 ### Minor Changes
