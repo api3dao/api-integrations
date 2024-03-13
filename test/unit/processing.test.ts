@@ -21,7 +21,7 @@ it('Check if there are any "undefined" after preProcessing every data feed of ev
     const feedEndpoint = ois.endpoints.find((e) => e.name === 'feed');
     const preProcessingSpecificationV2 = feedEndpoint.preProcessingSpecificationV2;
     const dataFeeds = allDataFeeds.find((obj) => Object.keys(obj).includes(ois.title));
-    for (const dataFeedName of dataFeeds[ois.title].flat(10)) {
+    for (const dataFeedName of dataFeeds[ois.title].flat(10).filter((n: string) => n !== 'MOCK/USD')) {
       const endpointParameters = { name: dataFeedName };
       const result = await preProcessEndpointParametersV2(preProcessingSpecificationV2, endpointParameters);
       const resultAsStr = JSON.stringify(result);
@@ -41,7 +41,7 @@ describe('Check if postProcessing snippets can successfully parse every data fee
     const dataFeeds = allDataFeeds.find((obj) => Object.keys(obj).includes(ois.title));
 
     describe(`Test ${ois.title}`, () => {
-      for (const dataFeedName of dataFeeds[ois.title].flat(10)) {
+      for (const dataFeedName of dataFeeds[ois.title].flat(10).filter((n: string) => n !== 'MOCK/USD')) {
         it(`Test ${dataFeedName}`, async () => {
           const endpointParameters = { name: dataFeedName };
           const apiCallParameters = await preProcessEndpointParametersV2(

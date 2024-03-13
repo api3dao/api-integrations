@@ -216,6 +216,22 @@ export const apisData = {
     ],
     stagingSignedApiUrl: { url: 'https://signed-api.stage.nodary.io', name: 'Staging' }
   },
+  'nodary-mock': {
+    alias: 'nodary-mock',
+    name: 'Nodary',
+    airnode: '0xc52EeA00154B4fF1EbbF8Ba39FDe37F1AC3B9Fd4',
+    xpub: 'xpub6Cd14fbNsTqhi7Urd3cyXHD1nfpDyFf2b5jLcNcwtcEiGzJpQ9UNDwNinYCEmoXgCEZyMZYmAPCaGCFBuCqMD8Pkz8zXWt4rgre8kQLFUMA',
+    supportedFeedsInBatches: { Nodary: [['MOCK/USD']] },
+    deploymentLocations: ['aws'],
+    homepageUrl: 'https://nodary.io',
+    verifiedBaseUrl: 'https://nodary.io',
+    signedApiUrl: '',
+    productionSignedApiUrls: [
+      { url: 'https://signed-api.nodary.io', name: 'Nodary' },
+      { url: 'https://signed-api.api3.org', name: 'API3' }
+    ],
+    stagingSignedApiUrl: { url: 'https://signed-api.stage.nodary.io', name: 'Staging' }
+  },
   nodary: {
     alias: 'nodary',
     name: 'Nodary',
@@ -1353,6 +1369,7 @@ export const apisData = {
 export const airnodeAddressMap = {
   twelvedata: '0x31C7db0e12e002E071ca0FF243ec4788a8AD189F',
   tradermade: '0x8676eA8B6Ebe5b8FBbc25FF55192bADf39D7D61b',
+  'nodary-mock': '0xc52EeA00154B4fF1EbbF8Ba39FDe37F1AC3B9Fd4',
   nodary: '0xc52EeA00154B4fF1EbbF8Ba39FDe37F1AC3B9Fd4',
   ncfx: '0xbC6471E88d8aFe936A45bEB8bd20a210EBEF6822',
   kaiko: '0x5791Fb78D4e37A9D0f0003199D1AE1A8C04C8d89',
