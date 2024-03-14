@@ -1,5 +1,18 @@
 # api-integrations
 
+## 1.5.0
+
+### Minor Changes
+
+- 0c86013: ## Added new feeds to nodary
+
+  - ezETH/ETH
+  - sAVAX/AVAX
+  - wUSDM/USDM
+  - sUSDe/USDe
+  - sDAI/DAI
+  - CHKLSTMOCK/USD
+
 ## 1.4.1
 
 ### Patch Changes
