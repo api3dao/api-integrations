@@ -594,7 +594,8 @@ export const apisData = {
         ['XAU/USD'],
         ['WTI/USD'],
         ['NG/USD'],
-        ['HG/USD']
+        ['HG/USD'],
+        ['CHKLSTMOCK/USD']
       ]
     },
     deploymentLocations: ['aws'],
