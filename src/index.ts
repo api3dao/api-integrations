@@ -37,7 +37,7 @@ export function getOisTitleByFeedNameAndAirnodeAddress(feedName: string, airnode
   });
 
   if (!targetOisTitle) {
-    throw Error(`Data feed ${feedName} does not exists in any OIS.`);
+    throw Error(`Data feed ${feedName} does not exists in ${targetApiData.alias}.`);
   }
 
   return targetOisTitle;
