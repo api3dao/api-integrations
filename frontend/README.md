@@ -105,12 +105,8 @@ Click on the expand deployment location to view the deployment instructions. The
 
 ### AWS deployment instructions
 
-The AWS deployment instructions contains the following:
-
-- Enter your secrets on specified fields before upload your template
-- Go to CloudFormation section in the AWS dashboard, and upload your template
-- Wait for AWS to deploy everything and check CloudWatch log group named myAppLogs to see what's up.
-- After 1 or 2 minutes, you should see your signed data in https://pool.nodary.io/ after a successful deployment.
+Please check the Airnode feed deployment
+[documentation](https://airnodefeed.gitbook.io/airnode-feed/how-to-guides/first-deployment).
 
 ### Local deployment instructions
 
