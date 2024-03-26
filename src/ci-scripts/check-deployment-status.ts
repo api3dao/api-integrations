@@ -8,6 +8,7 @@ import { readdirSync } from 'fs';
 import { ethers } from 'ethers';
 import { globSync } from 'glob';
 import axios from 'axios';
+import { createSha256Hash, serializePlainObject } from '@api3/commons';
 import { readJson } from '../config-generation/config-utils';
 import { apiDataSchema } from '../types';
 
@@ -21,6 +22,10 @@ export interface HeartbeatPayload {
   signature: string;
 }
 
+const semanticToNumber = (version: string) => {
+  return parseInt(version.replaceAll('.', ''));
+};
+
 async function checkDeployments(deployments: any[], apiName: string, apiData: any, deploymentType: string) {
   apiData = apiDataSchema.parse(apiData);
 
@@ -28,8 +33,15 @@ async function checkDeployments(deployments: any[], apiName: string, apiData: an
   await Promise.all(
     deployments.map(async (deploymentJson) => {
       let nDeployment = 0;
-      const configHash = createHash(JSON.stringify(deploymentJson));
+      let configHash: string;
       const deploymentStatus: HeartbeatPayload[] = await getDeploymentStatus(apiData.airnode);
+      const deploymentVersion = deploymentJson.nodeSettings.nodeVersion;
+      // calculate configHash based on the Airnode feed config version
+      if (semanticToNumber(deploymentVersion) < 600) {
+        configHash = createHash(JSON.stringify(deploymentJson));
+      } else {
+        configHash = createSha256Hash(serializePlainObject(deploymentJson));
+      }
 
       const targetDeploymentStatuses = deploymentStatus.filter(
         (targetDeploymentStatus) => targetDeploymentStatus.configHash === configHash
@@ -52,9 +64,12 @@ async function checkDeployments(deployments: any[], apiName: string, apiData: an
             deploymentTimestamp: targetDeploymentStatus.deploymentTimestamp,
             configHash: targetDeploymentStatus.configHash
           };
-          const message = ethers.utils.arrayify(
-            createHash(stringifyUnsignedHeartbeatPayload(unsignedHeartbeatPayload))
-          );
+          let message: Uint8Array;
+          if (semanticToNumber(deploymentVersion) < 600) {
+            message = ethers.utils.arrayify(createHash(stringifyUnsignedHeartbeatPayload(unsignedHeartbeatPayload)));
+          } else {
+            message = ethers.utils.arrayify(createSha256Hash(serializePlainObject(unsignedHeartbeatPayload)));
+          }
           const signatureResult = ethers.utils.verifyMessage(message, targetDeploymentStatus.signature);
           if (apiData.airnode !== signatureResult) {
             issues.push(`🔴 ${apiName}/${deploymentType} - Couldn't verify heartbeat signature!`);
