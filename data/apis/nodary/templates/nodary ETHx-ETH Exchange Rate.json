@@ -1,0 +1,28 @@
+{
+  "name": "ETHx/ETH Exchange Rate",
+  "endpointId": "0x3528e42b017a5fbf9d2993a2df04efc3ed474357575065a111b054ddf9de2acc",
+  "templateId": "0xc8847eafbb537736162896bdfe944e80e0ee3793314029c4d4410577c606baba",
+  "parameters": "0x31730000000000000000000000000000000000000000000000000000000000006e616d6500000000000000000000000000000000000000000000000000000000455448782f4554482045786368616e6765205261746500000000000000000000",
+  "decodedParameters": [
+    {
+      "name": "name",
+      "type": "string32",
+      "value": "ETHx/ETH Exchange Rate"
+    },
+    {
+      "name": "_path",
+      "type": "string32",
+      "value": "value"
+    },
+    {
+      "name": "_times",
+      "type": "string32",
+      "value": "1000000000000000000"
+    },
+    {
+      "name": "_type",
+      "type": "string32",
+      "value": "int256"
+    }
+  ]
+}

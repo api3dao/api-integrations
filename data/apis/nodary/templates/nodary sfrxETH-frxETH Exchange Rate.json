@@ -1,0 +1,28 @@
+{
+  "name": "sfrxETH/frxETH Exchange Rate",
+  "endpointId": "0x3528e42b017a5fbf9d2993a2df04efc3ed474357575065a111b054ddf9de2acc",
+  "templateId": "0x44fdecba7fc5fa83051e50bf07b919f3842c223ad0b43afe83b39f2b53518e97",
+  "parameters": "0x31730000000000000000000000000000000000000000000000000000000000006e616d6500000000000000000000000000000000000000000000000000000000736672784554482f6672784554482045786368616e6765205261746500000000",
+  "decodedParameters": [
+    {
+      "name": "name",
+      "type": "string32",
+      "value": "sfrxETH/frxETH Exchange Rate"
+    },
+    {
+      "name": "_path",
+      "type": "string32",
+      "value": "value"
+    },
+    {
+      "name": "_times",
+      "type": "string32",
+      "value": "1000000000000000000"
+    },
+    {
+      "name": "_type",
+      "type": "string32",
+      "value": "int256"
+    }
+  ]
+}

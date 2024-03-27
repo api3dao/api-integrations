@@ -1,0 +1,28 @@
+{
+  "name": "MOVR/USD",
+  "endpointId": "0x3528e42b017a5fbf9d2993a2df04efc3ed474357575065a111b054ddf9de2acc",
+  "templateId": "0x69d5b4251562afbf785321516021fcc9da268111ee46f35ae22bb97d8caf0a4b",
+  "parameters": "0x31730000000000000000000000000000000000000000000000000000000000006e616d65000000000000000000000000000000000000000000000000000000004d4f56522f555344000000000000000000000000000000000000000000000000",
+  "decodedParameters": [
+    {
+      "name": "name",
+      "type": "string32",
+      "value": "MOVR/USD"
+    },
+    {
+      "name": "_path",
+      "type": "string32",
+      "value": "value"
+    },
+    {
+      "name": "_times",
+      "type": "string32",
+      "value": "1000000000000000000"
+    },
+    {
+      "name": "_type",
+      "type": "string32",
+      "value": "int256"
+    }
+  ]
+}

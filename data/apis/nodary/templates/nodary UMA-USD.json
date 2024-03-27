@@ -1,0 +1,28 @@
+{
+  "name": "UMA/USD",
+  "endpointId": "0x3528e42b017a5fbf9d2993a2df04efc3ed474357575065a111b054ddf9de2acc",
+  "templateId": "0xc938ba9dd0be0637d17830676a1e3f1292032f8e7990eac20a25c3c2a07a99dd",
+  "parameters": "0x31730000000000000000000000000000000000000000000000000000000000006e616d6500000000000000000000000000000000000000000000000000000000554d412f55534400000000000000000000000000000000000000000000000000",
+  "decodedParameters": [
+    {
+      "name": "name",
+      "type": "string32",
+      "value": "UMA/USD"
+    },
+    {
+      "name": "_path",
+      "type": "string32",
+      "value": "value"
+    },
+    {
+      "name": "_times",
+      "type": "string32",
+      "value": "1000000000000000000"
+    },
+    {
+      "name": "_type",
+      "type": "string32",
+      "value": "int256"
+    }
+  ]
+}

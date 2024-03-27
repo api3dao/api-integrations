@@ -1,0 +1,28 @@
+{
+  "name": "QUICK/USD",
+  "endpointId": "0x3528e42b017a5fbf9d2993a2df04efc3ed474357575065a111b054ddf9de2acc",
+  "templateId": "0x6575f2c29a636fa55eaa8aa86706b6d3c33a21e0e79e1647259718dac070efc4",
+  "parameters": "0x31730000000000000000000000000000000000000000000000000000000000006e616d6500000000000000000000000000000000000000000000000000000000515549434b2f5553440000000000000000000000000000000000000000000000",
+  "decodedParameters": [
+    {
+      "name": "name",
+      "type": "string32",
+      "value": "QUICK/USD"
+    },
+    {
+      "name": "_path",
+      "type": "string32",
+      "value": "value"
+    },
+    {
+      "name": "_times",
+      "type": "string32",
+      "value": "1000000000000000000"
+    },
+    {
+      "name": "_type",
+      "type": "string32",
+      "value": "int256"
+    }
+  ]
+}

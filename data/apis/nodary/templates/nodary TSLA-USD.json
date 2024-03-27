@@ -1,0 +1,28 @@
+{
+  "name": "TSLA/USD",
+  "endpointId": "0x3528e42b017a5fbf9d2993a2df04efc3ed474357575065a111b054ddf9de2acc",
+  "templateId": "0x472396eebc9941291481e95c27259a92926494cc440ca8e3f18c7cfbced2fc48",
+  "parameters": "0x31730000000000000000000000000000000000000000000000000000000000006e616d650000000000000000000000000000000000000000000000000000000054534c412f555344000000000000000000000000000000000000000000000000",
+  "decodedParameters": [
+    {
+      "name": "name",
+      "type": "string32",
+      "value": "TSLA/USD"
+    },
+    {
+      "name": "_path",
+      "type": "string32",
+      "value": "value"
+    },
+    {
+      "name": "_times",
+      "type": "string32",
+      "value": "1000000000000000000"
+    },
+    {
+      "name": "_type",
+      "type": "string32",
+      "value": "int256"
+    }
+  ]
+}

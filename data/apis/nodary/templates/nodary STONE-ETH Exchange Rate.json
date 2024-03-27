@@ -1,0 +1,28 @@
+{
+  "name": "STONE/ETH Exchange Rate",
+  "endpointId": "0x3528e42b017a5fbf9d2993a2df04efc3ed474357575065a111b054ddf9de2acc",
+  "templateId": "0xfe0b554a4fe12d3418da7f625e6280b857ee96f43bc3a688569c8ae02d31ab55",
+  "parameters": "0x31730000000000000000000000000000000000000000000000000000000000006e616d650000000000000000000000000000000000000000000000000000000053544f4e452f4554482045786368616e67652052617465000000000000000000",
+  "decodedParameters": [
+    {
+      "name": "name",
+      "type": "string32",
+      "value": "STONE/ETH Exchange Rate"
+    },
+    {
+      "name": "_path",
+      "type": "string32",
+      "value": "value"
+    },
+    {
+      "name": "_times",
+      "type": "string32",
+      "value": "1000000000000000000"
+    },
+    {
+      "name": "_type",
+      "type": "string32",
+      "value": "int256"
+    }
+  ]
+}

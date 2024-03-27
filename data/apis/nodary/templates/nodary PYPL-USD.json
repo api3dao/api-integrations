@@ -1,0 +1,28 @@
+{
+  "name": "PYPL/USD",
+  "endpointId": "0x3528e42b017a5fbf9d2993a2df04efc3ed474357575065a111b054ddf9de2acc",
+  "templateId": "0x99df619390d4fde1cad1701c968c80558a344622fad78e9fdbef9cd185674e0a",
+  "parameters": "0x31730000000000000000000000000000000000000000000000000000000000006e616d65000000000000000000000000000000000000000000000000000000005059504c2f555344000000000000000000000000000000000000000000000000",
+  "decodedParameters": [
+    {
+      "name": "name",
+      "type": "string32",
+      "value": "PYPL/USD"
+    },
+    {
+      "name": "_path",
+      "type": "string32",
+      "value": "value"
+    },
+    {
+      "name": "_times",
+      "type": "string32",
+      "value": "1000000000000000000"
+    },
+    {
+      "name": "_type",
+      "type": "string32",
+      "value": "int256"
+    }
+  ]
+}

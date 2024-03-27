@@ -1,0 +1,28 @@
+{
+  "name": "GMX/USD",
+  "endpointId": "0x3528e42b017a5fbf9d2993a2df04efc3ed474357575065a111b054ddf9de2acc",
+  "templateId": "0x0cfa9e8dd3134af51ba665c62be5fa7370866b69906d860b2630a59d8dfc701b",
+  "parameters": "0x31730000000000000000000000000000000000000000000000000000000000006e616d6500000000000000000000000000000000000000000000000000000000474d582f55534400000000000000000000000000000000000000000000000000",
+  "decodedParameters": [
+    {
+      "name": "name",
+      "type": "string32",
+      "value": "GMX/USD"
+    },
+    {
+      "name": "_path",
+      "type": "string32",
+      "value": "value"
+    },
+    {
+      "name": "_times",
+      "type": "string32",
+      "value": "1000000000000000000"
+    },
+    {
+      "name": "_type",
+      "type": "string32",
+      "value": "int256"
+    }
+  ]
+}

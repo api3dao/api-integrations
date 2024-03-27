@@ -1,0 +1,28 @@
+{
+  "name": "MANA/USD",
+  "endpointId": "0x3528e42b017a5fbf9d2993a2df04efc3ed474357575065a111b054ddf9de2acc",
+  "templateId": "0xd9d0f03bc4b94ef9c20bba6b0f186bf781e8dc32d63bf148a644734cce8f45b3",
+  "parameters": "0x31730000000000000000000000000000000000000000000000000000000000006e616d65000000000000000000000000000000000000000000000000000000004d414e412f555344000000000000000000000000000000000000000000000000",
+  "decodedParameters": [
+    {
+      "name": "name",
+      "type": "string32",
+      "value": "MANA/USD"
+    },
+    {
+      "name": "_path",
+      "type": "string32",
+      "value": "value"
+    },
+    {
+      "name": "_times",
+      "type": "string32",
+      "value": "1000000000000000000"
+    },
+    {
+      "name": "_type",
+      "type": "string32",
+      "value": "int256"
+    }
+  ]
+}

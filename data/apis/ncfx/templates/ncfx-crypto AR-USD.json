@@ -1,0 +1,28 @@
+{
+  "name": "AR/USD",
+  "templateId": "",
+  "endpointId": "",
+  "parameters": "",
+  "decodedParameters": [
+    {
+      "name": "_type",
+      "type": "string32",
+      "value": "uint256"
+    },
+    {
+      "name": "_times",
+      "type": "string32",
+      "value": "1000000000000000000"
+    },
+    {
+      "name": "_path",
+      "type": "string32",
+      "value": "rates.AR-USD.rate"
+    },
+    {
+      "name": "pairs",
+      "type": "string32",
+      "value": "AR-USD"
+    }
+  ]
+}

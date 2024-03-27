@@ -1,0 +1,33 @@
+{
+  "name": "CRV/USD",
+  "templateId": "",
+  "endpointId": "",
+  "parameters": "",
+  "decodedParameters": [
+    {
+      "name": "_type",
+      "type": "string32",
+      "value": "uint256"
+    },
+    {
+      "name": "_times",
+      "type": "string32",
+      "value": "1000000000000000000"
+    },
+    {
+      "name": "_path",
+      "type": "string32",
+      "value": "price"
+    },
+    {
+      "name": "symbol",
+      "type": "string32",
+      "value": "CRV/USD"
+    },
+    {
+      "name": "dp",
+      "type": "string32",
+      "value": "11"
+    }
+  ]
+}

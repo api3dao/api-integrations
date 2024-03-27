@@ -1,0 +1,28 @@
+{
+  "name": "CHZ/USD",
+  "endpointId": "0x3528e42b017a5fbf9d2993a2df04efc3ed474357575065a111b054ddf9de2acc",
+  "templateId": "0xd52daee64311fc75a38c201f45ea4ad1af504dfdbf238aa75fa4bbc5074700c1",
+  "parameters": "0x31730000000000000000000000000000000000000000000000000000000000006e616d650000000000000000000000000000000000000000000000000000000043485a2f55534400000000000000000000000000000000000000000000000000",
+  "decodedParameters": [
+    {
+      "name": "name",
+      "type": "string32",
+      "value": "CHZ/USD"
+    },
+    {
+      "name": "_path",
+      "type": "string32",
+      "value": "value"
+    },
+    {
+      "name": "_times",
+      "type": "string32",
+      "value": "1000000000000000000"
+    },
+    {
+      "name": "_type",
+      "type": "string32",
+      "value": "int256"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "RUNE/USD",
+  "endpointId": "0x3528e42b017a5fbf9d2993a2df04efc3ed474357575065a111b054ddf9de2acc",
+  "templateId": "0x62dbcfe26636fbf68a46523cf0868abf578bdddd110a7e97c1a80a4c08bfa725",
+  "parameters": "0x31730000000000000000000000000000000000000000000000000000000000006e616d650000000000000000000000000000000000000000000000000000000052554e452f555344000000000000000000000000000000000000000000000000",
+  "decodedParameters": [
+    {
+      "name": "name",
+      "type": "string32",
+      "value": "RUNE/USD"
+    },
+    {
+      "name": "_path",
+      "type": "string32",
+      "value": "value"
+    },
+    {
+      "name": "_times",
+      "type": "string32",
+      "value": "1000000000000000000"
+    },
+    {
+      "name": "_type",
+      "type": "string32",
+      "value": "int256"
+    }
+  ]
+}

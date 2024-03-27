@@ -1,0 +1,43 @@
+{
+  "name": "JOE/USD",
+  "templateId": "",
+  "endpointId": "",
+  "parameters": "",
+  "decodedParameters": [
+    {
+      "name": "_type",
+      "type": "string32",
+      "value": "uint256"
+    },
+    {
+      "name": "_times",
+      "type": "string32",
+      "value": "1000000000000000000"
+    },
+    {
+      "name": "_path",
+      "type": "string32",
+      "value": "price"
+    },
+    {
+      "name": "base_asset",
+      "type": "string32",
+      "value": "joe"
+    },
+    {
+      "name": "quote_asset",
+      "type": "string32",
+      "value": "usd"
+    },
+    {
+      "name": "interval",
+      "type": "string32",
+      "value": "1m"
+    },
+    {
+      "name": "data_ver",
+      "type": "string32",
+      "value": "v2"
+    }
+  ]
+}
