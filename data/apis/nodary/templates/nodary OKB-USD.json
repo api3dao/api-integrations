@@ -1,28 +1,13 @@
 {
   "name": "OKB/USD",
-  "endpointId": "0x3528e42b017a5fbf9d2993a2df04efc3ed474357575065a111b054ddf9de2acc",
-  "templateId": "0xcd7c03521670f2d1b2ff348b08b7f05fdede0cfe5e0c5c2d7c4b29546cd42b52",
-  "parameters": "0x31730000000000000000000000000000000000000000000000000000000000006e616d65000000000000000000000000000000000000000000000000000000004f4b422f55534400000000000000000000000000000000000000000000000000",
+  "endpointId": "",
+  "templateId": "",
+  "parameters": "",
   "decodedParameters": [
     {
       "name": "name",
       "type": "string32",
       "value": "OKB/USD"
-    },
-    {
-      "name": "_path",
-      "type": "string32",
-      "value": "value"
-    },
-    {
-      "name": "_times",
-      "type": "string32",
-      "value": "1000000000000000000"
-    },
-    {
-      "name": "_type",
-      "type": "string32",
-      "value": "int256"
     }
   ]
 }

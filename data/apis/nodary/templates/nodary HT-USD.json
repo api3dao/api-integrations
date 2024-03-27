@@ -1,28 +1,13 @@
 {
   "name": "HT/USD",
-  "endpointId": "0x3528e42b017a5fbf9d2993a2df04efc3ed474357575065a111b054ddf9de2acc",
-  "templateId": "0x7b261ff758a54849d01007bce24171fcfdc68e4412ffe513c3cc480a8535e9de",
-  "parameters": "0x31730000000000000000000000000000000000000000000000000000000000006e616d650000000000000000000000000000000000000000000000000000000048542f5553440000000000000000000000000000000000000000000000000000",
+  "endpointId": "",
+  "templateId": "",
+  "parameters": "",
   "decodedParameters": [
     {
       "name": "name",
       "type": "string32",
       "value": "HT/USD"
-    },
-    {
-      "name": "_path",
-      "type": "string32",
-      "value": "value"
-    },
-    {
-      "name": "_times",
-      "type": "string32",
-      "value": "1000000000000000000"
-    },
-    {
-      "name": "_type",
-      "type": "string32",
-      "value": "int256"
     }
   ]
 }

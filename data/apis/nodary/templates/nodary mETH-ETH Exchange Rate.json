@@ -1,28 +1,13 @@
 {
   "name": "mETH/ETH Exchange Rate",
-  "endpointId": "0x3528e42b017a5fbf9d2993a2df04efc3ed474357575065a111b054ddf9de2acc",
-  "templateId": "0x441a7b5582b4f60237efd7b773c963e93a42f55b528c6e23d3e8000099670684",
-  "parameters": "0x31730000000000000000000000000000000000000000000000000000000000006e616d65000000000000000000000000000000000000000000000000000000006d4554482f4554482045786368616e6765205261746500000000000000000000",
+  "endpointId": "",
+  "templateId": "",
+  "parameters": "",
   "decodedParameters": [
     {
       "name": "name",
       "type": "string32",
       "value": "mETH/ETH Exchange Rate"
-    },
-    {
-      "name": "_path",
-      "type": "string32",
-      "value": "value"
-    },
-    {
-      "name": "_times",
-      "type": "string32",
-      "value": "1000000000000000000"
-    },
-    {
-      "name": "_type",
-      "type": "string32",
-      "value": "int256"
     }
   ]
 }

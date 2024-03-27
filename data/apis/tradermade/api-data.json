@@ -27,16 +27,10 @@
         "NGN/USD",
         "RUB/USD"
       ],
-      [
-        "XAG/USD",
-        "XAU/USD",
-        "WTI/USD"
-      ]
+      ["XAG/USD", "XAU/USD", "WTI/USD"]
     ]
   },
-  "deploymentLocations": [
-    "aws"
-  ],
+  "deploymentLocations": ["aws"],
   "homepageUrl": "https://tradermade.com",
   "verifiedBaseUrl": "https://tradermade.com",
   "signedApiUrl": "",

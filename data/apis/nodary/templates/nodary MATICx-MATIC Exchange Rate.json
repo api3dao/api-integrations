@@ -1,28 +1,13 @@
 {
   "name": "MATICx/MATIC Exchange Rate",
-  "endpointId": "0x3528e42b017a5fbf9d2993a2df04efc3ed474357575065a111b054ddf9de2acc",
-  "templateId": "0xf770918e08f5e55897405870830334f48c6c41079d919bcb4d8e7fef3eb285eb",
-  "parameters": "0x31730000000000000000000000000000000000000000000000000000000000006e616d65000000000000000000000000000000000000000000000000000000004d41544943782f4d415449432045786368616e67652052617465000000000000",
+  "endpointId": "",
+  "templateId": "",
+  "parameters": "",
   "decodedParameters": [
     {
       "name": "name",
       "type": "string32",
       "value": "MATICx/MATIC Exchange Rate"
-    },
-    {
-      "name": "_path",
-      "type": "string32",
-      "value": "value"
-    },
-    {
-      "name": "_times",
-      "type": "string32",
-      "value": "1000000000000000000"
-    },
-    {
-      "name": "_type",
-      "type": "string32",
-      "value": "int256"
     }
   ]
 }

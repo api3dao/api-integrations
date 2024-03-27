@@ -1,28 +1,13 @@
 {
   "name": "GNS/USD",
-  "endpointId": "0x3528e42b017a5fbf9d2993a2df04efc3ed474357575065a111b054ddf9de2acc",
-  "templateId": "0x0c5b22977643fd6c872f3e45bf11f936eb589176e82f75f748d6234aa6b1dba3",
-  "parameters": "0x31730000000000000000000000000000000000000000000000000000000000006e616d6500000000000000000000000000000000000000000000000000000000474e532f55534400000000000000000000000000000000000000000000000000",
+  "endpointId": "",
+  "templateId": "",
+  "parameters": "",
   "decodedParameters": [
     {
       "name": "name",
       "type": "string32",
       "value": "GNS/USD"
-    },
-    {
-      "name": "_path",
-      "type": "string32",
-      "value": "value"
-    },
-    {
-      "name": "_times",
-      "type": "string32",
-      "value": "1000000000000000000"
-    },
-    {
-      "name": "_type",
-      "type": "string32",
-      "value": "int256"
     }
   ]
 }

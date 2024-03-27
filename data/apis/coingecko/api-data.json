@@ -129,9 +129,7 @@
       ]
     ]
   },
-  "deploymentLocations": [
-    "aws"
-  ],
+  "deploymentLocations": ["aws"],
   "homepageUrl": "https://www.coingecko.com",
   "verifiedBaseUrl": "https://www.coingecko.com",
   "signedApiUrl": "",

@@ -5,21 +5,6 @@
   "parameters": "",
   "decodedParameters": [
     {
-      "name": "_type",
-      "type": "string32",
-      "value": "uint256"
-    },
-    {
-      "name": "_times",
-      "type": "string32",
-      "value": "1000000000000000000"
-    },
-    {
-      "name": "_path",
-      "type": "string",
-      "value": "Quote.GLMR/USD.price"
-    },
-    {
       "name": "event",
       "type": "string32",
       "value": "Quote"
