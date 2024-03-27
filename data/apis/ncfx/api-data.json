@@ -5,25 +5,63 @@
   "xpub": "xpub6D1KuAee1Ubp3LcU76tUvrtjdoKFcU87CCBVKxYZCz3ejDRuRyYN9znp6TGv9rnTSujP7LfSirz5enf4EsUi58KbKBngsiwb8SDwZZ6pukB",
   "supportedFeedsInBatches": {
     "NewChangeFX-Forex": [
-      ["AUD/USD"],
-      ["BRL/USD"],
-      ["CAD/USD"],
-      ["CHF/USD"],
-      ["CNY/USD"],
-      ["EUR/USD"],
-      ["GBP/USD"],
-      ["INR/USD"],
-      ["JPY/USD"],
-      ["KRW/USD"],
-      ["MXN/USD"],
-      ["NZD/USD"],
-      ["PHP/USD"],
-      ["SEK/USD"],
-      ["SGD/USD"],
-      ["TRY/USD"],
-      ["ZAR/USD"],
-      ["COP/USD"],
-      ["NGN/USD"]
+      [
+        "AUD/USD"
+      ],
+      [
+        "BRL/USD"
+      ],
+      [
+        "CAD/USD"
+      ],
+      [
+        "CHF/USD"
+      ],
+      [
+        "CNY/USD"
+      ],
+      [
+        "EUR/USD"
+      ],
+      [
+        "GBP/USD"
+      ],
+      [
+        "INR/USD"
+      ],
+      [
+        "JPY/USD"
+      ],
+      [
+        "KRW/USD"
+      ],
+      [
+        "MXN/USD"
+      ],
+      [
+        "NZD/USD"
+      ],
+      [
+        "PHP/USD"
+      ],
+      [
+        "SEK/USD"
+      ],
+      [
+        "SGD/USD"
+      ],
+      [
+        "TRY/USD"
+      ],
+      [
+        "ZAR/USD"
+      ],
+      [
+        "COP/USD"
+      ],
+      [
+        "NGN/USD"
+      ]
     ],
     "NewChangeFX-Crypto": [
       [
@@ -128,11 +166,22 @@
         "PYTH/USD",
         "ASTR/USD",
         "TIA/USD",
-        "DYM/USD"
+        "DYM/USD",
+        "SEI/USD",
+        "AR/USD",
+        "STRK/USD",
+        "AXL/USD",
+        "ONDO/USD",
+        "MANTA/USD",
+        "RON/USD",
+        "XVS/USD",
+        "PENDLE/USD"
       ]
     ]
   },
-  "deploymentLocations": ["aws"],
+  "deploymentLocations": [
+    "aws"
+  ],
   "homepageUrl": "https://www.newchangefx.com",
   "verifiedBaseUrl": "https://newchangefx.com",
   "signedApiUrl": "",
