@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@api3/promise-utils": "^0.4.0",
+    "@api3/commons": "^0.9.0",
     "aws-lambda": "^1.0.7",
     "aws-sdk": "^2.1571.0",
     "axios": "^1.6.7",
@@ -44,8 +45,5 @@
     "express": "^4.18.3",
     "lodash": "^4.17.21",
     "zod": "^3.22.4"
-  },
-  "volta": {
-    "node": "16.20.2"
   }
 }

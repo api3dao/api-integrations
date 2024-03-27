@@ -66,3 +66,33 @@ export const generateRandomBearerToken = (): string => generateSecureRandomToken
 
 // Sort attributes of object based on keys alphabetically
 export const normalizeObject = (obj: {}): {} => pick(obj, Object.keys(obj).sort());
+
+type ObjectWithoutSignatureAttribute = { [k in string]: string } & { ['signature']?: void };
+export const stringifyPayload = (payload: ObjectWithoutSignatureAttribute) =>
+  JSON.stringify(payload, Object.keys(payload).sort());
+
+export const isVersionLower = (version: string, targetVersion: string) => {
+  // Split the version strings into arrays of their components
+  const versionComponents = version.split('.');
+  const targetComponents = targetVersion.split('.');
+
+  // Parse each component into integers
+  const versionMajor = parseInt(versionComponents[0]);
+  const versionMinor = parseInt(versionComponents[1]);
+  const versionPatch = parseInt(versionComponents[2]);
+
+  const targetMajor = parseInt(targetComponents[0]);
+  const targetMinor = parseInt(targetComponents[1]);
+  const targetPatch = parseInt(targetComponents[2]);
+
+  // Compare the version components
+  if (
+    versionMajor < targetMajor ||
+    (versionMajor === targetMajor && versionMinor < targetMinor) ||
+    (versionMajor === targetMajor && versionMinor === targetMinor && versionPatch < targetPatch)
+  ) {
+    return true; // Version is lower than the target version
+  } else {
+    return false; // Version is equal to or higher than the target version
+  }
+};
