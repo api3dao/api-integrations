@@ -129,7 +129,7 @@
       ["RON/USD"],
       ["XVS/USD"],
       ["PENDLE/USD"],
-      ["EZETH/USD"]
+      ["ezETH/USD"]
     ]
   },
   "deploymentLocations": ["aws"],

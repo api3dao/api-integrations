@@ -1260,7 +1260,7 @@ export const apisData = {
         ['RON/USD'],
         ['XVS/USD'],
         ['PENDLE/USD'],
-        ['EZETH/USD']
+        ['ezETH/USD']
       ]
     },
     deploymentLocations: ['aws'],
@@ -1400,7 +1400,7 @@ export const apisData = {
           'RON/USD',
           'XVS/USD',
           'PENDLE/USD',
-          'EZETH/USD'
+          'ezETH/USD'
         ]
       ]
     },
