@@ -1,5 +1,19 @@
+
+/*
+
+Creates a new file that includes API parameters under data/apis/<api-name>/api-parameters in the below format
+
+{
+  "name": "ADA/USD",
+  "parameters": {
+    "quotes": "USD"
+  },
+  "path": "tickers/ada-cardano"
+}
+
+*/
+
 import * as fs from 'fs';
-import { execSync } from 'child_process';
 import { globSync } from 'glob';
 import { Logger, ILogObj } from 'tslog';
 import { OIS } from '@api3/ois';
@@ -8,23 +22,6 @@ import { apiDataSchema } from './validation';
 import { omit } from 'lodash';
 
 const prompts = require('prompts');
-
-// fix finage,kaiko,ncfx-crypto,ncfx-forex,coinpaprika
-/*
---- ISSUES ---
-
-- API SPECIFIC ISSUES - 
-* finage: path parameter issue
-* iexcloud: path parameter issue
-* kaiko: path parameter issue
-* ncfx-forex: path parameter issue
-* ncfx-crypto: ???
-
-- GENERAL ISSUES -
-* How will the syncer script will now which OIS to update?
-
-*/
-
 
 const main = async () => {
   const APIS_ROOT = './data/apis/';
@@ -73,9 +70,6 @@ const main = async () => {
       if (selectedApiName === 'nodary' && p.name === 'name') {
         return true;
       }
-      if (p.name === 'path') {
-        return false;
-      }
       return true;
     })
     .map((p) => p.name);
@@ -90,27 +84,24 @@ const main = async () => {
     })
   );
 
+  // filter empty parameters
   Object.entries(selectedParameters).forEach(([key, value]) => {
     if(value === "") {
        selectedParameters = omit(selectedParameters, key);
     } 
   });
+  // remove "/" from path
+  if(selectedParameters.path.startsWith("/")) {
+    selectedParameters.path = selectedParameters.path.substring(1);
+  }
 
   const template = {
     name: selectedFeedName,
-    templateId: '',
-    endpointId: '',
-    parameters: '',
-    decodedParameters: Object.entries(selectedParameters).map(([parameterName, parameterValue]) => {
-      return {
-        name: parameterName,
-        type: 'string32',
-        value: parameterValue
-      };
-    })
+    path: selectedParameters.path,
+    parameters: omit(selectedParameters, "path")
   };
 
-  const templatePath = `./data/apis/${selectedApiName}/templates/${selectedApiName} ${selectedFeedName.replace('/', '-')}.json`;
+  const templatePath = `./data/apis/${selectedApiName}/api-parameters/${selectedApiName} ${selectedFeedName.replace('/', '-')}.json`;
   saveJson(templatePath, template);
 
   logger.info(`Template saved to >> ${templatePath}`);
