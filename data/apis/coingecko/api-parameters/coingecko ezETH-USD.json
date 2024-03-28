@@ -1,5 +1,5 @@
 {
-  "name": "EZETH/USD",
+  "name": "ezETH/USD",
   "parameters": {
     "ids": "renzo-restaked-eth",
     "vs_currencies": "usd"
