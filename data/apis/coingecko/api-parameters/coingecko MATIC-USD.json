@@ -4,5 +4,6 @@
     "ids": "matic-network",
     "vs_currencies": "usd"
   },
-  "path": "simple/price"
+  "path": "simple/price",
+  "parser": "(response) => {\n              return response['matic-network']['usd']\n            }"
 }

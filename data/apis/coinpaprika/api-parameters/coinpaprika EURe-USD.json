@@ -3,5 +3,6 @@
   "parameters": {
     "quotes": "USD"
   },
-  "path": "tickers/eure-monerium-eur-emoney"
+  "path": "tickers/eure-monerium-eur-emoney",
+  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
 }

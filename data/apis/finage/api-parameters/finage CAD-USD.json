@@ -1,5 +1,6 @@
 {
   "name": "CAD/USD",
   "parameters": {},
-  "path": "last/trade/forex/CADUSD"
+  "path": "last/trade/forex/CADUSD",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
 }

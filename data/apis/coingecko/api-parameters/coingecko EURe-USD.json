@@ -4,5 +4,6 @@
     "ids": "monerium-eur-money",
     "vs_currencies": "usd"
   },
-  "path": "simple/price"
+  "path": "simple/price",
+  "parser": "(response) => {\n              return response['monerium-eur-money']['usd']\n            }"
 }

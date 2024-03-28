@@ -4,5 +4,6 @@
     "ids": "true-usd",
     "vs_currencies": "usd"
   },
-  "path": "simple/price"
+  "path": "simple/price",
+  "parser": "(response) => {\n              return response['true-usd']['usd']\n            }"
 }

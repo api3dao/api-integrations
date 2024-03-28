@@ -4,5 +4,6 @@
     "ids": "convex-finance",
     "vs_currencies": "usd"
   },
-  "path": "simple/price"
+  "path": "simple/price",
+  "parser": "(response) => {\n              return response['convex-finance']['usd']\n            }"
 }

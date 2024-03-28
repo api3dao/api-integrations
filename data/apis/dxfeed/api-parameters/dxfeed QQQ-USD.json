@@ -4,5 +4,6 @@
     "event": "Quote",
     "symbol": "QQQ"
   },
-  "path": "rest/events.json"
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['QQQ'].bidPrice + response.Quote['QQQ'].askPrice) / 2\n            }\n            "
 }

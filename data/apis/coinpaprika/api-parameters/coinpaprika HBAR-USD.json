@@ -3,5 +3,6 @@
   "parameters": {
     "quotes": "USD"
   },
-  "path": "tickers/hbar-hedera-hashgraph"
+  "path": "tickers/hbar-hedera-hashgraph",
+  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
 }

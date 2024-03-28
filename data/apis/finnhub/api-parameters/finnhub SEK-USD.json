@@ -3,5 +3,6 @@
   "parameters": {
     "base": "SEK"
   },
-  "path": "forex/rates"
+  "path": "forex/rates",
+  "parser": "(response) => {\n                return response.quote.USD\n              }\n              "
 }

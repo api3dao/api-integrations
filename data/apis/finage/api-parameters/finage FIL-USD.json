@@ -1,5 +1,6 @@
 {
   "name": "FIL/USD",
   "parameters": {},
-  "path": "last/crypto/FILUSD"
+  "path": "last/crypto/FILUSD",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
 }

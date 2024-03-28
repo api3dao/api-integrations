@@ -3,5 +3,6 @@
   "parameters": {
     "quotes": "USD"
   },
-  "path": "tickers/yfi-yearnfinance"
+  "path": "tickers/yfi-yearnfinance",
+  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
 }

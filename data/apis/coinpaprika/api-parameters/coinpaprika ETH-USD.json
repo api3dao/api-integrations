@@ -3,5 +3,6 @@
   "parameters": {
     "quotes": "USD"
   },
-  "path": "tickers/eth-ethereum"
+  "path": "tickers/eth-ethereum",
+  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
 }

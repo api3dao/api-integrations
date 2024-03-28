@@ -3,5 +3,6 @@
   "parameters": {
     "quotes": "USD"
   },
-  "path": "tickers/usdc-usd-coin"
+  "path": "tickers/usdc-usd-coin",
+  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
 }

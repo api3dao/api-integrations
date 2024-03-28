@@ -3,5 +3,6 @@
   "parameters": {
     "quotes": "USD"
   },
-  "path": "tickers/crv-curve-dao-token"
+  "path": "tickers/crv-curve-dao-token",
+  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
 }

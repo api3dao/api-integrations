@@ -1,5 +1,6 @@
 {
   "name": "AVAX/USD",
   "parameters": {},
-  "path": "last/crypto/AVAXUSD"
+  "path": "last/crypto/AVAXUSD",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
 }

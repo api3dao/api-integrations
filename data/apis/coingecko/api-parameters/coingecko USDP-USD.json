@@ -4,5 +4,6 @@
     "ids": "paxos-standard",
     "vs_currencies": "usd"
   },
-  "path": "simple/price"
+  "path": "simple/price",
+  "parser": "(response) => {\n              return response['paxos-standard']['usd']\n            }"
 }

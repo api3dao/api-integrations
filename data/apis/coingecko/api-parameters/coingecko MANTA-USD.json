@@ -4,5 +4,6 @@
     "ids": "manta-network",
     "vs_currencies": "usd"
   },
-  "path": "simple/price"
+  "path": "simple/price",
+  "parser": "(response) => {\n              return response['manta-network']['usd']\n            }"
 }

@@ -3,5 +3,6 @@
   "parameters": {
     "quotes": "USD"
   },
-  "path": "tickers/xlm-stellar"
+  "path": "tickers/xlm-stellar",
+  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
 }

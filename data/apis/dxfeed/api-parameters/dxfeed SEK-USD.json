@@ -4,5 +4,6 @@
     "event": "Quote",
     "symbol": "SEK/USD{mm=COMP}"
   },
-  "path": "rest/events.json"
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['SEK/USD{mm=COMP}'].bidPrice + response.Quote['SEK/USD{mm=COMP}'].askPrice) / 2\n            }\n            "
 }

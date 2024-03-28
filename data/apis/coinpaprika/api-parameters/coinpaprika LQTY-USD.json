@@ -3,5 +3,6 @@
   "parameters": {
     "quotes": "USD"
   },
-  "path": "tickers/lqty-liquity"
+  "path": "tickers/lqty-liquity",
+  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
 }

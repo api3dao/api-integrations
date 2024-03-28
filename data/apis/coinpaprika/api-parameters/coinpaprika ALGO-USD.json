@@ -3,5 +3,6 @@
   "parameters": {
     "quotes": "USD"
   },
-  "path": "tickers/algo-algorand"
+  "path": "tickers/algo-algorand",
+  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
 }

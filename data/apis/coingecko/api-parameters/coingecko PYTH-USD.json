@@ -4,5 +4,6 @@
     "ids": "pyth-network",
     "vs_currencies": "usd"
   },
-  "path": "simple/price"
+  "path": "simple/price",
+  "parser": "(response) => {\n              return response['pyth-network']['usd']\n            }"
 }

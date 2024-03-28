@@ -3,5 +3,6 @@
   "parameters": {
     "currency": "OILUSD"
   },
-  "path": "live"
+  "path": "live",
+  "parser": "(response) => {\n                const targetQuote = response.quotes.find((quote) => quote.instrument === 'OILUSD');\n                return targetQuote.mid;\n              }\n              "
 }

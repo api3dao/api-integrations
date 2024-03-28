@@ -1,5 +1,6 @@
 {
   "name": "FTM/USD",
   "parameters": {},
-  "path": "last/crypto/FTMUSD"
+  "path": "last/crypto/FTMUSD",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
 }

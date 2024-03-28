@@ -3,5 +3,6 @@
   "parameters": {
     "quotes": "USD"
   },
-  "path": "tickers/cvx-convex-finance"
+  "path": "tickers/cvx-convex-finance",
+  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
 }

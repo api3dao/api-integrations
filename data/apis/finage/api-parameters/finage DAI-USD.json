@@ -1,5 +1,6 @@
 {
   "name": "DAI/USD",
   "parameters": {},
-  "path": "last/crypto/DAIUSD"
+  "path": "last/crypto/DAIUSD",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
 }

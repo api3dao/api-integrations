@@ -3,5 +3,6 @@
   "parameters": {
     "quotes": "USD"
   },
-  "path": "tickers/rndr-render-token"
+  "path": "tickers/rndr-render-token",
+  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
 }

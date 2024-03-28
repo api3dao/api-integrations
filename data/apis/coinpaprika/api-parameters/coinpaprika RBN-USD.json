@@ -3,5 +3,6 @@
   "parameters": {
     "quotes": "USD"
   },
-  "path": "tickers/rbn-ribbon-finance"
+  "path": "tickers/rbn-ribbon-finance",
+  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
 }

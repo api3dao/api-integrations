@@ -3,5 +3,6 @@
   "parameters": {
     "quotes": "USD"
   },
-  "path": "tickers/matic-polygon"
+  "path": "tickers/matic-polygon",
+  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
 }

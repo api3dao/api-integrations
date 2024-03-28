@@ -1,5 +1,6 @@
 {
   "name": "INR/USD",
   "parameters": {},
-  "path": "last/trade/forex/INRUSD"
+  "path": "last/trade/forex/INRUSD",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
 }

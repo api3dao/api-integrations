@@ -4,5 +4,6 @@
     "ids": "tether",
     "vs_currencies": "usd"
   },
-  "path": "simple/price"
+  "path": "simple/price",
+  "parser": "(response) => {\n              return response['tether']['usd']\n            }"
 }

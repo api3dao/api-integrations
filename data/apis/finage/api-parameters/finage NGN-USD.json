@@ -1,5 +1,6 @@
 {
   "name": "NGN/USD",
   "parameters": {},
-  "path": "last/trade/forex/NGNUSD"
+  "path": "last/trade/forex/NGNUSD",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
 }

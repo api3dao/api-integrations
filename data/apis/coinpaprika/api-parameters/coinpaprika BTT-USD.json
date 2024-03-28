@@ -3,5 +3,6 @@
   "parameters": {
     "quotes": "USD"
   },
-  "path": "tickers/bttc-bittorrent-chain"
+  "path": "tickers/bttc-bittorrent-chain",
+  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
 }

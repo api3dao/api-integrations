@@ -3,5 +3,6 @@
   "parameters": {
     "pairs": "KAVA-USD"
   },
-  "path": "live/midrate/v1/rates"
+  "path": "live/midrate/v1/rates",
+  "parser": "(response) => {\n              return response.rates['KAVA-USD'].rate\n            }\n            "
 }

@@ -4,5 +4,6 @@
     "event": "Quote",
     "symbol": "MSFT"
   },
-  "path": "rest/events.json"
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['MSFT'].bidPrice + response.Quote['MSFT'].askPrice) / 2\n            }\n            "
 }

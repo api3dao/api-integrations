@@ -3,5 +3,6 @@
   "parameters": {
     "quotes": "USD"
   },
-  "path": "tickers/manta-manta-network"
+  "path": "tickers/manta-manta-network",
+  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
 }

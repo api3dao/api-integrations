@@ -4,5 +4,6 @@
     "event": "Quote",
     "symbol": "LTC/USDT:CXDXF"
   },
-  "path": "rest/events.json"
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['LTC/USDT:CXDXF'].bidPrice + response.Quote['LTC/USDT:CXDXF'].askPrice) / 2\n            }\n            "
 }

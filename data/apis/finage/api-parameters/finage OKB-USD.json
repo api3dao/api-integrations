@@ -1,5 +1,6 @@
 {
   "name": "OKB/USD",
   "parameters": {},
-  "path": "last/crypto/OKBUSD"
+  "path": "last/crypto/OKBUSD",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
 }

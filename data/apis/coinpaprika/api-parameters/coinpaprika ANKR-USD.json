@@ -3,5 +3,6 @@
   "parameters": {
     "quotes": "USD"
   },
-  "path": "tickers/ankr-ankr-network"
+  "path": "tickers/ankr-ankr-network",
+  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
 }

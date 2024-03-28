@@ -1,5 +1,6 @@
 {
   "name": "COP/USD",
   "parameters": {},
-  "path": "last/trade/forex/COPUSD"
+  "path": "last/trade/forex/COPUSD",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
 }

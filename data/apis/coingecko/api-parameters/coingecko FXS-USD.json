@@ -4,5 +4,6 @@
     "ids": "frax-share",
     "vs_currencies": "usd"
   },
-  "path": "simple/price"
+  "path": "simple/price",
+  "parser": "(response) => {\n              return response['frax-share']['usd']\n            }"
 }

@@ -1,5 +1,6 @@
 {
   "name": "RUB/USD",
   "parameters": {},
-  "path": "last/trade/forex/RUBUSD"
+  "path": "last/trade/forex/RUBUSD",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
 }

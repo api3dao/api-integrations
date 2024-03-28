@@ -3,5 +3,6 @@
   "parameters": {
     "quotes": "USD"
   },
-  "path": "tickers/fil-filecoin"
+  "path": "tickers/fil-filecoin",
+  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
 }

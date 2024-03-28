@@ -1,5 +1,6 @@
 {
   "name": "NVDA/USD",
   "parameters": {},
-  "path": "last/trade/stock/NVDA"
+  "path": "last/trade/stock/NVDA",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
 }

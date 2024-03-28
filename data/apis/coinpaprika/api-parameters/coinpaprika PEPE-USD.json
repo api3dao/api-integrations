@@ -3,5 +3,6 @@
   "parameters": {
     "quotes": "USD"
   },
-  "path": "tickers/pepe-pepe"
+  "path": "tickers/pepe-pepe",
+  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
 }

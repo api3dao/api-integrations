@@ -3,5 +3,6 @@
   "parameters": {
     "name": "METIS/USD"
   },
-  "path": "feed/latest"
+  "path": "feed/latest",
+  "parser": "(response) => {\n              return response.value;\n            }\n            "
 }

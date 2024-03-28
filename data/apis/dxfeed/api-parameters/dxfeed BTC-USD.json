@@ -4,5 +4,6 @@
     "event": "Quote",
     "symbol": "BTC/USD:CXDXF"
   },
-  "path": "rest/events.json"
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['BTC/USD:CXDXF'].bidPrice + response.Quote['BTC/USD:CXDXF'].askPrice) / 2\n            }\n            "
 }

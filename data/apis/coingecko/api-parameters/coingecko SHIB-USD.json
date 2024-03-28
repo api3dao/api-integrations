@@ -4,5 +4,6 @@
     "ids": "shiba-inu",
     "vs_currencies": "usd"
   },
-  "path": "simple/price"
+  "path": "simple/price",
+  "parser": "(response) => {\n              return response['shiba-inu']['usd']\n            }"
 }

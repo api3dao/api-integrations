@@ -3,5 +3,6 @@
   "parameters": {
     "quotes": "USD"
   },
-  "path": "tickers/kda-kadena"
+  "path": "tickers/kda-kadena",
+  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
 }

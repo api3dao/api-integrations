@@ -4,5 +4,6 @@
     "event": "Quote",
     "symbol": "USDT/USD:CXGMNI"
   },
-  "path": "rest/events.json"
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['USDT/USD:CXGMNI'].bidPrice + response.Quote['USDT/USD:CXGMNI'].askPrice) / 2\n            }\n            "
 }

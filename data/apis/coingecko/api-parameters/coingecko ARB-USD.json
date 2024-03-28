@@ -4,5 +4,6 @@
     "ids": "arbitrum",
     "vs_currencies": "usd"
   },
-  "path": "simple/price"
+  "path": "simple/price",
+  "parser": "(response) => {\n              return response['arbitrum']['usd']\n            }"
 }

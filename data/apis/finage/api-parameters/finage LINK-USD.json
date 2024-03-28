@@ -1,5 +1,6 @@
 {
   "name": "LINK/USD",
   "parameters": {},
-  "path": "last/crypto/LINKUSD"
+  "path": "last/crypto/LINKUSD",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
 }

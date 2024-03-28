@@ -4,5 +4,6 @@
     "ids": "crvusd",
     "vs_currencies": "usd"
   },
-  "path": "simple/price"
+  "path": "simple/price",
+  "parser": "(response) => {\n              return response['crvusd']['usd']\n            }"
 }

@@ -4,5 +4,6 @@
     "event": "Quote",
     "symbol": "EUR/USD:DXF{mm=wards}"
   },
-  "path": "rest/events.json"
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['EUR/USD:DXF{mm=wards}'].bidPrice + response.Quote['EUR/USD:DXF{mm=wards}'].askPrice) / 2\n            }\n            "
 }

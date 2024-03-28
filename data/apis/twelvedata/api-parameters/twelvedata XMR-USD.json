@@ -4,5 +4,6 @@
     "symbol": "XMR/USD",
     "dp": "11"
   },
-  "path": "price"
+  "path": "price",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
 }

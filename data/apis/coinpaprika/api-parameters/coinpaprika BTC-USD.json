@@ -3,5 +3,6 @@
   "parameters": {
     "quotes": "USD"
   },
-  "path": "tickers/btc-bitcoin"
+  "path": "tickers/btc-bitcoin",
+  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
 }

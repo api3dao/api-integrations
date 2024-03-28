@@ -1,5 +1,6 @@
 {
   "name": "RDNT/USD",
   "parameters": {},
-  "path": "last/crypto/RDNTUSD"
+  "path": "last/crypto/RDNTUSD",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
 }

@@ -3,5 +3,6 @@
   "parameters": {
     "quotes": "USD"
   },
-  "path": "tickers/fxs-frax-share"
+  "path": "tickers/fxs-frax-share",
+  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
 }
