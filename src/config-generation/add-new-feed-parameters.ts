@@ -1,4 +1,3 @@
-
 /*
 
 Creates a new file that includes API parameters under data/apis/<api-name>/api-parameters in the below format
@@ -59,9 +58,8 @@ const main = async () => {
   });
 
   const oises: OIS[] = globSync(`./data/apis/${selectedApiName}/oises/*`).map((oisPath) => readJson(oisPath));
-  const targetOis = oises.find((ois) => (ois.title == selectedOisTitle));
+  const targetOis = oises.find((ois) => ois.title == selectedOisTitle);
   const feedEndpoint = targetOis.endpoints.find((e) => e.name === 'feed');
-  
 
   const parameterNames = feedEndpoint.parameters
     .filter((p) => p.required)
@@ -74,6 +72,7 @@ const main = async () => {
     })
     .map((p) => p.name);
 
+  // get parameters
   let selectedParameters = await prompts(
     parameterNames.map((pName) => {
       return {
@@ -86,25 +85,33 @@ const main = async () => {
 
   // filter empty parameters
   Object.entries(selectedParameters).forEach(([key, value]) => {
-    if(value === "") {
-       selectedParameters = omit(selectedParameters, key);
-    } 
+    if (value === '') {
+      selectedParameters = omit(selectedParameters, key);
+    }
   });
   // remove "/" from path
-  if(selectedParameters.path.startsWith("/")) {
+  if (selectedParameters.path.startsWith('/')) {
     selectedParameters.path = selectedParameters.path.substring(1);
   }
 
-  const template = {
+  // get postProcessing snippet
+  const { postProcessingSnippet } = await prompts({
+    type: 'text',
+    name: 'postProcessingSnippet',
+    message: `Write post processing snippet for "${selectedFeedName}":`
+  });
+
+  const apiParameters = {
     name: selectedFeedName,
     path: selectedParameters.path,
-    parameters: omit(selectedParameters, "path")
+    parameters: omit(selectedParameters, 'path'),
+    parser: postProcessingSnippet
   };
 
-  const templatePath = `./data/apis/${selectedApiName}/api-parameters/${selectedApiName} ${selectedFeedName.replace('/', '-')}.json`;
-  saveJson(templatePath, template);
+  const apiParametersPath = `./data/apis/${selectedApiName}/api-parameters/${selectedApiName} ${selectedFeedName.replace('/', '-')}.json`;
+  saveJson(apiParametersPath, apiParameters);
 
-  logger.info(`Template saved to >> ${templatePath}`);
+  logger.info(`apiParameters saved to >> ${apiParametersPath}`);
 };
 
 main();
