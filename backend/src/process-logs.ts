@@ -1,11 +1,11 @@
 import _ from 'lodash';
 import { ethers } from 'ethers';
 import { go } from '@api3/promise-utils';
+import { serializePlainObject, createSha256Hash } from '@api3/commons';
 import { AirnodeFeedHeartbeatPayload, airnodeFeedHeartbeatPayloadSchema } from './types';
 import { MIN_IN_MS } from './constants';
 import { queryLogs } from './grafana-requests';
-
-type ObjectWithoutSignatureAttribute = { [k in string]: string } & { ['signature']?: void };
+import { isVersionLower, stringifyPayload } from './utils';
 
 interface GrafanaLokiResponse {
   status: string;
@@ -24,17 +24,16 @@ const parseAWSRegionFromARN = (arn: string): string => {
   }
 };
 
-const createHash = (value: string) => ethers.utils.keccak256(ethers.utils.toUtf8Bytes(value));
-
-// We need to make sure the object is stringified in the same way every time, so we sort the keys alphabetically.
-const stringifyPayload = (payload: ObjectWithoutSignatureAttribute) =>
-  JSON.stringify(payload, Object.keys(payload).sort());
-
-const packAndHashPayload = (payload: ObjectWithoutSignatureAttribute) =>
-  ethers.utils.arrayify(createHash(stringifyPayload(payload)));
-
 const isAirnodeFeedHeartbeatPayloadValid = (data: AirnodeFeedHeartbeatPayload, queriedAirnode: string): Boolean => {
-  const digest = packAndHashPayload(_.omit(data, 'signature'));
+  const unsignedPayload = _.omit(data, 'signature');
+
+  let digest;
+
+  if (isVersionLower(data.nodeVersion, '0.6.0')) {
+    digest = ethers.utils.arrayify(ethers.utils.keccak256(ethers.utils.toUtf8Bytes(stringifyPayload(unsignedPayload))));
+  } else {
+    digest = ethers.utils.arrayify(createSha256Hash(serializePlainObject(unsignedPayload)));
+  }
   const calculatedAirnode = ethers.utils.verifyMessage(digest, data.signature);
   return _.isEqual(calculatedAirnode, queriedAirnode);
 };
