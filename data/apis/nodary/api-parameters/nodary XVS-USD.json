@@ -1,13 +1,7 @@
 {
   "name": "XVS/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "XVS/USD"
-    }
-  ]
+  "parameters": {
+    "name": "XVS/USD"
+  },
+  "path": "feed/latest"
 }

@@ -1,13 +1,7 @@
 {
   "name": "uniETH/ETH Exchange Rate",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "uniETH/ETH Exchange Rate"
-    }
-  ]
+  "parameters": {
+    "name": "uniETH/ETH Exchange Rate"
+  },
+  "path": "feed/latest"
 }

@@ -1,18 +1,8 @@
 {
   "name": "RDNT/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "RDNT/USD"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "RDNT/USD",
+    "dp": "11"
+  },
+  "path": "price"
 }

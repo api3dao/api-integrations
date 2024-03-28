@@ -1,18 +1,7 @@
 {
   "name": "PYTH/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "coin_id",
-      "type": "string32",
-      "value": "pyth-pyth-network"
-    },
-    {
-      "name": "quotes",
-      "type": "string32",
-      "value": "USD"
-    }
-  ]
+  "parameters": {
+    "quotes": "USD"
+  },
+  "path": "tickers/pyth-pyth-network"
 }

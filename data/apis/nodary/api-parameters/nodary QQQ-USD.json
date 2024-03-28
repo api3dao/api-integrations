@@ -1,13 +1,7 @@
 {
   "name": "QQQ/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "QQQ/USD"
-    }
-  ]
+  "parameters": {
+    "name": "QQQ/USD"
+  },
+  "path": "feed/latest"
 }

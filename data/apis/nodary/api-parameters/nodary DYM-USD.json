@@ -1,13 +1,7 @@
 {
   "name": "DYM/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "DYM/USD"
-    }
-  ]
+  "parameters": {
+    "name": "DYM/USD"
+  },
+  "path": "feed/latest"
 }

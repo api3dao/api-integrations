@@ -1,13 +1,7 @@
 {
   "name": "BABA/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "BABA/USD"
-    }
-  ]
+  "parameters": {
+    "name": "BABA/USD"
+  },
+  "path": "feed/latest"
 }

@@ -1,13 +1,7 @@
 {
   "name": "TRY/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "currency",
-      "type": "string32",
-      "value": "TRYUSD"
-    }
-  ]
+  "parameters": {
+    "currency": "TRYUSD"
+  },
+  "path": "live"
 }

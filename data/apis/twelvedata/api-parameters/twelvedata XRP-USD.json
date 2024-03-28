@@ -1,18 +1,8 @@
 {
   "name": "XRP/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "XRP/USD"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "XRP/USD",
+    "dp": "11"
+  },
+  "path": "price"
 }

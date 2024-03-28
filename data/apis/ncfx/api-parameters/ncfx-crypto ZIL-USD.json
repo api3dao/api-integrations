@@ -1,13 +1,7 @@
 {
   "name": "ZIL/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "ZIL-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "ZIL-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

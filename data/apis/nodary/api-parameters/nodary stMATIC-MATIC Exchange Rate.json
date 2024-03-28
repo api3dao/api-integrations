@@ -1,13 +1,7 @@
 {
   "name": "stMATIC/MATIC Exchange Rate",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "stMATIC/MATIC Exchange Rate"
-    }
-  ]
+  "parameters": {
+    "name": "stMATIC/MATIC Exchange Rate"
+  },
+  "path": "feed/latest"
 }

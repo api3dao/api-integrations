@@ -1,13 +1,5 @@
 {
   "name": "RUB/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "RUBUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/trade/forex/RUBUSD"
 }

@@ -1,13 +1,5 @@
 {
   "name": "AXL/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "AXLUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/AXLUSD"
 }

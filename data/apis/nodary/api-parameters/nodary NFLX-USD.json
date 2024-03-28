@@ -1,13 +1,7 @@
 {
   "name": "NFLX/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "NFLX/USD"
-    }
-  ]
+  "parameters": {
+    "name": "NFLX/USD"
+  },
+  "path": "feed/latest"
 }

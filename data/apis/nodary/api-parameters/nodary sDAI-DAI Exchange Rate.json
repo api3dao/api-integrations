@@ -1,13 +1,7 @@
 {
   "name": "sDAI/DAI Exchange Rate",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "sDAI/DAI Exchange Rate"
-    }
-  ]
+  "parameters": {
+    "name": "sDAI/DAI Exchange Rate"
+  },
+  "path": "feed/latest"
 }

@@ -1,18 +1,8 @@
 {
   "name": "RPL/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "RPL/USD"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "RPL/USD"
+  },
+  "path": "rest/events.json"
 }

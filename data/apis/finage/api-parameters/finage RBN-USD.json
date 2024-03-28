@@ -1,13 +1,5 @@
 {
   "name": "RBN/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "RBNUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/RBNUSD"
 }

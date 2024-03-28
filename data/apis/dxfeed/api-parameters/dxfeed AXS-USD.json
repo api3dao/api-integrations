@@ -1,18 +1,8 @@
 {
   "name": "AXS/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "AXS/USD"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "AXS/USD"
+  },
+  "path": "rest/events.json"
 }

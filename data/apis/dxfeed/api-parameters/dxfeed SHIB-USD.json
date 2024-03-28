@@ -1,18 +1,8 @@
 {
   "name": "SHIB/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "SHIB/USD"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "SHIB/USD"
+  },
+  "path": "rest/events.json"
 }

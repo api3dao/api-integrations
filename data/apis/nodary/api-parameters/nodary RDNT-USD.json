@@ -1,13 +1,7 @@
 {
   "name": "RDNT/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "RDNT/USD"
-    }
-  ]
+  "parameters": {
+    "name": "RDNT/USD"
+  },
+  "path": "feed/latest"
 }

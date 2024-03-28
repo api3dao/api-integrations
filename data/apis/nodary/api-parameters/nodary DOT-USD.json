@@ -1,13 +1,7 @@
 {
   "name": "DOT/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "DOT/USD"
-    }
-  ]
+  "parameters": {
+    "name": "DOT/USD"
+  },
+  "path": "feed/latest"
 }

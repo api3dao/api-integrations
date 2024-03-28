@@ -1,13 +1,7 @@
 {
   "name": "OP/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "OP/USD"
-    }
-  ]
+  "parameters": {
+    "name": "OP/USD"
+  },
+  "path": "feed/latest"
 }

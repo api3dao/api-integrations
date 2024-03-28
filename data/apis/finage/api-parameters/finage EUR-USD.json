@@ -1,13 +1,5 @@
 {
   "name": "EUR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "EURUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/trade/forex/EURUSD"
 }

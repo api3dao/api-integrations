@@ -1,13 +1,5 @@
 {
   "name": "COIN/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "key",
-      "type": "string32",
-      "value": "COIN"
-    }
-  ]
+  "parameters": {},
+  "path": "data/CORE/QUOTE/COIN"
 }

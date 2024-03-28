@@ -1,18 +1,7 @@
 {
   "name": "ASTR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "coin_id",
-      "type": "string32",
-      "value": "astr-astar"
-    },
-    {
-      "name": "quotes",
-      "type": "string32",
-      "value": "USD"
-    }
-  ]
+  "parameters": {
+    "quotes": "USD"
+  },
+  "path": "tickers/astr-astar"
 }

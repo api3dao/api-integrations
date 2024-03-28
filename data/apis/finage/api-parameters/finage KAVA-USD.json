@@ -1,13 +1,5 @@
 {
   "name": "KAVA/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "KAVAUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/KAVAUSD"
 }

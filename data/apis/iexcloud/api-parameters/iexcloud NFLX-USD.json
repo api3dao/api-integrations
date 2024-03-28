@@ -1,13 +1,5 @@
 {
   "name": "NFLX/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "key",
-      "type": "string32",
-      "value": "NFLX"
-    }
-  ]
+  "parameters": {},
+  "path": "data/CORE/QUOTE/NFLX"
 }

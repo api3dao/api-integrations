@@ -1,13 +1,7 @@
 {
   "name": "ASTR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "ASTR-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "ASTR-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

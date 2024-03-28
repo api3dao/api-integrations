@@ -1,18 +1,8 @@
 {
   "name": "RUB/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "RUB/USD"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "RUB/USD",
+    "dp": "11"
+  },
+  "path": "price"
 }

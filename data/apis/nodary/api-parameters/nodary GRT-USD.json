@@ -1,13 +1,7 @@
 {
   "name": "GRT/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "GRT/USD"
-    }
-  ]
+  "parameters": {
+    "name": "GRT/USD"
+  },
+  "path": "feed/latest"
 }

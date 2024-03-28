@@ -1,13 +1,7 @@
 {
   "name": "AXL/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "AXL/USD"
-    }
-  ]
+  "parameters": {
+    "name": "AXL/USD"
+  },
+  "path": "feed/latest"
 }

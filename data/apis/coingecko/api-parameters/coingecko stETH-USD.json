@@ -1,18 +1,8 @@
 {
   "name": "stETH/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "ids",
-      "type": "string32",
-      "value": "staked-ether"
-    },
-    {
-      "name": "vs_currencies",
-      "type": "string32",
-      "value": "usd"
-    }
-  ]
+  "parameters": {
+    "ids": "staked-ether",
+    "vs_currencies": "usd"
+  },
+  "path": "simple/price"
 }

@@ -1,13 +1,7 @@
 {
   "name": "MSFT/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "MSFT"
-    }
-  ]
+  "parameters": {
+    "symbol": "MSFT"
+  },
+  "path": "stock/bidask"
 }

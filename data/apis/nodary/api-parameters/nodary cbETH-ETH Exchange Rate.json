@@ -1,13 +1,7 @@
 {
   "name": "cbETH/ETH Exchange Rate",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "cbETH/ETH Exchange Rate"
-    }
-  ]
+  "parameters": {
+    "name": "cbETH/ETH Exchange Rate"
+  },
+  "path": "feed/latest"
 }

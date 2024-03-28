@@ -1,13 +1,7 @@
 {
   "name": "BAL/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "BAL/USD"
-    }
-  ]
+  "parameters": {
+    "name": "BAL/USD"
+  },
+  "path": "feed/latest"
 }

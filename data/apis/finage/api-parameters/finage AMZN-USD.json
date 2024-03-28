@@ -1,13 +1,5 @@
 {
   "name": "AMZN/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "AMZN"
-    }
-  ]
+  "parameters": {},
+  "path": "last/trade/stock/AMZN"
 }

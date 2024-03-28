@@ -1,13 +1,7 @@
 {
   "name": "MATIC/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "MATIC-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "MATIC-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

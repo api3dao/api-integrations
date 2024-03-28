@@ -1,13 +1,7 @@
 {
   "name": "CELO/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "CELO/USD"
-    }
-  ]
+  "parameters": {
+    "name": "CELO/USD"
+  },
+  "path": "feed/latest"
 }

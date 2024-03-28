@@ -1,13 +1,7 @@
 {
   "name": "COMP/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "COMP/USD"
-    }
-  ]
+  "parameters": {
+    "name": "COMP/USD"
+  },
+  "path": "feed/latest"
 }

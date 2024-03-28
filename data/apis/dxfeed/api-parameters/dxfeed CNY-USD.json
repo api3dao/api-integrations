@@ -1,18 +1,8 @@
 {
   "name": "CNY/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "CNY/USD{mm=COMP}"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "CNY/USD{mm=COMP}"
+  },
+  "path": "rest/events.json"
 }

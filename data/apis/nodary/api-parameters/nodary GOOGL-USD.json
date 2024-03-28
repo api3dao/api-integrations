@@ -1,13 +1,7 @@
 {
   "name": "GOOGL/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "GOOGL/USD"
-    }
-  ]
+  "parameters": {
+    "name": "GOOGL/USD"
+  },
+  "path": "feed/latest"
 }

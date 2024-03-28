@@ -1,18 +1,8 @@
 {
   "name": "FTM/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "FTM/USD"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "FTM/USD"
+  },
+  "path": "rest/events.json"
 }

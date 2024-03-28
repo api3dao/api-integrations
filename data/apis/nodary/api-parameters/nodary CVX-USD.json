@@ -1,13 +1,7 @@
 {
   "name": "CVX/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "CVX/USD"
-    }
-  ]
+  "parameters": {
+    "name": "CVX/USD"
+  },
+  "path": "feed/latest"
 }

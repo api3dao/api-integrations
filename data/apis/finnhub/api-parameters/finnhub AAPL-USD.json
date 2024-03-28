@@ -1,13 +1,7 @@
 {
   "name": "AAPL/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "AAPL"
-    }
-  ]
+  "parameters": {
+    "symbol": "AAPL"
+  },
+  "path": "stock/bidask"
 }

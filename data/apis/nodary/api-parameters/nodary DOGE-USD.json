@@ -1,13 +1,7 @@
 {
   "name": "DOGE/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "DOGE/USD"
-    }
-  ]
+  "parameters": {
+    "name": "DOGE/USD"
+  },
+  "path": "feed/latest"
 }

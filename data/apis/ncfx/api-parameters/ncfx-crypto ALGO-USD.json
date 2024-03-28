@@ -1,13 +1,7 @@
 {
   "name": "ALGO/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "ALGO-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "ALGO-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

@@ -1,13 +1,5 @@
 {
   "name": "AR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "ARUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/ARUSD"
 }

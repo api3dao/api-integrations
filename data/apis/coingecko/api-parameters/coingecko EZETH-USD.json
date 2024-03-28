@@ -1,18 +1,8 @@
 {
   "name": "EZETH/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "ids",
-      "type": "string32",
-      "value": "renzo-restaked-eth"
-    },
-    {
-      "name": "vs_currencies",
-      "type": "string32",
-      "value": "usd"
-    }
-  ]
+  "parameters": {
+    "ids": "renzo-restaked-eth",
+    "vs_currencies": "usd"
+  },
+  "path": "simple/price"
 }

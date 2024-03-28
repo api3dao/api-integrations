@@ -1,13 +1,5 @@
 {
   "name": "PENDLE/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "PENDLEUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/PENDLEUSD"
 }

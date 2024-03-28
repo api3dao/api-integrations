@@ -1,13 +1,7 @@
 {
   "name": "APT/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "APT/USD"
-    }
-  ]
+  "parameters": {
+    "name": "APT/USD"
+  },
+  "path": "feed/latest"
 }

@@ -1,18 +1,7 @@
 {
   "name": "WSTETH/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "coin_id",
-      "type": "string",
-      "value": "wsteth-wrapped-liquid-staked-ether-20"
-    },
-    {
-      "name": "quotes",
-      "type": "string32",
-      "value": "USD"
-    }
-  ]
+  "parameters": {
+    "quotes": "USD"
+  },
+  "path": "tickers/wsteth-wrapped-liquid-staked-ether-20"
 }

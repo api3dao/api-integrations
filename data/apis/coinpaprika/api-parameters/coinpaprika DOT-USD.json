@@ -1,18 +1,7 @@
 {
   "name": "DOT/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "coin_id",
-      "type": "string32",
-      "value": "dot-polkadot"
-    },
-    {
-      "name": "quotes",
-      "type": "string32",
-      "value": "USD"
-    }
-  ]
+  "parameters": {
+    "quotes": "USD"
+  },
+  "path": "tickers/dot-polkadot"
 }

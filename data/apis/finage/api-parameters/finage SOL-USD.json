@@ -1,13 +1,5 @@
 {
   "name": "SOL/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "SOLUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/SOLUSD"
 }

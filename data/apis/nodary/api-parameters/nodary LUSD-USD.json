@@ -1,13 +1,7 @@
 {
   "name": "LUSD/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "LUSD/USD"
-    }
-  ]
+  "parameters": {
+    "name": "LUSD/USD"
+  },
+  "path": "feed/latest"
 }

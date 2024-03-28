@@ -1,13 +1,5 @@
 {
   "name": "AVAX/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "AVAXUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/AVAXUSD"
 }

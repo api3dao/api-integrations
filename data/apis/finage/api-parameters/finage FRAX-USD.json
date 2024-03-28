@@ -1,13 +1,5 @@
 {
   "name": "FRAX/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "FRAXUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/FRAXUSD"
 }

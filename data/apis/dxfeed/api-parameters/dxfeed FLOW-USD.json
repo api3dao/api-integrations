@@ -1,18 +1,8 @@
 {
   "name": "FLOW/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "FLOW/USD"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "FLOW/USD"
+  },
+  "path": "rest/events.json"
 }

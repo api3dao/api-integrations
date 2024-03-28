@@ -1,13 +1,7 @@
 {
   "name": "XVS/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "XVS-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "XVS-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

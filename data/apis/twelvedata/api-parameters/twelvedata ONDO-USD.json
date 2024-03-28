@@ -1,18 +1,8 @@
 {
   "name": "ONDO/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "ONDO/USD"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "ONDO/USD",
+    "dp": "11"
+  },
+  "path": "price"
 }

@@ -1,13 +1,7 @@
 {
   "name": "JPY/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "base",
-      "type": "string32",
-      "value": "JPY"
-    }
-  ]
+  "parameters": {
+    "base": "JPY"
+  },
+  "path": "forex/rates"
 }

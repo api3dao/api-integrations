@@ -1,18 +1,8 @@
 {
   "name": "CRO/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "CRO/USD"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "CRO/USD",
+    "dp": "11"
+  },
+  "path": "price"
 }

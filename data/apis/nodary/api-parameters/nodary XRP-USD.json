@@ -1,13 +1,7 @@
 {
   "name": "XRP/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "XRP/USD"
-    }
-  ]
+  "parameters": {
+    "name": "XRP/USD"
+  },
+  "path": "feed/latest"
 }

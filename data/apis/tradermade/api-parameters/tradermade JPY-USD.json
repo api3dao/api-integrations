@@ -1,13 +1,7 @@
 {
   "name": "JPY/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "currency",
-      "type": "string32",
-      "value": "JPYUSD"
-    }
-  ]
+  "parameters": {
+    "currency": "JPYUSD"
+  },
+  "path": "live"
 }

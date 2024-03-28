@@ -1,13 +1,5 @@
 {
   "name": "STX/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "STXUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/STXUSD"
 }

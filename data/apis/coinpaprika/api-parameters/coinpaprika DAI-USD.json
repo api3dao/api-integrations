@@ -1,18 +1,7 @@
 {
   "name": "DAI/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "coin_id",
-      "type": "string32",
-      "value": "dai-dai"
-    },
-    {
-      "name": "quotes",
-      "type": "string32",
-      "value": "USD"
-    }
-  ]
+  "parameters": {
+    "quotes": "USD"
+  },
+  "path": "tickers/dai-dai"
 }

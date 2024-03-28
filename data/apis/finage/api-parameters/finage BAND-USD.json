@@ -1,13 +1,5 @@
 {
   "name": "BAND/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "BANDUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/BANDUSD"
 }

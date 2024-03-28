@@ -1,13 +1,5 @@
 {
   "name": "SPY/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "SPY"
-    }
-  ]
+  "parameters": {},
+  "path": "last/trade/stock/SPY"
 }

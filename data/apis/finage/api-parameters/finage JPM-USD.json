@@ -1,13 +1,5 @@
 {
   "name": "JPM/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "JPM"
-    }
-  ]
+  "parameters": {},
+  "path": "last/trade/stock/JPM"
 }

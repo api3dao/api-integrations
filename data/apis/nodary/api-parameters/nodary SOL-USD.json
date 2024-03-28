@@ -1,13 +1,7 @@
 {
   "name": "SOL/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "SOL/USD"
-    }
-  ]
+  "parameters": {
+    "name": "SOL/USD"
+  },
+  "path": "feed/latest"
 }

@@ -1,28 +1,5 @@
 {
   "name": "SGD/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pair",
-      "type": "string32",
-      "value": "SGDUSD"
-    },
-    {
-      "name": "tenor",
-      "type": "string32",
-      "value": "SPT"
-    },
-    {
-      "name": "type",
-      "type": "string32",
-      "value": "D"
-    },
-    {
-      "name": "route",
-      "type": "string32",
-      "value": "O"
-    }
-  ]
+  "parameters": {},
+  "path": "live/midrate/v1/rates/SGDUSD/SPT/D/O"
 }

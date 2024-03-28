@@ -1,13 +1,5 @@
 {
   "name": "STRK/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "STRKUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/STRKUSD"
 }

@@ -1,13 +1,7 @@
 {
   "name": "EUR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "base",
-      "type": "string32",
-      "value": "EUR"
-    }
-  ]
+  "parameters": {
+    "base": "EUR"
+  },
+  "path": "forex/rates"
 }

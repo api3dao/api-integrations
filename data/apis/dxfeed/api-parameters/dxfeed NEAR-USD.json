@@ -1,18 +1,8 @@
 {
   "name": "NEAR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "NEAR/USDT:CXDXF"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "NEAR/USDT:CXDXF"
+  },
+  "path": "rest/events.json"
 }

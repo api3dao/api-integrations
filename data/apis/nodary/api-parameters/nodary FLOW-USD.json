@@ -1,13 +1,7 @@
 {
   "name": "FLOW/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "FLOW/USD"
-    }
-  ]
+  "parameters": {
+    "name": "FLOW/USD"
+  },
+  "path": "feed/latest"
 }

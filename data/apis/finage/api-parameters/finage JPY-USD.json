@@ -1,13 +1,5 @@
 {
   "name": "JPY/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "JPYUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/trade/forex/JPYUSD"
 }

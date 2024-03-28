@@ -1,13 +1,7 @@
 {
   "name": "CRO/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "CRO/USD"
-    }
-  ]
+  "parameters": {
+    "name": "CRO/USD"
+  },
+  "path": "feed/latest"
 }

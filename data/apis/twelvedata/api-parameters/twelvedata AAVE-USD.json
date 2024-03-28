@@ -1,18 +1,8 @@
 {
   "name": "AAVE/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "AAVE/USD"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "AAVE/USD",
+    "dp": "11"
+  },
+  "path": "price"
 }

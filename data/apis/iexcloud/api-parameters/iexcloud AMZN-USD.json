@@ -1,13 +1,5 @@
 {
   "name": "AMZN/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "key",
-      "type": "string32",
-      "value": "AMZN"
-    }
-  ]
+  "parameters": {},
+  "path": "data/CORE/QUOTE/AMZN"
 }

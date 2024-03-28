@@ -1,13 +1,5 @@
 {
   "name": "QQQ/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "QQQ"
-    }
-  ]
+  "parameters": {},
+  "path": "last/trade/stock/QQQ"
 }

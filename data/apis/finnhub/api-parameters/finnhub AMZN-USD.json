@@ -1,13 +1,7 @@
 {
   "name": "AMZN/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "AMZN"
-    }
-  ]
+  "parameters": {
+    "symbol": "AMZN"
+  },
+  "path": "stock/bidask"
 }

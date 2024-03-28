@@ -1,13 +1,7 @@
 {
   "name": "XMR/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "XMR/USD"
-    }
-  ]
+  "parameters": {
+    "name": "XMR/USD"
+  },
+  "path": "feed/latest"
 }

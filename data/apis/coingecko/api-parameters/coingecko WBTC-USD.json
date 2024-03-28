@@ -1,18 +1,8 @@
 {
   "name": "WBTC/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "ids",
-      "type": "string32",
-      "value": "wrapped-bitcoin"
-    },
-    {
-      "name": "vs_currencies",
-      "type": "string32",
-      "value": "usd"
-    }
-  ]
+  "parameters": {
+    "ids": "wrapped-bitcoin",
+    "vs_currencies": "usd"
+  },
+  "path": "simple/price"
 }

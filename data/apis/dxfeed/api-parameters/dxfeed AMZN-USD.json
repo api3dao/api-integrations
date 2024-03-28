@@ -1,18 +1,8 @@
 {
   "name": "AMZN/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "AMZN"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "AMZN"
+  },
+  "path": "rest/events.json"
 }

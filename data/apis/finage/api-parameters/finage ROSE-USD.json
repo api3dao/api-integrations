@@ -1,13 +1,5 @@
 {
   "name": "ROSE/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "ROSEUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/ROSEUSD"
 }

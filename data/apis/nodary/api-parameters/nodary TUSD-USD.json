@@ -1,13 +1,7 @@
 {
   "name": "TUSD/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "TUSD/USD"
-    }
-  ]
+  "parameters": {
+    "name": "TUSD/USD"
+  },
+  "path": "feed/latest"
 }

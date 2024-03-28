@@ -1,13 +1,7 @@
 {
   "name": "BRL/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "base",
-      "type": "string32",
-      "value": "BRL"
-    }
-  ]
+  "parameters": {
+    "base": "BRL"
+  },
+  "path": "forex/rates"
 }

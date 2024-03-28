@@ -1,13 +1,7 @@
 {
   "name": "ADA/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "ADA-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "ADA-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

@@ -1,13 +1,7 @@
 {
   "name": "GME/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "GME"
-    }
-  ]
+  "parameters": {
+    "symbol": "GME"
+  },
+  "path": "stock/bidask"
 }

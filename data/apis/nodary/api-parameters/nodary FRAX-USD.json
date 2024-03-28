@@ -1,13 +1,7 @@
 {
   "name": "FRAX/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "FRAX/USD"
-    }
-  ]
+  "parameters": {
+    "name": "FRAX/USD"
+  },
+  "path": "feed/latest"
 }

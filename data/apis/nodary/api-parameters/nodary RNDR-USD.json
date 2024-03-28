@@ -1,13 +1,7 @@
 {
   "name": "RNDR/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "RNDR/USD"
-    }
-  ]
+  "parameters": {
+    "name": "RNDR/USD"
+  },
+  "path": "feed/latest"
 }

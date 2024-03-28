@@ -1,13 +1,7 @@
 {
   "name": "WOO/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "WOO/USD"
-    }
-  ]
+  "parameters": {
+    "name": "WOO/USD"
+  },
+  "path": "feed/latest"
 }

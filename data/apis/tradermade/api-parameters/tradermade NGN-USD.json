@@ -1,13 +1,7 @@
 {
   "name": "NGN/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "currency",
-      "type": "string32",
-      "value": "NGNUSD"
-    }
-  ]
+  "parameters": {
+    "currency": "NGNUSD"
+  },
+  "path": "live"
 }

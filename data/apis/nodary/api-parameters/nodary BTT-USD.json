@@ -1,13 +1,7 @@
 {
   "name": "BTT/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "BTT/USD"
-    }
-  ]
+  "parameters": {
+    "name": "BTT/USD"
+  },
+  "path": "feed/latest"
 }

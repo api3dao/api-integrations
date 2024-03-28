@@ -1,13 +1,7 @@
 {
   "name": "USDe/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "USDe/USD"
-    }
-  ]
+  "parameters": {
+    "name": "USDe/USD"
+  },
+  "path": "feed/latest"
 }

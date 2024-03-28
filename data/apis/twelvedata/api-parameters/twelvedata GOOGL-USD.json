@@ -1,18 +1,8 @@
 {
   "name": "GOOGL/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "GOOGL"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "GOOGL",
+    "dp": "11"
+  },
+  "path": "price"
 }

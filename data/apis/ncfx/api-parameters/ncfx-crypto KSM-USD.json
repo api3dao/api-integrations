@@ -1,13 +1,7 @@
 {
   "name": "KSM/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "KSM-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "KSM-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

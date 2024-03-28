@@ -1,13 +1,5 @@
 {
   "name": "DIS/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "key",
-      "type": "string32",
-      "value": "DIS"
-    }
-  ]
+  "parameters": {},
+  "path": "data/CORE/QUOTE/DIS"
 }

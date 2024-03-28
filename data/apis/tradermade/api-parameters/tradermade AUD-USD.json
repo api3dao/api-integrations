@@ -1,13 +1,7 @@
 {
   "name": "AUD/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "currency",
-      "type": "string32",
-      "value": "AUDUSD"
-    }
-  ]
+  "parameters": {
+    "currency": "AUDUSD"
+  },
+  "path": "live"
 }

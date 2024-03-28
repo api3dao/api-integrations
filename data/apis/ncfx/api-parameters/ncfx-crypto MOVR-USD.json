@@ -1,13 +1,7 @@
 {
   "name": "MOVR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "MOVR-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "MOVR-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

@@ -1,13 +1,7 @@
 {
   "name": "JPY/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "JPY/USD"
-    }
-  ]
+  "parameters": {
+    "name": "JPY/USD"
+  },
+  "path": "feed/latest"
 }

@@ -1,13 +1,7 @@
 {
   "name": "MKR/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "MKR/USD"
-    }
-  ]
+  "parameters": {
+    "name": "MKR/USD"
+  },
+  "path": "feed/latest"
 }

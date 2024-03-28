@@ -1,18 +1,8 @@
 {
   "name": "QQQ/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "QQQ"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "QQQ"
+  },
+  "path": "rest/events.json"
 }

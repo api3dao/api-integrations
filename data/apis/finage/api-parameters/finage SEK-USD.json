@@ -1,13 +1,5 @@
 {
   "name": "SEK/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "SEKUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/trade/forex/SEKUSD"
 }

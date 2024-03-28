@@ -1,13 +1,5 @@
 {
   "name": "AUD/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "AUDUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/trade/forex/AUDUSD"
 }

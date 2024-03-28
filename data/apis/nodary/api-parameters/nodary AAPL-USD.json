@@ -1,13 +1,7 @@
 {
   "name": "AAPL/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "AAPL/USD"
-    }
-  ]
+  "parameters": {
+    "name": "AAPL/USD"
+  },
+  "path": "feed/latest"
 }

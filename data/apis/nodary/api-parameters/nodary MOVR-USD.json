@@ -1,13 +1,7 @@
 {
   "name": "MOVR/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "MOVR/USD"
-    }
-  ]
+  "parameters": {
+    "name": "MOVR/USD"
+  },
+  "path": "feed/latest"
 }

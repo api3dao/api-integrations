@@ -1,13 +1,7 @@
 {
   "name": "HT/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "HT/USD"
-    }
-  ]
+  "parameters": {
+    "name": "HT/USD"
+  },
+  "path": "feed/latest"
 }

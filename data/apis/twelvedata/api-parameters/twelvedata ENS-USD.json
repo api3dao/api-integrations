@@ -1,18 +1,8 @@
 {
   "name": "ENS/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "ENS/USD"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "ENS/USD",
+    "dp": "11"
+  },
+  "path": "price"
 }

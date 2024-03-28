@@ -1,13 +1,7 @@
 {
   "name": "ZAR/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "ZAR/USD"
-    }
-  ]
+  "parameters": {
+    "name": "ZAR/USD"
+  },
+  "path": "feed/latest"
 }

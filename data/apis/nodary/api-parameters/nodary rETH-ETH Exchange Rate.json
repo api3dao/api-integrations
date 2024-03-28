@@ -1,13 +1,7 @@
 {
   "name": "rETH/ETH Exchange Rate",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "rETH/ETH Exchange Rate"
-    }
-  ]
+  "parameters": {
+    "name": "rETH/ETH Exchange Rate"
+  },
+  "path": "feed/latest"
 }

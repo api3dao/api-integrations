@@ -1,13 +1,7 @@
 {
   "name": "CHF/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "CHF/USD"
-    }
-  ]
+  "parameters": {
+    "name": "CHF/USD"
+  },
+  "path": "feed/latest"
 }

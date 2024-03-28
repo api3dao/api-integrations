@@ -1,13 +1,7 @@
 {
   "name": "XTZ/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "XTZ-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "XTZ-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

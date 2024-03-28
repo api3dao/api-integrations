@@ -1,13 +1,5 @@
 {
   "name": "ICP/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "ICPUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/ICPUSD"
 }

@@ -1,13 +1,5 @@
 {
   "name": "ATOM/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "ATOMUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/ATOMUSD"
 }

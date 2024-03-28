@@ -1,18 +1,8 @@
 {
   "name": "APT/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "APT/USD"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "APT/USD"
+  },
+  "path": "rest/events.json"
 }

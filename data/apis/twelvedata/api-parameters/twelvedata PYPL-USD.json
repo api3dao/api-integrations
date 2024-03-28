@@ -1,18 +1,8 @@
 {
   "name": "PYPL/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "PYPL"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "PYPL",
+    "dp": "11"
+  },
+  "path": "price"
 }

@@ -1,18 +1,8 @@
 {
   "name": "ADA/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "ADA/USD:CXDXF"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "ADA/USD:CXDXF"
+  },
+  "path": "rest/events.json"
 }

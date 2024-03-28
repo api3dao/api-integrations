@@ -1,18 +1,8 @@
 {
   "name": "GLMR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "GLMR/USD"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "GLMR/USD"
+  },
+  "path": "rest/events.json"
 }

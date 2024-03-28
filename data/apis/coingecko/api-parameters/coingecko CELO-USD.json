@@ -1,18 +1,8 @@
 {
   "name": "CELO/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "ids",
-      "type": "string32",
-      "value": "celo"
-    },
-    {
-      "name": "vs_currencies",
-      "type": "string32",
-      "value": "usd"
-    }
-  ]
+  "parameters": {
+    "ids": "celo",
+    "vs_currencies": "usd"
+  },
+  "path": "simple/price"
 }

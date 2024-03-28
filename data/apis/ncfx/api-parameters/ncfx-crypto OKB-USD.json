@@ -1,13 +1,7 @@
 {
   "name": "OKB/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "OKB-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "OKB-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

@@ -1,13 +1,7 @@
 {
   "name": "METIS/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "METIS/USD"
-    }
-  ]
+  "parameters": {
+    "name": "METIS/USD"
+  },
+  "path": "feed/latest"
 }

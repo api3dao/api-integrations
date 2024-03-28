@@ -1,13 +1,5 @@
 {
   "name": "PEPE/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "PEPEUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/PEPEUSD"
 }

@@ -1,13 +1,7 @@
 {
   "name": "INTC/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "INTC/USD"
-    }
-  ]
+  "parameters": {
+    "name": "INTC/USD"
+  },
+  "path": "feed/latest"
 }

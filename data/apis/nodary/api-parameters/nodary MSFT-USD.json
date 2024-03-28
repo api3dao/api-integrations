@@ -1,13 +1,7 @@
 {
   "name": "MSFT/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "MSFT/USD"
-    }
-  ]
+  "parameters": {
+    "name": "MSFT/USD"
+  },
+  "path": "feed/latest"
 }

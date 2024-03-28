@@ -1,13 +1,5 @@
 {
   "name": "NGN/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "NGNUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/trade/forex/NGNUSD"
 }

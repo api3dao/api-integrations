@@ -1,18 +1,8 @@
 {
   "name": "XMR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "XMR/USD"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "XMR/USD"
+  },
+  "path": "rest/events.json"
 }

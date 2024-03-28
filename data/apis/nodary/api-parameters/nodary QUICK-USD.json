@@ -1,13 +1,7 @@
 {
   "name": "QUICK/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "QUICK/USD"
-    }
-  ]
+  "parameters": {
+    "name": "QUICK/USD"
+  },
+  "path": "feed/latest"
 }

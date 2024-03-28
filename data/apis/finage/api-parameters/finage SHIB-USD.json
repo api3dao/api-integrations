@@ -1,13 +1,5 @@
 {
   "name": "SHIB/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "SHIBUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/SHIBUSD"
 }

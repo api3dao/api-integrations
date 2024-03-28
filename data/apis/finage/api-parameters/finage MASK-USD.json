@@ -1,13 +1,5 @@
 {
   "name": "MASK/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "MASKUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/MASKUSD"
 }

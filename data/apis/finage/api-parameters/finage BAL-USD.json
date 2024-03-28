@@ -1,13 +1,5 @@
 {
   "name": "BAL/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "BALUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/BALUSD"
 }

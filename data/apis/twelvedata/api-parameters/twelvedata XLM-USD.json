@@ -1,18 +1,8 @@
 {
   "name": "XLM/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "XLM/USD"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "XLM/USD",
+    "dp": "11"
+  },
+  "path": "price"
 }

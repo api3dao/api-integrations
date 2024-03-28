@@ -1,18 +1,8 @@
 {
   "name": "RBN/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "RBN/USD"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "RBN/USD",
+    "dp": "11"
+  },
+  "path": "price"
 }

@@ -1,18 +1,8 @@
 {
   "name": "COIN/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "COIN"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "COIN"
+  },
+  "path": "rest/events.json"
 }

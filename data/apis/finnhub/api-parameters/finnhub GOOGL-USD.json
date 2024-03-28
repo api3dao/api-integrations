@@ -1,13 +1,7 @@
 {
   "name": "GOOGL/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "GOOGL"
-    }
-  ]
+  "parameters": {
+    "symbol": "GOOGL"
+  },
+  "path": "stock/bidask"
 }

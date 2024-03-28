@@ -1,13 +1,7 @@
 {
   "name": "LQTY/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "LQTY-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "LQTY-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

@@ -1,13 +1,7 @@
 {
   "name": "FTM/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "FTM/USD"
-    }
-  ]
+  "parameters": {
+    "name": "FTM/USD"
+  },
+  "path": "feed/latest"
 }

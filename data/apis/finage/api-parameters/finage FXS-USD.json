@@ -1,13 +1,5 @@
 {
   "name": "FXS/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "FXSUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/FXSUSD"
 }

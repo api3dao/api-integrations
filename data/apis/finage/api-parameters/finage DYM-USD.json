@@ -1,13 +1,5 @@
 {
   "name": "DYM/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "DYMUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/DYMUSD"
 }

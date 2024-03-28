@@ -1,13 +1,7 @@
 {
   "name": "USDP/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "USDP-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "USDP-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

@@ -1,13 +1,7 @@
 {
   "name": "KRW/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "base",
-      "type": "string32",
-      "value": "KRW"
-    }
-  ]
+  "parameters": {
+    "base": "KRW"
+  },
+  "path": "forex/rates"
 }

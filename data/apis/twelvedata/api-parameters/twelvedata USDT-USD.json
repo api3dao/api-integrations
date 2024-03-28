@@ -1,18 +1,8 @@
 {
   "name": "USDT/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "USDT/USD"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "USDT/USD",
+    "dp": "11"
+  },
+  "path": "price"
 }

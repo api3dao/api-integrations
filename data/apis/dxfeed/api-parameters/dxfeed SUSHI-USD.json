@@ -1,18 +1,8 @@
 {
   "name": "SUSHI/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "SUSHI/USD"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "SUSHI/USD"
+  },
+  "path": "rest/events.json"
 }

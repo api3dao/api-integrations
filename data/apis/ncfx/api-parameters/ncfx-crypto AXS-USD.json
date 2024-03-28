@@ -1,13 +1,7 @@
 {
   "name": "AXS/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "AXS-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "AXS-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

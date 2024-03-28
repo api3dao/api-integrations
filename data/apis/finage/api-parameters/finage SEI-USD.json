@@ -1,13 +1,5 @@
 {
   "name": "SEI/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "SEIUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/SEIUSD"
 }

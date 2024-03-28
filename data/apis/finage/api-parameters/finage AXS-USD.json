@@ -1,13 +1,5 @@
 {
   "name": "AXS/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "AXSUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/AXSUSD"
 }

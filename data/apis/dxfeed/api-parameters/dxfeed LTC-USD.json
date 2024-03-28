@@ -1,18 +1,8 @@
 {
   "name": "LTC/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "LTC/USDT:CXDXF"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "LTC/USDT:CXDXF"
+  },
+  "path": "rest/events.json"
 }

@@ -1,13 +1,7 @@
 {
   "name": "FLOW/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "FLOW-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "FLOW-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

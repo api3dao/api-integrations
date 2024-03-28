@@ -1,18 +1,8 @@
 {
   "name": "BNB/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "BNB/USDT:CXDXF"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "BNB/USDT:CXDXF"
+  },
+  "path": "rest/events.json"
 }

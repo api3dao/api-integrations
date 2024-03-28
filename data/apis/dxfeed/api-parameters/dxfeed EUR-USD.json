@@ -1,18 +1,8 @@
 {
   "name": "EUR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "EUR/USD:DXF{mm=wards}"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "EUR/USD:DXF{mm=wards}"
+  },
+  "path": "rest/events.json"
 }

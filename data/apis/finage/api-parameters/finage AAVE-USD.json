@@ -1,13 +1,5 @@
 {
   "name": "AAVE/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "AAVEUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/AAVEUSD"
 }

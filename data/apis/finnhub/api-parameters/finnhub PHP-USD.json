@@ -1,13 +1,7 @@
 {
   "name": "PHP/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "base",
-      "type": "string32",
-      "value": "PHP"
-    }
-  ]
+  "parameters": {
+    "base": "PHP"
+  },
+  "path": "forex/rates"
 }

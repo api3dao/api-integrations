@@ -1,13 +1,7 @@
 {
   "name": "KRW/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "KRW/USD"
-    }
-  ]
+  "parameters": {
+    "name": "KRW/USD"
+  },
+  "path": "feed/latest"
 }

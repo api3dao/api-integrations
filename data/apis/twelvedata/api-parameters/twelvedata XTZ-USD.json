@@ -1,18 +1,8 @@
 {
   "name": "XTZ/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "XTZ/USD"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "XTZ/USD",
+    "dp": "11"
+  },
+  "path": "price"
 }

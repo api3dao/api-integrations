@@ -1,13 +1,7 @@
 {
   "name": "DIS/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "DIS"
-    }
-  ]
+  "parameters": {
+    "symbol": "DIS"
+  },
+  "path": "stock/bidask"
 }

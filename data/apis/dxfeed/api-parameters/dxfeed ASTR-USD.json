@@ -1,18 +1,8 @@
 {
   "name": "ASTR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "ASTR/USDT:CXBINA"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "ASTR/USDT:CXBINA"
+  },
+  "path": "rest/events.json"
 }

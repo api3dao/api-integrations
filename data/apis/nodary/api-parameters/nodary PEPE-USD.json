@@ -1,13 +1,7 @@
 {
   "name": "PEPE/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "PEPE/USD"
-    }
-  ]
+  "parameters": {
+    "name": "PEPE/USD"
+  },
+  "path": "feed/latest"
 }

@@ -1,13 +1,5 @@
 {
   "name": "MSFT/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "key",
-      "type": "string32",
-      "value": "MSFT"
-    }
-  ]
+  "parameters": {},
+  "path": "data/CORE/QUOTE/MSFT"
 }

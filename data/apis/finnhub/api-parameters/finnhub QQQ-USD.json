@@ -1,13 +1,7 @@
 {
   "name": "QQQ/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "QQQ"
-    }
-  ]
+  "parameters": {
+    "symbol": "QQQ"
+  },
+  "path": "stock/bidask"
 }

@@ -1,13 +1,7 @@
 {
   "name": "JOE/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "JOE/USD"
-    }
-  ]
+  "parameters": {
+    "name": "JOE/USD"
+  },
+  "path": "feed/latest"
 }

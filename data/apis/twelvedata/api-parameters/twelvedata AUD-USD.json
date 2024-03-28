@@ -1,18 +1,8 @@
 {
   "name": "AUD/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "AUD/USD"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "AUD/USD",
+    "dp": "11"
+  },
+  "path": "price"
 }

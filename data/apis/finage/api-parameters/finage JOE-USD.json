@@ -1,13 +1,5 @@
 {
   "name": "JOE/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "JOEUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/JOEUSD"
 }

@@ -1,13 +1,7 @@
 {
   "name": "GNS/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "GNS/USD"
-    }
-  ]
+  "parameters": {
+    "name": "GNS/USD"
+  },
+  "path": "feed/latest"
 }

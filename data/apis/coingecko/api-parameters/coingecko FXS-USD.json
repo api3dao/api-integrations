@@ -1,18 +1,8 @@
 {
   "name": "FXS/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "ids",
-      "type": "string32",
-      "value": "frax-share"
-    },
-    {
-      "name": "vs_currencies",
-      "type": "string32",
-      "value": "usd"
-    }
-  ]
+  "parameters": {
+    "ids": "frax-share",
+    "vs_currencies": "usd"
+  },
+  "path": "simple/price"
 }

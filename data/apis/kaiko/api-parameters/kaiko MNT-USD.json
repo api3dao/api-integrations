@@ -1,28 +1,7 @@
 {
   "name": "MNT/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "base_asset",
-      "type": "string32",
-      "value": "mnt"
-    },
-    {
-      "name": "quote_asset",
-      "type": "string32",
-      "value": "usd"
-    },
-    {
-      "name": "interval",
-      "type": "string32",
-      "value": "1m"
-    },
-    {
-      "name": "data_ver",
-      "type": "string32",
-      "value": "v2"
-    }
-  ]
+  "parameters": {
+    "interval": "1m"
+  },
+  "path": "trades.v2/spot_exchange_rate/mnt/usd"
 }

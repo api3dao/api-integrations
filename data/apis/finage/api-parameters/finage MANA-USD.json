@@ -1,13 +1,5 @@
 {
   "name": "MANA/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "MANAUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/MANAUSD"
 }

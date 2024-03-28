@@ -1,13 +1,5 @@
 {
   "name": "OKB/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "OKBUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/OKBUSD"
 }

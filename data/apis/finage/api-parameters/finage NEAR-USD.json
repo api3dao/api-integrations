@@ -1,13 +1,5 @@
 {
   "name": "NEAR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "NEARUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/NEARUSD"
 }

@@ -1,13 +1,5 @@
 {
   "name": "SAND/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "SANDUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/SANDUSD"
 }

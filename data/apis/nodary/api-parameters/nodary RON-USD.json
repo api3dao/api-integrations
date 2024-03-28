@@ -1,13 +1,7 @@
 {
   "name": "RON/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "RON/USD"
-    }
-  ]
+  "parameters": {
+    "name": "RON/USD"
+  },
+  "path": "feed/latest"
 }

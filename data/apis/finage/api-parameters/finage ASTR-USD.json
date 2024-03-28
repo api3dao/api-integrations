@@ -1,13 +1,5 @@
 {
   "name": "ASTR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "ASTRUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/ASTRUSD"
 }

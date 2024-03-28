@@ -1,13 +1,7 @@
 {
   "name": "SUSHI/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "SUSHI/USD"
-    }
-  ]
+  "parameters": {
+    "name": "SUSHI/USD"
+  },
+  "path": "feed/latest"
 }

@@ -1,13 +1,7 @@
 {
   "name": "ARKK/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "ARKK/USD"
-    }
-  ]
+  "parameters": {
+    "name": "ARKK/USD"
+  },
+  "path": "feed/latest"
 }

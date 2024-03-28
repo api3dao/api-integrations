@@ -1,13 +1,5 @@
 {
   "name": "UMA/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "UMAUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/UMAUSD"
 }

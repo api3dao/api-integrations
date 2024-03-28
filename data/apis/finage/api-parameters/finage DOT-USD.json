@@ -1,13 +1,5 @@
 {
   "name": "DOT/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "DOTUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/DOTUSD"
 }

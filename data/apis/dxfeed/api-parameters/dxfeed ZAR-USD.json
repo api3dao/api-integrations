@@ -1,18 +1,8 @@
 {
   "name": "ZAR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "ZAR/USD{mm=COMP}"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "ZAR/USD{mm=COMP}"
+  },
+  "path": "rest/events.json"
 }

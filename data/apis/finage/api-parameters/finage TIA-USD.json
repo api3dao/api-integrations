@@ -1,13 +1,5 @@
 {
   "name": "TIA/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "TIAUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/TIAUSD"
 }

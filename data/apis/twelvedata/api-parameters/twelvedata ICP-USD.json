@@ -1,18 +1,8 @@
 {
   "name": "ICP/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "ICP/USD"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "ICP/USD",
+    "dp": "11"
+  },
+  "path": "price"
 }

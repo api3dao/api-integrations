@@ -1,13 +1,7 @@
 {
   "name": "SGD/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "SGD/USD"
-    }
-  ]
+  "parameters": {
+    "name": "SGD/USD"
+  },
+  "path": "feed/latest"
 }

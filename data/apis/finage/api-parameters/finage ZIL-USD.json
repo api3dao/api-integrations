@@ -1,13 +1,5 @@
 {
   "name": "ZIL/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "ZILUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/ZILUSD"
 }

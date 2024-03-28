@@ -1,18 +1,8 @@
 {
   "name": "TSLA/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "TSLA"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "TSLA"
+  },
+  "path": "rest/events.json"
 }

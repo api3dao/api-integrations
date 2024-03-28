@@ -1,13 +1,5 @@
 {
   "name": "USDC/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "USDCUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/USDCUSD"
 }

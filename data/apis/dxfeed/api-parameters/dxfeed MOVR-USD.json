@@ -1,18 +1,8 @@
 {
   "name": "MOVR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "MOVR/USD"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "MOVR/USD"
+  },
+  "path": "rest/events.json"
 }

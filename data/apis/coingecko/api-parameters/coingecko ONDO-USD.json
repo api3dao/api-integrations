@@ -1,18 +1,8 @@
 {
   "name": "ONDO/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "ids",
-      "type": "string32",
-      "value": "ondo-finance"
-    },
-    {
-      "name": "vs_currencies",
-      "type": "string32",
-      "value": "usd"
-    }
-  ]
+  "parameters": {
+    "ids": "ondo-finance",
+    "vs_currencies": "usd"
+  },
+  "path": "simple/price"
 }

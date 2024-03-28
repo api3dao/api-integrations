@@ -1,13 +1,7 @@
 {
   "name": "BTC/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "BTC-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "BTC-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

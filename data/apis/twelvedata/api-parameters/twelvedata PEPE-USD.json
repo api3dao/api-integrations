@@ -1,18 +1,8 @@
 {
   "name": "PEPE/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "PEPE/USD"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "PEPE/USD",
+    "dp": "11"
+  },
+  "path": "price"
 }

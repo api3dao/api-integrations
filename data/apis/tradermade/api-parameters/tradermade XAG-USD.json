@@ -1,13 +1,7 @@
 {
   "name": "XAG/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "currency",
-      "type": "string32",
-      "value": "XAGUSD"
-    }
-  ]
+  "parameters": {
+    "currency": "XAGUSD"
+  },
+  "path": "live"
 }

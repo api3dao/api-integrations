@@ -1,18 +1,8 @@
 {
   "name": "TSLA/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "TSLA"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "TSLA",
+    "dp": "11"
+  },
+  "path": "price"
 }

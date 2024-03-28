@@ -1,18 +1,8 @@
 {
   "name": "SPY/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "SPY"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "SPY"
+  },
+  "path": "rest/events.json"
 }

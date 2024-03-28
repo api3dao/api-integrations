@@ -1,13 +1,7 @@
 {
   "name": "ZIL/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "ZIL/USD"
-    }
-  ]
+  "parameters": {
+    "name": "ZIL/USD"
+  },
+  "path": "feed/latest"
 }

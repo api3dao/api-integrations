@@ -1,13 +1,5 @@
 {
   "name": "GNO/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "GNOUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/GNOUSD"
 }

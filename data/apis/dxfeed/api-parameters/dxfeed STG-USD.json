@@ -1,18 +1,8 @@
 {
   "name": "STG/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "STG/USD"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "STG/USD"
+  },
+  "path": "rest/events.json"
 }

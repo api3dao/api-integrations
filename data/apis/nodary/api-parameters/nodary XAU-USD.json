@@ -1,13 +1,7 @@
 {
   "name": "XAU/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "XAU/USD"
-    }
-  ]
+  "parameters": {
+    "name": "XAU/USD"
+  },
+  "path": "feed/latest"
 }

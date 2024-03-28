@@ -1,18 +1,8 @@
 {
   "name": "ROSE/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "ROSE/USD"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "ROSE/USD",
+    "dp": "11"
+  },
+  "path": "price"
 }

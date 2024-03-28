@@ -1,13 +1,7 @@
 {
   "name": "HNT/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "HNT/USD"
-    }
-  ]
+  "parameters": {
+    "name": "HNT/USD"
+  },
+  "path": "feed/latest"
 }

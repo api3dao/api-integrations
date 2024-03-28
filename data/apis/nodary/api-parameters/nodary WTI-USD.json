@@ -1,13 +1,7 @@
 {
   "name": "WTI/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "WTI/USD"
-    }
-  ]
+  "parameters": {
+    "name": "WTI/USD"
+  },
+  "path": "feed/latest"
 }

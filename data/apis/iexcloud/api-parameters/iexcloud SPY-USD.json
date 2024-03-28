@@ -1,13 +1,5 @@
 {
   "name": "SPY/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "key",
-      "type": "string32",
-      "value": "SPY"
-    }
-  ]
+  "parameters": {},
+  "path": "data/CORE/QUOTE/SPY"
 }

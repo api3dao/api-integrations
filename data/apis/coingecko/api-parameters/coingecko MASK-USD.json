@@ -1,18 +1,8 @@
 {
   "name": "MASK/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "ids",
-      "type": "string32",
-      "value": "mask-network"
-    },
-    {
-      "name": "vs_currencies",
-      "type": "string32",
-      "value": "usd"
-    }
-  ]
+  "parameters": {
+    "ids": "mask-network",
+    "vs_currencies": "usd"
+  },
+  "path": "simple/price"
 }

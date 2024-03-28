@@ -1,13 +1,5 @@
 {
   "name": "MKR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "MKRUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/MKRUSD"
 }

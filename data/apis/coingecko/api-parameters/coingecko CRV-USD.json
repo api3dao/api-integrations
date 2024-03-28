@@ -1,18 +1,8 @@
 {
   "name": "CRV/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "ids",
-      "type": "string32",
-      "value": "curve-dao-token"
-    },
-    {
-      "name": "vs_currencies",
-      "type": "string32",
-      "value": "usd"
-    }
-  ]
+  "parameters": {
+    "ids": "curve-dao-token",
+    "vs_currencies": "usd"
+  },
+  "path": "simple/price"
 }

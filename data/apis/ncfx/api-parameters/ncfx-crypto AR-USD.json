@@ -1,13 +1,7 @@
 {
   "name": "AR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "AR-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "AR-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

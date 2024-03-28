@@ -1,13 +1,5 @@
 {
   "name": "ADA/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "ADAUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/ADAUSD"
 }

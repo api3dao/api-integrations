@@ -1,13 +1,7 @@
 {
   "name": "BABA/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "BABA"
-    }
-  ]
+  "parameters": {
+    "symbol": "BABA"
+  },
+  "path": "stock/bidask"
 }

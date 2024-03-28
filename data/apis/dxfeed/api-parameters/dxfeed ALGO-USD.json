@@ -1,18 +1,8 @@
 {
   "name": "ALGO/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "ALGO/USD"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "ALGO/USD"
+  },
+  "path": "rest/events.json"
 }

@@ -1,13 +1,5 @@
 {
   "name": "XAU/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "XAUUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/trade/forex/XAUUSD"
 }

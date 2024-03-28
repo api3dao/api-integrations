@@ -1,13 +1,7 @@
 {
   "name": "KAVA/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "KAVA-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "KAVA-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

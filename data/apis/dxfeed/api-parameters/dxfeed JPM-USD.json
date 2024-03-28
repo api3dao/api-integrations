@@ -1,18 +1,8 @@
 {
   "name": "JPM/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "JPM"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "JPM"
+  },
+  "path": "rest/events.json"
 }

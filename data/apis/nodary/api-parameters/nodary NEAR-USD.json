@@ -1,13 +1,7 @@
 {
   "name": "NEAR/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "NEAR/USD"
-    }
-  ]
+  "parameters": {
+    "name": "NEAR/USD"
+  },
+  "path": "feed/latest"
 }

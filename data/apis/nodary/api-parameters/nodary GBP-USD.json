@@ -1,13 +1,7 @@
 {
   "name": "GBP/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "GBP/USD"
-    }
-  ]
+  "parameters": {
+    "name": "GBP/USD"
+  },
+  "path": "feed/latest"
 }

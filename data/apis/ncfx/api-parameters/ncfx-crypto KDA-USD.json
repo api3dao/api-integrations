@@ -1,13 +1,7 @@
 {
   "name": "KDA/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "KDA-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "KDA-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

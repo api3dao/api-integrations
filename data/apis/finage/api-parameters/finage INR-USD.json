@@ -1,13 +1,5 @@
 {
   "name": "INR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "INRUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/trade/forex/INRUSD"
 }

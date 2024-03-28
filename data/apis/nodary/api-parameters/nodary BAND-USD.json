@@ -1,13 +1,7 @@
 {
   "name": "BAND/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "BAND/USD"
-    }
-  ]
+  "parameters": {
+    "name": "BAND/USD"
+  },
+  "path": "feed/latest"
 }

@@ -1,13 +1,7 @@
 {
   "name": "PEPE/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "PEPE-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "PEPE-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

@@ -1,13 +1,5 @@
 {
   "name": "ENS/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "ENSUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/ENSUSD"
 }

@@ -1,13 +1,5 @@
 {
   "name": "CHF/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "CHFUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/trade/forex/CHFUSD"
 }

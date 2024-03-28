@@ -1,13 +1,7 @@
 {
   "name": "ZRX/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "ZRX/USD"
-    }
-  ]
+  "parameters": {
+    "name": "ZRX/USD"
+  },
+  "path": "feed/latest"
 }

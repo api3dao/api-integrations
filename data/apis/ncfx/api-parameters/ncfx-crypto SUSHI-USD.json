@@ -1,13 +1,7 @@
 {
   "name": "SUSHI/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "SUSHI-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "SUSHI-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

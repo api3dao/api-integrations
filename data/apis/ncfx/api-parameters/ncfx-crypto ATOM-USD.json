@@ -1,13 +1,7 @@
 {
   "name": "ATOM/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "ATOM-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "ATOM-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

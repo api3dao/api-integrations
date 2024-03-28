@@ -1,13 +1,7 @@
 {
   "name": "PENDLE/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "PENDLE-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "PENDLE-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

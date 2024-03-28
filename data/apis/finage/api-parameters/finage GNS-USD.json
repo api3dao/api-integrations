@@ -1,13 +1,5 @@
 {
   "name": "GNS/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "GNSUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/GNSUSD"
 }

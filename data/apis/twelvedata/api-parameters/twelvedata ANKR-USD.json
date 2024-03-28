@@ -1,18 +1,8 @@
 {
   "name": "ANKR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "ANKR/USD"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "ANKR/USD",
+    "dp": "11"
+  },
+  "path": "price"
 }

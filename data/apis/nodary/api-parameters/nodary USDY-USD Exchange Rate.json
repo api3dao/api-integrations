@@ -1,13 +1,7 @@
 {
   "name": "USDY/USD Exchange Rate",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "USDY/USD Exchange Rate"
-    }
-  ]
+  "parameters": {
+    "name": "USDY/USD Exchange Rate"
+  },
+  "path": "feed/latest"
 }

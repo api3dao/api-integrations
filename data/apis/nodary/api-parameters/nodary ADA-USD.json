@@ -1,13 +1,7 @@
 {
   "name": "ADA/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "ADA/USD"
-    }
-  ]
+  "parameters": {
+    "name": "ADA/USD"
+  },
+  "path": "feed/latest"
 }

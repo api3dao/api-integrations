@@ -1,13 +1,7 @@
 {
   "name": "TSM/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "TSM"
-    }
-  ]
+  "parameters": {
+    "symbol": "TSM"
+  },
+  "path": "stock/bidask"
 }

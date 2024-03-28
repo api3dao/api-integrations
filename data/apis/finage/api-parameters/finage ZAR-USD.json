@@ -1,13 +1,5 @@
 {
   "name": "ZAR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "ZARUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/trade/forex/ZARUSD"
 }

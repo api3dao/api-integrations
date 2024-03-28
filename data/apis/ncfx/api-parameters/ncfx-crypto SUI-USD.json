@@ -1,13 +1,7 @@
 {
   "name": "SUI/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "SUI-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "SUI-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

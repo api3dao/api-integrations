@@ -1,13 +1,7 @@
 {
   "name": "CHZ/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "CHZ-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "CHZ-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

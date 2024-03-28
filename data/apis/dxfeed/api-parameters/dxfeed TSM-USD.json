@@ -1,18 +1,8 @@
 {
   "name": "TSM/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "TSM"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "TSM"
+  },
+  "path": "rest/events.json"
 }

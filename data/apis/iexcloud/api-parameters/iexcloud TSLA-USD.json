@@ -1,13 +1,5 @@
 {
   "name": "TSLA/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "key",
-      "type": "string32",
-      "value": "TSLA"
-    }
-  ]
+  "parameters": {},
+  "path": "data/CORE/QUOTE/TSLA"
 }

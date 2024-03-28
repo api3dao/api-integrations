@@ -1,13 +1,7 @@
 {
   "name": "DAI/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "DAI-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "DAI-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

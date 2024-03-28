@@ -1,18 +1,8 @@
 {
   "name": "XVS/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "XVS/USD"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "XVS/USD",
+    "dp": "11"
+  },
+  "path": "price"
 }

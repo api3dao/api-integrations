@@ -1,13 +1,7 @@
 {
   "name": "ROSE/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "ROSE/USD"
-    }
-  ]
+  "parameters": {
+    "name": "ROSE/USD"
+  },
+  "path": "feed/latest"
 }

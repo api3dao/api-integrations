@@ -1,13 +1,7 @@
 {
   "name": "JPM/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "JPM/USD"
-    }
-  ]
+  "parameters": {
+    "name": "JPM/USD"
+  },
+  "path": "feed/latest"
 }

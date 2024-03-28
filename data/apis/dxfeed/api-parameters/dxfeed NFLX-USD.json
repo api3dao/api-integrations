@@ -1,18 +1,8 @@
 {
   "name": "NFLX/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "NFLX"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "NFLX"
+  },
+  "path": "rest/events.json"
 }

@@ -1,13 +1,7 @@
 {
   "name": "INR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "base",
-      "type": "string32",
-      "value": "INR"
-    }
-  ]
+  "parameters": {
+    "base": "INR"
+  },
+  "path": "forex/rates"
 }

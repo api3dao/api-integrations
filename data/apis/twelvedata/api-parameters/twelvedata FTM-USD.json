@@ -1,18 +1,8 @@
 {
   "name": "FTM/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "FTM/USD"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "FTM/USD",
+    "dp": "11"
+  },
+  "path": "price"
 }

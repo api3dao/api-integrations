@@ -1,13 +1,7 @@
 {
   "name": "DAI/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "DAI/USD"
-    }
-  ]
+  "parameters": {
+    "name": "DAI/USD"
+  },
+  "path": "feed/latest"
 }

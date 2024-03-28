@@ -1,13 +1,5 @@
 {
   "name": "OP/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "OPUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/OPUSD"
 }

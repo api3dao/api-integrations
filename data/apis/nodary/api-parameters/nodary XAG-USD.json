@@ -1,13 +1,7 @@
 {
   "name": "XAG/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "XAG/USD"
-    }
-  ]
+  "parameters": {
+    "name": "XAG/USD"
+  },
+  "path": "feed/latest"
 }

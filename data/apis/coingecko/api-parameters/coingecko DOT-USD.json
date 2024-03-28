@@ -1,18 +1,8 @@
 {
   "name": "DOT/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "ids",
-      "type": "string32",
-      "value": "polkadot"
-    },
-    {
-      "name": "vs_currencies",
-      "type": "string32",
-      "value": "usd"
-    }
-  ]
+  "parameters": {
+    "ids": "polkadot",
+    "vs_currencies": "usd"
+  },
+  "path": "simple/price"
 }

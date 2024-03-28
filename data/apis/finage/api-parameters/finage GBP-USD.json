@@ -1,13 +1,5 @@
 {
   "name": "GBP/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "GBPUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/trade/forex/GBPUSD"
 }

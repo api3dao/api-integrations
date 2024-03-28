@@ -1,13 +1,5 @@
 {
   "name": "EURe/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "EUREUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/EUREUSD"
 }

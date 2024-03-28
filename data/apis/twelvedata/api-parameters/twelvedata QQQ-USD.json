@@ -1,18 +1,8 @@
 {
   "name": "QQQ/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "QQQ"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "QQQ",
+    "dp": "11"
+  },
+  "path": "price"
 }

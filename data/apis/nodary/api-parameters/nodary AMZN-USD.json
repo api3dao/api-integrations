@@ -1,13 +1,7 @@
 {
   "name": "AMZN/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "AMZN/USD"
-    }
-  ]
+  "parameters": {
+    "name": "AMZN/USD"
+  },
+  "path": "feed/latest"
 }

@@ -1,13 +1,7 @@
 {
   "name": "API3/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "API3/USD"
-    }
-  ]
+  "parameters": {
+    "name": "API3/USD"
+  },
+  "path": "feed/latest"
 }

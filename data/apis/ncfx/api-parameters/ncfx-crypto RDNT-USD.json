@@ -1,13 +1,7 @@
 {
   "name": "RDNT/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "RDNT-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "RDNT-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

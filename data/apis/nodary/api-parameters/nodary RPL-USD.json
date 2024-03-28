@@ -1,13 +1,7 @@
 {
   "name": "RPL/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "RPL/USD"
-    }
-  ]
+  "parameters": {
+    "name": "RPL/USD"
+  },
+  "path": "feed/latest"
 }

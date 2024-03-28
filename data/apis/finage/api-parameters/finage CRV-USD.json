@@ -1,13 +1,5 @@
 {
   "name": "CRV/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "CRVUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/CRVUSD"
 }

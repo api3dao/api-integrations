@@ -1,13 +1,7 @@
 {
   "name": "XMR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "XMR-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "XMR-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

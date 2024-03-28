@@ -1,18 +1,8 @@
 {
   "name": "PAXG/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "PAXG/USD"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "PAXG/USD"
+  },
+  "path": "rest/events.json"
 }

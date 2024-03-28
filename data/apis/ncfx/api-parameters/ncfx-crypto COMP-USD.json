@@ -1,13 +1,7 @@
 {
   "name": "COMP/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "COMP-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "COMP-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

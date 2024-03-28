@@ -1,18 +1,8 @@
 {
   "name": "API3/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "API3/USD"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "API3/USD"
+  },
+  "path": "rest/events.json"
 }

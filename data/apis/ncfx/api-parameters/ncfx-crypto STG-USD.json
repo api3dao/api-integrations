@@ -1,13 +1,7 @@
 {
   "name": "STG/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "STG-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "STG-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

@@ -1,13 +1,7 @@
 {
   "name": "SNX/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "SNX/USD"
-    }
-  ]
+  "parameters": {
+    "name": "SNX/USD"
+  },
+  "path": "feed/latest"
 }

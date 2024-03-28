@@ -1,28 +1,7 @@
 {
   "name": "USDe/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "base_asset",
-      "type": "string32",
-      "value": "usde"
-    },
-    {
-      "name": "quote_asset",
-      "type": "string32",
-      "value": "usd"
-    },
-    {
-      "name": "interval",
-      "type": "string32",
-      "value": "1d"
-    },
-    {
-      "name": "data_ver",
-      "type": "string32",
-      "value": "v2"
-    }
-  ]
+  "parameters": {
+    "interval": "1d"
+  },
+  "path": "trades.v2/spot_exchange_rate/usde/usd"
 }

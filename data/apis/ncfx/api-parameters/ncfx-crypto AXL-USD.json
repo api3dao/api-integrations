@@ -1,13 +1,7 @@
 {
   "name": "AXL/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "AXL-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "AXL-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

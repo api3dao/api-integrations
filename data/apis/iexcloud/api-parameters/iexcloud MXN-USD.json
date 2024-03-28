@@ -1,13 +1,7 @@
 {
   "name": "MXN/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbols",
-      "type": "string32",
-      "value": "MXNUSD"
-    }
-  ]
+  "parameters": {
+    "symbols": "MXNUSD"
+  },
+  "path": "fx/latest"
 }

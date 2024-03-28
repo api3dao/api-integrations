@@ -1,13 +1,7 @@
 {
   "name": "STRK/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "STRK/USD"
-    }
-  ]
+  "parameters": {
+    "name": "STRK/USD"
+  },
+  "path": "feed/latest"
 }

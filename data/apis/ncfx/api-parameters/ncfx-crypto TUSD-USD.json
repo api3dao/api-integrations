@@ -1,13 +1,7 @@
 {
   "name": "TUSD/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "TUSD-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "TUSD-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

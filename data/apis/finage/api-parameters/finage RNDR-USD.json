@@ -1,13 +1,5 @@
 {
   "name": "RNDR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "RNDRUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/RNDRUSD"
 }

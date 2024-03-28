@@ -1,13 +1,7 @@
 {
   "name": "ETH/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "ETH/USD"
-    }
-  ]
+  "parameters": {
+    "name": "ETH/USD"
+  },
+  "path": "feed/latest"
 }

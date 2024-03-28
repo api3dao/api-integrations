@@ -1,13 +1,7 @@
 {
   "name": "APT/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "APT-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "APT-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

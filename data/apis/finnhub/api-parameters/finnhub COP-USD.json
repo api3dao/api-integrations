@@ -1,13 +1,7 @@
 {
   "name": "COP/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "base",
-      "type": "string32",
-      "value": "COP"
-    }
-  ]
+  "parameters": {
+    "base": "COP"
+  },
+  "path": "forex/rates"
 }

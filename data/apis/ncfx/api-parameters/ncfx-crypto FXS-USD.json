@@ -1,13 +1,7 @@
 {
   "name": "FXS/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "FXS-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "FXS-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

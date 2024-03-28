@@ -1,13 +1,7 @@
 {
   "name": "ALGO/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "ALGO/USD"
-    }
-  ]
+  "parameters": {
+    "name": "ALGO/USD"
+  },
+  "path": "feed/latest"
 }

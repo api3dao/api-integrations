@@ -1,13 +1,5 @@
 {
   "name": "BAT/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "BATUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/BATUSD"
 }

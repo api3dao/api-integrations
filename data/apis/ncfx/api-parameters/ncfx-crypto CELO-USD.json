@@ -1,13 +1,7 @@
 {
   "name": "CELO/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "CELO-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "CELO-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

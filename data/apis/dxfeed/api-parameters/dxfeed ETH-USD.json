@@ -1,18 +1,8 @@
 {
   "name": "ETH/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "ETH/USD:CXDXF"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "ETH/USD:CXDXF"
+  },
+  "path": "rest/events.json"
 }

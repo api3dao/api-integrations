@@ -1,13 +1,7 @@
 {
   "name": "CNY/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "currency",
-      "type": "string32",
-      "value": "CNYUSD"
-    }
-  ]
+  "parameters": {
+    "currency": "CNYUSD"
+  },
+  "path": "live"
 }

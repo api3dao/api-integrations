@@ -1,13 +1,5 @@
 {
   "name": "CAD/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "CADUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/trade/forex/CADUSD"
 }

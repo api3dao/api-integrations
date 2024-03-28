@@ -1,18 +1,8 @@
 {
   "name": "USDP/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "ids",
-      "type": "string32",
-      "value": "paxos-standard"
-    },
-    {
-      "name": "vs_currencies",
-      "type": "string32",
-      "value": "usd"
-    }
-  ]
+  "parameters": {
+    "ids": "paxos-standard",
+    "vs_currencies": "usd"
+  },
+  "path": "simple/price"
 }

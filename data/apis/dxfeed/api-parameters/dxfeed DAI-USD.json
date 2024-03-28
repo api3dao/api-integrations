@@ -1,18 +1,8 @@
 {
   "name": "DAI/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "DAI/USD"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "DAI/USD"
+  },
+  "path": "rest/events.json"
 }

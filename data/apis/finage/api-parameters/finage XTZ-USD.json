@@ -1,13 +1,5 @@
 {
   "name": "XTZ/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "XTZUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/XTZUSD"
 }

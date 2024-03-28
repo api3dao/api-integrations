@@ -1,18 +1,8 @@
 {
   "name": "NEAR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "NEAR/USD"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "NEAR/USD",
+    "dp": "11"
+  },
+  "path": "price"
 }

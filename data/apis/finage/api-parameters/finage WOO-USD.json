@@ -1,13 +1,5 @@
 {
   "name": "WOO/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "WOOUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/WOOUSD"
 }

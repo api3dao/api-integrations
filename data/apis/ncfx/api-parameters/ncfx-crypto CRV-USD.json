@@ -1,13 +1,7 @@
 {
   "name": "CRV/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "CRV-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "CRV-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

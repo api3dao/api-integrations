@@ -1,13 +1,7 @@
 {
   "name": "LQTY/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "LQTY/USD"
-    }
-  ]
+  "parameters": {
+    "name": "LQTY/USD"
+  },
+  "path": "feed/latest"
 }

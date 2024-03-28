@@ -1,13 +1,7 @@
 {
   "name": "OP/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "OP-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "OP-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

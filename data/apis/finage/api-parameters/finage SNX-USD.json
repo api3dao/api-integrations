@@ -1,13 +1,5 @@
 {
   "name": "SNX/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "SNXUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/SNXUSD"
 }

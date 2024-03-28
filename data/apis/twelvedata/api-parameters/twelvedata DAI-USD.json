@@ -1,18 +1,8 @@
 {
   "name": "DAI/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "DAI/USD"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "DAI/USD",
+    "dp": "11"
+  },
+  "path": "price"
 }

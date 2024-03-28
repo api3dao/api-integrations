@@ -1,18 +1,8 @@
 {
   "name": "DYDX/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "DYDX/USD"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "DYDX/USD"
+  },
+  "path": "rest/events.json"
 }

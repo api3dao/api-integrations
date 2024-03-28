@@ -1,13 +1,7 @@
 {
   "name": "MATIC/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "MATIC/USD"
-    }
-  ]
+  "parameters": {
+    "name": "MATIC/USD"
+  },
+  "path": "feed/latest"
 }

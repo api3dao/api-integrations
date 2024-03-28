@@ -1,13 +1,7 @@
 {
   "name": "DIS/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "DIS/USD"
-    }
-  ]
+  "parameters": {
+    "name": "DIS/USD"
+  },
+  "path": "feed/latest"
 }

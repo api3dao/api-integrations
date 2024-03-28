@@ -1,13 +1,5 @@
 {
   "name": "HNT/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "HNTUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/HNTUSD"
 }

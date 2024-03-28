@@ -1,13 +1,7 @@
 {
   "name": "ezETH/ETH Exchange Rate",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "ezETH/ETH Exchange Rate"
-    }
-  ]
+  "parameters": {
+    "name": "ezETH/ETH Exchange Rate"
+  },
+  "path": "feed/latest"
 }

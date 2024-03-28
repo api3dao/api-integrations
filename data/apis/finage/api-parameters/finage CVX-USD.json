@@ -1,13 +1,5 @@
 {
   "name": "CVX/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "CVXUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/CVXUSD"
 }

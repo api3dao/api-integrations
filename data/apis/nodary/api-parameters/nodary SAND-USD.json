@@ -1,13 +1,7 @@
 {
   "name": "SAND/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "SAND/USD"
-    }
-  ]
+  "parameters": {
+    "name": "SAND/USD"
+  },
+  "path": "feed/latest"
 }

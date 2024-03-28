@@ -1,18 +1,8 @@
 {
   "name": "BTC/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "BTC/USD"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "BTC/USD",
+    "dp": "11"
+  },
+  "path": "price"
 }

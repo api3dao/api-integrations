@@ -1,18 +1,8 @@
 {
   "name": "AAVE/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "AAVE/USDT:CXDXF"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "AAVE/USDT:CXDXF"
+  },
+  "path": "rest/events.json"
 }

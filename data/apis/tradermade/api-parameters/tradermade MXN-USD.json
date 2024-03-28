@@ -1,13 +1,7 @@
 {
   "name": "MXN/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "currency",
-      "type": "string32",
-      "value": "MXNUSD"
-    }
-  ]
+  "parameters": {
+    "currency": "MXNUSD"
+  },
+  "path": "live"
 }

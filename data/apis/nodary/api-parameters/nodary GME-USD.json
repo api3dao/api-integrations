@@ -1,13 +1,7 @@
 {
   "name": "GME/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "GME/USD"
-    }
-  ]
+  "parameters": {
+    "name": "GME/USD"
+  },
+  "path": "feed/latest"
 }

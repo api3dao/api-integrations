@@ -1,13 +1,5 @@
 {
   "name": "METIS/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "METISUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/METISUSD"
 }

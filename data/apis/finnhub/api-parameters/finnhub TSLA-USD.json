@@ -1,13 +1,7 @@
 {
   "name": "TSLA/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "TSLA"
-    }
-  ]
+  "parameters": {
+    "symbol": "TSLA"
+  },
+  "path": "stock/bidask"
 }

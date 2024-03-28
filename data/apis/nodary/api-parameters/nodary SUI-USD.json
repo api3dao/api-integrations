@@ -1,13 +1,7 @@
 {
   "name": "SUI/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "SUI/USD"
-    }
-  ]
+  "parameters": {
+    "name": "SUI/USD"
+  },
+  "path": "feed/latest"
 }

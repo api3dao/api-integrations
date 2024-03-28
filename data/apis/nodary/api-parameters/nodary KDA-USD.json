@@ -1,13 +1,7 @@
 {
   "name": "KDA/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "KDA/USD"
-    }
-  ]
+  "parameters": {
+    "name": "KDA/USD"
+  },
+  "path": "feed/latest"
 }

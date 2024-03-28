@@ -1,18 +1,8 @@
 {
   "name": "GOOGL/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "GOOG"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "GOOG"
+  },
+  "path": "rest/events.json"
 }

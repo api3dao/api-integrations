@@ -1,13 +1,7 @@
 {
   "name": "META/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "META/USD"
-    }
-  ]
+  "parameters": {
+    "name": "META/USD"
+  },
+  "path": "feed/latest"
 }

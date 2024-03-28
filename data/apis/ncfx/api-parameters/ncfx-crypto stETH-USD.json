@@ -1,13 +1,7 @@
 {
   "name": "stETH/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "STETH-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "STETH-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

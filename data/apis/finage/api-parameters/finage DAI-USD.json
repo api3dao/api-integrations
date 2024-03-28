@@ -1,13 +1,5 @@
 {
   "name": "DAI/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "DAIUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/DAIUSD"
 }

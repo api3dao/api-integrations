@@ -1,18 +1,8 @@
 {
   "name": "NVDA/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "NVDA"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "NVDA",
+    "dp": "11"
+  },
+  "path": "price"
 }

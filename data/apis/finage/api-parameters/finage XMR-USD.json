@@ -1,13 +1,5 @@
 {
   "name": "XMR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "XMRUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/XMRUSD"
 }

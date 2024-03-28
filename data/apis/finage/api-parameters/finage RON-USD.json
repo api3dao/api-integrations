@@ -1,13 +1,5 @@
 {
   "name": "RON/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "RONUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/RONUSD"
 }

@@ -1,13 +1,7 @@
 {
   "name": "BAT/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "BAT/USD"
-    }
-  ]
+  "parameters": {
+    "name": "BAT/USD"
+  },
+  "path": "feed/latest"
 }

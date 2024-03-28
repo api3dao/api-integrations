@@ -1,13 +1,5 @@
 {
   "name": "LTC/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "LTCUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/LTCUSD"
 }

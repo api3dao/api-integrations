@@ -1,18 +1,8 @@
 {
   "name": "AVAX/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "AVAX/USD"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "AVAX/USD"
+  },
+  "path": "rest/events.json"
 }

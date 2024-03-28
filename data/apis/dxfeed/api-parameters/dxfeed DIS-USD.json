@@ -1,18 +1,8 @@
 {
   "name": "DIS/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "DIS"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "DIS"
+  },
+  "path": "rest/events.json"
 }

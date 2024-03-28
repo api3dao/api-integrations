@@ -1,13 +1,7 @@
 {
   "name": "AR/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "AR/USD"
-    }
-  ]
+  "parameters": {
+    "name": "AR/USD"
+  },
+  "path": "feed/latest"
 }

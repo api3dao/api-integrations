@@ -1,13 +1,7 @@
 {
   "name": "XLM/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "XLM-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "XLM-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

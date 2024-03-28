@@ -1,13 +1,7 @@
 {
   "name": "MKR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "MKR-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "MKR-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

@@ -1,13 +1,7 @@
 {
   "name": "TSLA/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "TSLA/USD"
-    }
-  ]
+  "parameters": {
+    "name": "TSLA/USD"
+  },
+  "path": "feed/latest"
 }

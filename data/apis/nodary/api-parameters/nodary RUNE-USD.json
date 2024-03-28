@@ -1,13 +1,7 @@
 {
   "name": "RUNE/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "RUNE/USD"
-    }
-  ]
+  "parameters": {
+    "name": "RUNE/USD"
+  },
+  "path": "feed/latest"
 }

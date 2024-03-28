@@ -1,13 +1,5 @@
 {
   "name": "LUSD/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "LUSDUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/LUSDUSD"
 }

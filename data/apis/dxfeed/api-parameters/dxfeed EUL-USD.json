@@ -1,18 +1,8 @@
 {
   "name": "EUL/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "EUL/USD"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "EUL/USD"
+  },
+  "path": "rest/events.json"
 }

@@ -1,18 +1,8 @@
 {
   "name": "AAPL/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "AAPL"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "AAPL"
+  },
+  "path": "rest/events.json"
 }

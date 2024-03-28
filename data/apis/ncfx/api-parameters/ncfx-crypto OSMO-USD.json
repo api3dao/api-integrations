@@ -1,13 +1,7 @@
 {
   "name": "OSMO/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "OSMO-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "OSMO-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

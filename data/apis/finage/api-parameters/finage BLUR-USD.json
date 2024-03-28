@@ -1,13 +1,5 @@
 {
   "name": "BLUR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "BLURUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/BLURUSD"
 }

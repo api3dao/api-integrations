@@ -1,13 +1,5 @@
 {
   "name": "DOGE/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "DOGEUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/DOGEUSD"
 }

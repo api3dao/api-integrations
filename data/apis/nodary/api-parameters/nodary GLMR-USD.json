@@ -1,13 +1,7 @@
 {
   "name": "GLMR/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "GLMR/USD"
-    }
-  ]
+  "parameters": {
+    "name": "GLMR/USD"
+  },
+  "path": "feed/latest"
 }

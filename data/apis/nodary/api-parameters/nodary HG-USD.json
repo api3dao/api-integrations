@@ -1,13 +1,7 @@
 {
   "name": "HG/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "HG/USD"
-    }
-  ]
+  "parameters": {
+    "name": "HG/USD"
+  },
+  "path": "feed/latest"
 }

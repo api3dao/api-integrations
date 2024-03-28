@@ -1,13 +1,5 @@
 {
   "name": "GHO/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "GHOUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/GHOUSD"
 }

@@ -1,13 +1,5 @@
 {
   "name": "APE/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "APEUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/APEUSD"
 }

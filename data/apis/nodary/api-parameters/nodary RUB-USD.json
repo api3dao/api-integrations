@@ -1,13 +1,7 @@
 {
   "name": "RUB/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "RUB/USD"
-    }
-  ]
+  "parameters": {
+    "name": "RUB/USD"
+  },
+  "path": "feed/latest"
 }

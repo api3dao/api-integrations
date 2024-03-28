@@ -1,13 +1,7 @@
 {
   "name": "CAD/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "base",
-      "type": "string32",
-      "value": "CAD"
-    }
-  ]
+  "parameters": {
+    "base": "CAD"
+  },
+  "path": "forex/rates"
 }

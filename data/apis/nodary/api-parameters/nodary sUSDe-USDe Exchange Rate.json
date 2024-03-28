@@ -1,13 +1,7 @@
 {
   "name": "sUSDe/USDe Exchange Rate",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "sUSDe/USDe Exchange Rate"
-    }
-  ]
+  "parameters": {
+    "name": "sUSDe/USDe Exchange Rate"
+  },
+  "path": "feed/latest"
 }

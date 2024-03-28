@@ -1,13 +1,7 @@
 {
   "name": "MNT/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "MNT/USD"
-    }
-  ]
+  "parameters": {
+    "name": "MNT/USD"
+  },
+  "path": "feed/latest"
 }

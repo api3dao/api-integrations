@@ -1,18 +1,8 @@
 {
   "name": "CHF/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "CHF/USD"
-    },
-    {
-      "name": "dp",
-      "type": "string32",
-      "value": "11"
-    }
-  ]
+  "parameters": {
+    "symbol": "CHF/USD",
+    "dp": "11"
+  },
+  "path": "price"
 }

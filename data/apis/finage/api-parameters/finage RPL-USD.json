@@ -1,13 +1,5 @@
 {
   "name": "RPL/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "RPLUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/RPLUSD"
 }

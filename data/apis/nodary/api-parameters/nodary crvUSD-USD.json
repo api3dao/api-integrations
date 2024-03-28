@@ -1,13 +1,7 @@
 {
   "name": "crvUSD/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "CRVUSD/USD"
-    }
-  ]
+  "parameters": {
+    "name": "CRVUSD/USD"
+  },
+  "path": "feed/latest"
 }

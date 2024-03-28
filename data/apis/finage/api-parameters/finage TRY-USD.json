@@ -1,13 +1,5 @@
 {
   "name": "TRY/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "TRYUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/trade/forex/TRYUSD"
 }

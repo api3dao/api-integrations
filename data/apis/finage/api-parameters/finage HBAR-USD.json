@@ -1,13 +1,5 @@
 {
   "name": "HBAR/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "HBARUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/HBARUSD"
 }

@@ -1,13 +1,5 @@
 {
   "name": "stETH/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "STETHUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/STETHUSD"
 }

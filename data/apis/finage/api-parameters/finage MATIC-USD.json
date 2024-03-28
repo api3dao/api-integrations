@@ -1,13 +1,5 @@
 {
   "name": "MATIC/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "MATICUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/MATICUSD"
 }

@@ -1,13 +1,5 @@
 {
   "name": "COMP/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "COMPUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/COMPUSD"
 }

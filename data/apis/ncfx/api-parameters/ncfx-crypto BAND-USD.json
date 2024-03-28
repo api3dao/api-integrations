@@ -1,13 +1,7 @@
 {
   "name": "BAND/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "BAND-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "BAND-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

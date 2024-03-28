@@ -1,13 +1,5 @@
 {
   "name": "OSMO/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "OSMOUSD"
-    }
-  ]
+  "parameters": {},
+  "path": "last/crypto/OSMOUSD"
 }

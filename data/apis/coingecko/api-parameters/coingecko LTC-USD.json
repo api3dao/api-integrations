@@ -1,18 +1,8 @@
 {
   "name": "LTC/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "ids",
-      "type": "string32",
-      "value": "litecoin"
-    },
-    {
-      "name": "vs_currencies",
-      "type": "string32",
-      "value": "usd"
-    }
-  ]
+  "parameters": {
+    "ids": "litecoin",
+    "vs_currencies": "usd"
+  },
+  "path": "simple/price"
 }

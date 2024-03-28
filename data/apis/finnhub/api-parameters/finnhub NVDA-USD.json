@@ -1,13 +1,7 @@
 {
   "name": "NVDA/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "symbol",
-      "type": "string32",
-      "value": "NVDA"
-    }
-  ]
+  "parameters": {
+    "symbol": "NVDA"
+  },
+  "path": "stock/bidask"
 }

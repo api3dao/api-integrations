@@ -1,18 +1,8 @@
 {
   "name": "ATOM/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "event",
-      "type": "string32",
-      "value": "Quote"
-    },
-    {
-      "name": "symbol",
-      "type": "string",
-      "value": "ATOM/USD"
-    }
-  ]
+  "parameters": {
+    "event": "Quote",
+    "symbol": "ATOM/USD"
+  },
+  "path": "rest/events.json"
 }

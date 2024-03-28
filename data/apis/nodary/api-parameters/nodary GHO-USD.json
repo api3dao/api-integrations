@@ -1,13 +1,7 @@
 {
   "name": "GHO/USD",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "GHO/USD"
-    }
-  ]
+  "parameters": {
+    "name": "GHO/USD"
+  },
+  "path": "feed/latest"
 }

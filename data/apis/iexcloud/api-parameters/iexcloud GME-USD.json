@@ -1,13 +1,5 @@
 {
   "name": "GME/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "key",
-      "type": "string32",
-      "value": "GME"
-    }
-  ]
+  "parameters": {},
+  "path": "data/CORE/QUOTE/GME"
 }

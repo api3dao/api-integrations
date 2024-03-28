@@ -1,13 +1,7 @@
 {
   "name": "BNB/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "BNB-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "BNB-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }

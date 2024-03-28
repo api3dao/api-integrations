@@ -1,13 +1,7 @@
 {
   "name": "sAVAX/AVAX Exchange Rate",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "sAVAX/AVAX Exchange Rate"
-    }
-  ]
+  "parameters": {
+    "name": "sAVAX/AVAX Exchange Rate"
+  },
+  "path": "feed/latest"
 }

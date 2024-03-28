@@ -1,13 +1,7 @@
 {
   "name": "apxETH/pxETH Exchange Rate",
-  "endpointId": "",
-  "templateId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "name",
-      "type": "string32",
-      "value": "apxETH/pxETH Exchange Rate"
-    }
-  ]
+  "parameters": {
+    "name": "apxETH/pxETH Exchange Rate"
+  },
+  "path": "feed/latest"
 }

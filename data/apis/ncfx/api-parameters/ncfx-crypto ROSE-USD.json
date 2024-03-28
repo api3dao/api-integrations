@@ -1,13 +1,7 @@
 {
   "name": "ROSE/USD",
-  "templateId": "",
-  "endpointId": "",
-  "parameters": "",
-  "decodedParameters": [
-    {
-      "name": "pairs",
-      "type": "string32",
-      "value": "ROSE-USD"
-    }
-  ]
+  "parameters": {
+    "pairs": "ROSE-USD"
+  },
+  "path": "live/midrate/v1/rates"
 }
