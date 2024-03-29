@@ -40,6 +40,8 @@ async function checkDeployments(deployments: any[], apiName: string, apiData: an
       if (semanticToNumber(deploymentVersion) < 600) {
         configHash = createHash(JSON.stringify(deploymentJson));
       } else {
+        // Airnode feed 0.6.0 and 0.7.0's config hash derivation is broken so
+        // below line should capture only the deployments >= 0.7.1
         configHash = createSha256Hash(serializePlainObject(deploymentJson));
       }
 
