@@ -78,7 +78,7 @@ const main = async () => {
       return {
         type: 'text',
         name: pName,
-        message: `Write the value for the parameter "${pName} (leave empty to pass)":`
+        message: `Write the value for the parameter "${pName}" (leave empty to pass)":`
       };
     })
   );
