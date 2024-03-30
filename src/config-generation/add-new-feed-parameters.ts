@@ -13,6 +13,7 @@ Creates a new file that includes API parameters under data/apis/<api-name>/api-p
 */
 
 import * as fs from 'fs';
+import prettier from 'prettier';
 import { globSync } from 'glob';
 import { Logger, ILogObj } from 'tslog';
 import { OIS } from '@api3/ois';
@@ -21,6 +22,10 @@ import { apiDataSchema } from './validation';
 import { omit } from 'lodash';
 
 const prompts = require('prompts');
+
+function removeByIndex(str: string, index: number) {
+  return str.slice(0, index) + str.slice(index + 1);
+}
 
 const main = async () => {
   const APIS_ROOT = './data/apis/';
@@ -105,7 +110,11 @@ const main = async () => {
     name: selectedFeedName,
     path: selectedParameters.path,
     parameters: omit(selectedParameters, 'path'),
-    parser: postProcessingSnippet
+    // replaceAll part is required to match the snippet to the regex constraints of the frontend
+    parser: removeByIndex(
+      await prettier.format(postProcessingSnippet, { semi: false, parser: 'meriyah' }),
+      0
+    ).replaceAll(/\n/g, '\n        ')
   };
 
   const apiParametersPath = `./data/apis/${selectedApiName}/api-parameters/${selectedApiName} ${selectedFeedName.replace('/', '-')}.json`;
