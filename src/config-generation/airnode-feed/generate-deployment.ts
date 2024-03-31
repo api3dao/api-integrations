@@ -227,5 +227,5 @@ const main = async () => {
 };
 
 main()
-  .then(() => execSync('pnpm prettier:write'))
+  .then(() => console.log('Done!'))
   .catch((err) => console.error(err));
