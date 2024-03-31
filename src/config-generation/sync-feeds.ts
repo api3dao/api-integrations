@@ -5,12 +5,12 @@ This script synchronizes OIS files and adds new feeds based on the `api-paramete
 */
 
 import * as fs from 'fs';
+import { execSync } from 'child_process';
 import prettier from 'prettier';
-import { apiDataSchema } from './validation';
-import { readJson, saveJson } from './config-utils';
 import { globSync } from 'glob';
 import { OIS } from '@api3/ois';
-import { execSync } from 'child_process';
+import { apiDataSchema } from './validation';
+import { readJson, saveJson } from './config-utils';
 
 // some APIs supports batched API requests where you input multiple data feed names
 // to some parameter. These parameter names should be known in order to accumulate data
@@ -37,7 +37,7 @@ const main = async () => {
 
   await Promise.all(
     existingProviders.map((apiAlias) => {
-      let apiData = apiDataSchema.parse(readJson(`./data/apis/${apiAlias}/api-data.json`));
+      const apiData = apiDataSchema.parse(readJson(`./data/apis/${apiAlias}/api-data.json`));
       const oises: OIS[] = globSync(`./data/apis/${apiAlias}/oises/*`).map((oisPath) => readJson(oisPath));
 
       Object.entries(apiData.supportedFeedsInBatches).map(async ([oisTitle, dataFeedsInBatches]) => {
@@ -82,7 +82,7 @@ const main = async () => {
         });
 
         // fill pre/post processing fields
-        let targetOis = oises.find((ois) => ois.title === oisTitle);
+        const targetOis = oises.find((ois) => ois.title === oisTitle);
         const feedEndpointIndex = targetOis.endpoints.findIndex((e) => e.name === 'feed');
 
         targetOis.endpoints[feedEndpointIndex].preProcessingSpecificationV2 = {

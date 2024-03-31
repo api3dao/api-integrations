@@ -17,9 +17,9 @@ import prettier from 'prettier';
 import { globSync } from 'glob';
 import { Logger, ILogObj } from 'tslog';
 import { OIS } from '@api3/ois';
+import { omit } from 'lodash';
 import { readJson, saveJson } from './config-utils';
 import { apiDataSchema } from './validation';
-import { omit } from 'lodash';
 
 const prompts = require('prompts');
 
@@ -63,7 +63,7 @@ const main = async () => {
   });
 
   const oises: OIS[] = globSync(`./data/apis/${selectedApiName}/oises/*`).map((oisPath) => readJson(oisPath));
-  const targetOis = oises.find((ois) => ois.title == selectedOisTitle);
+  const targetOis = oises.find((ois) => ois.title === selectedOisTitle);
   const feedEndpoint = targetOis.endpoints.find((e) => e.name === 'feed');
 
   const parameterNames = feedEndpoint.parameters

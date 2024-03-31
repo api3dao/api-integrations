@@ -1,6 +1,5 @@
 import { join } from 'path';
 import * as fs from 'fs';
-import { execSync } from 'child_process';
 import { globSync } from 'glob';
 import { ethers } from 'ethers';
 import { format } from 'date-fns';
