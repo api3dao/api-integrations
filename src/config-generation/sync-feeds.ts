@@ -41,7 +41,7 @@ const main = async () => {
       const oises: OIS[] = globSync(`./data/apis/${apiAlias}/oises/*`).map((oisPath) => readJson(oisPath));
 
       Object.entries(apiData.supportedFeedsInBatches).map(async ([oisTitle, dataFeedsInBatches]) => {
-        const preProcessingObject: Record<string, Record<string, string>> = {};
+        const preProcessingObject: Record<string, Record<string, Record<string, string>>> = {};
         const postProcessingObject: Record<string, string> = {};
         const allApiParameters = globSync(`${APIS_ROOT}/${apiAlias}/api-parameters/*`).map((path) => readJson(path));
 
@@ -56,19 +56,29 @@ const main = async () => {
             };
           } else {
             const parametersToAccumulate = parametersToAccumulateForEachApi[oisTitle];
-            const accumulatedParameters = parametersToAccumulate
-              .map((parameterName) => {
-                return dataFeedBatch.map((dataFeedName) => {
-                  const targetApiParameter = allApiParameters.find((ap) => ap.name === dataFeedName);
-                  return targetApiParameter.parameters[parameterName];
-                });
-              })
-              .join(',');
+            const accumulatedParameters = parametersToAccumulate.map((parameterName) => {
+              const accumulatedParameter = dataFeedBatch.map((dataFeedName) => {
+                const targetApiParameter = allApiParameters.find((ap) => ap.name === dataFeedName);
+                return targetApiParameter.parameters[parameterName];
+              });
+              return { parameterName, accumulatedParameter };
+            });
             dataFeedBatch.map((dataFeedName) => {
               const targetApiParameter = allApiParameters.find((ap) => ap.name === dataFeedName);
+              const parameters: Record<string, string> = {};
+              accumulatedParameters.forEach((item) => {
+                const { parameterName, accumulatedParameter } = item;
+                parameters[parameterName] = accumulatedParameter.join(',');
+              });
+              Object.keys(targetApiParameter.parameters).map((parameterName) => {
+                if (!parametersToAccumulateForEachApi[oisTitle].includes(parameterName)) {
+                  parameters[parameterName] = targetApiParameter.parameters[parameterName];
+                }
+              });
+
               preProcessingObject[dataFeedName] = {
                 path: targetApiParameter.path,
-                parameters: accumulatedParameters
+                parameters: parameters
               };
             });
           }
@@ -131,9 +141,7 @@ const main = async () => {
           oisFileName = oisFileNameExceptions[oisTitle];
         }
 
-        if (oisTitle === 'TraderMade') {
-          saveJson(`${APIS_ROOT}/${apiAlias}/oises/${oisFileName}.json`, targetOis);
-        }
+        saveJson(`${APIS_ROOT}/${apiAlias}/oises/${oisFileName}.json`, targetOis);
       });
     })
   );
