@@ -1,6 +1,6 @@
 /*
 
-This script synchronizes OIS files and adds new feeds based on the `api-parameters` files.
+This script synchronizes OIS files and adds new feeds based on the `data-feed-blueprints` files.
 
 */
 
@@ -43,41 +43,41 @@ const main = async () => {
       Object.entries(apiData.supportedFeedsInBatches).map(async ([oisTitle, dataFeedsInBatches]) => {
         const preProcessingObject: Record<string, Record<string, Record<string, string>>> = {};
         const postProcessingObject: Record<string, string> = {};
-        const allApiParameters = globSync(`${APIS_ROOT}/${apiAlias}/api-parameters/*`).map((path) => readJson(path));
+        const allDataFeedBlueprints = globSync(`${APIS_ROOT}/${apiAlias}/data-feed-blueprints/*`).map((path) => readJson(path));
 
         dataFeedsInBatches.map((dataFeedBatch) => {
           // fill preProcessingObject
           if (dataFeedBatch.length <= 1) {
             const dataFeedName = dataFeedBatch[0];
-            const targetApiParameter = allApiParameters.find((ap) => ap.name === dataFeedName);
+            const targetDataFeedBlueprint = allDataFeedBlueprints.find((ap) => ap.name === dataFeedName);
             preProcessingObject[dataFeedName] = {
-              path: targetApiParameter.path,
-              parameters: targetApiParameter.parameters
+              path: targetDataFeedBlueprint.path,
+              parameters: targetDataFeedBlueprint.parameters
             };
           } else {
             const parametersToAccumulate = parametersToAccumulateForEachApi[oisTitle];
             const accumulatedParameters = parametersToAccumulate.map((parameterName) => {
               const accumulatedParameter = dataFeedBatch.map((dataFeedName) => {
-                const targetApiParameter = allApiParameters.find((ap) => ap.name === dataFeedName);
-                return targetApiParameter.parameters[parameterName];
+                const targetDataFeedBlueprint = allDataFeedBlueprints.find((dfb) => dfb.name === dataFeedName);
+                return targetDataFeedBlueprint.parameters[parameterName];
               });
               return { parameterName, accumulatedParameter };
             });
             dataFeedBatch.map((dataFeedName) => {
-              const targetApiParameter = allApiParameters.find((ap) => ap.name === dataFeedName);
+              const targetDataFeedBlueprint = allDataFeedBlueprints.find((dfb) => dfb.name === dataFeedName);
               const parameters: Record<string, string> = {};
               accumulatedParameters.forEach((item) => {
                 const { parameterName, accumulatedParameter } = item;
                 parameters[parameterName] = accumulatedParameter.join(',');
               });
-              Object.keys(targetApiParameter.parameters).map((parameterName) => {
+              Object.keys(targetDataFeedBlueprint.parameters).map((parameterName) => {
                 if (!parametersToAccumulateForEachApi[oisTitle].includes(parameterName)) {
-                  parameters[parameterName] = targetApiParameter.parameters[parameterName];
+                  parameters[parameterName] = targetDataFeedBlueprint.parameters[parameterName];
                 }
               });
 
               preProcessingObject[dataFeedName] = {
-                path: targetApiParameter.path,
+                path: targetDataFeedBlueprint.path,
                 parameters: parameters
               };
             });
@@ -87,8 +87,8 @@ const main = async () => {
         // fill postProcessingObject
         const allFeeds = dataFeedsInBatches.flat(2);
         allFeeds.forEach((dataFeedName) => {
-          const targetApiParameter = allApiParameters.find((ap) => ap.name === dataFeedName);
-          postProcessingObject[dataFeedName] = targetApiParameter.parser;
+          const targetDataFeedBlueprint = allDataFeedBlueprints.find((ap) => ap.name === dataFeedName);
+          postProcessingObject[dataFeedName] = targetDataFeedBlueprint.parser;
         });
 
         // fill pre/post processing fields

@@ -1,6 +1,6 @@
 /*
 
-Creates a new file that includes API parameters under data/apis/<api-name>/api-parameters in the below format
+Creates a new file that includes API parameters under data/apis/<api-name>/data-feed-blueprints in the below format
 
 {
   "name": "ADA/USD",
@@ -106,7 +106,7 @@ const main = async () => {
     message: `Write post processing snippet for "${selectedFeedName}":`
   });
 
-  const apiParameters = {
+  const dataFeedBlueprint = {
     name: selectedFeedName,
     path: selectedParameters.path,
     parameters: omit(selectedParameters, 'path'),
@@ -117,10 +117,10 @@ const main = async () => {
     ).replaceAll(/\n/g, '\n        ')
   };
 
-  const apiParametersPath = `./data/apis/${selectedApiName}/api-parameters/${selectedApiName} ${selectedFeedName.replace('/', '-')}.json`;
-  saveJson(apiParametersPath, apiParameters);
+  const dataFeedBlueprintPath = `./data/apis/${selectedApiName}/data-feed-blueprints/${selectedApiName} ${selectedFeedName.replace('/', '-')}.json`;
+  saveJson(dataFeedBlueprintPath, dataFeedBlueprint);
 
-  logger.info(`apiParameters saved to >> ${apiParametersPath}`);
+  logger.info(`Data feed blueprint saved to >> ${dataFeedBlueprintPath}`);
 };
 
 main();
