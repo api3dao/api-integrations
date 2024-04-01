@@ -147,8 +147,6 @@ const main = async () => {
       });
     })
   );
-
-  execSync('pnpm prettier:write');
 };
 
-main();
+main().then(() => execSync('pnpm prettier:write'));
