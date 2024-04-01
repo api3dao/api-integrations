@@ -21,9 +21,7 @@
       ["SEK/USD"],
       ["SGD/USD"],
       ["TRY/USD"],
-      ["ZAR/USD"],
-      ["COP/USD"],
-      ["NGN/USD"]
+      ["ZAR/USD"]
     ],
     "NewChangeFX-Crypto": [
       [
@@ -41,7 +39,6 @@
         "BAT/USD",
         "BNB/USD",
         "BTC/USD",
-        "BTT/USD",
         "CAKE/USD",
         "CELO/USD",
         "CHZ/USD",
@@ -65,7 +62,6 @@
         "GRT/USD",
         "HBAR/USD",
         "HNT/USD",
-        "HT/USD",
         "ICP/USD",
         "IMX/USD",
         "JOE/USD",
@@ -114,7 +110,6 @@
         "ENS/USD",
         "BLUR/USD",
         "BAND/USD",
-        "RBN/USD",
         "UMA/USD",
         "APT/USD",
         "PEPE/USD",
