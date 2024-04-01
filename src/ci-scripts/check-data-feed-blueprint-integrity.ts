@@ -7,8 +7,8 @@
 import fs from 'fs';
 import { Logger, ILogObj } from 'tslog';
 import { difference } from 'lodash';
-import { readJson } from '../config-generation/config-utils';
 import { globSync } from 'glob';
+import { readJson } from '../config-generation/config-utils';
 import { apiDataSchema } from '../types';
 
 function main() {

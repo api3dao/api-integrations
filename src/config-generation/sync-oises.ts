@@ -5,7 +5,6 @@ This script synchronizes OIS files and adds new feeds based on the `data-feed-bl
 */
 
 import * as fs from 'fs';
-import { execSync } from 'child_process';
 import prettier from 'prettier';
 import { globSync } from 'glob';
 import { OIS } from '@api3/ois';
