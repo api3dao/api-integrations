@@ -1,9 +1,0 @@
-{
-  "name": "HT/USD",
-  "parameters": {
-    "ids": "huobi-token",
-    "vs_currencies": "usd"
-  },
-  "path": "simple/price",
-  "parser": "(response) => {\n              return response['huobi-token']['usd']\n            }"
-}

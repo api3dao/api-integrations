@@ -1,8 +1,0 @@
-{
-  "name": "MATICX/USD",
-  "parameters": {
-    "quotes": "USD"
-  },
-  "path": "tickers/maticx-liquid-staking-matic-pos",
-  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
-}

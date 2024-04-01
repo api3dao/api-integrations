@@ -1,8 +1,0 @@
-{
-  "name": "WSTETH/USD",
-  "parameters": {
-    "quotes": "USD"
-  },
-  "path": "tickers/wsteth-wrapped-liquid-staked-ether-20",
-  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
-}
