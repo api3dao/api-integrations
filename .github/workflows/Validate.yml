@@ -30,6 +30,8 @@ jobs:
         run: pnpm install
       - name: Validate Processings
         run: pnpm validate-processings
+      - name: Validate Blueprints
+        run: pnpm validate-blueprints
       - name: Validate Frontend
         run: pnpm validate-frontend
       - name: Validate APIs Folder
