@@ -56,6 +56,7 @@
     "validate-frontend": "ts-node src/ci-scripts/check-frontend-parse-flow.ts",
     "validate-apis-folder": "ts-node src/ci-scripts/check-api-files-integrity.ts",
     "validate-blueprints": "ts-node src/ci-scripts/check-data-feed-blueprint-integrity.ts",
+    "add-blueprint": "ts-node src/config-generation/add-new-data-feed-blueprint.ts",
     "sync-oises": "ts-node src/config-generation/sync-oises.ts",
     "validate-generated-files": "ts-node src/ci-scripts/check-generated-files.ts",
     "check-deployment-status": "ts-node src/ci-scripts/check-deployment-status.ts",
