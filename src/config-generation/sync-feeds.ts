@@ -43,7 +43,9 @@ const main = async () => {
       Object.entries(apiData.supportedFeedsInBatches).map(async ([oisTitle, dataFeedsInBatches]) => {
         const preProcessingObject: Record<string, Record<string, Record<string, string>>> = {};
         const postProcessingObject: Record<string, string> = {};
-        const allDataFeedBlueprints = globSync(`${APIS_ROOT}/${apiAlias}/data-feed-blueprints/*`).map((path) => readJson(path));
+        const allDataFeedBlueprints = globSync(`${APIS_ROOT}/${apiAlias}/data-feed-blueprints/*`).map((path) =>
+          readJson(path)
+        );
 
         dataFeedsInBatches.map((dataFeedBatch) => {
           // fill preProcessingObject
