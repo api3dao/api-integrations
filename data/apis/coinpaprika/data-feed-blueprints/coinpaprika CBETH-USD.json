@@ -1,8 +1,0 @@
-{
-  "name": "CBETH/USD",
-  "parameters": {
-    "quotes": "USD"
-  },
-  "path": "tickers/cbeth-coinbase-wrapped-staked-eth",
-  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
-}

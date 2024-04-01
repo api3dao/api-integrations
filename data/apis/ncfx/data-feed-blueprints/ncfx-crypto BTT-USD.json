@@ -1,8 +1,0 @@
-{
-  "name": "BTT/USD",
-  "parameters": {
-    "pairs": "BTT-USD"
-  },
-  "path": "live/midrate/v1/rates",
-  "parser": "(response) => {\n              return response.rates['BTT-USD'].rate\n            }\n            "
-}

@@ -29,21 +29,18 @@
       ["CAD/USD"],
       ["CHF/USD"],
       ["CNY/USD"],
-      ["COP/USD"],
       ["EUR/USD"],
       ["GBP/USD"],
       ["INR/USD"],
       ["JPY/USD"],
       ["KRW/USD"],
       ["MXN/USD"],
-      ["NGN/USD"],
       ["NZD/USD"],
       ["PHP/USD"],
       ["SEK/USD"],
       ["SGD/USD"],
       ["TRY/USD"],
-      ["ZAR/USD"],
-      ["RUB/USD"]
+      ["ZAR/USD"]
     ]
   },
   "deploymentLocations": ["aws"],

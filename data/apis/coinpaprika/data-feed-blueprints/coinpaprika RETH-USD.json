@@ -1,8 +1,0 @@
-{
-  "name": "RETH/USD",
-  "parameters": {
-    "quotes": "USD"
-  },
-  "path": "tickers/reth-rocket-pool-eth",
-  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
-}

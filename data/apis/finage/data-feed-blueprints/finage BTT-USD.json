@@ -1,6 +1,0 @@
-{
-  "name": "BTT/USD",
-  "parameters": {},
-  "path": "last/crypto/BTTUSD",
-  "parser": "(response) => {\n              return response.price\n            }\n            "
-}

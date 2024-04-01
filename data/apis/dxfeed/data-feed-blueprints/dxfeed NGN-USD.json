@@ -1,9 +1,0 @@
-{
-  "name": "NGN/USD",
-  "parameters": {
-    "event": "Quote",
-    "symbol": "NGN/USD{mm=COMP}"
-  },
-  "path": "rest/events.json",
-  "parser": "(response) => {\n              return (response.Quote['NGN/USD{mm=COMP}'].bidPrice + response.Quote['NGN/USD{mm=COMP}'].askPrice) / 2\n            }\n            "
-}

@@ -1,9 +1,0 @@
-{
-  "name": "BTT/USD",
-  "parameters": {
-    "symbol": "BTT/USD",
-    "dp": "11"
-  },
-  "path": "price",
-  "parser": "(response) => {\n              return response.price\n            }\n            "
-}
