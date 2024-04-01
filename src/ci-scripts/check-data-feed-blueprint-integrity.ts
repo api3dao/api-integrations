@@ -40,7 +40,7 @@ function main() {
   if (issues.length === 0) {
     logger.info('No issues found.');
   } else {
-    throw Error(`Issues found between api-data and blueprints. Issues:\n ${JSON.stringify(issues, null, 2)}`);
+    throw Error(`Issues found between api-data and blueprints. Did you forget to run sync-ois script?. Issues:\n ${JSON.stringify(issues, null, 2)}`);
   }
 }
 
