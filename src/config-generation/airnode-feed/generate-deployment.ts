@@ -1,6 +1,5 @@
 import { join } from 'path';
 import * as fs from 'fs';
-import { execSync } from 'child_process';
 import { globSync } from 'glob';
 import { ethers } from 'ethers';
 import { format } from 'date-fns';
@@ -227,5 +226,5 @@ const main = async () => {
 };
 
 main()
-  .then(() => execSync('pnpm prettier:write'))
+  .then(() => console.log('Done!'))
   .catch((err) => console.error(err));

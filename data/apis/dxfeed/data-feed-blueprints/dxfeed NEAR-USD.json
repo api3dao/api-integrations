@@ -1,0 +1,9 @@
+{
+  "name": "NEAR/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "NEAR/USDT:CXDXF"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['NEAR/USDT:CXDXF'].bidPrice + response.Quote['NEAR/USDT:CXDXF'].askPrice) / 2\n            }\n            "
+}

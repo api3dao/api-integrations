@@ -1,0 +1,9 @@
+{
+  "name": "NZD/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "NZD/USD:DXF{mm=wards}"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['NZD/USD:DXF{mm=wards}'].bidPrice + response.Quote['NZD/USD:DXF{mm=wards}'].askPrice) / 2\n            }\n            "
+}

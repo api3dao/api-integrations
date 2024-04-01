@@ -1,0 +1,9 @@
+{
+  "name": "CRO/USD",
+  "parameters": {
+    "symbol": "CRO/USD",
+    "dp": "11"
+  },
+  "path": "price",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
+}

@@ -1,0 +1,9 @@
+{
+  "name": "RBN/USD",
+  "parameters": {
+    "ids": "ribbon-finance",
+    "vs_currencies": "usd"
+  },
+  "path": "simple/price",
+  "parser": "(response) => {\n              return response['ribbon-finance']['usd']\n            }"
+}

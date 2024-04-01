@@ -1,0 +1,9 @@
+{
+  "name": "XMR/USD",
+  "parameters": {
+    "ids": "monero",
+    "vs_currencies": "usd"
+  },
+  "path": "simple/price",
+  "parser": "(response) => {\n              return response['monero']['usd']\n            }"
+}

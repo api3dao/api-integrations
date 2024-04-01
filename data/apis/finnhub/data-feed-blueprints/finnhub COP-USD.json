@@ -1,0 +1,8 @@
+{
+  "name": "COP/USD",
+  "parameters": {
+    "base": "COP"
+  },
+  "path": "forex/rates",
+  "parser": "(response) => {\n                return response.quote.USD\n              }\n              "
+}

@@ -1,0 +1,9 @@
+{
+  "name": "COP/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "COP/USD{mm=COMP}"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['COP/USD{mm=COMP}'].bidPrice + response.Quote['COP/USD{mm=COMP}'].askPrice) / 2\n            }\n            "
+}

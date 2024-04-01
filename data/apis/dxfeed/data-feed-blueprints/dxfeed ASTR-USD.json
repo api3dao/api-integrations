@@ -1,0 +1,9 @@
+{
+  "name": "ASTR/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "ASTR/USDT:CXBINA"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['ASTR/USDT:CXBINA'].bidPrice + response.Quote['ASTR/USDT:CXBINA'].askPrice) / 2\n            }\n            "
+}

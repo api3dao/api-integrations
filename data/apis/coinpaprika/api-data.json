@@ -119,7 +119,17 @@
       ["USDe/USD"],
       ["ASTR/USD"],
       ["TIA/USD"],
-      ["DYM/USD"]
+      ["DYM/USD"],
+      ["SEI/USD"],
+      ["AR/USD"],
+      ["STRK/USD"],
+      ["AXL/USD"],
+      ["ONDO/USD"],
+      ["MANTA/USD"],
+      ["RON/USD"],
+      ["XVS/USD"],
+      ["PENDLE/USD"],
+      ["ezETH/USD"]
     ]
   },
   "deploymentLocations": ["aws"],

@@ -1,0 +1,8 @@
+{
+  "name": "XMR/USD",
+  "parameters": {
+    "name": "XMR/USD"
+  },
+  "path": "feed/latest",
+  "parser": "(response) => {\n              return response.value;\n            }\n            "
+}

@@ -1,0 +1,8 @@
+{
+  "name": "sAVAX/AVAX Exchange Rate",
+  "parameters": {
+    "name": "sAVAX/AVAX Exchange Rate"
+  },
+  "path": "feed/latest",
+  "parser": "(response) => {\n              return response.value;\n            }\n            "
+}

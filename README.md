@@ -83,3 +83,22 @@ below information.
 - `signedApiUrl`: URL for the Signed API deployed by the API provider.
 - `productionSignedApiUrls`: URLs of the Signed APIs where Airnode feeds deployed by the API provider push data to.
 - `stagingSignedApiUrl`: URL of the Signed API where staging Airnode feed deployed by the API provider push data to.
+
+### Adding a new data feed
+
+1. Create a blueprint for the feed using `pnpm add-blueprint`
+
+```
+> @phase21/api-integrations@1.5.0 add-blueprint /home/m3/meto_ws/api3_ws/byog/PHASE-2.1/final/api-integrations
+> ts-node src/config-generation/add-new-data-feed-blueprint.ts
+
+✔ Write data feed's name: … SOMETHING/USD
+✔ Select an API to create data feed: › nodary
+✔ Select the OIS: › Nodary
+✔ Write the value for the parameter "path" (leave empty to pass)": … /feed/latest
+✔ Write the value for the parameter "name" (leave empty to pass)": … SOMETHING/USD
+✔ Write post processing snippet for "SOMETHING/USD": … (response) => { return response.value }
+```
+
+2. Add data feed to the corresponding `supportedFeedsInBatches` in corresponding `api-data.json`
+3. Run `pnpm sync-oises`

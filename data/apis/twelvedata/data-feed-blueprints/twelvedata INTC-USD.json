@@ -1,0 +1,9 @@
+{
+  "name": "INTC/USD",
+  "parameters": {
+    "symbol": "INTC",
+    "dp": "11"
+  },
+  "path": "price",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
+}

@@ -1,0 +1,8 @@
+{
+  "name": "osETH/ETH Exchange Rate",
+  "parameters": {
+    "name": "osETH/ETH Exchange Rate"
+  },
+  "path": "feed/latest",
+  "parser": "(response) => {\n              return response.value;\n            }\n            "
+}

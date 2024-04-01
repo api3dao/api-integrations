@@ -1,0 +1,9 @@
+{
+  "name": "EUL/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "EUL/USD"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['EUL/USD'].bidPrice + response.Quote['EUL/USD'].askPrice) / 2\n            }\n            "
+}

@@ -1,0 +1,9 @@
+{
+  "name": "XMR/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "XMR/USD"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['XMR/USD'].bidPrice + response.Quote['XMR/USD'].askPrice) / 2\n            }\n            "
+}

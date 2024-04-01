@@ -6,6 +6,7 @@ pnpm run format:check
 echo "Done."
 
 echo "Checking generated files..."
+pnpm validate-blueprints
 pnpm validate-generated-files
 pnpm check-deployment-status
 pnpm check-airnode-feed-version
