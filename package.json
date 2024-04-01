@@ -55,6 +55,8 @@
     "validate-processings": "ts-node src/ci-scripts/check-pre-post-processing.ts",
     "validate-frontend": "ts-node src/ci-scripts/check-frontend-parse-flow.ts",
     "validate-apis-folder": "ts-node src/ci-scripts/check-api-files-integrity.ts",
+    "validate-blueprints": "ts-node src/ci-scripts/check-data-feed-blueprint-integrity.ts",
+    "sync-oises": "ts-node src/config-generation/sync-oises.ts",
     "validate-generated-files": "ts-node src/ci-scripts/check-generated-files.ts",
     "check-deployment-status": "ts-node src/ci-scripts/check-deployment-status.ts",
     "check-airnode-feed-version": "ts-node src/ci-scripts/check-airnode-feed-version.ts",
