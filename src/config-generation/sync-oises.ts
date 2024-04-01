@@ -149,4 +149,4 @@ const main = async () => {
   );
 };
 
-main().then(() => execSync('pnpm prettier:write'));
+main();
