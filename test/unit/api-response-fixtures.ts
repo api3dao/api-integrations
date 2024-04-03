@@ -617,7 +617,9 @@ export function getApiResponseFixture(
         'RON/USD': 'ronin.usd',
         'XVS/USD': 'venus.usd',
         'PENDLE/USD': 'pendle.usd',
-        'ezETH/USD': 'renzo-restaked-eth.usd'
+        'ezETH/USD': 'renzo-restaked-eth.usd',
+        'TWT/USD': 'trust-wallet-token.usd',
+        'USDB/USD': 'usdb.usd'
       };
       // CoinGecko responses includes asset names so fixture response must be modified
       const [id, vs_currency] = nameMap[endpointParameters.name].split('.');
