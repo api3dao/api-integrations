@@ -112,7 +112,11 @@ const main = async () => {
     parameters: omit(selectedParameters, 'path'),
     // replaceAll part is required to match the snippet to the regex constraints of the frontend
     parser: removeByIndex(
-      await prettier.format(postProcessingSnippet, { semi: false, parser: 'meriyah' }),
+      await prettier.format(postProcessingSnippet.replaceAll(/"/g, "'"), {
+        semi: false,
+        parser: 'meriyah',
+        singleQuote: true
+      }),
       0
     ).replaceAll(/\n/g, '\n        ')
   };
