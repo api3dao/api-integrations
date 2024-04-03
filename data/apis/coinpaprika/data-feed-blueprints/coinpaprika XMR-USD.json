@@ -1,8 +1,0 @@
-{
-  "name": "XMR/USD",
-  "parameters": {
-    "quotes": "USD"
-  },
-  "path": "tickers/xmr-monero",
-  "parser": "(response) => {\n              return response.quotes.USD.price\n            }"
-}
