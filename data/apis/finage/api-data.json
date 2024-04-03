@@ -159,7 +159,8 @@
       ["PENDLE/USD"],
       ["WTI/USD"],
       ["XAG/USD"],
-      ["XAU/USD"]
+      ["XAU/USD"],
+      ["TWT/USD"]
     ]
   },
   "deploymentLocations": ["aws"],

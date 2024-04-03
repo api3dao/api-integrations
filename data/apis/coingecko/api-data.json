@@ -122,7 +122,9 @@
         "RON/USD",
         "XVS/USD",
         "PENDLE/USD",
-        "ezETH/USD"
+        "ezETH/USD",
+        "TWT/USD",
+        "USDB/USD"
       ]
     ]
   },

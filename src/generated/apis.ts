@@ -164,7 +164,8 @@ export const apisData = {
         ['XVS/USD'],
         ['WTI/USD'],
         ['XAG/USD'],
-        ['XAU/USD']
+        ['XAU/USD'],
+        ['TWT/USD']
       ]
     },
     deploymentLocations: ['aws'],
@@ -401,7 +402,11 @@ export const apisData = {
         ['XAU/USD'],
         ['WTI/USD'],
         ['NG/USD'],
-        ['HG/USD']
+        ['HG/USD'],
+        ['PENDLE/USD'],
+        ['mpETH/ETH Exchange Rate'],
+        ['TWT/USD'],
+        ['USDB/USD']
       ]
     },
     deploymentLocations: ['aws'],
@@ -548,7 +553,8 @@ export const apisData = {
           'MANTA/USD',
           'RON/USD',
           'XVS/USD',
-          'PENDLE/USD'
+          'PENDLE/USD',
+          'TWT/USD'
         ]
       ]
     },
@@ -675,7 +681,8 @@ export const apisData = {
         ['MANTA/USD'],
         ['RON/USD'],
         ['XVS/USD'],
-        ['PENDLE/USD']
+        ['PENDLE/USD'],
+        ['TWT/USD']
       ]
     },
     deploymentLocations: ['aws'],
@@ -954,7 +961,8 @@ export const apisData = {
         ['PENDLE/USD'],
         ['WTI/USD'],
         ['XAG/USD'],
-        ['XAU/USD']
+        ['XAU/USD'],
+        ['TWT/USD']
       ]
     },
     deploymentLocations: ['aws'],
@@ -1219,7 +1227,8 @@ export const apisData = {
         ['RON/USD'],
         ['XVS/USD'],
         ['PENDLE/USD'],
-        ['ezETH/USD']
+        ['ezETH/USD'],
+        ['TWT/USD']
       ]
     },
     deploymentLocations: ['aws'],
@@ -1356,7 +1365,9 @@ export const apisData = {
           'RON/USD',
           'XVS/USD',
           'PENDLE/USD',
-          'ezETH/USD'
+          'ezETH/USD',
+          'TWT/USD',
+          'USDB/USD'
         ]
       ]
     },

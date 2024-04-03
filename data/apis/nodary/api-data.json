@@ -183,7 +183,11 @@
       ["XAU/USD"],
       ["WTI/USD"],
       ["NG/USD"],
-      ["HG/USD"]
+      ["HG/USD"],
+      ["PENDLE/USD"],
+      ["mpETH/ETH Exchange Rate"],
+      ["TWT/USD"],
+      ["USDB/USD"]
     ]
   },
   "deploymentLocations": ["aws"],
