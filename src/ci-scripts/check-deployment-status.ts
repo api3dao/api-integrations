@@ -113,7 +113,7 @@ async function main() {
 
   for (let apiIndex = 0; apiIndex < apiNames.length; apiIndex++) {
     const apiName = apiNames[apiIndex];
-    if(apiName.endsWith("-mock")) {
+    if (apiName.endsWith('-mock')) {
       continue;
     }
     const apiData = apiDataSchema.parse(readJson(`./data/apis/${apiName}/api-data.json`));

@@ -32,7 +32,7 @@ const main = async () => {
 
   // get deploymentType
   const deploymentTypeChoices = [{ title: 'staging', value: 'staging' }];
-  if(!apiName.endsWith("-mock")) {
+  if (!apiName.endsWith('-mock')) {
     deploymentTypeChoices.push({ title: 'candidate', value: 'candidate' });
   }
   const { deploymentType } = await prompts({
@@ -139,7 +139,7 @@ const main = async () => {
           airnodeFeedConfig.triggers['signedApiUpdates'].push({
             signedApiName: apiData[deploymentTypeMap[deploymentType]].name,
             templateIds: templateIds,
-            fetchInterval: apiName.endsWith("-mock") ? MOCK_DEPLOYMENT_FETCH_INTERLVA : 5,
+            fetchInterval: apiName.endsWith('-mock') ? MOCK_DEPLOYMENT_FETCH_INTERLVA : 5,
             updateDelay: 0
           });
           break;
