@@ -1,0 +1,9 @@
+{
+  "name": "GMX/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "GMX/USDT:CXDXF"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['GMX/USDT:CXDXF'].bidPrice + response.Quote['GMX/USDT:CXDXF'].askPrice) / 2\n            }\n            "
+}

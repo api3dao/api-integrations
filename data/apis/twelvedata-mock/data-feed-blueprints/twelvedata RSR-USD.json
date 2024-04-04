@@ -1,0 +1,9 @@
+{
+  "name": "RSR/USD",
+  "parameters": {
+    "symbol": "RSR/USD",
+    "dp": "11"
+  },
+  "path": "price",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
+}

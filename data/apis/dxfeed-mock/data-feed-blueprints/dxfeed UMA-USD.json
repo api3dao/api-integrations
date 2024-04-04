@@ -1,0 +1,9 @@
+{
+  "name": "UMA/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "UMA/USD"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['UMA/USD'].bidPrice + response.Quote['UMA/USD'].askPrice) / 2\n            }\n            "
+}

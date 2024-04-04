@@ -1,0 +1,9 @@
+{
+  "name": "DYDX/USD",
+  "parameters": {
+    "symbol": "DYDX/USD",
+    "dp": "11"
+  },
+  "path": "price",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
+}

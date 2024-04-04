@@ -1,0 +1,9 @@
+{
+  "name": "QUICK/USD",
+  "parameters": {
+    "symbol": "QUICK/USD",
+    "dp": "11"
+  },
+  "path": "price",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
+}

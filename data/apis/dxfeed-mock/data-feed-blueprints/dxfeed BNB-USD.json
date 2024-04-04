@@ -1,0 +1,9 @@
+{
+  "name": "BNB/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "BNB/USDT:CXDXF"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['BNB/USDT:CXDXF'].bidPrice + response.Quote['BNB/USDT:CXDXF'].askPrice) / 2\n            }\n            "
+}

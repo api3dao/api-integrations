@@ -1,0 +1,8 @@
+{
+  "name": "USDY/USD Exchange Rate",
+  "parameters": {
+    "name": "USDY/USD Exchange Rate"
+  },
+  "path": "feed/latest",
+  "parser": "(response) => {\n              return response.value;\n            }\n            "
+}

@@ -1,0 +1,9 @@
+{
+  "name": "WTI/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "WTI/USD:BFX"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['WTI/USD:BFX'].bidPrice + response.Quote['WTI/USD:BFX'].askPrice) / 2\n            }\n            "
+}

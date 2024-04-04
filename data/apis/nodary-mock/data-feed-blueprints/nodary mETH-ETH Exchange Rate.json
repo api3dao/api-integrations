@@ -1,0 +1,8 @@
+{
+  "name": "mETH/ETH Exchange Rate",
+  "parameters": {
+    "name": "mETH/ETH Exchange Rate"
+  },
+  "path": "feed/latest",
+  "parser": "(response) => {\n              return response.value;\n            }\n            "
+}

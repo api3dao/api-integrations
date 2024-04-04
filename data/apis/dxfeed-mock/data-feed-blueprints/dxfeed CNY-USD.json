@@ -1,0 +1,9 @@
+{
+  "name": "CNY/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "CNY/USD{mm=COMP}"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['CNY/USD{mm=COMP}'].bidPrice + response.Quote['CNY/USD{mm=COMP}'].askPrice) / 2\n            }\n            "
+}

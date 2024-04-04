@@ -1,0 +1,9 @@
+{
+  "name": "JPM/USD",
+  "parameters": {
+    "symbol": "JPM",
+    "dp": "11"
+  },
+  "path": "price",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
+}

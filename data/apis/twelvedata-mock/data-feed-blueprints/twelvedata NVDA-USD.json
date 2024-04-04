@@ -1,0 +1,9 @@
+{
+  "name": "NVDA/USD",
+  "parameters": {
+    "symbol": "NVDA",
+    "dp": "11"
+  },
+  "path": "price",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
+}
