@@ -15,6 +15,7 @@ const prompts = require('prompts');
 
 const main = async () => {
   const APIS_ROOT = './data/apis/';
+  const MOCK_DEPLOYMENT_FETCH_INTERLVA = 60;
 
   const logger: Logger<ILogObj> = new Logger();
 
@@ -30,14 +31,15 @@ const main = async () => {
   });
 
   // get deploymentType
+  const deploymentTypeChoices = [{ title: 'staging', value: 'staging' }];
+  if(!apiName.endsWith("-mock")) {
+    deploymentTypeChoices.push({ title: 'candidate', value: 'candidate' });
+  }
   const { deploymentType } = await prompts({
     type: 'select',
     name: 'deploymentType',
     message: 'Select the deployment type:',
-    choices: [
-      { title: 'staging', value: 'staging' },
-      { title: 'candidate', value: 'candidate' }
-    ]
+    choices: deploymentTypeChoices
   });
   console.log('deploymentType is: ', deploymentType);
 
@@ -137,7 +139,7 @@ const main = async () => {
           airnodeFeedConfig.triggers['signedApiUpdates'].push({
             signedApiName: apiData[deploymentTypeMap[deploymentType]].name,
             templateIds: templateIds,
-            fetchInterval: 5,
+            fetchInterval: apiName.endsWith("-mock") ? MOCK_DEPLOYMENT_FETCH_INTERLVA : 5,
             updateDelay: 0
           });
           break;
