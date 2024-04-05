@@ -31,14 +31,9 @@
   "homepageUrl": "",
   "verifiedBaseUrl": "",
   "signedApiUrl": "",
-  "productionSignedApiUrls": [
-    {
-      "url": "https://signed-api.nodary.io",
-      "name": "Nodary"
-    }
-  ],
+  "productionSignedApiUrls": [],
   "stagingSignedApiUrl": {
-    "name": "",
-    "url": ""
+    "name": "Nodary",
+    "url": "https://signed-api.api3.org"
   }
 }
