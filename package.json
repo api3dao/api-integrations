@@ -1,5 +1,5 @@
 {
-  "name": "@phase21/api-integrations",
+  "name": "@api3/api-integrations",
   "version": "1.5.0",
   "description": "Repository for API integration related operations.",
   "main": "./dist/src/index.js",
