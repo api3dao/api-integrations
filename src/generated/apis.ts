@@ -171,8 +171,8 @@ export const apisData = {
     homepageUrl: '',
     verifiedBaseUrl: '',
     signedApiUrl: '',
-    productionSignedApiUrls: [{ url: 'https://signed-api.nodary.io', name: 'Nodary' }],
-    stagingSignedApiUrl: { url: '', name: '' }
+    productionSignedApiUrls: [],
+    stagingSignedApiUrl: { url: 'https://signed-api.nodary.io', name: 'Nodary' }
   },
   twelvedata: {
     alias: 'twelvedata',
@@ -378,8 +378,8 @@ export const apisData = {
     homepageUrl: '',
     verifiedBaseUrl: '',
     signedApiUrl: '',
-    productionSignedApiUrls: [{ url: 'https://signed-api.nodary.io', name: 'Nodary' }],
-    stagingSignedApiUrl: { url: '', name: '' }
+    productionSignedApiUrls: [],
+    stagingSignedApiUrl: { url: 'https://signed-api.nodary.io', name: 'Nodary' }
   },
   tradermade: {
     alias: 'tradermade',
@@ -615,8 +615,8 @@ export const apisData = {
     homepageUrl: '',
     verifiedBaseUrl: '',
     signedApiUrl: '',
-    productionSignedApiUrls: [{ url: 'https://signed-api.nodary.io', name: 'Nodary' }],
-    stagingSignedApiUrl: { url: '', name: '' }
+    productionSignedApiUrls: [],
+    stagingSignedApiUrl: { url: 'https://signed-api.nodary.io', name: 'Nodary' }
   },
   nodary: {
     alias: 'nodary',
@@ -961,8 +961,8 @@ export const apisData = {
     homepageUrl: '',
     verifiedBaseUrl: '',
     signedApiUrl: '',
-    productionSignedApiUrls: [{ url: 'https://signed-api.nodary.io', name: 'Nodary' }],
-    stagingSignedApiUrl: { url: '', name: '' }
+    productionSignedApiUrls: [],
+    stagingSignedApiUrl: { url: 'https://signed-api.nodary.io', name: 'Nodary' }
   },
   ncfx: {
     alias: 'ncfx',
@@ -1232,8 +1232,8 @@ export const apisData = {
     homepageUrl: '',
     verifiedBaseUrl: '',
     signedApiUrl: '',
-    productionSignedApiUrls: [{ url: 'https://signed-api.nodary.io', name: 'Nodary' }],
-    stagingSignedApiUrl: { url: '', name: '' }
+    productionSignedApiUrls: [],
+    stagingSignedApiUrl: { url: 'https://signed-api.nodary.io', name: 'Nodary' }
   },
   kaiko: {
     alias: 'kaiko',
@@ -1405,8 +1405,8 @@ export const apisData = {
     homepageUrl: '',
     verifiedBaseUrl: '',
     signedApiUrl: '',
-    productionSignedApiUrls: [{ url: 'https://signed-api.nodary.io', name: 'Nodary' }],
-    stagingSignedApiUrl: { url: '', name: '' }
+    productionSignedApiUrls: [],
+    stagingSignedApiUrl: { url: 'https://signed-api.nodary.io', name: 'Nodary' }
   },
   iexcloud: {
     alias: 'iexcloud',
@@ -1507,8 +1507,8 @@ export const apisData = {
     homepageUrl: '',
     verifiedBaseUrl: '',
     signedApiUrl: '',
-    productionSignedApiUrls: [{ url: 'https://signed-api.nodary.io', name: 'Nodary' }],
-    stagingSignedApiUrl: { url: '', name: '' }
+    productionSignedApiUrls: [],
+    stagingSignedApiUrl: { url: 'https://signed-api.nodary.io', name: 'Nodary' }
   },
   finnhub: {
     alias: 'finnhub',
@@ -1733,8 +1733,8 @@ export const apisData = {
     homepageUrl: '',
     verifiedBaseUrl: '',
     signedApiUrl: '',
-    productionSignedApiUrls: [{ url: 'https://signed-api.nodary.io', name: 'Nodary' }],
-    stagingSignedApiUrl: { url: '', name: '' }
+    productionSignedApiUrls: [],
+    stagingSignedApiUrl: { url: 'https://signed-api.nodary.io', name: 'Nodary' }
   },
   finage: {
     alias: 'finage',
@@ -2032,8 +2032,8 @@ export const apisData = {
     homepageUrl: '',
     verifiedBaseUrl: '',
     signedApiUrl: '',
-    productionSignedApiUrls: [{ url: 'https://signed-api.nodary.io', name: 'Nodary' }],
-    stagingSignedApiUrl: { url: '', name: '' }
+    productionSignedApiUrls: [],
+    stagingSignedApiUrl: { url: 'https://signed-api.nodary.io', name: 'Nodary' }
   },
   dxfeed: {
     alias: 'dxfeed',
@@ -2293,8 +2293,8 @@ export const apisData = {
     homepageUrl: '',
     verifiedBaseUrl: '',
     signedApiUrl: '',
-    productionSignedApiUrls: [{ url: 'https://signed-api.nodary.io', name: 'Nodary' }],
-    stagingSignedApiUrl: { url: '', name: '' }
+    productionSignedApiUrls: [],
+    stagingSignedApiUrl: { url: 'https://signed-api.nodary.io', name: 'Nodary' }
   },
   coinpaprika: {
     alias: 'coinpaprika',
@@ -2565,8 +2565,8 @@ export const apisData = {
     homepageUrl: '',
     verifiedBaseUrl: '',
     signedApiUrl: '',
-    productionSignedApiUrls: [{ url: 'https://signed-api.nodary.io', name: 'Nodary' }],
-    stagingSignedApiUrl: { url: '', name: '' }
+    productionSignedApiUrls: [],
+    stagingSignedApiUrl: { url: 'https://signed-api.nodary.io', name: 'Nodary' }
   },
   coingecko: {
     alias: 'coingecko',
