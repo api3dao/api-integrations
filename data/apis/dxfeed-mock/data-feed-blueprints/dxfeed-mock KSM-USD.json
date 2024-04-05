@@ -1,0 +1,9 @@
+{
+  "name": "KSM/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "KSM/USD"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['KSM/USD'].bidPrice + response.Quote['KSM/USD'].askPrice) / 2\n            }\n            "
+}

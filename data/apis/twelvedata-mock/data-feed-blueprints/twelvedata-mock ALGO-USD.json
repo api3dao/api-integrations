@@ -1,0 +1,9 @@
+{
+  "name": "ALGO/USD",
+  "parameters": {
+    "symbol": "ALGO/USD",
+    "dp": "11"
+  },
+  "path": "price",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
+}

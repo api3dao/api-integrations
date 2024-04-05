@@ -1,0 +1,9 @@
+{
+  "name": "AAPL/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "AAPL"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['AAPL'].bidPrice + response.Quote['AAPL'].askPrice) / 2\n            }\n            "
+}

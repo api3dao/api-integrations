@@ -1,0 +1,9 @@
+{
+  "name": "INR/USD",
+  "parameters": {
+    "symbol": "INR/USD",
+    "dp": "11"
+  },
+  "path": "price",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
+}

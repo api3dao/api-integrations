@@ -1,0 +1,9 @@
+{
+  "name": "AVAX/USD",
+  "parameters": {
+    "symbol": "AVAX/USD",
+    "dp": "11"
+  },
+  "path": "price",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
+}

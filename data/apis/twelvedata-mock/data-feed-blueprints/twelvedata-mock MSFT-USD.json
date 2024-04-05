@@ -1,0 +1,9 @@
+{
+  "name": "MSFT/USD",
+  "parameters": {
+    "symbol": "MSFT",
+    "dp": "11"
+  },
+  "path": "price",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
+}

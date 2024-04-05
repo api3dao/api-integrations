@@ -1,0 +1,9 @@
+{
+  "name": "ROSE/USD",
+  "parameters": {
+    "symbol": "ROSE/USD",
+    "dp": "11"
+  },
+  "path": "price",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
+}

@@ -1,0 +1,9 @@
+{
+  "name": "AVAX/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "AVAX/USD"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['AVAX/USD'].bidPrice + response.Quote['AVAX/USD'].askPrice) / 2\n            }\n            "
+}

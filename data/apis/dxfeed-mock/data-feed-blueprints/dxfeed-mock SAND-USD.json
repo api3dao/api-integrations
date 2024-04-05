@@ -1,0 +1,9 @@
+{
+  "name": "SAND/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "SAND/USD"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['SAND/USD'].bidPrice + response.Quote['SAND/USD'].askPrice) / 2\n            }\n            "
+}

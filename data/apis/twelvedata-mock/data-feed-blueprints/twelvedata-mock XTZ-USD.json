@@ -1,0 +1,9 @@
+{
+  "name": "XTZ/USD",
+  "parameters": {
+    "symbol": "XTZ/USD",
+    "dp": "11"
+  },
+  "path": "price",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
+}

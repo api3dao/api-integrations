@@ -1,0 +1,9 @@
+{
+  "name": "JPM/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "JPM"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['JPM'].bidPrice + response.Quote['JPM'].askPrice) / 2\n            }\n            "
+}

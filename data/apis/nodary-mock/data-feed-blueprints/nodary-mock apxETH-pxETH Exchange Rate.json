@@ -1,0 +1,8 @@
+{
+  "name": "apxETH/pxETH Exchange Rate",
+  "parameters": {
+    "name": "apxETH/pxETH Exchange Rate"
+  },
+  "path": "feed/latest",
+  "parser": "(response) => {\n              return response.value;\n            }\n            "
+}
