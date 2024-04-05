@@ -141,6 +141,9 @@ const main = async () => {
         if (Object.keys(oisFileNameExceptions).includes(oisTitle)) {
           oisFileName = oisFileNameExceptions[oisTitle];
         }
+        if (apiAlias.endsWith('-mock') && !oisFileName.endsWith('-mock')) {
+          oisFileName += '-mock';
+        }
 
         saveJson(`${APIS_ROOT}/${apiAlias}/oises/${oisFileName}.json`, targetOis);
       });
