@@ -131,6 +131,6 @@
   "productionSignedApiUrls": [],
   "stagingSignedApiUrl": {
     "name": "Nodary",
-    "url": "https://signed-api.api3.org"
+    "url": "https://signed-api.nodary.io"
   }
 }
