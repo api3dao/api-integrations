@@ -1,9 +1,0 @@
-{
-  "name": "TWT/USD",
-  "path": "price",
-  "parameters": {
-    "symbol": "TWT/USD",
-    "dp": "11"
-  },
-  "parser": "(response) => {\n          return response.price\n        }\n        "
-}

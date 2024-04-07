@@ -321,18 +321,9 @@ export const apisData = {
         ['ASTR/USD'],
         ['TIA/USD'],
         ['DYM/USD'],
-        ['SEI/USD'],
-        ['AR/USD'],
-        ['STRK/USD'],
-        ['AXL/USD'],
-        ['ONDO/USD'],
-        ['MANTA/USD'],
-        ['RON/USD'],
-        ['XVS/USD'],
         ['WTI/USD'],
         ['XAG/USD'],
-        ['XAU/USD'],
-        ['TWT/USD']
+        ['XAU/USD']
       ]
     },
     deploymentLocations: ['aws'],
@@ -666,7 +657,6 @@ export const apisData = {
         ['wUSDM/USDM Exchange Rate'],
         ['sDAI/DAI Exchange Rate'],
         ['sUSDe/USDe Exchange Rate'],
-        ['pufETH/stETH Exchange Rate'],
         ['AUD/USD'],
         ['BRL/USD'],
         ['CAD/USD'],
@@ -790,23 +780,11 @@ export const apisData = {
         ['ASTR/USD'],
         ['TIA/USD'],
         ['DYM/USD'],
-        ['SEI/USD'],
-        ['AR/USD'],
-        ['STRK/USD'],
-        ['AXL/USD'],
-        ['ONDO/USD'],
-        ['MANTA/USD'],
-        ['RON/USD'],
-        ['XVS/USD'],
         ['XAG/USD'],
         ['XAU/USD'],
         ['WTI/USD'],
         ['NG/USD'],
-        ['HG/USD'],
-        ['PENDLE/USD'],
-        ['mpETH/ETH Exchange Rate'],
-        ['TWT/USD'],
-        ['USDB/USD']
+        ['HG/USD']
       ]
     },
     deploymentLocations: ['aws'],
@@ -1088,17 +1066,7 @@ export const apisData = {
           'PYTH/USD',
           'ASTR/USD',
           'TIA/USD',
-          'DYM/USD',
-          'SEI/USD',
-          'AR/USD',
-          'STRK/USD',
-          'AXL/USD',
-          'ONDO/USD',
-          'MANTA/USD',
-          'RON/USD',
-          'XVS/USD',
-          'PENDLE/USD',
-          'TWT/USD'
+          'DYM/USD'
         ]
       ]
     },
@@ -1337,18 +1305,7 @@ export const apisData = {
         ['PYTH/USD'],
         ['ASTR/USD'],
         ['DYM/USD'],
-        ['TIA/USD'],
-        ['USDe/USD'],
-        ['SEI/USD'],
-        ['AR/USD'],
-        ['STRK/USD'],
-        ['AXL/USD'],
-        ['ONDO/USD'],
-        ['MANTA/USD'],
-        ['RON/USD'],
-        ['XVS/USD'],
-        ['PENDLE/USD'],
-        ['TWT/USD']
+        ['TIA/USD']
       ]
     },
     deploymentLocations: ['aws'],
@@ -1884,20 +1841,7 @@ export const apisData = {
         ['USDe/USD'],
         ['ASTR/USD'],
         ['DYM/USD'],
-        ['TIA/USD'],
-        ['SEI/USD'],
-        ['AR/USD'],
-        ['STRK/USD'],
-        ['AXL/USD'],
-        ['ONDO/USD'],
-        ['MANTA/USD'],
-        ['RON/USD'],
-        ['XVS/USD'],
-        ['PENDLE/USD'],
-        ['WTI/USD'],
-        ['XAG/USD'],
-        ['XAU/USD'],
-        ['TWT/USD']
+        ['TIA/USD']
       ]
     },
     deploymentLocations: ['aws'],
@@ -2408,18 +2352,7 @@ export const apisData = {
         ['USDe/USD'],
         ['ASTR/USD'],
         ['TIA/USD'],
-        ['DYM/USD'],
-        ['SEI/USD'],
-        ['AR/USD'],
-        ['STRK/USD'],
-        ['AXL/USD'],
-        ['ONDO/USD'],
-        ['MANTA/USD'],
-        ['RON/USD'],
-        ['XVS/USD'],
-        ['PENDLE/USD'],
-        ['ezETH/USD'],
-        ['TWT/USD']
+        ['DYM/USD']
       ]
     },
     deploymentLocations: ['aws'],
@@ -2681,19 +2614,7 @@ export const apisData = {
           'TIA/USD',
           'DYM/USD',
           'USDe/USD',
-          'EURe/USD',
-          'SEI/USD',
-          'AR/USD',
-          'STRK/USD',
-          'AXL/USD',
-          'ONDO/USD',
-          'MANTA/USD',
-          'RON/USD',
-          'XVS/USD',
-          'PENDLE/USD',
-          'ezETH/USD',
-          'TWT/USD',
-          'USDB/USD'
+          'EURe/USD'
         ]
       ]
     },
