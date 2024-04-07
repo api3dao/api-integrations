@@ -1,0 +1,9 @@
+{
+  "name": "LQTY/USD",
+  "parameters": {
+    "symbol": "LQTY/USD",
+    "dp": "11"
+  },
+  "path": "price",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
+}

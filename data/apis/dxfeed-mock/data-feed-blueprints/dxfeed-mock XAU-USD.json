@@ -1,0 +1,9 @@
+{
+  "name": "XAU/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "XAU/USD:BFX"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['XAU/USD:BFX'].bidPrice + response.Quote['XAU/USD:BFX'].askPrice) / 2\n            }\n            "
+}

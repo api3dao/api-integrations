@@ -1,0 +1,9 @@
+{
+  "name": "ANKR/USD",
+  "parameters": {
+    "symbol": "ANKR/USD",
+    "dp": "11"
+  },
+  "path": "price",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
+}

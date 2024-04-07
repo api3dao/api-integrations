@@ -1,0 +1,9 @@
+{
+  "name": "ARB/USD",
+  "parameters": {
+    "symbol": "ARB/USD",
+    "dp": "11"
+  },
+  "path": "price",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
+}

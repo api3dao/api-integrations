@@ -607,7 +607,19 @@ export function getApiResponseFixture(
         'stMATIC/USD': 'lido-staked-matic.usd',
         'miMATIC/USD': 'mimatic.usd',
         'DYM/USD': 'dymension.usd',
-        'TIA/USD': 'celestia.usd'
+        'TIA/USD': 'celestia.usd',
+        'SEI/USD': 'sei-network.usd',
+        'AR/USD': 'arweave.usd',
+        'STRK/USD': 'starknet.usd',
+        'AXL/USD': 'axelar.usd',
+        'ONDO/USD': 'ondo-finance.usd',
+        'MANTA/USD': 'manta-network.usd',
+        'RON/USD': 'ronin.usd',
+        'XVS/USD': 'venus.usd',
+        'PENDLE/USD': 'pendle.usd',
+        'ezETH/USD': 'renzo-restaked-eth.usd',
+        'TWT/USD': 'trust-wallet-token.usd',
+        'USDB/USD': 'usdb.usd'
       };
       // CoinGecko responses includes asset names so fixture response must be modified
       const [id, vs_currency] = nameMap[endpointParameters.name].split('.');

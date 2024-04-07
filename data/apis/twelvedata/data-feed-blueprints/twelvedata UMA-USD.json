@@ -1,0 +1,9 @@
+{
+  "name": "UMA/USD",
+  "parameters": {
+    "symbol": "UMA/USD",
+    "dp": "11"
+  },
+  "path": "price",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
+}

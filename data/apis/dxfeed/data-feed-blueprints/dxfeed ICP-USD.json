@@ -1,0 +1,9 @@
+{
+  "name": "ICP/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "ICP/USD"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['ICP/USD'].bidPrice + response.Quote['ICP/USD'].askPrice) / 2\n            }\n            "
+}

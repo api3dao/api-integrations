@@ -1,0 +1,9 @@
+{
+  "name": "KRW/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "KRW/USD{mm=COMP}"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['KRW/USD{mm=COMP}'].bidPrice + response.Quote['KRW/USD{mm=COMP}'].askPrice) / 2\n            }\n            "
+}

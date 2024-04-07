@@ -1,0 +1,8 @@
+{
+  "name": "UMA/USD",
+  "parameters": {
+    "interval": "1m"
+  },
+  "path": "trades.v2/spot_exchange_rate/uma/usd",
+  "parser": "(response) => {\n              if(response.data.length < 1) { \n                throw Error('[PostProcessing] - No valid data from Kaiko!');\n              } else { \n                const validOutputs = response.data.filter((obj => obj.price !== null )); \n                return validOutputs[0].price\n              }\n            }\n            "
+}

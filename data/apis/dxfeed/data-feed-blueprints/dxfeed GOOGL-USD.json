@@ -1,0 +1,9 @@
+{
+  "name": "GOOGL/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "GOOG"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['GOOG'].bidPrice + response.Quote['GOOG'].askPrice) / 2\n            }\n            "
+}

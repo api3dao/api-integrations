@@ -1,0 +1,9 @@
+{
+  "name": "AMZN/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "AMZN"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['AMZN'].bidPrice + response.Quote['AMZN'].askPrice) / 2\n            }\n            "
+}

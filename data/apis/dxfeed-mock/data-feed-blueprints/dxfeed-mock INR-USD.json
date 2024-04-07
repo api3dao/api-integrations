@@ -1,0 +1,9 @@
+{
+  "name": "INR/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "INR/USD{mm=COMP}"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['INR/USD{mm=COMP}'].bidPrice + response.Quote['INR/USD{mm=COMP}'].askPrice) / 2\n            }\n            "
+}

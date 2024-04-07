@@ -1,0 +1,9 @@
+{
+  "name": "NVDA/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "NVDA"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['NVDA'].bidPrice + response.Quote['NVDA'].askPrice) / 2\n            }\n            "
+}

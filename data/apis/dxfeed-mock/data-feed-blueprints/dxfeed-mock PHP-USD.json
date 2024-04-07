@@ -1,0 +1,9 @@
+{
+  "name": "PHP/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "PHP/USD{mm=COMP}"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['PHP/USD{mm=COMP}'].bidPrice + response.Quote['PHP/USD{mm=COMP}'].askPrice) / 2\n            }\n            "
+}

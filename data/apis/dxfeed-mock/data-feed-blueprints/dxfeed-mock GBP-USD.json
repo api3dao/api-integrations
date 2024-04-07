@@ -1,0 +1,9 @@
+{
+  "name": "GBP/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "GBP/USD:DXF{mm=wards}"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['GBP/USD:DXF{mm=wards}'].bidPrice + response.Quote['GBP/USD:DXF{mm=wards}'].askPrice) / 2\n            }\n            "
+}

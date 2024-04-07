@@ -1,0 +1,9 @@
+{
+  "name": "CRV/USD",
+  "parameters": {
+    "symbol": "CRV/USD",
+    "dp": "11"
+  },
+  "path": "price",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
+}

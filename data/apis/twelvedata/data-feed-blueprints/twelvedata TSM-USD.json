@@ -1,0 +1,9 @@
+{
+  "name": "TSM/USD",
+  "parameters": {
+    "symbol": "TSM",
+    "dp": "11"
+  },
+  "path": "price",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
+}

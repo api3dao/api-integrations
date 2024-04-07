@@ -1,0 +1,9 @@
+{
+  "name": "LDO/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "LDO/USD"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['LDO/USD'].bidPrice + response.Quote['LDO/USD'].askPrice) / 2\n            }\n            "
+}

@@ -1,0 +1,9 @@
+{
+  "name": "NFLX/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "NFLX"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['NFLX'].bidPrice + response.Quote['NFLX'].askPrice) / 2\n            }\n            "
+}

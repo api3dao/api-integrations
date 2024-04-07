@@ -1,0 +1,9 @@
+{
+  "name": "MXN/USD",
+  "parameters": {
+    "event": "Quote",
+    "symbol": "MXN/USD{mm=COMP}"
+  },
+  "path": "rest/events.json",
+  "parser": "(response) => {\n              return (response.Quote['MXN/USD{mm=COMP}'].bidPrice + response.Quote['MXN/USD{mm=COMP}'].askPrice) / 2\n            }\n            "
+}

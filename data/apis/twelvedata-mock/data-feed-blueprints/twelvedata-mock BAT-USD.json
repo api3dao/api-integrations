@@ -1,0 +1,9 @@
+{
+  "name": "BAT/USD",
+  "parameters": {
+    "symbol": "BAT/USD",
+    "dp": "11"
+  },
+  "path": "price",
+  "parser": "(response) => {\n              return response.price\n            }\n            "
+}

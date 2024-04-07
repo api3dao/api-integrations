@@ -1,0 +1,8 @@
+{
+  "name": "sDAI/DAI Exchange Rate",
+  "parameters": {
+    "name": "sDAI/DAI Exchange Rate"
+  },
+  "path": "feed/latest",
+  "parser": "(response) => {\n              return response.value;\n            }\n            "
+}
