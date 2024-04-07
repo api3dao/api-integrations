@@ -32,7 +32,7 @@ function main() {
 
     if (mistmatches.length > 0) {
       issues.push(
-        `There is a mismatch between api-data and data feed blueprints. Mismatching feeds: ${JSON.stringify(mistmatches)}`
+        `There is a mismatch between api-data and data feed blueprints in ${apiAlias}. Mismatching feeds: ${JSON.stringify(mistmatches)}`
       );
     }
   });
