@@ -1841,7 +1841,10 @@ export const apisData = {
         ['USDe/USD'],
         ['ASTR/USD'],
         ['DYM/USD'],
-        ['TIA/USD']
+        ['TIA/USD'],
+        ['XAU/USD'],
+        ['XAG/USD'],
+        ['WTI/USD']
       ]
     },
     deploymentLocations: ['aws'],
