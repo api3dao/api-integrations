@@ -14,16 +14,20 @@ it('Check if generated apis.ts and ./data/apis folder has same APIs', () => {
 });
 
 it('Check if there are any "undefined" after preProcessing every data feed of every API', async () => {
-  const oises = globSync('./data/apis/*/oises/*')
-    .map((oisPath) => readJson(oisPath))
-    .filter((o) => !o.title.includes('-Mock'));
-  const allDataFeeds = Object.values(apis.apisData).map((apiData) => apiData.supportedFeedsInBatches);
+  const oisesAndAirnodes = globSync('./data/apis/*/oises/*')
+    .filter((oisPath) => !oisPath.includes('-mock'))
+    .map((oisPath) => {
+      const ois = readJson(oisPath);
+      const apiDataPath = `${oisPath.split('oises')[0]}api-data.json`;
+      const apiData = readJson(apiDataPath);
+      return { ois, apiData };
+    });
 
-  for (const ois of oises) {
+  for (const { ois, apiData } of oisesAndAirnodes) {
     const feedEndpoint = ois.endpoints.find((e) => e.name === 'feed');
     const preProcessingSpecificationV2 = feedEndpoint.preProcessingSpecificationV2;
-    const dataFeeds = allDataFeeds.find((obj) => Object.keys(obj).includes(ois.title));
-    for (const dataFeedName of dataFeeds[ois.title].flat(10).filter((n: string) => n !== 'CHKLSTMOCK/USD')) {
+    const dataFeeds = apiData.supportedFeedsInBatches[ois.title];
+    for (const dataFeedName of dataFeeds.flat(10).filter((n: string) => n !== 'CHKLSTMOCK/USD')) {
       const endpointParameters = { name: dataFeedName };
       const result = await preProcessEndpointParametersV2(preProcessingSpecificationV2, endpointParameters);
       const resultAsStr = JSON.stringify(result);
@@ -33,19 +37,23 @@ it('Check if there are any "undefined" after preProcessing every data feed of ev
 });
 
 describe('Check if postProcessing snippets can successfully parse every data feed of every API', () => {
-  const oises = globSync('./data/apis/*/oises/*')
-    .map((oisPath) => readJson(oisPath))
-    .filter((o) => !o.title.includes('-Mock'));
-  const allDataFeeds = Object.values(apis.apisData).map((apiData) => apiData.supportedFeedsInBatches);
+  const oisesAndAirnodes = globSync('./data/apis/*/oises/*')
+    .filter((oisPath) => !oisPath.includes('-mock'))
+    .map((oisPath) => {
+      const ois = readJson(oisPath);
+      const apiDataPath = `${oisPath.split('oises')[0]}api-data.json`;
+      const apiData = readJson(apiDataPath);
+      return { ois, apiData };
+    });
 
-  for (const ois of oises) {
+  for (const { ois, apiData } of oisesAndAirnodes) {
     const feedEndpoint = ois.endpoints.find((e) => e.name === 'feed');
     const postProcessingSpecificationV2 = feedEndpoint.postProcessingSpecificationV2;
     const preProcessingSpecificationV2 = feedEndpoint.preProcessingSpecificationV2;
-    const dataFeeds = allDataFeeds.find((obj) => Object.keys(obj).includes(ois.title));
+    const dataFeeds = apiData.supportedFeedsInBatches[ois.title];
 
     describe(`Test ${ois.title}`, () => {
-      for (const dataFeedName of dataFeeds[ois.title].flat(10).filter((n: string) => n !== 'CHKLSTMOCK/USD')) {
+      for (const dataFeedName of dataFeeds.flat(10).filter((n: string) => n !== 'CHKLSTMOCK/USD')) {
         it(`Test ${dataFeedName}`, async () => {
           const endpointParameters = { name: dataFeedName };
           const apiCallParameters = await preProcessEndpointParametersV2(
