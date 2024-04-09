@@ -55,7 +55,7 @@
   "triggers": {
     "signedApiUpdates": [
       {
-        "signedApiName": "Staging",
+        "signedApiName": "Nodary",
         "templateIds": [
           "0x40a28cbf6f1798fd8fdcdeed0f9a03526fa8611f3b95ba668712293b92bf8308"
         ],
@@ -63,7 +63,7 @@
         "updateDelay": 0
       },
       {
-        "signedApiName": "Staging",
+        "signedApiName": "Nodary",
         "templateIds": [
           "0x2537e11a8072bea8ed2c864365f1af6080de770a2a49f37bd1a14f0b06c633ef"
         ],
@@ -71,7 +71,7 @@
         "updateDelay": 0
       },
       {
-        "signedApiName": "Staging",
+        "signedApiName": "Nodary",
         "templateIds": [
           "0x6d5ec9cb92ed4cae7eb87f1b2e80196586663657caba7da1f15b7ab252020bcc"
         ],
@@ -79,7 +79,7 @@
         "updateDelay": 0
       },
       {
-        "signedApiName": "Staging",
+        "signedApiName": "Nodary",
         "templateIds": [
           "0x1ffe1f9bf9cebe50204584dea7f7303dab02792b18ee14aab6b0dcc90494fd7d"
         ],
@@ -90,9 +90,9 @@
   },
   "signedApis": [
     {
-      "name": "Staging",
+      "name": "Nodary",
       "url": "https://signed-api.stage.nodary.io",
-      "authToken": "${AUTH_TOKEN_STAGING}"
+      "authToken": "${AUTH_TOKEN_NODARY}"
     }
   ],
   "ois": [
