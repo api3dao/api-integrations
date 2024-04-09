@@ -14,6 +14,36 @@
           "value": "USDe/USD"
         }
       ]
+    },
+    "0x2537e11a8072bea8ed2c864365f1af6080de770a2a49f37bd1a14f0b06c633ef": {
+      "endpointId": "0x606c38916eb46fba033c8e9834cba7f4f34b9c482b4eb7376ffffab7db6b3bb1",
+      "parameters": [
+        {
+          "type": "string32",
+          "name": "name",
+          "value": "FRAX/USD"
+        }
+      ]
+    },
+    "0x6d5ec9cb92ed4cae7eb87f1b2e80196586663657caba7da1f15b7ab252020bcc": {
+      "endpointId": "0x606c38916eb46fba033c8e9834cba7f4f34b9c482b4eb7376ffffab7db6b3bb1",
+      "parameters": [
+        {
+          "type": "string32",
+          "name": "name",
+          "value": "GHO/USD"
+        }
+      ]
+    },
+    "0x1ffe1f9bf9cebe50204584dea7f7303dab02792b18ee14aab6b0dcc90494fd7d": {
+      "endpointId": "0x606c38916eb46fba033c8e9834cba7f4f34b9c482b4eb7376ffffab7db6b3bb1",
+      "parameters": [
+        {
+          "type": "string32",
+          "name": "name",
+          "value": "LUSD/USD"
+        }
+      ]
     }
   },
   "endpoints": {
@@ -26,7 +56,33 @@
     "signedApiUpdates": [
       {
         "signedApiName": "Staging",
-        "templateIds": ["0x40a28cbf6f1798fd8fdcdeed0f9a03526fa8611f3b95ba668712293b92bf8308"],
+        "templateIds": [
+          "0x40a28cbf6f1798fd8fdcdeed0f9a03526fa8611f3b95ba668712293b92bf8308"
+        ],
+        "fetchInterval": 60,
+        "updateDelay": 0
+      },
+      {
+        "signedApiName": "Staging",
+        "templateIds": [
+          "0x2537e11a8072bea8ed2c864365f1af6080de770a2a49f37bd1a14f0b06c633ef"
+        ],
+        "fetchInterval": 60,
+        "updateDelay": 0
+      },
+      {
+        "signedApiName": "Staging",
+        "templateIds": [
+          "0x6d5ec9cb92ed4cae7eb87f1b2e80196586663657caba7da1f15b7ab252020bcc"
+        ],
+        "fetchInterval": 60,
+        "updateDelay": 0
+      },
+      {
+        "signedApiName": "Staging",
+        "templateIds": [
+          "0x1ffe1f9bf9cebe50204584dea7f7303dab02792b18ee14aab6b0dcc90494fd7d"
+        ],
         "fetchInterval": 60,
         "updateDelay": 0
       }
@@ -106,12 +162,12 @@
           ],
           "postProcessingSpecificationV2": {
             "environment": "Node",
-            "value": "({ response, endpointParameters }) => {\n  const postProcessingObject = {\n    \"USDe/USD\":\n      \"(response) => {\\n          return response.priceUSDT\\n        }\\n        \",\n  }\n  const parser = eval(postProcessingObject[endpointParameters.name])\n  return { response: parser(response) }\n}\n",
+            "value": "({ response, endpointParameters }) => {\n  const postProcessingObject = {\n    \"USDe/USD\":\n      \"(response) => {\\n          return response.priceUSDT\\n        }\\n        \",\n    \"FRAX/USD\":\n      \"(response) => {\\n          return response.priceUSDT\\n        }\\n        \",\n    \"GHO/USD\":\n      \"(response) => {\\n          return response.priceUSDT\\n        }\\n        \",\n    \"LUSD/USD\":\n      \"(response) => {\\n          return response.priceUSDT\\n        }\\n        \",\n  }\n  const parser = eval(postProcessingObject[endpointParameters.name])\n  return { response: parser(response) }\n}\n",
             "timeoutMs": 5000
           },
           "preProcessingSpecificationV2": {
             "environment": "Node",
-            "value": "({ endpointParameters }) => {\n  const preProcessingObject = {\n    \"USDe/USD\": {\n      path: \"v1/prices/ethereum/0x4c9edd5852cd905f086c759e8383e09bff1e68b3\",\n      parameters: {},\n    },\n  }\n  return {\n    endpointParameters: {\n      path: preProcessingObject[endpointParameters.name].path,\n      ...preProcessingObject[endpointParameters.name].parameters,\n    },\n  }\n}\n",
+            "value": "({ endpointParameters }) => {\n  const preProcessingObject = {\n    \"USDe/USD\": {\n      path: \"v1/prices/ethereum/0x4c9edd5852cd905f086c759e8383e09bff1e68b3\",\n      parameters: {},\n    },\n    \"FRAX/USD\": {\n      path: \"v1/prices/ethereum/0x853d955acef822db058eb8505911ed77f175b99e\",\n      parameters: {},\n    },\n    \"GHO/USD\": {\n      path: \"v1/prices/ethereum/0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f\",\n      parameters: {},\n    },\n    \"LUSD/USD\": {\n      path: \"v1/prices/ethereum/0x5f98805a4e8be255a32880fdec7f6728c6568ba0\",\n      parameters: {},\n    },\n  }\n  return {\n    endpointParameters: {\n      path: preProcessingObject[endpointParameters.name].path,\n      ...preProcessingObject[endpointParameters.name].parameters,\n    },\n  }\n}\n",
             "timeoutMs": 5000
           },
           "reservedParameters": [
