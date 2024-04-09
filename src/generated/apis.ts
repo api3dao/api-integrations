@@ -1862,7 +1862,7 @@ export const apisData = {
     name: 'dxFeedDefi',
     airnode: '0x441bAb75ceeED9F49587E4625b9EB7D10E7CC28d',
     xpub: '',
-    supportedFeedsInBatches: { dxFeedDefi: [['USDe/USD']] },
+    supportedFeedsInBatches: { dxFeedDefi: [['USDe/USD'], ['FRAX/USD'], ['GHO/USD'], ['LUSD/USD']] },
     deploymentLocations: ['local'],
     homepageUrl: '',
     verifiedBaseUrl: '',
