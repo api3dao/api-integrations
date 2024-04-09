@@ -1,9 +1,0 @@
-{
-  "name": "AXL/USD",
-  "parameters": {
-    "symbol": "AXL/USD",
-    "dp": "11"
-  },
-  "path": "price",
-  "parser": "(response) => {\n              return response.price\n            }\n            "
-}

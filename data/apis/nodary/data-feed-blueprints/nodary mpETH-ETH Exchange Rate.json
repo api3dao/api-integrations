@@ -1,8 +1,0 @@
-{
-  "name": "mpETH/ETH Exchange Rate",
-  "path": "feed/latest",
-  "parameters": {
-    "name": "mpETH/ETH Exchange Rate"
-  },
-  "parser": "(response) => {\n          return response.value\n        }\n        "
-}
