@@ -1868,7 +1868,7 @@ export const apisData = {
     verifiedBaseUrl: '',
     signedApiUrl: '',
     productionSignedApiUrls: [],
-    stagingSignedApiUrl: { url: 'https://signed-api.stage.nodary.io', name: 'Nodary' }
+    stagingSignedApiUrl: { url: 'https://signed-api.nodary.io', name: 'Nodary' }
   },
   'dxfeed-mock': {
     alias: 'dxfeed-mock',
