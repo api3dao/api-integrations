@@ -191,8 +191,8 @@ importers:
         specifier: ^11.11.5
         version: 11.11.5(@emotion/react@11.11.4)(react@18.2.0)
       '@phase21/logos':
-        specifier: ^2.11.0
-        version: 2.11.0
+        specifier: ^2.11.1
+        version: 2.11.1
       '@testing-library/jest-dom':
         specifier: ^6.4.2
         version: 6.4.2(@types/jest@29.5.12)(jest@27.5.1)
@@ -5626,8 +5626,8 @@ packages:
     resolution: {integrity: sha512-kEUOgPQszC0fSYWpbh2kT94ltOJwj1qfT2DWo+zVttmGmf97JZ99LspePNaeeaLhCImaHVeBbjaQFZQn7+Zc5g==}
     dev: true
 
-  /@phase21/logos@2.11.0:
-    resolution: {integrity: sha512-cyQQPnkforRDt+4AjtUt9owAv4+2ZHrvFJ95XdVk4JtXldRto1CTFp2RaNP+HHcR+lP4ai00+tFJ0nbYgttyrQ==}
+  /@phase21/logos@2.11.1:
+    resolution: {integrity: sha512-euYaT1rIOt11c4BGk2LaAh11/vMFxpZyn0HsXXo9SITU9JpWjuD5aNcgQuPIbpfL2WNWWq9+y1lVrQ3viynFIw==}
     dependencies:
       camelcase: 6.3.0
     dev: false
