@@ -1,5 +1,11 @@
 # api-integrations
 
+## 1.0.0
+
+### Major Changes
+
+- 6d7762e: Moves `api-integrations` package to `@api3` domain
+
 ## 0.1.0
 
 ### Minor Changes
