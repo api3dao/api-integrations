@@ -1,6 +1,6 @@
 {
-  "name": "@phase21/api-integrations",
-  "version": "1.6.0",
+  "name": "@api3/api-integrations",
+  "version": "0.0.1",
   "description": "Repository for API integration related operations.",
   "main": "./dist/src/index.js",
   "files": [
