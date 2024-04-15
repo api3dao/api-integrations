@@ -12,7 +12,7 @@
   "signedApiUrl": "",
   "productionSignedApiUrls": [],
   "stagingSignedApiUrl": {
-    "url": "https://signed-api.stage.nodary.io",
+    "url": "https://signed-api.nodary.io",
     "name": "Nodary"
   }
 }

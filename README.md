@@ -90,6 +90,7 @@ below information.
 
 ```
 > @api3/api-integrations@1.0.0 add-blueprint /home/m3/meto_ws/api3_ws/byog/PHASE-2.1/final/api-integrations
+
 > ts-node src/config-generation/add-new-data-feed-blueprint.ts
 
 ✔ Write data feed's name: … SOMETHING/USD
