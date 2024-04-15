@@ -784,7 +784,20 @@ export const apisData = {
         ['XAU/USD'],
         ['WTI/USD'],
         ['NG/USD'],
-        ['HG/USD']
+        ['HG/USD'],
+        ['AR/USD'],
+        ['AXL/USD'],
+        ['MANTA/USD'],
+        ['mpETH/ETH Exchange Rate'],
+        ['ONDO/USD'],
+        ['PENDLE/USD'],
+        ['pufETH/stETH Exchange Rate'],
+        ['RON/USD'],
+        ['SEI/USD'],
+        ['STRK/USD'],
+        ['TWT/USD'],
+        ['USDB/USD'],
+        ['XVS/USD']
       ]
     },
     deploymentLocations: ['aws'],
