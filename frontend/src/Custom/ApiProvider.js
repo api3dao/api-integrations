@@ -1,6 +1,6 @@
 import { Text, Flex, Stack, Image } from '@chakra-ui/react';
 import { ArrowBackIcon, ChevronRightIcon } from '@chakra-ui/icons';
-import { ApiProviderLogo } from '@phase21/logos';
+import { ApiProviderLogo } from '@api3/logos';
 import { COLORS, CONSTANTS } from '../data/constants';
 
 const Logo = ({ deployment, onClick }) => {
