@@ -14,13 +14,14 @@ const SearchApiProvider = ({ providers, setProvider }) => {
   const [deployment, setDeployment] = useState(null);
   const [error, setError] = useState(null);
 
-  const { setGrafanaLog, airnodeAddress, setAirnodeAddress } = useContext(ApiIntegrationsContext);
+  const { setGrafanaLog, grafanaLog, airnodeAddress, setAirnodeAddress } = useContext(ApiIntegrationsContext);
 
   const getAirnodeAddress = () => {
     return localStorage.getItem('airnodeAddress');
   };
 
   useEffect(() => {
+    if (grafanaLog !== null) return;
     setDeployment(null);
     setError(null);
     try {
@@ -39,7 +40,7 @@ const SearchApiProvider = ({ providers, setProvider }) => {
     } catch (error) {
       setError(error);
     }
-  }, [airnodeAddress, providers, setGrafanaLog, setProvider]);
+  }, [airnodeAddress, providers]);
 
   return (
     <Flex height="70vh" justifyContent="center" alignItems="center">
