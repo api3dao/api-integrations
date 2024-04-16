@@ -178,6 +178,9 @@ importers:
 
   frontend:
     dependencies:
+      '@api3/logos':
+        specifier: ^0.1.1
+        version: 0.1.1
       '@chakra-ui/icons':
         specifier: ^2.1.1
         version: 2.1.1(@chakra-ui/system@2.6.2)(react@18.2.0)
@@ -190,9 +193,6 @@ importers:
       '@emotion/styled':
         specifier: ^11.11.5
         version: 11.11.5(@emotion/react@11.11.4)(react@18.2.0)
-      '@phase21/logos':
-        specifier: ^2.11.0
-        version: 2.11.0
       '@testing-library/jest-dom':
         specifier: ^6.4.2
         version: 6.4.2(@types/jest@29.5.12)(jest@27.5.1)
@@ -574,6 +574,12 @@ packages:
       - supports-color
       - typescript
       - utf-8-validate
+
+  /@api3/logos@0.1.1:
+    resolution: {integrity: sha512-XGPHo1ZUsafeBa8KSAMl2541rhFpD6jJwXH0dNewdGhntIhGatE/wksBI182yI7l+B5p7O57Mvbqpm8AeKSn9w==}
+    dependencies:
+      camelcase: 6.3.0
+    dev: false
 
   /@api3/ois@2.3.1:
     resolution: {integrity: sha512-7TmgEiJn3TrqV2BZGh4fKTF4qX7Q/dyGdQh9L6gj4dHBmoKzfK0eDbwjWR+RokYrd9k4E4whGNxEnzdZr3ubSA==}
@@ -5625,12 +5631,6 @@ packages:
   /@openzeppelin/contracts@4.8.2:
     resolution: {integrity: sha512-kEUOgPQszC0fSYWpbh2kT94ltOJwj1qfT2DWo+zVttmGmf97JZ99LspePNaeeaLhCImaHVeBbjaQFZQn7+Zc5g==}
     dev: true
-
-  /@phase21/logos@2.11.0:
-    resolution: {integrity: sha512-cyQQPnkforRDt+4AjtUt9owAv4+2ZHrvFJ95XdVk4JtXldRto1CTFp2RaNP+HHcR+lP4ai00+tFJ0nbYgttyrQ==}
-    dependencies:
-      camelcase: 6.3.0
-    dev: false
 
   /@pkgjs/parseargs@0.11.0:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}

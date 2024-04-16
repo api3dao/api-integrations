@@ -10,7 +10,7 @@ See `frontend`'s [README](/frontend/README.md).
 
 ### Generating a `airnode-feed` deployment
 
-1. Run the script
+1. Run the script.
 
 ```shell
 pnpm generate-airnode-feed-deployment
@@ -89,7 +89,8 @@ below information.
 1. Create a blueprint for the feed using `pnpm add-blueprint`
 
 ```
-> @api3/api-integrations@1.5.0 add-blueprint /home/m3/meto_ws/api3_ws/byog/PHASE-2.1/final/api-integrations
+> @api3/api-integrations@1.0.0 add-blueprint /home/m3/meto_ws/api3_ws/byog/PHASE-2.1/final/api-integrations
+
 > ts-node src/config-generation/add-new-data-feed-blueprint.ts
 
 ✔ Write data feed's name: … SOMETHING/USD

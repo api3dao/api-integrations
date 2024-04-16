@@ -37,7 +37,8 @@ async function checkDeployments(deployments: any[], apiName: string, apiData: an
       const deploymentStatus: HeartbeatPayload[] = await getDeploymentStatus(apiData.airnode);
       const deploymentVersion = deploymentJson.nodeSettings.nodeVersion;
       // calculate configHash based on the Airnode feed config version
-      if (semanticToNumber(deploymentVersion) < 600) {
+      console.log('yehooo: ', semanticToNumber(deploymentVersion));
+      if (semanticToNumber(deploymentVersion) < 60) {
         configHash = createHash(JSON.stringify(deploymentJson));
       } else {
         // Airnode feed 0.6.0 and 0.7.0's config hash derivation is broken so
@@ -48,6 +49,7 @@ async function checkDeployments(deployments: any[], apiName: string, apiData: an
       const targetDeploymentStatuses = deploymentStatus.filter(
         (targetDeploymentStatus) => targetDeploymentStatus.configHash === configHash
       );
+
       if (targetDeploymentStatuses.length === 0) {
         issues.push(`🔴 ${apiName}/${deploymentType} - Couldn't find live deployment.`);
       } else {
@@ -67,7 +69,7 @@ async function checkDeployments(deployments: any[], apiName: string, apiData: an
             configHash: targetDeploymentStatus.configHash
           };
           let message: Uint8Array;
-          if (semanticToNumber(deploymentVersion) < 600) {
+          if (semanticToNumber(deploymentVersion) < 60) {
             message = ethers.utils.arrayify(createHash(stringifyUnsignedHeartbeatPayload(unsignedHeartbeatPayload)));
           } else {
             message = ethers.utils.arrayify(createSha256Hash(serializePlainObject(unsignedHeartbeatPayload)));
@@ -113,6 +115,7 @@ async function main() {
 
   for (let apiIndex = 0; apiIndex < apiNames.length; apiIndex++) {
     const apiName = apiNames[apiIndex];
+
     if (apiName.endsWith('-mock')) {
       continue;
     }
