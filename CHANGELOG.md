@@ -1,5 +1,24 @@
 # api-integrations
 
+## 1.1.0
+
+### Minor Changes
+
+- 3426041: - Nodary deployment with new feeds.
+  - AR/USD
+  - AXL/USD
+  - MANTA/USD
+  - mpETH/ETH Exchange Rate
+  - ONDO/USD
+  - PENDLE/USD
+  - pufETH/stETH Exchange Rate
+  - RON/USD
+  - SEI/USD
+  - STRK/USD
+  - TWT/USD
+  - USDB/USD
+  - XVS/USD
+
 ## 1.0.0
 
 ### Major Changes
