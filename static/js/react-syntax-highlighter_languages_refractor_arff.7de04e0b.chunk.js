@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkapi_integrations_front_end=self.webpackChunkapi_integrations_front_end||[]).push([[1353],{6487:e=>{function n(e){e.languages.arff={comment:/%.*/,string:{pattern:/(["'])(?:\\.|(?!\1)[^\\\r\n])*\1/,greedy:!0},keyword:/@(?:attribute|data|end|relation)\b/i,number:/\b\d+(?:\.\d+)?\b/,punctuation:/[{},]/}}e.exports=n,n.displayName="arff",n.aliases=[]}}]);
+//# sourceMappingURL=react-syntax-highlighter_languages_refractor_arff.7de04e0b.chunk.js.map
