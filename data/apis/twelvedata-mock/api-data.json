@@ -156,7 +156,11 @@
       ["WTI/USD"],
       ["XAG/USD"],
       ["XAU/USD"],
-      ["TWT/USD"]
+      ["TWT/USD"],
+      ["AERO/USD"],
+      ["JUICE/USD"],
+      ["ERN/USD"],
+      ["TAO/USD"]
     ]
   },
   "deploymentLocations": ["local"],

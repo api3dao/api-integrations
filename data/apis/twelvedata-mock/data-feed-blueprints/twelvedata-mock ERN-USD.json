@@ -1,0 +1,9 @@
+{
+  "name": "ERN/USD",
+  "path": "price",
+  "parameters": {
+    "symbol": "ERN/USD",
+    "dp": "11"
+  },
+  "parser": "(response) => {\n          return response.price\n        }\n        "
+}
