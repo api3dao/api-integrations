@@ -121,7 +121,12 @@
       ["XVS/USD"],
       ["PENDLE/USD"],
       ["ezETH/USD"],
-      ["TWT/USD"]
+      ["TWT/USD"],
+      ["AERO/USD"],
+      ["JUICE/USD"],
+      ["ERN/USD"],
+      ["TAO/USD"],
+      ["USDB/USD"]
     ]
   },
   "deploymentLocations": ["local"],

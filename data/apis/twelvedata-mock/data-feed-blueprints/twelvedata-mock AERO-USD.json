@@ -1,0 +1,9 @@
+{
+  "name": "AERO/USD",
+  "path": "price",
+  "parameters": {
+    "symbol": "AERO/USD",
+    "dp": "11"
+  },
+  "parser": "(response) => {\n          return response.price\n        }\n        "
+}
