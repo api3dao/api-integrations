@@ -1,0 +1,9 @@
+{
+  "name": "TAO/USD",
+  "path": "price",
+  "parameters": {
+    "symbol": "TAO/USD",
+    "dp": "11"
+  },
+  "parser": "(response) => {\n          return response.price\n        }\n        "
+}

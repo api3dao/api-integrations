@@ -186,7 +186,12 @@
       ["PENDLE/USD"],
       ["mpETH/ETH Exchange Rate"],
       ["TWT/USD"],
-      ["USDB/USD"]
+      ["USDB/USD"],
+      ["AERO/USD"],
+      ["JUICE/USD"],
+      ["ERN/USD"],
+      ["TAO/USD"],
+      ["stTAO/TAO Exchange Rate"]
     ]
   },
   "deploymentLocations": ["local"],
