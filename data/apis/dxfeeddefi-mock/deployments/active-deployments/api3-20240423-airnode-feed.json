@@ -83,7 +83,7 @@
   "signedApis": [
     {
       "name": "Nodary",
-      "url": "https://signed-api.stage.nodary.io",
+      "url": "https://signed-api.nodary.io",
       "authToken": "${AUTH_TOKEN_NODARY}"
     }
   ],
