@@ -1,0 +1,8 @@
+{
+  "name": "stTAO/TAO Exchange Rate",
+  "path": "feed/latest",
+  "parameters": {
+    "name": "stTAO/TAO Exchange Rate"
+  },
+  "parser": "(response) => {\n          return response.value\n        }\n        "
+}
