@@ -806,7 +806,12 @@ export const apisData = {
         ['STRK/USD'],
         ['TWT/USD'],
         ['USDB/USD'],
-        ['XVS/USD']
+        ['XVS/USD'],
+        ['AERO/USD'],
+        ['ERN/USD'],
+        ['JUICE/USD'],
+        ['stTAO/TAO Exchange Rate'],
+        ['TAO/USD']
       ]
     },
     deploymentLocations: ['aws'],
