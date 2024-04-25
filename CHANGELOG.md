@@ -1,5 +1,17 @@
 # api-integrations
 
+## 1.3.0
+
+### Minor Changes
+
+- 5fc4487: Added new feeds to Nodary
+
+  - AERO/USD
+  - JUICE/USD
+  - ERN/USD
+  - TAO/USD
+  - stTAO/TAO Exchange Rate
+
 ## 1.2.0
 
 ### Minor Changes
