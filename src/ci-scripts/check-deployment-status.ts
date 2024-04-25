@@ -37,7 +37,6 @@ async function checkDeployments(deployments: any[], apiName: string, apiData: an
       const deploymentStatus: HeartbeatPayload[] = await getDeploymentStatus(apiData.airnode);
       const deploymentVersion = deploymentJson.nodeSettings.nodeVersion;
       // calculate configHash based on the Airnode feed config version
-      console.log('yehooo: ', semanticToNumber(deploymentVersion));
       if (semanticToNumber(deploymentVersion) < 60) {
         configHash = createHash(JSON.stringify(deploymentJson));
       } else {
