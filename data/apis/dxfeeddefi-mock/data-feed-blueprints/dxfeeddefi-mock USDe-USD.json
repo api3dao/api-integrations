@@ -1,6 +1,0 @@
-{
-  "name": "USDe/USD",
-  "path": "v1/prices/ethereum/0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
-  "parameters": {},
-  "parser": "(response) => {\n          return response.priceUSDT\n        }\n        "
-}
