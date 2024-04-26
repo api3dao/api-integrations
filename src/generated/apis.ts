@@ -958,7 +958,11 @@ export const apisData = {
           'RON/USD',
           'XVS/USD',
           'PENDLE/USD',
-          'TWT/USD'
+          'TWT/USD',
+          'AERO/USD',
+          'ERN/USD',
+          'JUICE/USD',
+          'TAO/USD'
         ]
       ]
     },
