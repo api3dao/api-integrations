@@ -179,8 +179,8 @@ importers:
   frontend:
     dependencies:
       '@api3/logos':
-        specifier: ^0.1.7
-        version: 0.1.7
+        specifier: ^0.1.10
+        version: 0.1.11
       '@chakra-ui/icons':
         specifier: ^2.1.1
         version: 2.1.1(@chakra-ui/system@2.6.2)(react@18.2.0)
@@ -567,8 +567,8 @@ packages:
       - typescript
       - utf-8-validate
 
-  /@api3/logos@0.1.7:
-    resolution: {integrity: sha512-WVFxxukXA8E1HWNBgOADS7Bg5+/hydQeK1EtHcFlbf8GQV+V0BEJ/2w3+8rl+9TxmLKJOB26HNLcFfm90zye5Q==}
+  /@api3/logos@0.1.11:
+    resolution: {integrity: sha512-WC8slk6cim85TGtrZ4gW22erm2di2YPUvXxEBmpo8dFoLM7NSpGpsFt9Jvq3NBAREFVSbS1D7c50PSfQ6Sbgfg==}
     dependencies:
       camelcase: 6.3.0
     dev: false
