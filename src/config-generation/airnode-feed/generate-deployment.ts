@@ -137,19 +137,15 @@ const main = async () => {
       switch (deploymentType) {
         case 'staging': {
           airnodeFeedConfig.triggers['signedApiUpdates'].push({
-            signedApiName: apiData[deploymentTypeMap[deploymentType]].name,
             templateIds: templateIds,
             fetchInterval: apiName.endsWith('-mock') ? MOCK_DEPLOYMENT_FETCH_INTERVAL : 5,
           });
           break;
         }
         case 'candidate': {
-          apiData[deploymentTypeMap[deploymentType]].forEach((urlObject) => {
-            airnodeFeedConfig.triggers['signedApiUpdates'].push({
-              signedApiName: urlObject.name,
-              templateIds: templateIds,
-              fetchInterval: 5,
-            });
+          airnodeFeedConfig.triggers['signedApiUpdates'].push({
+            templateIds: templateIds,
+            fetchInterval: 5,
           });
           break;
         }
