@@ -15,7 +15,7 @@ const prompts = require('prompts');
 
 const main = async () => {
   const APIS_ROOT = './data/apis/';
-  const MOCK_DEPLOYMENT_FETCH_INTERLVA = 60;
+  const MOCK_DEPLOYMENT_FETCH_INTERVAL = 60;
 
   const logger: Logger<ILogObj> = new Logger();
 
@@ -137,21 +137,15 @@ const main = async () => {
       switch (deploymentType) {
         case 'staging': {
           airnodeFeedConfig.triggers['signedApiUpdates'].push({
-            signedApiName: apiData[deploymentTypeMap[deploymentType]].name,
             templateIds: templateIds,
-            fetchInterval: apiName.endsWith('-mock') ? MOCK_DEPLOYMENT_FETCH_INTERLVA : 5,
-            updateDelay: 0
+            fetchInterval: apiName.endsWith('-mock') ? MOCK_DEPLOYMENT_FETCH_INTERVAL : 5
           });
           break;
         }
         case 'candidate': {
-          apiData[deploymentTypeMap[deploymentType]].forEach((urlObject) => {
-            airnodeFeedConfig.triggers['signedApiUpdates'].push({
-              signedApiName: urlObject.name,
-              templateIds: templateIds,
-              fetchInterval: 5,
-              updateDelay: 0
-            });
+          airnodeFeedConfig.triggers['signedApiUpdates'].push({
+            templateIds: templateIds,
+            fetchInterval: 5
           });
           break;
         }

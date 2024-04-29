@@ -1,7 +1,7 @@
 {
   "nodeSettings": {
     "airnodeWalletMnemonic": "${WALLET_MNEMONIC}",
-    "nodeVersion": "0.7.1",
+    "nodeVersion": "1.0.0",
     "stage": "${STAGE}"
   },
   "templates": {
@@ -1235,7 +1235,6 @@
   "triggers": {
     "signedApiUpdates": [
       {
-        "signedApiName": "Nodary",
         "templateIds": [
           "0x3c9a83948fc5e01018fba1a3585ecbf6aa09ddf9547d9d13e94e87b6ba2c53d7",
           "0x90dd9ae387cf99ff6eee7b9b77c29f0384e04336a2e8dec6ec7977aa5c8b12f9",
@@ -1360,8 +1359,7 @@
           "0x442a5e05791b785684281389d1150d009e4e8fceb83c69e027dee4a754f6e6a2",
           "0x5741ee0d808bc08088549ca1668ab8b9cff4afa27f99fd34a97fab338f9eb0d9"
         ],
-        "fetchInterval": 60,
-        "updateDelay": 0
+        "fetchInterval": 60
       }
     ]
   },
