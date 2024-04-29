@@ -138,14 +138,14 @@ const main = async () => {
         case 'staging': {
           airnodeFeedConfig.triggers['signedApiUpdates'].push({
             templateIds: templateIds,
-            fetchInterval: apiName.endsWith('-mock') ? MOCK_DEPLOYMENT_FETCH_INTERVAL : 5,
+            fetchInterval: apiName.endsWith('-mock') ? MOCK_DEPLOYMENT_FETCH_INTERVAL : 5
           });
           break;
         }
         case 'candidate': {
           airnodeFeedConfig.triggers['signedApiUpdates'].push({
             templateIds: templateIds,
-            fetchInterval: 5,
+            fetchInterval: 5
           });
           break;
         }
