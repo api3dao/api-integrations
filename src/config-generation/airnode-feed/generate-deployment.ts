@@ -140,7 +140,6 @@ const main = async () => {
             signedApiName: apiData[deploymentTypeMap[deploymentType]].name,
             templateIds: templateIds,
             fetchInterval: apiName.endsWith('-mock') ? MOCK_DEPLOYMENT_FETCH_INTERLVA : 5,
-            updateDelay: 0
           });
           break;
         }
@@ -150,7 +149,6 @@ const main = async () => {
               signedApiName: urlObject.name,
               templateIds: templateIds,
               fetchInterval: 5,
-              updateDelay: 0
             });
           });
           break;
