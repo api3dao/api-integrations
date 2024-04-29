@@ -15,7 +15,7 @@ const prompts = require('prompts');
 
 const main = async () => {
   const APIS_ROOT = './data/apis/';
-  const MOCK_DEPLOYMENT_FETCH_INTERLVA = 60;
+  const MOCK_DEPLOYMENT_FETCH_INTERVAL = 60;
 
   const logger: Logger<ILogObj> = new Logger();
 
@@ -139,7 +139,7 @@ const main = async () => {
           airnodeFeedConfig.triggers['signedApiUpdates'].push({
             signedApiName: apiData[deploymentTypeMap[deploymentType]].name,
             templateIds: templateIds,
-            fetchInterval: apiName.endsWith('-mock') ? MOCK_DEPLOYMENT_FETCH_INTERLVA : 5,
+            fetchInterval: apiName.endsWith('-mock') ? MOCK_DEPLOYMENT_FETCH_INTERVAL : 5,
           });
           break;
         }
