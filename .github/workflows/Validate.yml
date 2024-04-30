@@ -44,6 +44,8 @@ jobs:
         run: pnpm test:unit
       - name: Check Deployment Status
         run: pnpm check-deployment-status
+      - name: Check TXT records
+        run: pnpm check-txt-records
 
   deploy-frontend:
     needs: validate
