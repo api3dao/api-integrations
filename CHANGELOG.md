@@ -1,5 +1,11 @@
 # api-integrations
 
+## 1.4.0
+
+### Minor Changes
+
+- 3838cd2: Add PYUSD/USD feed to mock APIs
+
 ## 1.3.0
 
 ### Minor Changes
