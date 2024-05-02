@@ -22,7 +22,7 @@ function check(apiFolderContent, apiName) {
       if (deploymentFolderContent.name.endsWith('.json')) {
         const loadRawConfig = loadConfig(deploymentFolderContent.path);
         const newHash = createSha256Hash(serializePlainObject(loadRawConfig));
-        const oldHash = createHash((loadRawConfig));
+        const oldHash = createHash(loadRawConfig);
 
         const deployment = {
           apiProvider: apiName,
@@ -32,13 +32,11 @@ function check(apiFolderContent, apiName) {
         };
 
         deployments.push(deployment);
-
       }
     });
   });
 
   return deployments;
-
 }
 
 function main() {
@@ -58,8 +56,6 @@ function main() {
     });
 
   fs.writeFileSync('./src/data/deployments.json', JSON.stringify(batch, null, 2));
-
 }
 
 main();
-

@@ -4,17 +4,18 @@ export const checkFiles = (ctx) => {
   let keys = ctx.keys();
   let values = keys.map(ctx);
 
-  let apis = []; 
+  let apis = [];
 
   let apiDatas = [];
 
   const hashFile = (category, apiProvider) => {
     const hash = deployments.find((item) => item.apiProvider === apiProvider && item.category === category);
-    if (!hash) return {
-      keccak256: '',
-      sha256: ''
-    };
-    
+    if (!hash)
+      return {
+        keccak256: '',
+        sha256: ''
+      };
+
     return hash;
   };
 
@@ -49,15 +50,33 @@ export const checkFiles = (ctx) => {
 
     if (keys[i].includes('active-deployments')) {
       activeDeployment = [
-        { filename: filename, config: value, category: 'active', apiProvider: api, hash: hashFile('active-deployments', api) }
+        {
+          filename: filename,
+          config: value,
+          category: 'active',
+          apiProvider: api,
+          hash: hashFile('active-deployments', api)
+        }
       ];
     } else if (keys[i].includes('candidate-deployments')) {
       candidateDeployment = [
-        { filename: filename, config: value, category: 'candidate', apiProvider: api, hash: hashFile('candidate-deployments', api) }
+        {
+          filename: filename,
+          config: value,
+          category: 'candidate',
+          apiProvider: api,
+          hash: hashFile('candidate-deployments', api)
+        }
       ];
     } else if (keys[i].includes('staging-deployments')) {
       stagingDeployment = [
-        { filename: filename, config: value, category: 'staging', apiProvider: api, hash: hashFile('staging-deployments', api) }
+        {
+          filename: filename,
+          config: value,
+          category: 'staging',
+          apiProvider: api,
+          hash: hashFile('staging-deployments', api)
+        }
       ];
     }
 

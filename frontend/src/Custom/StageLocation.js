@@ -11,7 +11,9 @@ const StageLocation = ({ location, hash }) => {
   const getStatus = () => {
     if (grafanaLog === null || grafanaLog === undefined) return null;
     try {
-      const logHash = grafanaLog.find(log => log.stage === location && (log.configHash === hash.sha256 || log.configHash === hash.keccak256));
+      const logHash = grafanaLog.find(
+        (log) => log.stage === location && (log.configHash === hash.sha256 || log.configHash === hash.keccak256)
+      );
       return logHash !== undefined;
     } catch (error) {
       console.log(error);
