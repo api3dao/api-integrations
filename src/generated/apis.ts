@@ -608,7 +608,8 @@ export const apisData = {
         ['JUICE/USD'],
         ['ERN/USD'],
         ['TAO/USD'],
-        ['stTAO/TAO Exchange Rate']
+        ['stTAO/TAO Exchange Rate'],
+        ['PYUSD/USD']
       ]
     },
     deploymentLocations: ['local'],
@@ -958,7 +959,12 @@ export const apisData = {
           'RON/USD',
           'XVS/USD',
           'PENDLE/USD',
-          'TWT/USD'
+          'TWT/USD',
+          'AERO/USD',
+          'ERN/USD',
+          'JUICE/USD',
+          'TAO/USD',
+          'PYUSD/USD'
         ]
       ]
     },
@@ -1878,7 +1884,8 @@ export const apisData = {
         ['TIA/USD'],
         ['XAU/USD'],
         ['XAG/USD'],
-        ['WTI/USD']
+        ['WTI/USD'],
+        ['PYUSD/USD']
       ]
     },
     deploymentLocations: ['aws'],
@@ -1890,19 +1897,6 @@ export const apisData = {
       { url: 'https://signed-api.api3.org', name: 'API3' }
     ],
     stagingSignedApiUrl: { url: 'https://signed-api.stage.nodary.io', name: 'Staging' }
-  },
-  'dxfeeddefi-mock': {
-    alias: 'dxfeeddefi-mock',
-    name: 'dxFeedDefi-Mock',
-    airnode: '0x441bAb75ceeED9F49587E4625b9EB7D10E7CC28d',
-    xpub: '',
-    supportedFeedsInBatches: { dxFeedDefi: [['USDe/USD'], ['FRAX/USD'], ['GHO/USD'], ['LUSD/USD']] },
-    deploymentLocations: ['local'],
-    homepageUrl: '',
-    verifiedBaseUrl: '',
-    signedApiUrl: '',
-    productionSignedApiUrls: [],
-    stagingSignedApiUrl: { url: 'https://signed-api.nodary.io', name: 'Nodary' }
   },
   'dxfeed-mock': {
     alias: 'dxfeed-mock',
@@ -2285,7 +2279,8 @@ export const apisData = {
         ['JUICE/USD'],
         ['ERN/USD'],
         ['TAO/USD'],
-        ['USDB/USD']
+        ['USDB/USD'],
+        ['PYUSD/USD']
       ]
     },
     deploymentLocations: ['local'],
@@ -2549,7 +2544,8 @@ export const apisData = {
           'AERO/USD',
           'JUICE/USD',
           'ERN/USD',
-          'TAO/USD'
+          'TAO/USD',
+          'PYUSD/USD'
         ]
       ]
     },
@@ -2705,7 +2701,6 @@ export const airnodeAddressMap = {
   finnhub: '0x6DAcDcc7043eCc6c898E4409F3ef50Ee7bceb062',
   'finage-mock': '0xD7AD63b84F03FF923a690bAE32C988097C70C673',
   finage: '0xa924847354c551C79BAE7E75529364bA0449e51A',
-  'dxfeeddefi-mock': '0x441bAb75ceeED9F49587E4625b9EB7D10E7CC28d',
   'dxfeed-mock': '0xC479695045E1730bDE7697c6eD9442cB4A6Da6a0',
   dxfeed: '0x11030d4f8eB06F958E763C6f8b165D7CDd98DB6C',
   'coinpaprika-mock': '0x59493508C6CdE2179100CE2994919Dae38D893b2',

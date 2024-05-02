@@ -1,6 +1,0 @@
-{
-  "name": "LUSD/USD",
-  "path": "v1/prices/ethereum/0x5f98805a4e8be255a32880fdec7f6728c6568ba0",
-  "parameters": {},
-  "parser": "(response) => {\n          return response.priceUSDT\n        }\n        "
-}
