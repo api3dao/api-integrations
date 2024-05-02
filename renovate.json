@@ -3,7 +3,7 @@
   "extends": ["config:recommended"],
   "packageRules": [
     {
-      "matchPackageNames": ["ethers", "node", "prettier"],
+      "matchPackageNames": ["ethers", "node", "prettier", "eslint"],
       "matchUpdateTypes": ["major"],
       "enabled": false
     },

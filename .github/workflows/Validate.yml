@@ -40,6 +40,8 @@ jobs:
         run: pnpm check-airnode-feed-version
       - name: Validate Generated Files
         run: pnpm validate-generated-files
+      - name: Validate Linting
+        run: pnpm run eslint:check
       - name: Run unit tests
         run: pnpm test:unit
       - name: Check Deployment Status
