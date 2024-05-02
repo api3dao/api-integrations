@@ -242,6 +242,9 @@ importers:
         specifier: ^3.5.2
         version: 3.5.2
     devDependencies:
+      '@api3/commons':
+        specifier: ^0.9.0
+        version: 0.9.0(eslint@8.57.0)(jest@27.5.1)(typescript@5.4.5)
       '@babel/plugin-proposal-private-property-in-object':
         specifier: ^7.21.11
         version: 7.21.11(@babel/core@7.24.4)
@@ -251,6 +254,9 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^7.4.0
         version: 7.7.1(eslint@8.57.0)(typescript@5.4.5)
+      directory-tree:
+        specifier: ^3.5.1
+        version: 3.5.1
       gh-pages:
         specifier: ^6.1.1
         version: 6.1.1
@@ -474,6 +480,49 @@ packages:
       zod: 3.23.0
     transitivePeerDependencies:
       - bufferutil
+      - eslint-import-resolver-typescript
+      - eslint-import-resolver-webpack
+      - jest
+      - supports-color
+      - typescript
+      - utf-8-validate
+    dev: true
+
+  /@api3/commons@0.9.0(eslint@8.57.0)(jest@27.5.1)(typescript@5.4.5):
+    resolution: {integrity: sha512-bbndrqECtsG/N4df+yJnyeYDgaOTdGMJLB7PzyfNj+xhlvI6+6NYhAIGyO40w6vhf/mPysWGk50pGmig3C5Cyw==}
+    engines: {node: '>=18.14.0'}
+    peerDependencies:
+      eslint: ^8.50.0
+    dependencies:
+      '@api3/ois': 2.3.2
+      '@api3/promise-utils': 0.4.0
+      '@typescript-eslint/eslint-plugin': 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@5.4.5)
+      '@typescript-eslint/parser': 6.21.0(eslint@8.57.0)(typescript@5.4.5)
+      axios: 1.6.8
+      dotenv: 16.4.5
+      eslint: 8.57.0
+      eslint-config-next: 13.5.6(eslint@8.57.0)(typescript@5.4.5)
+      eslint-plugin-check-file: 2.8.0(eslint@8.57.0)
+      eslint-plugin-cypress: 2.15.2(eslint@8.57.0)
+      eslint-plugin-deprecation: 2.0.0(eslint@8.57.0)(typescript@5.4.5)
+      eslint-plugin-functional: 6.5.1(eslint@8.57.0)(typescript@5.4.5)
+      eslint-plugin-import: 2.29.1(@typescript-eslint/parser@6.21.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
+      eslint-plugin-jest: 27.9.0(@typescript-eslint/eslint-plugin@6.21.0)(eslint@8.57.0)(jest@27.5.1)(typescript@5.4.5)
+      eslint-plugin-jest-formatting: 3.1.0(eslint@8.57.0)
+      eslint-plugin-lodash: 7.4.0(eslint@8.57.0)
+      eslint-plugin-no-only-tests: 3.1.0
+      eslint-plugin-promise: 6.1.1(eslint@8.57.0)
+      eslint-plugin-react: 7.34.1(eslint@8.57.0)
+      eslint-plugin-react-hooks: 4.6.0(eslint@8.57.0)
+      eslint-plugin-unicorn: 48.0.1(eslint@8.57.0)
+      ethers: 5.7.2
+      lodash: 4.17.21
+      winston: 3.13.0
+      winston-console-format: 1.0.8
+      zod: 3.23.0
+    transitivePeerDependencies:
+      - bufferutil
+      - debug
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
       - jest
@@ -9803,6 +9852,28 @@ packages:
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.62.0(@typescript-eslint/parser@5.62.0)(eslint@8.57.0)(typescript@5.4.5)
       '@typescript-eslint/experimental-utils': 5.62.0(eslint@8.57.0)(typescript@5.4.5)
+      eslint: 8.57.0
+      jest: 27.5.1(ts-node@10.9.2)
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+    dev: true
+
+  /eslint-plugin-jest@27.9.0(@typescript-eslint/eslint-plugin@6.21.0)(eslint@8.57.0)(jest@27.5.1)(typescript@5.4.5):
+    resolution: {integrity: sha512-QIT7FH7fNmd9n4se7FFKHbsLKGQiw885Ds6Y/sxKgCZ6natwCsXdgPOADnYVxN2QrRweF0FZWbJ6S7Rsn7llug==}
+    engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
+    peerDependencies:
+      '@typescript-eslint/eslint-plugin': ^5.0.0 || ^6.0.0 || ^7.0.0
+      eslint: ^7.0.0 || ^8.0.0
+      jest: '*'
+    peerDependenciesMeta:
+      '@typescript-eslint/eslint-plugin':
+        optional: true
+      jest:
+        optional: true
+    dependencies:
+      '@typescript-eslint/eslint-plugin': 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.57.0)(typescript@5.4.5)
+      '@typescript-eslint/utils': 5.62.0(eslint@8.57.0)(typescript@5.4.5)
       eslint: 8.57.0
       jest: 27.5.1(ts-node@10.9.2)
     transitivePeerDependencies:
