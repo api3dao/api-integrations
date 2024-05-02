@@ -149,8 +149,7 @@
       ["TIA/USD"],
       ["XAU/USD"],
       ["XAG/USD"],
-      ["WTI/USD"],
-      ["PYUSD/USD"]
+      ["WTI/USD"]
     ]
   },
   "deploymentLocations": ["aws"],
