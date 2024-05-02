@@ -11,8 +11,8 @@ const StageLocation = ({ location, hash }) => {
   const getStatus = () => {
     if (grafanaLog === null || grafanaLog === undefined) return null;
     try {
-      const log = grafanaLog.find((log) => log.stage === location && log.configHash === hash);
-      return log;
+      const logHash = grafanaLog.find(log => log.stage === location && (log.configHash === hash.sha256 || log.configHash === hash.keccak256));
+      return logHash !== undefined;
     } catch (error) {
       console.log(error);
       return null;
@@ -21,7 +21,7 @@ const StageLocation = ({ location, hash }) => {
 
   const getStatusIcon = () => {
     const status = getStatus();
-    if (status === undefined || status == null) return './error.svg';
+    if (status === undefined || status == null || status === false) return './error.svg';
     return './success.svg';
   };
 
