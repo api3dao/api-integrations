@@ -1723,7 +1723,8 @@ export const apisData = {
         ['AERO/USD'],
         ['JUICE/USD'],
         ['ERN/USD'],
-        ['TAO/USD']
+        ['TAO/USD'],
+        ['PYUSD/USD']
       ]
     },
     deploymentLocations: ['local'],
@@ -1884,8 +1885,7 @@ export const apisData = {
         ['TIA/USD'],
         ['XAU/USD'],
         ['XAG/USD'],
-        ['WTI/USD'],
-        ['PYUSD/USD']
+        ['WTI/USD']
       ]
     },
     deploymentLocations: ['aws'],
