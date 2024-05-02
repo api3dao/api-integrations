@@ -608,7 +608,8 @@ export const apisData = {
         ['JUICE/USD'],
         ['ERN/USD'],
         ['TAO/USD'],
-        ['stTAO/TAO Exchange Rate']
+        ['stTAO/TAO Exchange Rate'],
+        ['PYUSD/USD']
       ]
     },
     deploymentLocations: ['local'],
@@ -962,7 +963,8 @@ export const apisData = {
           'AERO/USD',
           'ERN/USD',
           'JUICE/USD',
-          'TAO/USD'
+          'TAO/USD',
+          'PYUSD/USD'
         ]
       ]
     },
@@ -1882,7 +1884,8 @@ export const apisData = {
         ['TIA/USD'],
         ['XAU/USD'],
         ['XAG/USD'],
-        ['WTI/USD']
+        ['WTI/USD'],
+        ['PYUSD/USD']
       ]
     },
     deploymentLocations: ['aws'],
@@ -2276,7 +2279,8 @@ export const apisData = {
         ['JUICE/USD'],
         ['ERN/USD'],
         ['TAO/USD'],
-        ['USDB/USD']
+        ['USDB/USD'],
+        ['PYUSD/USD']
       ]
     },
     deploymentLocations: ['local'],
@@ -2540,7 +2544,8 @@ export const apisData = {
           'AERO/USD',
           'JUICE/USD',
           'ERN/USD',
-          'TAO/USD'
+          'TAO/USD',
+          'PYUSD/USD'
         ]
       ]
     },

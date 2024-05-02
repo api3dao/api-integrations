@@ -126,7 +126,8 @@
       ["JUICE/USD"],
       ["ERN/USD"],
       ["TAO/USD"],
-      ["USDB/USD"]
+      ["USDB/USD"],
+      ["PYUSD/USD"]
     ]
   },
   "deploymentLocations": ["local"],
