@@ -147,7 +147,20 @@
       ["DYM/USD"],
       ["WTI/USD"],
       ["XAG/USD"],
-      ["XAU/USD"]
+      ["XAU/USD"],
+      ["AERO/USD"],
+      ["AR/USD"],
+      ["AXL/USD"],
+      ["ERN/USD"],
+      ["JUICE/USD"],
+      ["MANTA/USD"],
+      ["ONDO/USD"],
+      ["RON/USD"],
+      ["SEI/USD"],
+      ["STRK/USD"],
+      ["TAO/USD"],
+      ["TWT/USD"],
+      ["XVS/USD"]
     ]
   },
   "deploymentLocations": ["aws"],

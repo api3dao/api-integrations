@@ -149,7 +149,22 @@
       ["TIA/USD"],
       ["XAU/USD"],
       ["XAG/USD"],
-      ["WTI/USD"]
+      ["WTI/USD"],
+      ["AERO/USD"],
+      ["AR/USD"],
+      ["AXL/USD"],
+      ["ERN/USD"],
+      ["JUICE/USD"],
+      ["MANTA/USD"],
+      ["ONDO/USD"],
+      ["PENDLE/USD"],
+      ["PYUSD/USD"],
+      ["RON/USD"],
+      ["SEI/USD"],
+      ["STRK/USD"],
+      ["TAO/USD"],
+      ["TWT/USD"],
+      ["XVS/USD"]
     ]
   },
   "deploymentLocations": ["aws"],

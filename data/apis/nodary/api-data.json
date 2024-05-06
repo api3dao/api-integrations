@@ -191,7 +191,8 @@
       ["ERN/USD"],
       ["JUICE/USD"],
       ["stTAO/TAO Exchange Rate"],
-      ["TAO/USD"]
+      ["TAO/USD"],
+      ["PYUSD/USD"]
     ]
   },
   "deploymentLocations": ["aws"],
