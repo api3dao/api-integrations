@@ -192,7 +192,13 @@
       ["ERN/USD"],
       ["TAO/USD"],
       ["stTAO/TAO Exchange Rate"],
-      ["PYUSD/USD"]
+      ["PYUSD/USD"],
+      ["MERL/USD"],
+      ["ORDI/USD"],
+      ["SATS/USD"],
+      ["AMD/USD"],
+      ["PLTR/USD"],
+      ["QCOM/USD"]
     ]
   },
   "deploymentLocations": ["local"],

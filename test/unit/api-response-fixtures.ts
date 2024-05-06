@@ -619,7 +619,14 @@ export function getApiResponseFixture(
         'PENDLE/USD': 'pendle.usd',
         'ezETH/USD': 'renzo-restaked-eth.usd',
         'TWT/USD': 'trust-wallet-token.usd',
-        'USDB/USD': 'usdb.usd'
+        'USDB/USD': 'usdb.usd',
+        'AERO/USD': 'aerodrome-finance.usd',
+        'JUICE/USD': 'juice-finance.usd',
+        'ERN/USD': 'ethernity-chain.usd',
+        'TAO/USD': 'bittensor.usd',
+        'MERL/USD': 'merlin-chain.usd',
+        'ORDI/USD': 'ordinals.usd',
+        'SATS/USD': 'sats-ordinals.usd'
       };
       // CoinGecko responses includes asset names so fixture response must be modified
       const [id, vs_currency] = nameMap[endpointParameters.name].split('.');

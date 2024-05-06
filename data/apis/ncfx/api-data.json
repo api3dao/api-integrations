@@ -122,7 +122,23 @@
         "PYTH/USD",
         "ASTR/USD",
         "TIA/USD",
-        "DYM/USD"
+        "DYM/USD",
+        "SEI/USD",
+        "AR/USD",
+        "STRK/USD",
+        "AXL/USD",
+        "ONDO/USD",
+        "MANTA/USD",
+        "RON/USD",
+        "XVS/USD",
+        "PENDLE/USD",
+        "TWT/USD",
+        "AERO/USD",
+        "ERN/USD",
+        "JUICE/USD",
+        "TAO/USD",
+        "PYUSD/USD",
+        "ORDI/USD"
       ]
     ]
   },

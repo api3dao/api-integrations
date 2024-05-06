@@ -168,7 +168,10 @@ export const apisData = {
         ['AERO/USD'],
         ['JUICE/USD'],
         ['ERN/USD'],
-        ['TAO/USD']
+        ['TAO/USD'],
+        ['AMD/USD'],
+        ['PLTR/USD'],
+        ['QCOM/USD']
       ]
     },
     deploymentLocations: ['local'],
@@ -325,9 +328,25 @@ export const apisData = {
         ['ASTR/USD'],
         ['TIA/USD'],
         ['DYM/USD'],
+        ['SEI/USD'],
+        ['AR/USD'],
+        ['STRK/USD'],
+        ['AXL/USD'],
+        ['ONDO/USD'],
+        ['MANTA/USD'],
+        ['RON/USD'],
+        ['XVS/USD'],
         ['WTI/USD'],
         ['XAG/USD'],
-        ['XAU/USD']
+        ['XAU/USD'],
+        ['TWT/USD'],
+        ['AERO/USD'],
+        ['JUICE/USD'],
+        ['ERN/USD'],
+        ['TAO/USD'],
+        ['AMD/USD'],
+        ['PLTR/USD'],
+        ['QCOM/USD']
       ]
     },
     deploymentLocations: ['aws'],
@@ -609,7 +628,13 @@ export const apisData = {
         ['ERN/USD'],
         ['TAO/USD'],
         ['stTAO/TAO Exchange Rate'],
-        ['PYUSD/USD']
+        ['PYUSD/USD'],
+        ['MERL/USD'],
+        ['ORDI/USD'],
+        ['SATS/USD'],
+        ['AMD/USD'],
+        ['PLTR/USD'],
+        ['QCOM/USD']
       ]
     },
     deploymentLocations: ['local'],
@@ -667,6 +692,7 @@ export const apisData = {
         ['wUSDM/USDM Exchange Rate'],
         ['sDAI/DAI Exchange Rate'],
         ['sUSDe/USDe Exchange Rate'],
+        ['pufETH/stETH Exchange Rate'],
         ['AUD/USD'],
         ['BRL/USD'],
         ['CAD/USD'],
@@ -790,29 +816,35 @@ export const apisData = {
         ['ASTR/USD'],
         ['TIA/USD'],
         ['DYM/USD'],
+        ['SEI/USD'],
+        ['AR/USD'],
+        ['STRK/USD'],
+        ['AXL/USD'],
+        ['ONDO/USD'],
+        ['MANTA/USD'],
+        ['RON/USD'],
+        ['XVS/USD'],
         ['XAG/USD'],
         ['XAU/USD'],
         ['WTI/USD'],
         ['NG/USD'],
         ['HG/USD'],
-        ['AR/USD'],
-        ['AXL/USD'],
-        ['MANTA/USD'],
-        ['mpETH/ETH Exchange Rate'],
-        ['ONDO/USD'],
         ['PENDLE/USD'],
-        ['pufETH/stETH Exchange Rate'],
-        ['RON/USD'],
-        ['SEI/USD'],
-        ['STRK/USD'],
+        ['mpETH/ETH Exchange Rate'],
         ['TWT/USD'],
         ['USDB/USD'],
-        ['XVS/USD'],
         ['AERO/USD'],
-        ['ERN/USD'],
         ['JUICE/USD'],
+        ['ERN/USD'],
+        ['TAO/USD'],
         ['stTAO/TAO Exchange Rate'],
-        ['TAO/USD']
+        ['PYUSD/USD'],
+        ['MERL/USD'],
+        ['ORDI/USD'],
+        ['SATS/USD'],
+        ['AMD/USD'],
+        ['PLTR/USD'],
+        ['QCOM/USD']
       ]
     },
     deploymentLocations: ['aws'],
@@ -964,7 +996,8 @@ export const apisData = {
           'ERN/USD',
           'JUICE/USD',
           'TAO/USD',
-          'PYUSD/USD'
+          'PYUSD/USD',
+          'ORDI/USD'
         ]
       ]
     },
@@ -1099,7 +1132,23 @@ export const apisData = {
           'PYTH/USD',
           'ASTR/USD',
           'TIA/USD',
-          'DYM/USD'
+          'DYM/USD',
+          'SEI/USD',
+          'AR/USD',
+          'STRK/USD',
+          'AXL/USD',
+          'ONDO/USD',
+          'MANTA/USD',
+          'RON/USD',
+          'XVS/USD',
+          'PENDLE/USD',
+          'TWT/USD',
+          'AERO/USD',
+          'ERN/USD',
+          'JUICE/USD',
+          'TAO/USD',
+          'PYUSD/USD',
+          'ORDI/USD'
         ]
       ]
     },
@@ -1229,7 +1278,9 @@ export const apisData = {
         ['TWT/USD'],
         ['AERO/USD'],
         ['ERN/USD'],
-        ['TAO/USD']
+        ['TAO/USD'],
+        ['ORDI/USD'],
+        ['SATS/USD']
       ]
     },
     deploymentLocations: ['local'],
@@ -1341,7 +1392,23 @@ export const apisData = {
         ['PYTH/USD'],
         ['ASTR/USD'],
         ['DYM/USD'],
-        ['TIA/USD']
+        ['TIA/USD'],
+        ['USDe/USD'],
+        ['SEI/USD'],
+        ['AR/USD'],
+        ['STRK/USD'],
+        ['AXL/USD'],
+        ['ONDO/USD'],
+        ['MANTA/USD'],
+        ['RON/USD'],
+        ['XVS/USD'],
+        ['PENDLE/USD'],
+        ['TWT/USD'],
+        ['AERO/USD'],
+        ['ERN/USD'],
+        ['TAO/USD'],
+        ['ORDI/USD'],
+        ['SATS/USD']
       ]
     },
     deploymentLocations: ['aws'],
@@ -1391,7 +1458,10 @@ export const apisData = {
         ['NZD/USD'],
         ['SEK/USD'],
         ['TRY/USD'],
-        ['ZAR/USD']
+        ['ZAR/USD'],
+        ['AMD/USD'],
+        ['PLTR/USD'],
+        ['QCOM/USD']
       ]
     },
     deploymentLocations: ['local'],
@@ -1438,7 +1508,10 @@ export const apisData = {
         ['NZD/USD'],
         ['SEK/USD'],
         ['TRY/USD'],
-        ['ZAR/USD']
+        ['ZAR/USD'],
+        ['AMD/USD'],
+        ['PLTR/USD'],
+        ['QCOM/USD']
       ]
     },
     deploymentLocations: ['aws'],
@@ -1493,7 +1566,10 @@ export const apisData = {
         ['SEK/USD'],
         ['SGD/USD'],
         ['TRY/USD'],
-        ['ZAR/USD']
+        ['ZAR/USD'],
+        ['AMD/USD'],
+        ['PLTR/USD'],
+        ['QCOM/USD']
       ]
     },
     deploymentLocations: ['local'],
@@ -1545,7 +1621,10 @@ export const apisData = {
         ['SEK/USD'],
         ['SGD/USD'],
         ['TRY/USD'],
-        ['ZAR/USD']
+        ['ZAR/USD'],
+        ['AMD/USD'],
+        ['PLTR/USD'],
+        ['QCOM/USD']
       ]
     },
     deploymentLocations: ['aws'],
@@ -1724,7 +1803,13 @@ export const apisData = {
         ['JUICE/USD'],
         ['ERN/USD'],
         ['TAO/USD'],
-        ['PYUSD/USD']
+        ['PYUSD/USD'],
+        ['MERL/USD'],
+        ['ORDI/USD'],
+        ['SATS/USD'],
+        ['AMD/USD'],
+        ['PLTR/USD'],
+        ['QCOM/USD']
       ]
     },
     deploymentLocations: ['local'],
@@ -1883,9 +1968,30 @@ export const apisData = {
         ['ASTR/USD'],
         ['DYM/USD'],
         ['TIA/USD'],
-        ['XAU/USD'],
+        ['SEI/USD'],
+        ['AR/USD'],
+        ['STRK/USD'],
+        ['AXL/USD'],
+        ['ONDO/USD'],
+        ['MANTA/USD'],
+        ['RON/USD'],
+        ['XVS/USD'],
+        ['PENDLE/USD'],
+        ['WTI/USD'],
         ['XAG/USD'],
-        ['WTI/USD']
+        ['XAU/USD'],
+        ['TWT/USD'],
+        ['AERO/USD'],
+        ['JUICE/USD'],
+        ['ERN/USD'],
+        ['TAO/USD'],
+        ['PYUSD/USD'],
+        ['MERL/USD'],
+        ['ORDI/USD'],
+        ['SATS/USD'],
+        ['AMD/USD'],
+        ['PLTR/USD'],
+        ['QCOM/USD']
       ]
     },
     deploymentLocations: ['aws'],
@@ -2280,7 +2386,10 @@ export const apisData = {
         ['ERN/USD'],
         ['TAO/USD'],
         ['USDB/USD'],
-        ['PYUSD/USD']
+        ['PYUSD/USD'],
+        ['MERL/USD'],
+        ['ORDI/USD'],
+        ['SATS/USD']
       ]
     },
     deploymentLocations: ['local'],
@@ -2402,7 +2511,27 @@ export const apisData = {
         ['USDe/USD'],
         ['ASTR/USD'],
         ['TIA/USD'],
-        ['DYM/USD']
+        ['DYM/USD'],
+        ['SEI/USD'],
+        ['AR/USD'],
+        ['STRK/USD'],
+        ['AXL/USD'],
+        ['ONDO/USD'],
+        ['MANTA/USD'],
+        ['RON/USD'],
+        ['XVS/USD'],
+        ['PENDLE/USD'],
+        ['ezETH/USD'],
+        ['TWT/USD'],
+        ['AERO/USD'],
+        ['JUICE/USD'],
+        ['ERN/USD'],
+        ['TAO/USD'],
+        ['USDB/USD'],
+        ['PYUSD/USD'],
+        ['MERL/USD'],
+        ['ORDI/USD'],
+        ['SATS/USD']
       ]
     },
     deploymentLocations: ['aws'],
@@ -2545,7 +2674,10 @@ export const apisData = {
           'JUICE/USD',
           'ERN/USD',
           'TAO/USD',
-          'PYUSD/USD'
+          'PYUSD/USD',
+          'MERL/USD',
+          'ORDI/USD',
+          'SATS/USD'
         ]
       ]
     },
@@ -2669,7 +2801,27 @@ export const apisData = {
           'TIA/USD',
           'DYM/USD',
           'USDe/USD',
-          'EURe/USD'
+          'EURe/USD',
+          'SEI/USD',
+          'AR/USD',
+          'STRK/USD',
+          'AXL/USD',
+          'ONDO/USD',
+          'MANTA/USD',
+          'RON/USD',
+          'XVS/USD',
+          'PENDLE/USD',
+          'ezETH/USD',
+          'TWT/USD',
+          'USDB/USD',
+          'AERO/USD',
+          'JUICE/USD',
+          'ERN/USD',
+          'TAO/USD',
+          'PYUSD/USD',
+          'MERL/USD',
+          'ORDI/USD',
+          'SATS/USD'
         ]
       ]
     },
