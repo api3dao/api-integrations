@@ -5,5 +5,5 @@
     "symbol": "SAND/USD"
   },
   "path": "rest/events.json",
-  "parser": "(response) => {\n              return (response.Quote['SAND/USD'].bidPrice + response.Quote['SAND/USD'].askPrice) / 2\n            }\n            "
+  "parser": "(response) => {\n            const bidPrice = response.Quote['SAND/USD'].bidPrice;\n            const askPrice = response.Quote['SAND/USD'].askPrice;\n            const result = (bidPrice + askPrice) / 2;\n            if(result === \"NaN\" || result === NaN) {\n              throw Error('[Known Error] - dxFeed returns NaN for one of the target values bidPrice or askPrice.');\n            }\n            return result;\n          }\n          "
 }
