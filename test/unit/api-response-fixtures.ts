@@ -626,7 +626,7 @@ export function getApiResponseFixture(
         'TAO/USD': 'bittensor.usd',
         'MERL/USD': 'merlin-chain.usd',
         'ORDI/USD': 'ordinals.usd',
-        'SATS/USD': 'sats-ordinals.usd',
+        'SATS/USD': 'sats-ordinals.usd'
       };
       // CoinGecko responses includes asset names so fixture response must be modified
       const [id, vs_currency] = nameMap[endpointParameters.name].split('.');
