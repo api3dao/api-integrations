@@ -114,7 +114,9 @@
       ["TWT/USD"],
       ["AERO/USD"],
       ["ERN/USD"],
-      ["TAO/USD"]
+      ["TAO/USD"],
+      ["ORDI/USD"],
+      ["SATS/USD"]
     ]
   },
   "deploymentLocations": ["local"],

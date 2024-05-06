@@ -40,7 +40,10 @@
       ["SEK/USD"],
       ["SGD/USD"],
       ["TRY/USD"],
-      ["ZAR/USD"]
+      ["ZAR/USD"],
+      ["AMD/USD"],
+      ["PLTR/USD"],
+      ["QCOM/USD"]
     ]
   },
   "deploymentLocations": ["local"],

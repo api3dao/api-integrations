@@ -160,7 +160,10 @@
       ["AERO/USD"],
       ["JUICE/USD"],
       ["ERN/USD"],
-      ["TAO/USD"]
+      ["TAO/USD"],
+      ["AMD/USD"],
+      ["PLTR/USD"],
+      ["QCOM/USD"]
     ]
   },
   "deploymentLocations": ["local"],
