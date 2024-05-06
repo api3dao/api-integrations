@@ -168,7 +168,10 @@ export const apisData = {
         ['AERO/USD'],
         ['JUICE/USD'],
         ['ERN/USD'],
-        ['TAO/USD']
+        ['TAO/USD'],
+        ['AMD/USD'],
+        ['PLTR/USD'],
+        ['QCOM/USD']
       ]
     },
     deploymentLocations: ['local'],
@@ -622,7 +625,13 @@ export const apisData = {
         ['ERN/USD'],
         ['TAO/USD'],
         ['stTAO/TAO Exchange Rate'],
-        ['PYUSD/USD']
+        ['PYUSD/USD'],
+        ['MERL/USD'],
+        ['ORDI/USD'],
+        ['SATS/USD'],
+        ['AMD/USD'],
+        ['PLTR/USD'],
+        ['QCOM/USD']
       ]
     },
     deploymentLocations: ['local'],
@@ -978,7 +987,8 @@ export const apisData = {
           'ERN/USD',
           'JUICE/USD',
           'TAO/USD',
-          'PYUSD/USD'
+          'PYUSD/USD',
+          'ORDI/USD'
         ]
       ]
     },
@@ -1258,7 +1268,9 @@ export const apisData = {
         ['TWT/USD'],
         ['AERO/USD'],
         ['ERN/USD'],
-        ['TAO/USD']
+        ['TAO/USD'],
+        ['ORDI/USD'],
+        ['SATS/USD']
       ]
     },
     deploymentLocations: ['local'],
@@ -1434,7 +1446,10 @@ export const apisData = {
         ['NZD/USD'],
         ['SEK/USD'],
         ['TRY/USD'],
-        ['ZAR/USD']
+        ['ZAR/USD'],
+        ['AMD/USD'],
+        ['PLTR/USD'],
+        ['QCOM/USD']
       ]
     },
     deploymentLocations: ['local'],
@@ -1536,7 +1551,10 @@ export const apisData = {
         ['SEK/USD'],
         ['SGD/USD'],
         ['TRY/USD'],
-        ['ZAR/USD']
+        ['ZAR/USD'],
+        ['AMD/USD'],
+        ['PLTR/USD'],
+        ['QCOM/USD']
       ]
     },
     deploymentLocations: ['local'],
@@ -1767,7 +1785,13 @@ export const apisData = {
         ['JUICE/USD'],
         ['ERN/USD'],
         ['TAO/USD'],
-        ['PYUSD/USD']
+        ['PYUSD/USD'],
+        ['MERL/USD'],
+        ['ORDI/USD'],
+        ['SATS/USD'],
+        ['AMD/USD'],
+        ['PLTR/USD'],
+        ['QCOM/USD']
       ]
     },
     deploymentLocations: ['local'],
@@ -2338,7 +2362,10 @@ export const apisData = {
         ['ERN/USD'],
         ['TAO/USD'],
         ['USDB/USD'],
-        ['PYUSD/USD']
+        ['PYUSD/USD'],
+        ['MERL/USD'],
+        ['ORDI/USD'],
+        ['SATS/USD']
       ]
     },
     deploymentLocations: ['local'],
@@ -2620,7 +2647,10 @@ export const apisData = {
           'JUICE/USD',
           'ERN/USD',
           'TAO/USD',
-          'PYUSD/USD'
+          'PYUSD/USD',
+          'MERL/USD',
+          'ORDI/USD',
+          'SATS/USD'
         ]
       ]
     },
