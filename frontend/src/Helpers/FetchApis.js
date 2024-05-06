@@ -48,48 +48,82 @@ export const checkFiles = (ctx) => {
     let candidateDeployment = [];
     let stagingDeployment = [];
 
-    if (keys[i].includes('active-deployments')) {
-      activeDeployment = [
-        {
+    const isExist = apis.find((item) => item.alias === api);
+
+    if (isExist) {
+      activeDeployment = isExist.activeDeployment;
+      candidateDeployment = isExist.candidateDeployment;
+      stagingDeployment = isExist.stagingDeployment;
+
+      if (keys[i].includes('active-deployments')) {
+        activeDeployment.push({
           filename: filename,
           config: value,
           category: 'active',
           apiProvider: api,
-          hash: hashFile('active-deployments', api)
-        }
-      ];
-    } else if (keys[i].includes('candidate-deployments')) {
-      candidateDeployment = [
-        {
+          hash: hashFile(value)
+        });
+      } else if (keys[i].includes('candidate-deployments')) {
+        candidateDeployment.push({
           filename: filename,
           config: value,
           category: 'candidate',
           apiProvider: api,
-          hash: hashFile('candidate-deployments', api)
-        }
-      ];
-    } else if (keys[i].includes('staging-deployments')) {
-      stagingDeployment = [
-        {
+          hash: hashFile(value)
+        });
+      } else if (keys[i].includes('staging-deployments')) {
+        stagingDeployment.push({
           filename: filename,
           config: value,
           category: 'staging',
           apiProvider: api,
-          hash: hashFile('staging-deployments', api)
-        }
-      ];
-    }
+          hash: hashFile(value)
+        });
+      }
+    } else {
+      if (keys[i].includes('active-deployments')) {
+        activeDeployment = [
+          {
+            filename: filename,
+            config: value,
+            category: 'active',
+            apiProvider: api,
+            hash: hashFile('active-deployments', api)
+          }
+        ];
+      } else if (keys[i].includes('candidate-deployments')) {
+        candidateDeployment = [
+          {
+            filename: filename,
+            config: value,
+            category: 'candidate',
+            apiProvider: api,
+            hash: hashFile('candidate-deployments', api)
+          }
+        ];
+      } else if (keys[i].includes('staging-deployments')) {
+        stagingDeployment = [
+          {
+            filename: filename,
+            config: value,
+            category: 'staging',
+            apiProvider: api,
+            hash: hashFile('staging-deployments', api)
+          }
+        ];
+      }
 
-    const apiData = apiDatas.find((item) => item.apiProvider === api);
-    const obj = {
-      alias: api,
-      name: apiData.config.name,
-      activeDeployment: activeDeployment,
-      candidateDeployment: candidateDeployment,
-      stagingDeployment: stagingDeployment,
-      apiData: apiData
-    };
-    apis.push(obj);
+      const apiData = apiDatas.find((item) => item.apiProvider === api);
+      const obj = {
+        alias: api,
+        name: apiData.config.name,
+        activeDeployment: activeDeployment,
+        candidateDeployment: candidateDeployment,
+        stagingDeployment: stagingDeployment,
+        apiData: apiData
+      };
+      apis.push(obj);
+    }
   }
 
   return apis;
