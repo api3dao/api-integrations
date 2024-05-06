@@ -1,6 +1,6 @@
 {
   "name": "@api3/api-integrations",
-  "version": "1.3.0",
+  "version": "1.4.1",
   "description": "Repository for API integration related operations.",
   "main": "./dist/src/index.js",
   "files": [
@@ -30,7 +30,7 @@
     "directory-tree": "^3.5.1",
     "eslint": "^8.57.0",
     "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jest": "^27.9.0",
+    "eslint-plugin-jest": "^28.3.0",
     "fs": "^0.0.1-security",
     "glob": "^10.3.12",
     "husky": "^9.0.11",
@@ -61,6 +61,7 @@
     "validate-generated-files": "ts-node src/ci-scripts/check-generated-files.ts",
     "check-deployment-status": "ts-node src/ci-scripts/check-deployment-status.ts",
     "check-airnode-feed-version": "ts-node src/ci-scripts/check-airnode-feed-version.ts",
+    "check-txt-records": "ts-node src/ci-scripts/check-txt-records.ts",
     "generate-airnode-feed-deployment": "ts-node src/config-generation/airnode-feed/generate-deployment.ts",
     "prepare": "husky install",
     "test:unit": "jest ./test/unit --silent=false",

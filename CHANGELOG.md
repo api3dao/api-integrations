@@ -1,5 +1,17 @@
 # api-integrations
 
+## 1.4.1
+
+### Patch Changes
+
+- 8857ef9: Remove PYUSD/USD feed from finage and add it to finage-mock
+
+## 1.4.0
+
+### Minor Changes
+
+- 3838cd2: Add PYUSD/USD feed to mock APIs
+
 ## 1.3.0
 
 ### Minor Changes
