@@ -1,5 +1,11 @@
 # api-integrations
 
+## 1.6.0
+
+### Minor Changes
+
+- 340c459: Add sFRAX/FRAX Exchange Rate to nodary
+
 ## 1.5.1
 
 ### Patch Changes
