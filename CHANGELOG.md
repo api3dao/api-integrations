@@ -1,5 +1,11 @@
 # api-integrations
 
+## 1.5.1
+
+### Patch Changes
+
+- 28931ce: Add sFRAX/FRAX Exchange Rate to nodary-mock
+
 ## 1.5.0
 
 ### Minor Changes
