@@ -1,5 +1,19 @@
 # api-integrations
 
+## 1.5.0
+
+### Minor Changes
+
+- 10df6fe: Add new feeds to mock APIs
+
+  - sFRAX/FRAX Exchange Rate
+  - MERL/USD
+  - ORDI/USD
+  - SATS/USD
+  - AMD/USD
+  - PLTR/USD
+  - QCOM/USD
+
 ## 1.4.1
 
 ### Patch Changes
