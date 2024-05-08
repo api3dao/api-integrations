@@ -634,7 +634,8 @@ export const apisData = {
         ['SATS/USD'],
         ['AMD/USD'],
         ['PLTR/USD'],
-        ['QCOM/USD']
+        ['QCOM/USD'],
+        ['sFRAX/FRAX Exchange Rate']
       ]
     },
     deploymentLocations: ['local'],
