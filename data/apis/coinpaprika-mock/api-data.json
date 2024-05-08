@@ -127,7 +127,10 @@
       ["ERN/USD"],
       ["TAO/USD"],
       ["USDB/USD"],
-      ["PYUSD/USD"]
+      ["PYUSD/USD"],
+      ["MERL/USD"],
+      ["ORDI/USD"],
+      ["SATS/USD"]
     ]
   },
   "deploymentLocations": ["local"],

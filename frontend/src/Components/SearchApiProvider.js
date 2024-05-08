@@ -14,13 +14,14 @@ const SearchApiProvider = ({ providers, setProvider }) => {
   const [deployment, setDeployment] = useState(null);
   const [error, setError] = useState(null);
 
-  const { setGrafanaLog, airnodeAddress, setAirnodeAddress } = useContext(ApiIntegrationsContext);
+  const { setGrafanaLog, grafanaLog, airnodeAddress, setAirnodeAddress } = useContext(ApiIntegrationsContext);
 
   const getAirnodeAddress = () => {
     return localStorage.getItem('airnodeAddress');
   };
 
   useEffect(() => {
+    if (grafanaLog !== null) return;
     setDeployment(null);
     setError(null);
     try {
@@ -39,7 +40,12 @@ const SearchApiProvider = ({ providers, setProvider }) => {
     } catch (error) {
       setError(error);
     }
-  }, [airnodeAddress, providers, setGrafanaLog, setProvider]);
+  }, [airnodeAddress, providers]);
+
+  const reset = (airnodeAddress) => {
+    setGrafanaLog(null);
+    setAirnodeAddress(airnodeAddress);
+  };
 
   return (
     <Flex height="70vh" justifyContent="center" alignItems="center">
@@ -61,7 +67,7 @@ const SearchApiProvider = ({ providers, setProvider }) => {
           <Spacer />
         </Flex>
         <Flex p={3} border={'1px'} borderColor={'gray.300'} justifyContent={'left'} direction={'row'}>
-          <SearchRow text={airnodeAddress} setText={setAirnodeAddress} margin={0} />
+          <SearchRow text={airnodeAddress} setText={reset} margin={0} />
         </Flex>
         {deployment === null ? (
           <InfoRow text={getAirnodeAddress()} onClick={setAirnodeAddress} />

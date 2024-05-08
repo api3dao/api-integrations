@@ -10,9 +10,9 @@
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
-    "@api3/logos": "^0.1.11",
+    "@api3/logos": "^0.1.13",
     "@testing-library/jest-dom": "^6.4.2",
-    "@testing-library/react": "^14.2.2",
+    "@testing-library/react": "^15.0.5",
     "@testing-library/user-event": "^14.5.2",
     "crypto-js": "^4.2.0",
     "framer-motion": "^11.0.24",
@@ -30,7 +30,7 @@
   },
   "scripts": {
     "start": "PORT=3056 GENERATE_SOURCEMAP=false react-scripts start",
-    "build": "react-scripts build",
+    "build": "node scripts/generate-config-hashes.js && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
@@ -54,7 +54,9 @@
     "@typescript-eslint/eslint-plugin": "^7.4.0",
     "@typescript-eslint/parser": "^7.4.0",
     "gh-pages": "^6.1.1",
+    "directory-tree": "^3.5.1",
     "react-scripts": "5.0.1",
+    "@api3/commons": "^0.9.0",
     "typescript": "^5.4.3"
   }
 }
