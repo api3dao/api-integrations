@@ -179,7 +179,7 @@ importers:
   frontend:
     dependencies:
       '@api3/logos':
-        specifier: ^0.1.15
+        specifier: ^0.1.17
         version: 0.1.17
       '@chakra-ui/icons':
         specifier: ^2.1.1
