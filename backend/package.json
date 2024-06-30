@@ -29,7 +29,7 @@
     "eslint-plugin-functional": "^6.3.0",
     "eslint-plugin-import": "^2.29.1",
     "prettier": "^2.8.8",
-    "serverless": "^3.38.0",
+    "serverless": "^4.1.7",
     "serverless-plugin-typescript": "^2.1.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.3"
